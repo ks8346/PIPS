@@ -1,0 +1,73 @@
+<div class="formContainer">
+    
+    <form [formGroup]= "registerForm" (ngSubmit)="onSubmit()" class="form">
+        <div>
+            <h1 style="text-align: center;"> Register Here </h1>
+        </div>
+        
+        <div class="form-group x">
+            <label for="userName">User Name :</label>
+            <mat-form-field>
+                <input  type="text" matInput formControlName="userName" class="form-control" required/>
+                <mat-error *ngIf="registerForm.controls.userName.hasError('required')">You must enter a value</mat-error>
+            </mat-form-field>  
+        </div>
+
+        <div class="form-group x">
+            <label for="email">Email :</label>
+            <mat-form-field>
+                <input matInput type="email" formControlName="email" class="form-control" required/>
+                <mat-error *ngIf="registerForm.controls.email.invalid">{{getEmailError()}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-group x">
+            <label for="sbsiTeam">SBSI Team : </label> 
+            <mat-form-field>
+            <mat-select formControlName="team" class ="form-control" [(ngModel)]="selectedTeam" required>
+                <mat-option value = "others">Create a new team</mat-option>
+                <mat-option *ngFor="let team of teams" [value]="team">{{team}} </mat-option>    
+            </mat-select>
+            <mat-error *ngIf="registerForm.controls.team.hasError('required')">You must make a selection</mat-error>
+        </mat-form-field>
+        </div>
+
+        <div class="form-group x" *ngIf="selectedTeam == 'others'">
+            <label for="sbsiTeam">Enter Team Name:</label>
+            <mat-form-field>
+                <input matInput type="text" class="form-control" formControlName="team"  (keyup)="updateTeam($event)" required >
+            </mat-form-field>
+        </div>
+
+        <div class="form-group x">
+            <label for="password">Password : </label>
+            <mat-form-field>
+                <input type="password" matInput formControlName="password" class="form-control" />
+                <mat-error *ngIf="registerForm.controls.password.hasError('required')">You must enter a value</mat-error>
+                <mat-error *ngIf="registerForm.controls.password.hasError('pattern')">Invalid password! Check specifications</mat-error>
+            </mat-form-field>   
+            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openDialog()">info</mat-icon> 
+        </div>
+
+        <div class="form-group x">
+            <label for="confirmPass">Confirm Password : </label>
+            <mat-form-field>
+                <input type="password" matInput formControlName="confirmPass" class="form-control" />
+                <mat-error *ngIf="registerForm.controls.confirmPass.hasError('required')">You must enter a value</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-group x">
+            <mat-checkbox class="example-margin"  formControlName="acceptTerms" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }">Accept terms and conditions</mat-checkbox>
+            <div *ngIf="submitted && registerForm.controls.acceptTerms.errors" class="invalid-feedback">This field is required</div>
+        </div>
+        <br>
+
+        <div class="form-group x">
+            <button [disabled]="loading" class="btn btn-primary" >
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Submit
+            </button>
+        </div>
+    </form>
+</div>

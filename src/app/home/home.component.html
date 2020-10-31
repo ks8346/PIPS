@@ -1,0 +1,38 @@
+<div>
+    <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <a href="https://www.soprabanking.com/">Sopra Banking Software</a>
+      <span class="spacing"></span>
+      <button mat-button (click)="islogin= true" (click)="isregister=false"><span>Login</span></button>
+      <button mat-button (click)="islogin= false" (click)="isregister=true"><span>Register</span></button>
+    </mat-toolbar-row>
+    </mat-toolbar>
+  
+    <div class="container-fluid">
+      <div class="split left">
+        <div class="centered">
+          <h1><i>Process improvement Proposal System</i></h1>
+          <h3>This system helps in improving the proposals provided by the different teams.</h3>
+        </div>
+      </div>
+      
+      <div class="split right">
+        <img src = "assets/img/1121857.jpg" >
+        <app-login *ngIf="islogin"></app-login>
+        <app-register *ngIf="isregister"></app-register>
+       <!--<img src = "assets/img/right.jpg"> -->
+        <!--<div [style.background-image]="'url(assets/img/left.jpg)'"></div>-->
+        <div class="centered">
+          <h2></h2>
+        </div>
+    </div>
+  </div> 
+
+<!--
+<app-form></app-form>
+<app-results *ngIf="isOn"></app-results>
+<app-contact-primary *ngIf="!isOn"></<app-contact-primary>
+<app-contact-second *ngIf="!isOn"></app-contact-second>
+<button pButton label="Contact" (click)="isOn= false">Contact</button>
+<button pButton label="Results" (click)="isOn= true">Results</button
+-->
