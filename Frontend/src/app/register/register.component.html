@@ -41,7 +41,7 @@
         <div class="form-group x" *ngIf="selectedTeam == 'others'">
             <label for="sbsiTeam">Enter Team Name:</label>
             <mat-form-field>
-                <input matInput type="text" class="form-control" formControlName="team"  (keyup)="updateTeam($event)" required >
+                <input matInput type="text" class="form-control" formControlName="team"   required >
                 <mat-error *ngIf="registerForm.controls.team.hasError('minlength')">Too short</mat-error>
                 <mat-error *ngIf="registerForm.controls.team.hasError('maxlength')">Too long</mat-error>
             </mat-form-field>
@@ -49,14 +49,16 @@
 
         <div class="form-group x">
             <label for="password">Password : </label>
-            <mat-form-field>
+            <mat-form-field >
                 <input type="password" matInput formControlName="password" class="form-control" />
                 <mat-error *ngIf="registerForm.controls.password.hasError('required')">Please enter a value</mat-error>
                 <mat-error *ngIf="registerForm.controls.password.hasError('pattern')">Invalid password! Check specifications</mat-error>
                 <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">Too short</mat-error>
                 <mat-error *ngIf="registerForm.controls.password.hasError('maxlength')">Too long</mat-error>
+                
             </mat-form-field>   
-            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openDialog()">info</mat-icon> 
+            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openDialog()">info</mat-icon>
+             
         </div>
 
         <div class="form-group x">

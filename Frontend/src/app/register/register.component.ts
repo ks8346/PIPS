@@ -23,8 +23,6 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   error: string;
   selectedTeam: string='';
-  newTeam: string='';
-  checked= false;
   teams:any
 
   constructor(
@@ -35,11 +33,6 @@ export class RegisterComponent implements OnInit {
     public router: Router
   ) { }
 
-  /*checkAgreement(event: any){
-    if ( event.target.checked ) {
-      this.checked = true;
-    }
-  }*/
 
   openDialog() {
     const dialogRef = this.dialog.open(PasswordSpecsComponent, {
@@ -56,9 +49,6 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  updateTeam(event:any){
-    this.newTeam=event.target.value;
-  }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -91,11 +81,8 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    if(this.selectedTeam=='others'){
-      console.log(this.newTeam);
-    }
-    else{
-    console.log(this.selectedTeam);}
+    
+    console.log(this.registerForm.value.team);
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {

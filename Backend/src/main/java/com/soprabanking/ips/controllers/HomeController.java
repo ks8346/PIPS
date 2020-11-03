@@ -7,6 +7,7 @@ import java.security.Principal;
 
 
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -28,10 +29,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.soprabanking.ips.entities.ModelWrap;
 import com.soprabanking.ips.entities.Team;
 import com.soprabanking.ips.entities.User;
 import com.soprabanking.ips.helper.Message;
+import com.soprabanking.ips.modelwrap.ModelWrap;
 import com.soprabanking.ips.dao.TeamRepository;
 import com.soprabanking.ips.dao.UserRepository;
 @CrossOrigin(origins="http://localhost:4200")
@@ -54,7 +55,7 @@ public class HomeController
 		//model.addAttribute("title", "IPS");
 		return "this is home page of IPS";
 	}
-	@GetMapping("/showteam")
+	@GetMapping("/getTeam")
 	public List<Object> findAllTeams()
 	{
 		List<Object> allteam=teamRepository.getTeamIdANDName();
@@ -63,7 +64,7 @@ public class HomeController
 	}
 	
 	
-	@PostMapping("/do_register")
+	@PostMapping("/userRegister")
 	public String registerUser(@RequestBody ModelWrap modelWrap ) {
 		
 		try {
@@ -112,12 +113,16 @@ public class HomeController
  		     }
   
 }
-	 @GetMapping("/signin")
-	  public String customLogin()
-	  {
-		  return "/home";
-	  }
+	  //handler for login page
+	  @GetMapping("/signIn")
+	  public String customLogin() {
+		//model.addAttribute("title", "LogInPage - Smaeamrt Contact Manager");
+		//model.addAttribute("user", new User());
+		
+		return "username";
+	}
 }
+
 
 	
 

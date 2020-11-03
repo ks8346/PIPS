@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Controller
-//@RequestMapping("/user")
+@RequestMapping("/user")
 
 public class UserController
 {
-	@RequestMapping("/user/index")
+	@RequestMapping("/index")
 	@ResponseBody
 	public String home() {
 		
