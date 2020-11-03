@@ -1,3 +1,5 @@
+import { GetTeamService } from './service/get-team.service';
+import { UserRegisterService } from './service/user-register.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -24,6 +26,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { PasswordSpecsComponent } from './password-specs/password-specs.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ApiResponseComponent } from './api-response/api-response.component';
 
 
 @NgModule({
@@ -34,7 +38,8 @@ import { PasswordSpecsComponent } from './password-specs/password-specs.componen
     HomeComponent,
     ErrorComponent,
     RegisterComponent,
-    PasswordSpecsComponent
+    PasswordSpecsComponent,
+    ApiResponseComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +55,11 @@ import { PasswordSpecsComponent } from './password-specs/password-specs.componen
     MatDialogModule,
     MatSelectModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserRegisterService,
+  GetTeamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

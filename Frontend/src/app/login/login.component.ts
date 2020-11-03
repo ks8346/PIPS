@@ -79,7 +79,7 @@ export class ForgotPasswordDialog {
   constructor(
     public dialogRef: MatDialogRef<ForgotPasswordDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-    matcher = new MyErrorStateMatcher()
+     matcher = new MyErrorStateMatcher()
 
   onNoClick(): void {
     this.dialogRef.close();

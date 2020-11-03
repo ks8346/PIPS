@@ -1,6 +1,8 @@
 <div class="formContainer">
+
     
     <form [formGroup]= "registerForm" (ngSubmit)="onSubmit()" class="form">
+     
         <div>
             <h1 style="text-align: center;"> Register Here </h1>
         </div>
@@ -9,7 +11,9 @@
             <label for="userName">User Name :</label>
             <mat-form-field>
                 <input  type="text" matInput formControlName="userName" class="form-control" required/>
-                <mat-error *ngIf="registerForm.controls.userName.hasError('required')">You must enter a value</mat-error>
+                <mat-error *ngIf="registerForm.controls.userName.hasError('required')">Please enter a value</mat-error>
+                <mat-error *ngIf="registerForm.controls.userName.hasError('minlength')">Too short</mat-error>
+                <mat-error *ngIf="registerForm.controls.userName.hasError('maxlength')">Too long</mat-error>
             </mat-form-field>  
         </div>
 
@@ -18,6 +22,8 @@
             <mat-form-field>
                 <input matInput type="email" formControlName="email" class="form-control" required/>
                 <mat-error *ngIf="registerForm.controls.email.invalid">{{getEmailError()}}</mat-error>
+                <mat-error *ngIf="registerForm.controls.email.hasError('minlength')">Too short</mat-error>
+                <mat-error *ngIf="registerForm.controls.email.hasError('maxlength')">Too long</mat-error>
             </mat-form-field>
         </div>
 
@@ -28,7 +34,7 @@
                 <mat-option value = "others">Create a new team</mat-option>
                 <mat-option *ngFor="let team of teams" [value]="team">{{team}} </mat-option>    
             </mat-select>
-            <mat-error *ngIf="registerForm.controls.team.hasError('required')">You must make a selection</mat-error>
+            <mat-error *ngIf="registerForm.controls.team.hasError('required')">Please make a selection</mat-error>
         </mat-form-field>
         </div>
 
@@ -36,6 +42,8 @@
             <label for="sbsiTeam">Enter Team Name:</label>
             <mat-form-field>
                 <input matInput type="text" class="form-control" formControlName="team"  (keyup)="updateTeam($event)" required >
+                <mat-error *ngIf="registerForm.controls.team.hasError('minlength')">Too short</mat-error>
+                <mat-error *ngIf="registerForm.controls.team.hasError('maxlength')">Too long</mat-error>
             </mat-form-field>
         </div>
 
@@ -43,8 +51,10 @@
             <label for="password">Password : </label>
             <mat-form-field>
                 <input type="password" matInput formControlName="password" class="form-control" />
-                <mat-error *ngIf="registerForm.controls.password.hasError('required')">You must enter a value</mat-error>
+                <mat-error *ngIf="registerForm.controls.password.hasError('required')">Please enter a value</mat-error>
                 <mat-error *ngIf="registerForm.controls.password.hasError('pattern')">Invalid password! Check specifications</mat-error>
+                <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">Too short</mat-error>
+                <mat-error *ngIf="registerForm.controls.password.hasError('maxlength')">Too long</mat-error>
             </mat-form-field>   
             <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openDialog()">info</mat-icon> 
         </div>
@@ -53,7 +63,7 @@
             <label for="confirmPass">Confirm Password : </label>
             <mat-form-field>
                 <input type="password" matInput formControlName="confirmPass" class="form-control" />
-                <mat-error *ngIf="registerForm.controls.confirmPass.hasError('required')">You must enter a value</mat-error>
+                <mat-error *ngIf="registerForm.controls.confirmPass.hasError('required')">Please enter a value</mat-error>
             </mat-form-field>
         </div>
 
@@ -70,4 +80,5 @@
             </button>
         </div>
     </form>
+    
 </div>

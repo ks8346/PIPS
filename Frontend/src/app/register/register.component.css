@@ -25,7 +25,7 @@ label{
   }
   
   input {
-    text-align : right;
+    /* text-align : right; */
     height: 40px;
     /*flex: 0 0 200px;*/
     width: 450px;
