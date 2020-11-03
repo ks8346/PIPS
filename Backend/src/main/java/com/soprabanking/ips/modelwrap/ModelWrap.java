@@ -1,4 +1,8 @@
-package com.soprabanking.ips.entities;
+package com.soprabanking.ips.modelwrap;
+
+import com.soprabanking.ips.entities.Team;
+
+import com.soprabanking.ips.entities.User;
 
 public class ModelWrap {
 	
