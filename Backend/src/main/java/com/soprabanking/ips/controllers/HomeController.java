@@ -54,7 +54,7 @@ public class HomeController
 		//model.addAttribute("title", "IPS");
 		return "this is home page of IPS";
 	}
-	@GetMapping("/showteam")
+	@GetMapping("/getTeam")
 	public List<Object> findAllTeams()
 	{
 		List<Object> allteam=teamRepository.getTeamIdANDName();
@@ -63,7 +63,7 @@ public class HomeController
 	}
 	
 	
-	@PostMapping("/do_register")
+	@PostMapping("/userRegister")
 	public String registerUser(@RequestBody ModelWrap modelWrap ) {
 		
 		try {
@@ -112,12 +112,16 @@ public class HomeController
  		     }
   
 }
-	 @GetMapping("/signin")
-	  public String customLogin()
-	  {
-		  return "/home";
-	  }
+	  //handler for login page
+	  @GetMapping("/signIn")
+	  public String customLogin() {
+		//model.addAttribute("title", "LogInPage - Smaeamrt Contact Manager");
+		//model.addAttribute("user", new User());
+		
+		return "username";
+	}
 }
+
 
 	
 
