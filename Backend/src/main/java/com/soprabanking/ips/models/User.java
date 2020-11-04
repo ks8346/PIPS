@@ -1,20 +1,25 @@
-package com.soprabanking.ips.entities;
+package com.soprabanking.ips.models;
 
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="USERS")
@@ -29,11 +34,15 @@ public class User {
 	private String email;
 	private String role;
 	@Size(min = 2,max = 20,message = "min 2 and max 20 characters are allowed !!")
+	//@JsonIgnore
 	private String password;
 	@Column(nullable=false,updatable=false)
-    @CreationTimestamp
-	private Date CreationDate;
-	@ManyToOne
+   @CreationTimestamp
+    @JsonIgnore
+	private Date creationDate;
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "team_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Team team;
 	
 
@@ -42,8 +51,8 @@ public class User {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long i) {
+		this.id = i;
 	}
 
 	public String getName() {
@@ -71,11 +80,11 @@ public class User {
 	}
 
 	public Date getCreationDate() {
-		return CreationDate;
+		return creationDate;
 	}
 
 	public void setCreationDate(Date creationDate) {
-		CreationDate = creationDate;
+		creationDate = creationDate;
 	}
 
 	public Team getTeam() {
@@ -104,8 +113,10 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password
-				+ ", CreationDate=" + CreationDate + ", team=" + team + "]";
+				+ ", CreationDate=" + creationDate + ", team=" + team + "]";
 	}
+
+	
 
 	
 	
