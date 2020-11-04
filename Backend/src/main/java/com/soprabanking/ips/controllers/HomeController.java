@@ -33,6 +33,7 @@ import com.soprabanking.ips.entities.Team;
 import com.soprabanking.ips.entities.User;
 import com.soprabanking.ips.helper.Message;
 import com.soprabanking.ips.modelwrap.ModelWrap;
+import com.soprabanking.ips.authentication.AuthenticationBean;
 import com.soprabanking.ips.dao.TeamRepository;
 import com.soprabanking.ips.dao.UserRepository;
 @CrossOrigin(origins="http://localhost:4200")
@@ -113,15 +114,19 @@ public class HomeController
  		     }
   
 }
+	@GetMapping(path = "/signIn")
+    public AuthenticationBean basicauth() {
+        return new AuthenticationBean("You are authenticated");
+    }
 	  //handler for login page
-	  @GetMapping("/signIn")
-	  public String customLogin() {
-		//model.addAttribute("title", "LogInPage - Smaeamrt Contact Manager");
-		//model.addAttribute("user", new User());
-		  System.out.println("hi");
-		
-		return "username";
-	}
+//	  @GetMapping("/signIn")
+//	  public String customLogin() {
+//		//model.addAttribute("title", "LogInPage - Smaeamrt Contact Manager");
+//		//model.addAttribute("user", new User());
+//		  System.out.println("hi");
+//		
+//		return "http://localhost:4200/login";
+//	}
 }
 
 
