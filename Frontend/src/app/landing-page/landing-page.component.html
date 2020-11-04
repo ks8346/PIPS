@@ -4,10 +4,11 @@
     </button>
     <span><img src="assets/img/LOGO.png" alt="title logo" style="height: 40px;width:auto;"></span>
     <span class="space"></span>
-    <button mat-button [matMenuTriggerFor]="beforeMenu">Hey {{this.name}}!</button>
+    <button mat-button [matMenuTriggerFor]="beforeMenu">Hello, {{this.name}}</button>
     <mat-menu class="menu" #beforeMenu="matMenu" xPosition="before" >
-        <div mat-menu-item>{{this.userId}}</div>
-        <div mat-menu-item>Team</div>
+        <div mat-menu-item style="width: 150px;">{{this.email}}</div>
+        <div mat-menu-item style="width: 150px;">Team</div>
+        <div mat-menu-item style="width: 150px; margin:auto 10px;" class="btn btn-danger">Logout</div>
     </mat-menu>
 </mat-toolbar>
 <div style="background-color: rgb(238, 236, 236)">
