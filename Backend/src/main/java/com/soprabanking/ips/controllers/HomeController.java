@@ -3,11 +3,6 @@ package com.soprabanking.ips.controllers;
 
 import java.security.Principal;
 
-
-
-
-
-
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -29,13 +24,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.soprabanking.ips.entities.Team;
-import com.soprabanking.ips.entities.User;
+import com.soprabanking.ips.models.Team;
+import com.soprabanking.ips.models.User;
 import com.soprabanking.ips.helper.Message;
 import com.soprabanking.ips.modelwrap.ModelWrap;
-import com.soprabanking.ips.authentication.AuthenticationBean;
-import com.soprabanking.ips.dao.TeamRepository;
-import com.soprabanking.ips.dao.UserRepository;
+import com.soprabanking.ips.repositories.TeamRepository;
+import com.soprabanking.ips.repositories.UserRepository;
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class HomeController 
@@ -68,32 +62,56 @@ public class HomeController
 	@PostMapping("/userRegister")
 	public String registerUser(@RequestBody ModelWrap modelWrap ) {
 		
+	
+		
 		try {
             User user=modelWrap.getUser();
             Team team= modelWrap.getTeam();
-       	    Team team1=this.teamRepository.getTeamByTeamName(team.getTeamname());
-       	    if(team1==null)
+            System.out.println(team);
+            user.setRole("ROLE_USER");
+            System.out.println(user);
+   	        user.setPassword(passwordEncoder.encode(user.getPassword()));
+   	        Team team1=this.teamRepository.getTeamByTeamName(team.getName());
+   	        if(team1==null)
+   	        {
+   	         user.setTeam(team);	
+   	        }
+   	        else
+   	        {
+   	        	user.setTeam(team1);
+   	        }
+   	    
+	        System.out.println(user);
+	        userRepository.save(user);
+	        System.out.println(user);
+	        String s="Hi  " + user.getName() + "  your Registration Process successfully completed. Now Please Login to Continue";
+      
+ 		return ("{message:"+s+"}");
+   	        
+       	    //Team team1=this.teamRepository.getTeamByTeamName(team.getName());
+       	    /*if(team1==null)
        	    {
        	        user.setRole("ROLE_USER");
-                userRepository.save(user);
-       	    	user.setTeam(team);
-                user.setPassword(passwordEncoder.encode(user.getPassword()));
-               
- 	    	    team.getUser().add(user);
- 	    	    this.teamRepository.save(team);
+       	        user.setPassword(passwordEncoder.encode(user.getPassword()));
+       	        user.setTeam(team);
+    	        System.out.println(user);
+    	        userRepository.save(user);
+    	        System.out.println(user);
                 String s="Hi  " + user.getName() + "  your Registration Process successfully completed. Now Please Login to Continue";
                
            		return ("{message:"+s+"}");
 
        	    }
        	    else
-       	    {   
-       	    	user.setPassword(passwordEncoder.encode(user.getPassword()));
-       	        user.setRole("ROLE_USER");
-       	    	user.setTeam(team1);
-       	        userRepository.save(user);
-           	    team1.getUser().add(user);
-           	    this.teamRepository.save(team1);
+       	    {    
+       	    	user.setRole("ROLE_USER");
+       	        user.setPassword(passwordEncoder.encode(user.getPassword()));
+       	        user.setTeam(team1);
+    	        System.out.println(user);
+    	        userRepository.save(user);
+    	        System.out.println(user);
+       	    	
+           	    
            	    String s="Hi  " + user.getName() + "  your Registration Process successfully completed. Now Please Login to Continue";
               
          		return ("{message:"+s+"}");
@@ -101,9 +119,10 @@ public class HomeController
            		//return "Hello  " + user.getName() + "  your Registration Process successfully completed" ;
 
     	
-       	    } }
+       	    }*/
 		
-       	    
+       	   
+		}
        	 catch (Exception e) {
  			e.printStackTrace();
  			//model.addAttribute("user", user);
@@ -114,19 +133,14 @@ public class HomeController
  		     }
   
 }
-	@GetMapping(path = "/signIn")
-    public AuthenticationBean basicauth() {
-        return new AuthenticationBean("You are authenticated");
-    }
 	  //handler for login page
-//	  @GetMapping("/signIn")
-//	  public String customLogin() {
-//		//model.addAttribute("title", "LogInPage - Smaeamrt Contact Manager");
-//		//model.addAttribute("user", new User());
-//		  System.out.println("hi");
-//		
-//		return "http://localhost:4200/login";
-//	}
+	  @GetMapping("/signIn")
+	  public String customLogin() {
+		//model.addAttribute("title", "LogInPage - Smaeamrt Contact Manager");
+		//model.addAttribute("user", new User());
+		
+		return "username";
+	}
 }
 
 

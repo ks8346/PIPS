@@ -2,6 +2,7 @@ package com.soprabanking.ips.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -43,16 +44,21 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
 
 	}
 
+	
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN")
 		.antMatchers("/user/**").hasRole("USER")
-		.antMatchers("/**").permitAll().anyRequest().authenticated().and().formLogin()
-		.loginPage("/signIn")
-		.loginProcessingUrl("/dologin")
-		.defaultSuccessUrl("/user/index").
-		//.failureUrl("/login-fail")
-		and().httpBasic();
+		//.antMatchers("/signin").hasRole("USER")
+		.antMatchers("/**").permitAll().anyRequest()
+		       
+				.authenticated().and()
+				.formLogin()
+				//.defaultSuccessUrl("/user/index")
+				//.loginPage("/signin").defaultSuccessUrl("/user/index")
+				.and()
+				.httpBasic();
 	}
 
 
