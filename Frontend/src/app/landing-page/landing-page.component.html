@@ -1,36 +1,38 @@
-<mat-toolbar  color="primary" class="header">
-    <button mat-icon-button (click)="showMenu()" [class.d-none]="!this.menuButton">
-        <mat-icon>menu</mat-icon>
-    </button>
-    <span><img src="assets/img/LOGO.png" alt="title logo" style="height: 40px;width:auto;"></span>
-    <span class="space"></span>
-    <button mat-button [matMenuTriggerFor]="beforeMenu">Hello, {{this.name}}</button>
-    <mat-menu class="menu" #beforeMenu="matMenu" xPosition="before" >
-        <div mat-menu-item style="width: 150px;">{{this.email}}</div>
-        <div mat-menu-item style="width: 150px;">Team</div>
-        <div mat-menu-item style="width: 150px; margin:auto 10px;" class="btn btn-danger">Logout</div>
-    </mat-menu>
-</mat-toolbar>
-<div style="background-color: rgb(238, 236, 236)">
-    <div style="height:60px ;margin-bottom: 10px;"></div>
-    <div class="row contain">
-        <div class="col-md-3 "style="z-index: 100; background-color: rgb(241, 239, 239);" >
-            <app-filter class="filter" [class.d-none]="!this.menuVisibility" [style.width.%]="width"   (parentFunctionFilter)="onFilter($event)"></app-filter>
-        </div>
-        <div class="search-results col-md-9" infiniteScroll
-        [infiniteScrollDistance]="3"
-        [infiniteScrollThrottle]="50"
-        (scrolled)="onScroll()"
-        [style.padding-left.%]="padding">
-            <button mat-raised-button class="postButton"  color="primary" (click)="openDialog()"> New Proposal</button>
-            <mat-divider></mat-divider>
-            <div>
-                <div *ngFor="let post of feed;index as i">
-                    <div style="background-color: white;margin: 2% auto;border-radius: 10px;">
-                        <app-feed class="feed" [post]="post" [userId]="userId" [type]="type" (update)="openDialog($event)"></app-feed>
+<div style="background-color: rgb(238, 236, 236); height:100%">
+    <mat-toolbar  color="primary" class="header">
+        <button mat-icon-button (click)="showMenu()" [class.d-none]="!this.menuButton">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span><img src="assets/img/LOGO.png" alt="title logo" style="height: 40px;width:auto;"></span>
+        <span class="space"></span>
+        <button mat-button [matMenuTriggerFor]="beforeMenu">Hello, {{this.name}}</button>
+        <mat-menu class="menu" #beforeMenu="matMenu" xPosition="before" >
+            <div mat-menu-item style="width: 150px;">{{this.email}}</div>
+            <div mat-menu-item style="width: 150px;">Team</div>
+            <div mat-menu-item style="width: 150px; margin:auto 10px;" class="btn btn-danger">Logout</div>
+        </mat-menu>
+    </mat-toolbar>
+    <div style="background-color: rgb(238, 236, 236);">
+        <div style="height:60px ;margin-bottom: 10px;"></div>
+        <div class="row contain">
+            <div class="col-md-3 "style="z-index: 100; background-color:rgb(238, 236, 236);" >
+                <app-filter class="filter" [class.d-none]="!this.menuVisibility" [style.width.%]="width"   (parentFunctionFilter)="onFilter($event)"></app-filter>
+            </div>
+            <div class="search-results col-md-9" infiniteScroll
+            [infiniteScrollDistance]="3"
+            [infiniteScrollThrottle]="50"
+            (scrolled)="onScroll()"
+            [style.padding-left.%]="padding">
+                <button mat-raised-button class="postButton"  color="primary" (click)="openDialog()"> New Proposal</button>
+                <mat-divider></mat-divider>
+                <div>
+                    <div *ngFor="let post of feed;index as i">
+                        <div style="background-color: white;margin: 2% auto;border-radius: 10px;">
+                            <app-feed class="feed" [post]="post" [userId]="userId" [type]="type" (update)="openDialog($event)"></app-feed>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div> 
+            </div> 
+        </div>
     </div>
 </div>

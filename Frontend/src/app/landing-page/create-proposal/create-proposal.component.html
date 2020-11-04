@@ -29,8 +29,8 @@
             <mat-error *ngIf="service.form.controls['description'].errors?.minlength">Minimum 10 characters</mat-error>
         </mat-form-field>
         <br>
-        <mat-form-field class="field">
-            <mat-select formControlName="teams" matInput placeholder="Team" multiple [(value)]="sentTeam" >
+        <mat-form-field class="field" [class.d-none]="!this.teamVisibility">
+            <mat-select  formControlName="teams" matInput placeholder="Team" multiple [(value)]="sentTeam" >
                 <mat-option *ngFor="let team of data.teams" multiple [value]="team">{{team.name}}</mat-option>  
             </mat-select>
         </mat-form-field>
