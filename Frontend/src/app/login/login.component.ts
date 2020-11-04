@@ -65,11 +65,12 @@ export class LoginComponent implements OnInit {
          console.log("success")
           this.invalidLogin = false;
           this.loginSuccess = true;
-          
+          sessionStorage.setItem('data', JSON.stringify(result));
+          console.log("data", result)
           this.successMessage = 'Login Successful.';
           this.router.navigate(['/welcome']);
-        }, () => {
-          console.log("fail")
+        }, (error) => {
+          console.log(error)
           this.invalidLogin = true;
           this.loginSuccess = false;
         });

@@ -93,7 +93,7 @@ export class RegisterComponent implements OnInit {
     var data={"data1":
       {"team":
 {
-    "teamname":this.registerForm.value.team
+    "name":this.registerForm.value.team
 }
    , "user":
 {

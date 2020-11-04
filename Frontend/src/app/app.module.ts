@@ -37,6 +37,7 @@ import {ProposalService} from './landing-page/proposal.service';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -77,7 +78,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    
+    MatGridListModule
   ],
   providers: [
     UserRegisterService,

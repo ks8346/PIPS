@@ -34,6 +34,7 @@ export class LandingPageComponent implements OnInit {
   constructor(public post:PostProposalService,public dialog:MatDialog,private getProposals:GetProposalsService,private teams:TeamsService) { }
 
   ngOnInit(): void {
+    console.log( "data",localStorage.getItem('data'))
     if(this.type==="allPost"){
       this.getProposals.getAllPosts(this.data).subscribe((data)=>{
         this.feed=data

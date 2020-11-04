@@ -1,86 +1,120 @@
-<div class="formContainer">
+<div class="formContainer " style="overflow-y: scroll;">
 
     
-    <form [formGroup]= "registerForm" (ngSubmit)="onSubmit()" class="form">
+    <form [formGroup]= "registerForm" (ngSubmit)="onSubmit()" >
      
         <div>
-            <h1 style="text-align: center;"> Register Here </h1>
+            <h2 style="text-align: center;"> Register Here </h2>
         </div>
-        
-        <div class="form-group x">
+        <mat-grid-list cols="7"  rowHeight="80px">
+            <mat-grid-tile colspan="3" >
+        <!-- <div class=" x"> -->
             <label for="userName">User Name :</label>
-            <mat-form-field>
-                <input  type="text" matInput formControlName="userName" class="form-control" required/>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3">
+            <mat-form-field appearance ="fill">
+                <input  type="text" matInput formControlName="userName"  required/>
                 <mat-error *ngIf="registerForm.controls.userName.hasError('required')">Please enter a value</mat-error>
                 <mat-error *ngIf="registerForm.controls.userName.hasError('minlength')">Too short</mat-error>
                 <mat-error *ngIf="registerForm.controls.userName.hasError('maxlength')">Too long</mat-error>
             </mat-form-field>  
-        </div>
+            </mat-grid-tile>
+                <mat-grid-tile colspan="1"></mat-grid-tile>
+        <!-- </div> -->
 
-        <div class="form-group x">
+        <!-- <div class=" x"> -->
+            <mat-grid-tile colspan="3" >
             <label for="email">Email :</label>
-            <mat-form-field>
-                <input matInput type="email" formControlName="email" class="form-control" required/>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3">
+            <mat-form-field appearance ="fill">
+                <input matInput type="email" formControlName="email"  required/>
                 <mat-error *ngIf="registerForm.controls.email.invalid">{{getEmailError()}}</mat-error>
                 <mat-error *ngIf="registerForm.controls.email.hasError('minlength')">Too short</mat-error>
                 <mat-error *ngIf="registerForm.controls.email.hasError('maxlength')">Too long</mat-error>
             </mat-form-field>
-        </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1"></mat-grid-tile>
+        <!-- </div> -->
 
-        <div class="form-group x">
-            <label for="sbsiTeam">SBSI Team : </label> 
-            <mat-form-field>
-            <mat-select formControlName="team" class ="form-control" [(ngModel)]="selectedTeam" required>
+        <!-- <div class=" x"> -->
+            <mat-grid-tile colspan="3">
+            <label for="sbsiTeam">SBSI Team : </label>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3">
+            <mat-form-field appearance ="fill">
+            <mat-select formControlName="team"  [(ngModel)]="selectedTeam" required>
                 <mat-option value = "others">Create a new team</mat-option>
                 <mat-option *ngFor="let team of teams" [value]="team">{{team}} </mat-option>    
             </mat-select>
             <mat-error *ngIf="registerForm.controls.team.hasError('required')">Please make a selection</mat-error>
         </mat-form-field>
-        </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1"></mat-grid-tile>
+        <!-- </div> -->
 
-        <div class="form-group x" *ngIf="selectedTeam == 'others'">
-            <label for="sbsiTeam">Enter Team Name:</label>
-            <mat-form-field>
-                <input matInput type="text" class="form-control" formControlName="team"   required >
+        <mat-grid-tile colspan="3" *ngIf="selectedTeam == 'others'">
+            
+        <!-- <div class=" x" *ngIf="selectedTeam == 'others'"> -->
+            <label for="sbsiTeam" [class.d-none]="selectedTeam!='others'">Enter Team Name:</label>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="3" >
+            <mat-form-field appearance ="fill" [class.d-none]="selectedTeam!='others'">
+                <input matInput type="text"  formControlName="team"   required >
                 <mat-error *ngIf="registerForm.controls.team.hasError('minlength')">Too short</mat-error>
                 <mat-error *ngIf="registerForm.controls.team.hasError('maxlength')">Too long</mat-error>
             </mat-form-field>
-        </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" ></mat-grid-tile>
+        <!-- </div> -->
+        <!-- </mat-grid-tile> -->
 
-        <div class="form-group x">
+        <!-- <div class=" x"> -->
+            <mat-grid-tile colspan="3">
             <label for="password">Password : </label>
-            <mat-form-field >
-                <input type="password" matInput formControlName="password" class="form-control" />
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3">
+            <mat-form-field appearance ="fill" >
+                <input type="password" matInput formControlName="password" />
                 <mat-error *ngIf="registerForm.controls.password.hasError('required')">Please enter a value</mat-error>
                 <mat-error *ngIf="registerForm.controls.password.hasError('pattern')">Invalid password! Check specifications</mat-error>
                 <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">Too short</mat-error>
                 <mat-error *ngIf="registerForm.controls.password.hasError('maxlength')">Too long</mat-error>
                 
-            </mat-form-field>   
+            </mat-form-field> 
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1">
             <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openDialog()">info</mat-icon>
-             
-        </div>
+             </mat-grid-tile>
+        <!-- </div> -->
 
-        <div class="form-group x">
+        <!-- <div class=" x"> -->
+            <mat-grid-tile colspan="3">
             <label for="confirmPass">Confirm Password : </label>
-            <mat-form-field>
-                <input type="password" matInput formControlName="confirmPass" class="form-control" />
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3">
+            <mat-form-field appearance ="fill">
+                <input type="password" matInput formControlName="confirmPass"  />
                 <mat-error *ngIf="registerForm.controls.confirmPass.hasError('required')">Please enter a value</mat-error>
             </mat-form-field>
-        </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1"></mat-grid-tile>
+        <!-- </div> -->
 
-        <div class="form-group x">
+        </mat-grid-list>
+        <div class=" x">
             <mat-checkbox class="example-margin"  formControlName="acceptTerms" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }">Accept terms and conditions</mat-checkbox>
             <div *ngIf="submitted && registerForm.controls.acceptTerms.errors" class="invalid-feedback">This field is required</div>
         </div>
         <br>
 
-        <div class="form-group x">
+        <div class=" x">
             <button [disabled]="loading" class="btn btn-primary" >
                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                 Submit
             </button>
         </div>
+    
     </form>
     
 </div>
