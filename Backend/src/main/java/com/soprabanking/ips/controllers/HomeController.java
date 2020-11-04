@@ -118,6 +118,7 @@ public class HomeController
 	  public String customLogin() {
 		//model.addAttribute("title", "LogInPage - Smaeamrt Contact Manager");
 		//model.addAttribute("user", new User());
+		  System.out.println("hi");
 		
 		return "username";
 	}

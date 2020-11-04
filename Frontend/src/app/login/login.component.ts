@@ -8,9 +8,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDialog} from '@angular/material/dialog';
 import { MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatDialogRef} from '@angular/material/dialog';
+import { UserLoginService } from '../service/user-login.service';
 
 export interface DialogData {
   email: string;
+  
 }
 
 
@@ -29,8 +31,12 @@ export class LoginComponent implements OnInit {
   email:string;
   loginForm: FormGroup;
   invalidLogin = false
+  loginSuccess=false;
+  successMessage: string;
   errorMessage = "Invalid Credentials"
-  constructor(private router: Router,public dialog: MatDialog) {
+  constructor(private router: Router,
+    public dialog: MatDialog,
+    public loginService:UserLoginService) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
@@ -42,21 +48,35 @@ export class LoginComponent implements OnInit {
 
   handleLogin() {
     if(this.loginForm.valid) {
-      console.log(this._v());
+
       this.loginForm.get('email').value;
-      if(this.loginForm.get('email').value === "JohnDoe@gmail.com" &&
-      this.loginForm.get('password').value === "qwerty"){
+
         //Redirect
-        this.router.navigate(['home',this.loginForm.get('email').value])
-        this.invalidLogin=false
-      }
-      else 
-        this.invalidLogin=true
+        // this.loginService.doLogin(this.loginForm.get('email').value,this.loginForm.get('password').value;).subscribe(
+        //   data1 => {
+        //     console.log(data1);
+        //    this.message=data1
+        //    this.responseDialog(this.message)
+        //    this.router.navigate("/welcome") ;
+        //    this.loading=false;
+        //  });
+
+         this.loginService.doLogin(this.loginForm.get('email').value,this.loginForm.get('password').value).subscribe((result)=> {
+         console.log("success")
+          this.invalidLogin = false;
+          this.loginSuccess = true;
+          
+          this.successMessage = 'Login Successful.';
+          this.router.navigate(['/welcome']);
+        }, () => {
+          console.log("fail")
+          this.invalidLogin = true;
+          this.loginSuccess = false;
+        });
+
     }
   }
-  _v() {
-    return this.loginForm.value;
-  }
+
   openDialog(): void{
     const dialogRef = this.dialog.open(ForgotPasswordDialog, {
       width: '500px',
@@ -79,7 +99,7 @@ export class ForgotPasswordDialog {
   constructor(
     public dialogRef: MatDialogRef<ForgotPasswordDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-    matcher = new MyErrorStateMatcher()
+   // matcher = new MyErrorStateMatcher()
 
   onNoClick(): void {
     this.dialogRef.close();

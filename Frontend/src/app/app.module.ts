@@ -28,6 +28,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { PasswordSpecsComponent } from './password-specs/password-specs.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ApiResponseComponent } from './api-response/api-response.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ApiResponseComponent } from './api-response/api-response.component';
     ErrorComponent,
     RegisterComponent,
     PasswordSpecsComponent,
-    ApiResponseComponent
+    ApiResponseComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
