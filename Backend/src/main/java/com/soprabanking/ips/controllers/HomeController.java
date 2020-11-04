@@ -36,7 +36,7 @@ import com.soprabanking.ips.modelwrap.ModelWrap;
 import com.soprabanking.ips.authentication.AuthenticationBean;
 import com.soprabanking.ips.dao.TeamRepository;
 import com.soprabanking.ips.dao.UserRepository;
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin
 @RestController
 public class HomeController 
 {

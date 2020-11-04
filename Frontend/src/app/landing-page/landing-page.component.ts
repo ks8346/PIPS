@@ -20,7 +20,8 @@ export class LandingPageComponent implements OnInit {
   _teams:Teams[];
   feed=[];
   newFeed=[];
-  name="Kartik";
+  name="Kartik Sachdeva";
+  email="ks@gmail.com"
   userId=3;
   type="teamPost";
   teamId=1;
