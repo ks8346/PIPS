@@ -1,10 +1,20 @@
 .text{
     text-align: justify;
     margin-top:1%;
+    font-size: medium;
 }
 .commentText{
     text-align: justify;
     margin: 2% auto;
+    line-height: 20px;
+    font-size: medium;
+    border-bottom: lightgray 1px solid;
+    background-color:#e9ebee;
+    border-radius: 10px;
+    padding:5px
+}
+.userComment{
+    border-right: white 1px solid;
 }
 .header{
     height:50px;
