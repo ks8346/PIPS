@@ -77,33 +77,33 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  openDialog(): void{
-    const dialogRef = this.dialog.open(ForgotPasswordDialog, {
-      width: '500px',
-      data: {email: this.email}
-    });
+  // openDialog(): void{
+  //   const dialogRef = this.dialog.open(ForgotPasswordDialog, {
+  //     width: '500px',
+  //     data: {email: this.email}
+  //   });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.email = result;
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //     this.email = result;
+  //   });
+  // }
 }
 
-@Component({
-  selector: 'forgot-password',
-  templateUrl: 'forgotPassword.component.html',
-})
-export class ForgotPasswordDialog {
+// @Component({
+//   selector: 'forgot-password',
+//   templateUrl: 'forgotPassword.component.html',
+// })
+// export class ForgotPasswordDialog {
 
-  constructor(
-    public dialogRef: MatDialogRef<ForgotPasswordDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-   // matcher = new MyErrorStateMatcher()
+//   constructor(
+//     public dialogRef: MatDialogRef<ForgotPasswordDialog>,
+//     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+//    // matcher = new MyErrorStateMatcher()
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+//   onNoClick(): void {
+//     this.dialogRef.close();
+//   }
 
-}
+// }
 

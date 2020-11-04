@@ -1,0 +1,46 @@
+.text{
+    text-align: justify;
+    margin-top:1%;
+}
+.commentText{
+    text-align: justify;
+    margin: 2% auto;
+}
+.header{
+    height:50px;
+    /* background-color: rgb(211, 218, 250); */
+}
+.userBlock{
+    border-right: 1px black solid;
+    /* background-color:#3f51b5;
+    color:white; */
+    /* width: 20px; */
+    /* opacity: 70%; */
+    padding-top:1%;
+}
+.post{
+    margin:2em auto;
+}
+.hidden{
+    height:60px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.show{
+    height:auto;
+    overflow: visible;
+}
+.commentBoxLength{
+    width:84%;
+    margin-right: 3em;
+}
+.likeButton{
+    color:rgb(218, 212, 212);
+    /* border:1px solid lightgray; */
+    opacity: 70%;
+}
+.title{
+    font-weight: 500;
+    font-size: 20px;
+    padding-top: 5px;
+}
