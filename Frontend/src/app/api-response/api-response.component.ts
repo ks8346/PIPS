@@ -9,6 +9,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 })
 export class ApiResponseComponent {
   msg:any
+  islogin:boolean;
 
   constructor(
     public dialogRef: MatDialogRef<ApiResponseComponent>,

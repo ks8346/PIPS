@@ -60,7 +60,7 @@
         </mat-grid-tile>
         <mat-grid-tile colspan="3" *ngIf="selectedTeam == 'others'">
             <mat-form-field appearance ="fill" [class.d-none]="selectedTeam!='others'">
-                <input matInput type="text"  formControlName="team"   required >
+                <input matInput type="text"  formControlName="team"   required />
                 <mat-error *ngIf="registerForm.controls.team.hasError('minlength')">Too short</mat-error>
                 <mat-error *ngIf="registerForm.controls.team.hasError('maxlength')">Too long</mat-error>
             </mat-form-field>

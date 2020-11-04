@@ -18,7 +18,7 @@ export class UserLoginService {
   }
 
   doLogin(username: String, password: String) {
-    return this.http.get(`http://localhost:1998/signIn`,
+    return this.http.get(`http://localhost:1998/user/index`,
       { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
         this.username = username;
         this.password = password;
