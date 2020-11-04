@@ -77,7 +77,12 @@ export class FeedComponent implements OnInit {
   }
   postLike(id:number){
     if(this.hasLiked){
-      this.proposalWork.postDislike(id,this.userId)
+      this.proposalWork.postDislike(id,this.userId).subscribe((error)=>{
+        if(error.status==200){
+          
+        }
+      })
+      console.log("dislike")
     }
     else{
       this.proposalWork.postLike(id,this.userId).subscribe((data)=>console.log(data))

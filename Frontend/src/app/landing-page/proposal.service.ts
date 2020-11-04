@@ -19,7 +19,8 @@ export class ProposalService {
     return this.http.post(this.postLikeUrl,{'id':id,'userId':userId})
   }
   postDislike(id:number,userId:number):Observable<any>{
-    return this.http.post(this.postDislikeUrl,{'id':id,'userId':userId})
+    console.log({'id':id,'userId':userId})
+    return this.http.post(this.postDislikeUrl,{"userId":userId,"id":id})
   }
   getLike(id:number,userId:number):Observable<any>{
     return this.http.post(this.getLikeUrl,{'id':id,'userId':userId})

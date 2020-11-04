@@ -12,11 +12,15 @@ export class CreateProposalComponent implements OnInit {
   sentTeam=[]
   Teams:{}[]=[]
   userId:string
+  teamVisibility=true
   id="null"
   values:TestServiceService;
   ngOnInit(){
     this.userId=this.data.userId
     this.id=this.data.id
+    if(this.data.id){
+      this.teamVisibility=false
+    }
   }
   onClear(){
     this.service.form.reset();
