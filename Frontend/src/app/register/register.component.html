@@ -79,7 +79,7 @@
                 <input type="password" matInput formControlName="password" />
                 <mat-error *ngIf="registerForm.controls.password.hasError('required')">Please enter a value</mat-error>
                 <mat-error *ngIf="registerForm.controls.password.hasError('pattern')">Invalid password!</mat-error>
-                <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">Too short</mat-error>
+                <!-- <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">Too short</mat-error> -->
                 <mat-error *ngIf="registerForm.controls.password.hasError('maxlength')">Too long</mat-error>
                 
             </mat-form-field> 
