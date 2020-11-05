@@ -1,6 +1,4 @@
 package com.soprabanking.ips.controllers;
-
-
 import java.security.Principal;
 
 import java.util.List;
@@ -26,11 +24,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.soprabanking.ips.models.Team;
 import com.soprabanking.ips.models.User;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.soprabanking.ips.authentication.AuthenticationBean;
 import com.soprabanking.ips.helper.Message;
 import com.soprabanking.ips.modelwrap.ModelWrap;
 import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin
 @RestController
 public class HomeController 
 {
@@ -134,14 +134,36 @@ public class HomeController
   
 }
 	  //handler for login page
-	  @GetMapping("/signIn")
+	  /*@GetMapping("/signIn")
 	  public String customLogin() {
 		//model.addAttribute("title", "LogInPage - Smaeamrt Contact Manager");
 		//model.addAttribute("user", new User());
 		
-		return "username";
+		return "username";*/
+	
+	@GetMapping(path = "/signIn") // /signIn
+	public AuthenticationBean basicauth(Principal principal) {
+		try {
+		
+		String userName=principal.getName();
+        
+       
+        User user=userRepository.getUserByUserName(userName);
+        
+        ObjectMapper o=new ObjectMapper();
+        
+       
+        String s= o.writeValueAsString(user);
+		
+	return new AuthenticationBean(s);
+		}
+		catch(Exception e) {
+			return new AuthenticationBean("error");
+		}
 	}
-}
+	
+	
+	}
 
 
 	

@@ -12,14 +12,16 @@ export class UserLoginService {
 
   public username: String;
   public password: String;
+  public res;
 
   constructor(private http: HttpClient) {
 
   }
 
   doLogin(username: String, password: String) {
-    return this.http.get(`http://localhost:1998/user/index`,
+    return this.http.get(`http://localhost:8080/signIn`,
       { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
+       this.res=res;
         this.username = username;
         this.password = password;
         this.registerSuccessfulLogin(username, password);
@@ -31,7 +33,7 @@ export class UserLoginService {
   }
 
   registerSuccessfulLogin(username, password) {
-    sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username)
+    sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, this.res.message)
   }
 
   logout() {
