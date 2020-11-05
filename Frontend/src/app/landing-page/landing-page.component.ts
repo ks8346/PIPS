@@ -22,7 +22,7 @@ export class LandingPageComponent implements OnInit {
   newFeed=[];
   name="Kartik Sachdeva";
   email="ks@gmail.com"
-  userId=3;
+  userId=1;
   type="teamPost";
   teamId=1;
   page=0;
