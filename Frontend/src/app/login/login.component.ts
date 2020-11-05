@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
          this.loginService.doLogin(this.loginForm.get('email').value,this.loginForm.get('password').value).subscribe((result)=> {
         
           this.userData=sessionStorage.getItem('authenticatedUser')
-          console.log(JSON.parse(this.userData).id, this.userData)
+          console.log("results",this.userData, this.userData)
           
           this.invalidLogin = false;
           this.loginSuccess = true;

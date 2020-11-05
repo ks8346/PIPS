@@ -31,9 +31,9 @@
             {{singleComment}}            
         </div>
         <div class="col-md-1">
-            <button mat-button [class.d-none]="!this.canUpdate">
+            <!-- <button mat-button [class.d-none]="!this.canUpdate">
                 <mat-icon style="color:black">close</mat-icon>
-            </button>
+            </button> -->
         </div>
     </div>
     <div (click)="this.commentVisibility=true" [class.d-none]="this.commentVisibility" style="cursor: pointer; color:rgb(68, 165, 255)">See more</div>
@@ -41,9 +41,9 @@
         <div class="col-md-2 userComment">{{comment.user.name}}</div>
         <div class="col-md-9">{{comment.comment}}</div>
         <div class="col-md-1">
-            <button mat-button [class.d-none]="!this.canUpdate">
+            <!-- <button mat-button [class.d-none]="!this.canUpdate">
                 <mat-icon style="color:black">close</mat-icon>
-            </button>
+            </button> -->
         </div>
     </div>
 </div>

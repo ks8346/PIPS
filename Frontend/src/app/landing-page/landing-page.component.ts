@@ -6,7 +6,7 @@ import {PostProposalService} from 'src/app/post-proposal.service'
 import { FeedParams } from '../feed-params';
 import {TeamsService} from '../teams.service'
 import {Teams} from '../teams'
-import {NavigationExtras} from '@angular/router'
+import {Router} from '@angular/router'
 import { Proposal } from '../proposal';
 @Component({
   selector: 'app-landing-page',
@@ -21,11 +21,21 @@ export class LandingPageComponent implements OnInit {
   _teams:Teams[];
   feed=[];
   newFeed=[];
-  name="Kartik Sachdeva";
-  email="ks@gmail.com"
-  userId=1;
+  authenticatedUser:string;
+  User:{
+    id:number;
+    name:string;
+    email:string,
+    team:{
+      id:number,
+      name:string
+    }
+  };
+  name:string;
+  email:string;
+  userId:number;
   type="teamPost";
-  teamId=1;
+  teamId:number;
   page=0;
   width:number;
   padding:number;
@@ -33,9 +43,15 @@ export class LandingPageComponent implements OnInit {
   morePost=true;
   startDate=new Date()
   data=new FeedParams(new Date(this.startDate.setDate(this.startDate.getDate()-30)),new Date(),"0","3")
-  constructor(public post:PostProposalService,public dialog:MatDialog,private getProposals:GetProposalsService,private teams:TeamsService) { }
+  constructor(public router:Router,public post:PostProposalService,public dialog:MatDialog,private getProposals:GetProposalsService,private teams:TeamsService) { }
 
   ngOnInit(): void {
+    this.authenticatedUser=sessionStorage.getItem('authenticatedUser')
+    this.User=JSON.parse(this.authenticatedUser)
+    this.userId=this.User.id
+    this.name=this.User.name
+    this.email=this.User.email
+    this.teamId=this.User.team.id
     console.log( "data",localStorage.getItem('data'))
     if(this.type==="allPost"){
       this.getProposals.getAllPosts(this.data).subscribe((data)=>{
@@ -67,6 +83,8 @@ export class LandingPageComponent implements OnInit {
       this.width=23.5
       this.padding=2
     }    
+    
+    console.log("user data",JSON.parse(this.authenticatedUser))
   }
   getAll(){
     this.getProposals.getAllPosts(this.data).subscribe((data)=>this.feed=data,(error)=>console.log(error));
@@ -183,5 +201,9 @@ export class LandingPageComponent implements OnInit {
       this.width=23.5
       this.padding=2
     }
+  }
+  destroySession(){
+    sessionStorage.clear()
+    this.router.navigate(['/home']);
   }
 }
