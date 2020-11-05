@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
   loginSuccess=false;
   successMessage: string;
   errorMessage = "Invalid Credentials"
+  userData;
   constructor(private router: Router,
     public dialog: MatDialog,
     public loginService:UserLoginService) {
@@ -62,14 +63,17 @@ export class LoginComponent implements OnInit {
         //  });
 
          this.loginService.doLogin(this.loginForm.get('email').value,this.loginForm.get('password').value).subscribe((result)=> {
-         console.log("success")
+        
+          this.userData=sessionStorage.getItem('authenticatedUser')
+          console.log(JSON.parse(this.userData).id, this.userData)
+          
           this.invalidLogin = false;
           this.loginSuccess = true;
           
           this.successMessage = 'Login Successful.';
           this.router.navigate(['/welcome']);
-        }, () => {
-          console.log("fail")
+        }, (error) => {
+          console.log(error)
           this.invalidLogin = true;
           this.loginSuccess = false;
         });

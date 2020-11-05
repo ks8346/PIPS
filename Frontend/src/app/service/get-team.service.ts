@@ -15,7 +15,7 @@ export class GetTeamService {
 
    getTeam(){
     console.log("inside GetTeam")
-    let arr =this.http.get<ResponseAPI>("http://localhost:1998/getTeam")
+    let arr =this.http.get<ResponseAPI>("http://localhost:8080/getTeam")
     console.log(arr)
     return arr
     
