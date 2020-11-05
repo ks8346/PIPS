@@ -2,6 +2,7 @@ import { Component, OnInit ,Input, Output, EventEmitter} from '@angular/core';
 import { Post } from 'src/app/post';
 import {ProposalService} from '../proposal.service';
 import {Comment} from '../comment'
+import { JsonPipe } from '@angular/common';
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
@@ -60,13 +61,13 @@ export class FeedComponent implements OnInit {
     .subscribe(
       (data)=>{
         this.comments.push({'id':this.post.id,'comment':this.new_comment,'creationDate':new Date(),'user':{
-          'id':2,'name':"Kartik Sachdeva"}}) 
+          'id':JSON.parse(sessionStorage.getItem('authenticatedUser')).id,'name':JSON.parse(sessionStorage.getItem('authenticatedUser')).name}}) 
         this.new_comment=""
         this.commentsMessage="Comments"
       },(error)=>{
         if(error.status=200){
           this.comments.push({'id':this.post.id,'comment':this.new_comment,'creationDate':new Date(),'user':{
-            'id':2,'name':"Kartik Sachdeva"}}) 
+            'id':JSON.parse(sessionStorage.getItem('authenticatedUser')).id,'name':JSON.parse(sessionStorage.getItem('authenticatedUser')).name}}) 
           this.new_comment=""
           this.commentsMessage="Comments"
         }
