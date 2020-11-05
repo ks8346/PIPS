@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
   error: string;
   selectedTeam: string='';
   teams:any
+  hide=true
 
   constructor(
     private getTeam : GetTeamService,
