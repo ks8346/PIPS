@@ -1,11 +1,19 @@
-package com.soprabanking.ips.entities;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+package com.soprabanking.ips.models;
 
 import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name = "comments")
@@ -20,11 +28,13 @@ public class Comment {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", nullable = false)
+	@Cascade(CascadeType.ALL)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private User user;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "proposal_id", nullable = false)
+	@Cascade(CascadeType.ALL)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Proposal proposal;
 	

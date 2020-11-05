@@ -2,13 +2,14 @@ package com.soprabanking.ips.config;
 
 import java.util.Collection;
 
+
 import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.soprabanking.ips.entities.User;
+import com.soprabanking.ips.models.User;
 
 
 
@@ -27,7 +28,6 @@ public class CustomUserDetails implements UserDetails {
 		return List.of(simpleGrantedAuthority);
 	}
 
-	
 
 	@Override
 	public String getPassword() {
@@ -63,6 +63,12 @@ public class CustomUserDetails implements UserDetails {
 
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "CustomUserDetails [user=" + user + "]";
+	}
+	
+	
 
 
 

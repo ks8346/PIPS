@@ -1,6 +1,4 @@
-package com.soprabanking.ips.entities;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+package com.soprabanking.ips.models;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name = "upvotes")
@@ -21,12 +23,12 @@ public class Upvotes {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
-	@JsonBackReference
+	@Cascade(CascadeType.PERSIST)
 	private User user;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "proposal_id", nullable = false)
-	@JsonBackReference
+	@Cascade(CascadeType.PERSIST)
 	private Proposal proposal;
 	
 	public Upvotes() {
