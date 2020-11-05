@@ -6,6 +6,7 @@ import {PostProposalService} from 'src/app/post-proposal.service'
 import { FeedParams } from '../feed-params';
 import {TeamsService} from '../teams.service'
 import {Teams} from '../teams'
+import {NavigationExtras} from '@angular/router'
 import { Proposal } from '../proposal';
 @Component({
   selector: 'app-landing-page',
