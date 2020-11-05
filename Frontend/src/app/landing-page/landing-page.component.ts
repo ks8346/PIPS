@@ -6,6 +6,7 @@ import {PostProposalService} from 'src/app/post-proposal.service'
 import { FeedParams } from '../feed-params';
 import {TeamsService} from '../teams.service'
 import {Teams} from '../teams'
+import {NavigationExtras} from '@angular/router'
 import { Proposal } from '../proposal';
 @Component({
   selector: 'app-landing-page',
@@ -22,7 +23,7 @@ export class LandingPageComponent implements OnInit {
   newFeed=[];
   name="Kartik Sachdeva";
   email="ks@gmail.com"
-  userId=3;
+  userId=1;
   type="teamPost";
   teamId=1;
   page=0;
@@ -35,6 +36,7 @@ export class LandingPageComponent implements OnInit {
   constructor(public post:PostProposalService,public dialog:MatDialog,private getProposals:GetProposalsService,private teams:TeamsService) { }
 
   ngOnInit(): void {
+    console.log( "data",localStorage.getItem('data'))
     if(this.type==="allPost"){
       this.getProposals.getAllPosts(this.data).subscribe((data)=>{
         this.feed=data
