@@ -178,7 +178,7 @@ export class LandingPageComponent implements OnInit {
         )
         this.page=0
         this.data.page=this.page.toString()
-        
+        window.location.reload()
       }
     });
   }
