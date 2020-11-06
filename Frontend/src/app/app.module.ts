@@ -38,6 +38,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { CommentComponent } from './landing-page/feed/comment/comment.component';
+import { ShareProposalComponent } from './landing-page/feed/share-proposal/share-proposal.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     LandingPageComponent,
     FilterComponent,
     FeedComponent,
-    CreateProposalComponent
+    CreateProposalComponent,
+    CommentComponent,
+    ShareProposalComponent
   ],
   imports: [
     BrowserModule,

@@ -10,11 +10,12 @@ import { Component, OnInit, Inject } from '@angular/core';
 export class ApiResponseComponent {
   msg:any
   islogin:boolean=true;
-
+  message:string;
   constructor(
     public dialogRef: MatDialogRef<ApiResponseComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-      this.msg=data
+    @Inject(MAT_DIALOG_DATA) public data) {
+      this.msg=data.data
+      
     }
  
   onNoClick(): void {

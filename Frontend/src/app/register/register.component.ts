@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
   error: string;
   selectedTeam: string='';
   teams:any
+  hide=true
 
   constructor(
     private getTeam : GetTeamService,
@@ -43,9 +44,9 @@ export class RegisterComponent implements OnInit {
 
   responseDialog(msg) {
     const dialogRef = this.dialog.open(ApiResponseComponent, {
-      height: '380px',
+      height: '180px',
       width: '400px',
-      data:{data:msg}
+      data:{data:this.message}
     });
   }
 
@@ -106,13 +107,33 @@ export class RegisterComponent implements OnInit {
 
     }
     this.userService.doRegister(data).subscribe(
-       data1 => {
-         console.log(data1);
-        this.message=data1
-        this.responseDialog(this.message)
-        this.router.navigate(['/home']) ;
-        this.loading=false;
-      });
+       (data1) => {
+          console.log(data1);
+          if(data1=="Email Id already exists !!"){
+            this.message="Email Id already exists!"
+            this.loading=false;
+            this.responseDialog(this.message)
+          }
+          else{
+            this.message="You have been signed up!"
+            this.responseDialog(this.message)
+            this.router.navigate(['/home']) ;
+            this.loading=false;
+          }
+        },
+        (error)=>{
+          if(error.status==200){
+            this.message="You have been signed up!"
+            this.responseDialog(this.message)
+            this.router.navigate(['/home']) ;
+            this.loading=false;
+          }
+          else{
+            this.message="Email Id already exists!"
+            this.loading=false;
+          }
+        }
+      );
 
 
 }
