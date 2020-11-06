@@ -32,4 +32,15 @@ public class ProposalController {
 			return new ResponseEntity<Proposal>(new Proposal(), HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
+	
+	@PostMapping(value = "/update", consumes = APPLICATION_JSON_VALUE)
+	public ResponseEntity<Proposal> updateProposal(@RequestBody String body){
+		
+		try {
+			return new ResponseEntity<Proposal>(proposalService.updateProposal(body),HttpStatus.OK);
+		}
+		catch(Exception ex) {
+			return new ResponseEntity<Proposal>(new Proposal(), HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
 }
