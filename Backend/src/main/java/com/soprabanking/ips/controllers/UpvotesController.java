@@ -1,16 +1,15 @@
 package com.soprabanking.ips.controllers;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+import com.soprabanking.ips.models.Upvotes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.soprabanking.ips.services.UpvotesService;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -20,10 +19,11 @@ public class UpvotesController
 	@Autowired
 	private UpvotesService upvotesService;
 	
-    /*@GetMapping("/upvotes")
-	public ResponseEntity<List<Upvotes>> displayUpvotes(@RequestParam Long proposalId)
+    /*GetMapping("/upvotes")
+	public void displayUpvotes(@RequestParam Long proposalId)
 	{
-    	return new ResponseEntity<List<Upvotes>>(upvotesService.listUpvotes(proposalId),HttpStatus.OK);
+		System.out.println(upvotesService.listUpvotes(proposalId));
+    	//return new ResponseEntity<List<Upvotes>>(upvotesService.listUpvotes(proposalId),HttpStatus.OK);
 	}*/
     
     @PostMapping(value="/like",consumes =APPLICATION_JSON_VALUE)
