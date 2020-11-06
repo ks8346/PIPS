@@ -147,7 +147,7 @@ export class LandingPageComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if(result){
-        console.log(`Dialog result: ${result.teams.length} `);
+        // console.log(`Dialog result: ${result.teams.length} `);
 
         this.post.postProposal(result,this.userId).subscribe(
           (data)=>{
