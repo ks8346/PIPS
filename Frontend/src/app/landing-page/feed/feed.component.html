@@ -35,6 +35,7 @@
                 <mat-icon style="color:black">close</mat-icon>
             </button> -->
         </div>
+        
     </div>
     <div (click)="this.commentVisibility=true" [class.d-none]="this.commentVisibility" style="cursor: pointer; color:rgb(68, 165, 255)">See more</div>
     <div class="commentText row" *ngFor="let comment of this.comments" [class.d-none]="!this.commentVisibility" >
