@@ -33,7 +33,7 @@ export class LandingPageComponent implements OnInit {
   };
   name:string;
   email:string;
-  userId:number;
+  userId=-1;
   type="teamPost";
   teamId:number;
   page=0;
@@ -52,6 +52,9 @@ export class LandingPageComponent implements OnInit {
     this.name=this.User.name
     this.email=this.User.email
     this.teamId=this.User.team.id
+    if(this.userId==-1){
+      this.router.navigate(['/home'])
+    }
     console.log( "data",localStorage.getItem('data'))
     if(this.type==="allPost"){
       this.getProposals.getAllPosts(this.data).subscribe((data)=>{
@@ -175,7 +178,7 @@ export class LandingPageComponent implements OnInit {
         )
         this.page=0
         this.data.page=this.page.toString()
-        
+        window.location.reload()
       }
     });
   }

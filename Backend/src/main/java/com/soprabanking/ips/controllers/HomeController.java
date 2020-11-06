@@ -129,7 +129,7 @@ public class HomeController
  			//session.setAttribute("message", new Message("Something Went wrong !! " + e.getMessage(), "alert-danger"));
  	
  			    String s="Email Id already exists !!" 	;
- 			   return ("{message:"+s+"}");
+ 			   return s;
  		     }
   
 }
