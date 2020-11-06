@@ -11,6 +11,7 @@ export class ProposalService {
   postLikeUrl="http://localhost:8080/upvotes/like"
   postDislikeUrl="http://localhost:8080/upvotes/dislike"
   getLikeUrl="http://localhost:8080/upvotes/hasUpvoted"
+  deleteCommentUrl ="http://localhost:8080/comment/delete"
   constructor(private http:HttpClient) { }
   postComment(id:number,new_comment:string,userId:number):Observable<any>{
     return this.http.post(this.postCommentUrl,{'id':id,'text':new_comment,'userId':userId})
@@ -27,5 +28,9 @@ export class ProposalService {
   }
   getComment(id:number):Observable<Comment[]>{
     return this.http.post<Comment[]>(this.getCommentUrl,{'id':id})
+  }
+  deleteComment(id:number):Observable<any>
+  {
+    return this.http.post<String>(this.deleteCommentUrl,{'id':id})
   }
 }

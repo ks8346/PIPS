@@ -11,8 +11,7 @@ import { JsonPipe } from '@angular/common';
 export class FeedComponent implements OnInit {
   @Input() post:Post;
   public new_comment:string;
-  public singleComment:string;
-  public singleCommentUser:string;
+  public singleComment:Comment;
   public canUpdate=false;
   public numberLikes:number;
   public comments:Comment[]=[];
@@ -31,7 +30,11 @@ export class FeedComponent implements OnInit {
       this.canUpdate=true
     }
     this.numberLikes=this.post.upvotesCount;
-    this.proposalWork.getComment(this.post.id).subscribe((data)=>{
+    
+    console.log(this.post.id)
+    this.proposalWork.getLike(this.post.id,this.userId).subscribe((data)=>{this.hasLiked=data,console.log(this.hasLiked)})
+    this.proposalWork.getComment(this.post.id).subscribe(
+      (data)=>{
         this.comments=this.comments.concat(data)
         console.log(this.comments)
         this.commentError=""
@@ -39,17 +42,13 @@ export class FeedComponent implements OnInit {
           this.commentVisibility=true
           if(data.length==0){
             this.commentsMessage="No comments on this post yet"
+            console.log("No comment",this.comments.length)
           }
           else{
-            this.singleComment=data[0].comment
-            this.singleCommentUser=data[0].user.name
+            this.singleComment=data[0]
             this.commentsMessage="Comments"
+            console.log("comment",this.singleComment)
           }
-        }
-        else{
-          this.singleComment=data[0].comment
-          this.singleCommentUser=data[0].user.name
-          this.commentsMessage="Comments"
         }
       },
       (error)=>{
@@ -59,8 +58,6 @@ export class FeedComponent implements OnInit {
         }
       }
     )
-    console.log(this.post.id)
-    this.proposalWork.getLike(this.post.id,this.userId).subscribe((data)=>{this.hasLiked=data,console.log(this.hasLiked)})
   }
   postComment(id:number){
     this.proposalWork.postComment(id,this.new_comment,this.userId)
@@ -127,5 +124,18 @@ export class FeedComponent implements OnInit {
     else{
       this.show=true
     }
+  }
+
+  onDelete(commentId)
+  {
+    // console.log(commentId)
+   
+    this.proposalWork.deleteComment(commentId).subscribe((data)=>console.log(data),
+      (error)=>{
+        if(error.status==200){
+          this.comments=this.comments.filter(item => item.id != commentId);
+        }
+      }
+    )
   }
 }

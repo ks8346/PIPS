@@ -147,7 +147,7 @@ export class LandingPageComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if(result){
-        console.log(`Dialog result: ${result.teams.length} `);
+        // console.log(`Dialog result: ${result.teams.length} `);
 
         this.post.postProposal(result,this.userId).subscribe(
           (data)=>{
@@ -204,6 +204,9 @@ export class LandingPageComponent implements OnInit {
     if(error.status==406){
       this.morePost=false;
       this.endMessage="There aren't any proposals to show"
+    }
+    else{
+      this.endMessage=""
     }
   }
   
