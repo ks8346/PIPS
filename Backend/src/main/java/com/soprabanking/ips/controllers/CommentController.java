@@ -48,5 +48,18 @@ public class CommentController
 			return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
+	
+	@PostMapping(value = "/delete", consumes = APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> deleteComment(@RequestBody String body){
+		
+		try {
+			commentService.deleteComment(body);
+			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+			
+		}
+		catch(Exception  ex) {
+			return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
    
 }

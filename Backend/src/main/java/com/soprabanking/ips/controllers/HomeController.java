@@ -153,9 +153,9 @@ public class HomeController
         ObjectMapper o=new ObjectMapper();
         
        
-        String s= o.writeValueAsString(user);
+        	String s= o.writeValueAsString(user);
 		
-	return new AuthenticationBean(s);
+        return new AuthenticationBean(s);
 		}
 		catch(Exception e) {
 			return new AuthenticationBean("error");

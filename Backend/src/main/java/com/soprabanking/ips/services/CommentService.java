@@ -69,6 +69,21 @@ public class CommentService
 		
 		
 	}
+
+	public void deleteComment(String body) throws Exception {
+		
+		try {
+			JsonNode jsonObj = JsonUtil.stringToJson(body);
+			
+			Long id = Long.parseLong(jsonObj.get("id").asText());
+			
+			commentDao.deleteComment(id);
+			
+		}
+		catch(Exception ex) {
+			throw new Exception();
+		}
+	}
 	
 
 }

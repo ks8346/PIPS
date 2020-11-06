@@ -37,7 +37,7 @@ public class Proposal {
 	private Date creationDate;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.PERSIST)
 	@JoinColumn(name = "user_id", nullable = false)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private User user;
@@ -121,6 +121,13 @@ public class Proposal {
 
 	public void setTeams(Set<Team> teams) {
 		this.teams = teams;
+	}
+	public void addTeam(Team team)
+	{
+		if(!this.teams.contains(team))
+		{
+			this.teams.add(team);
+		}
 	}
 	@Override
 	public String toString() {

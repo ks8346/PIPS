@@ -28,13 +28,13 @@ public class Comment {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", nullable = false)
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.PERSIST)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private User user;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "proposal_id", nullable = false)
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.PERSIST)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Proposal proposal;
 	
