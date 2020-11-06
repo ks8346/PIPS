@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.soprabanking.ips.models.Proposal;
 import com.soprabanking.ips.services.ProposalService;
 
+
 @RestController
 @CrossOrigin
 @RequestMapping("/proposal")
@@ -49,6 +50,7 @@ public class ProposalController {
 	{
 		try
 		{
+			proposalService.shareProposal(body);
 			return new ResponseEntity<String>("SUCCESS",HttpStatus.OK);
 		}
 		catch(Exception e)
