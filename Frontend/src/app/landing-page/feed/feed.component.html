@@ -25,26 +25,23 @@
         <button type="submit" mat-raised-button color="primary" style="height:35px" (click)="postComment(post.id)">Comment</button>
     </form>
     <div style="margin:2px auto; border-top: 1px lightgray solid;padding-top: 1%;">{{this.commentsMessage}}</div>
-    <div class="commentText row" [class.d-none]="this.commentVisibility" >
-        <div class="col-md-2 userComment">  {{singleCommentUser}}</div>
-        <div class="col-md-9">
-            {{singleComment}}            
+    <div class="commentText row" *ngIf="!this.commentVisibility && singleComment" >
+        <div class="col-md-12">
+            <app-comment *ngIf="!this.commentVisibility && singleComment" class="com" [comment]="singleComment" [userId]="userId" (parentFunction)="onDelete($event)"></app-comment>
         </div>
-        <div class="col-md-1">
-            <!-- <button mat-button [class.d-none]="!this.canUpdate">
-                <mat-icon style="color:black">close</mat-icon>
-            </button> -->
-        </div>
-        
     </div>
-    <div (click)="this.commentVisibility=true" [class.d-none]="this.commentVisibility" style="cursor: pointer; color:rgb(68, 165, 255)">See more</div>
+    <button mat-raised-button color="primary" (click)="this.commentVisibility=true" *ngIf="!this.commentVisibility" style="cursor: pointer;">See Comments</button>
     <div class="commentText row" *ngFor="let comment of this.comments" [class.d-none]="!this.commentVisibility" >
-        <div class="col-md-2 userComment">{{comment.user.name}}</div>
+        <div class="col-md-12">
+            <app-comment class="com" [class.d-none]="!this.commentVisibility" [comment]="comment" [userId]="userId" (parentFunction)="onDelete($event)"></app-comment>
+        </div>
+    
+        <!-- <div class="col-md-2 userComment">{{comment.user.name}}</div>
         <div class="col-md-9">{{comment.comment}}</div>
-        <div class="col-md-1">
+        <div class="col-md-1"> -->
             <!-- <button mat-button [class.d-none]="!this.canUpdate">
                 <mat-icon style="color:black">close</mat-icon>
             </button> -->
-        </div>
+        
     </div>
 </div>
