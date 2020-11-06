@@ -43,7 +43,21 @@ public class ProposalController {
 			return new ResponseEntity<Proposal>(new Proposal(), HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
-
+	
+	@PostMapping(value="/share",consumes = APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> shareProposal(@RequestBody String body)
+	{
+		try
+		{
+			proposalService.shareProposal(body);
+			return new ResponseEntity<String>("SUCCESS",HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<String>("FAILURE",HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
+	
 	@PostMapping("/delete")
 	public ResponseEntity<String> deleteComment(@RequestBody String body){
 		return proposalService.deleteProposal(body)?new ResponseEntity<String>("SUCCESS", HttpStatus.OK):new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
