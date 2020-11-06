@@ -98,4 +98,38 @@ public class ProposalService {
 			throw new Exception();
 		}
 	}
+	
+public Proposal updateProposal(String body) throws Exception {
+		
+		try {
+			
+			JsonNode jsonObj = JsonUtil.stringToJson(body);
+			
+			Long key = Long.parseLong(jsonObj.get("key").asText());
+			String title = jsonObj.get("title").asText();
+			String desc = jsonObj.get("description").asText();
+			
+			
+			
+			Proposal proposal=proposalDAO.getById(key);
+			
+			
+				
+			proposal.setTitle(title);
+			proposal.setDescription(desc);
+			
+			
+			
+			Proposal addedProposal = proposalDAO.saveProposal(proposal);
+			return addedProposal;
+			
+			
+			//System.out.println(proposal);
+			
+
+			 } 
+		catch (Exception e) {
+			throw new Exception();
+		}
+	}
 }

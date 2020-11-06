@@ -111,6 +111,7 @@ export class LandingPageComponent implements OnInit {
     this.page=0
   }
   onFilter(data){
+    this.feed=[]
     if(Array.isArray(data)){
 
      // console.log(data)
@@ -137,25 +138,21 @@ export class LandingPageComponent implements OnInit {
           if(error.status==404){
           this.morePost=false
         }})
-        // this.getProposals.getAllNextPost(this.data).subscribe((data)=>this.newFeed=data)
       }
       else if(this.type.includes("teamPost")){
         this.getProposals.getTeamNextPost(this.data,this.teamId).subscribe((data)=>this.newFeed=data,(error)=>{
           if(error.status==404){
           this.morePost=false
         }})
-        // this.getProposals.getTeamNextPost(this.data,this.teamId).subscribe((data)=>this.newFeed=data)
       }
       else if(this.type.includes("yourPost")){
         this.getProposals.getYourNextPost(this.data,this.userId).subscribe((data)=>this.newFeed=data,(error)=>{
           if(error.status==404){
           this.morePost=false
         }})
-        // this.getProposals.getYourNextPost(this.data,this.userId).subscribe((data)=>this.newFeed=data)
       }      
       if(this.newFeed.length==0){
         this.endMessage="No More Posts"
-        
       }
       this.feed=this.feed.concat(this.newFeed)
       console.log(this.newFeed)

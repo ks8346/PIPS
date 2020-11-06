@@ -46,7 +46,7 @@ export class FilterComponent implements OnInit {
     if(this.sDate==null || this.eDate==null)
     this.message = "Please select both Start date and End date !!"
     else
-    if(this.sDate>this.eDate)
+    if(this.sDate>=this.eDate)
     this.message = "Start Date can not be Greater then End Date"
     else
     {
