@@ -33,8 +33,8 @@ class AddTeamTest {
 		when(teamRepository.getTeamByTeamName(toString())).thenReturn(team);
 		assertNotNull(team);
 		assertEquals("alpha",team.getName());
-		assertEquals("sparks",team.getName());
-		assertEquals("devs",team.getName());
+		//assertEquals("sparks",team.getName());
+		//assertEquals("devs",team.getName());
 		
 	}
 	@Test

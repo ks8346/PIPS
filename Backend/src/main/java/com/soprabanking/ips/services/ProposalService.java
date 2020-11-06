@@ -5,15 +5,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.soprabanking.ips.daos.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.soprabanking.ips.daos.ProposalDAO;
-import com.soprabanking.ips.daos.TeamDAO;
-import com.soprabanking.ips.daos.UserDAO;
 import com.soprabanking.ips.models.Proposal;
 import com.soprabanking.ips.models.Team;
 import com.soprabanking.ips.models.User;
@@ -23,16 +21,22 @@ import com.soprabanking.ips.utilities.JsonUtil;
 @Service
 public class ProposalService {
     @Autowired
-    ProposalDAO proposalDAO;
+    private ProposalDAO proposalDAO;
 
    /* @Autowired
     TeamRepository teamRepository;*/
     
     @Autowired
-    UserDAO userDAO;
+    private UserDAO userDAO;
 
     @Autowired
-    TeamDAO teamDAO;
+    private TeamDAO teamDAO;
+
+	@Autowired
+	private CommentDAO commentDao;
+
+	@Autowired
+	private UpvotesDAO upvotesDAO;
 
     public List<Proposal> getDefault(String body) {
         try {
@@ -55,6 +59,21 @@ public class ProposalService {
             return null;
         }
     }
+
+    public boolean deleteProposal(String body){
+    	try{
+			JsonNode jsonObj = JsonUtil.stringToJson(body);
+			Long proposalId = Long.parseLong(jsonObj.get("id").asText());
+			//Proposal proposal=proposalDAO.getById(proposalId);
+			commentDao.fetchAllComments(proposalId).forEach(comment -> commentDao.deleteComment(comment.getId()));
+			upvotesDAO.fetchAllUpvotes(proposalId).forEach(upvotesDAO::deleteUpvote);
+			proposalDAO.deleteProposal(proposalId);
+			return true;
+		}
+    	catch (Exception e){
+    		return false;
+		}
+	}
 
 	public Proposal saveProposal(String body) throws Exception {
 		
