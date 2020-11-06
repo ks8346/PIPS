@@ -19,6 +19,8 @@ export class FeedComponent implements OnInit {
   public show=false;
   public commentVisibility=false;
   public commentsMessage="Comments";
+  commentError:string;
+  postCommentError:string;
   @Output() update=new EventEmitter;
   @Input() userId:number;
   @Input() type:string;
@@ -32,6 +34,7 @@ export class FeedComponent implements OnInit {
     this.proposalWork.getComment(this.post.id).subscribe((data)=>{
         this.comments=this.comments.concat(data)
         console.log(this.comments)
+        this.commentError=""
         if(data.length<=1){
           this.commentVisibility=true
           if(data.length==0){
@@ -48,28 +51,34 @@ export class FeedComponent implements OnInit {
           this.singleCommentUser=data[0].user.name
           this.commentsMessage="Comments"
         }
+      },
+      (error)=>{
+        if(error.status!=200){
+          console.log("Some error has occured retrieving the comments please reload")
+          this.commentError="Some error has occured retrieving the comments please reload"
+        }
       }
     )
     console.log(this.post.id)
     this.proposalWork.getLike(this.post.id,this.userId).subscribe((data)=>{this.hasLiked=data,console.log(this.hasLiked)})
-
-    
-    
   }
   postComment(id:number){
     this.proposalWork.postComment(id,this.new_comment,this.userId)
     .subscribe(
       (data)=>{
-        this.comments.push({'id':this.post.id,'comment':this.new_comment,'creationDate':new Date(),'user':{
-          'id':JSON.parse(sessionStorage.getItem('authenticatedUser')).id,'name':JSON.parse(sessionStorage.getItem('authenticatedUser')).name}}) 
-        this.new_comment=""
-        this.commentsMessage="Comments"
-      },(error)=>{
-        if(error.status=200){
           this.comments.push({'id':this.post.id,'comment':this.new_comment,'creationDate':new Date(),'user':{
             'id':JSON.parse(sessionStorage.getItem('authenticatedUser')).id,'name':JSON.parse(sessionStorage.getItem('authenticatedUser')).name}}) 
           this.new_comment=""
           this.commentsMessage="Comments"
+      },(error)=>{
+        if(error.status==200){
+          this.comments.push({'id':this.post.id,'comment':this.new_comment,'creationDate':new Date(),'user':{
+            'id':JSON.parse(sessionStorage.getItem('authenticatedUser')).id,'name':JSON.parse(sessionStorage.getItem('authenticatedUser')).name}}) 
+          this.new_comment=""
+          this.commentsMessage="Comments"
+        }
+        if(error.status!=200){
+          this.postCommentError="Some error has occured sending the comment please try again."
         }
       }
       
@@ -78,24 +87,34 @@ export class FeedComponent implements OnInit {
   }
   postLike(id:number){
     if(this.hasLiked){
-      this.proposalWork.postDislike(id,this.userId).subscribe((error)=>{
+      this.proposalWork.postDislike(id,this.userId).subscribe((data)=>{
+        this.hasLiked=false
+        this.numberLikes-=1;
+      },(error)=>{
         if(error.status==200){
-          
+          this.hasLiked=false
+          this.numberLikes-=1;
+        }
+        else{
+          console.log("Some error has happened while disliking, please try again")
         }
       })
       console.log("dislike")
     }
     else{
-      this.proposalWork.postLike(id,this.userId).subscribe((data)=>console.log(data))
-    }
-    console.log("liked "+id+this.userId)
-    if(this.hasLiked){
-      this.hasLiked=false
-      this.numberLikes-=1;
-    }
-    else{
-      this.hasLiked=true
-      this.numberLikes+=1;
+      this.proposalWork.postLike(id,this.userId).subscribe((data)=>{
+        this.hasLiked=false
+        this.numberLikes-=1;
+      },(error)=>{
+        if(error.status==200){
+          this.hasLiked=true
+          this.numberLikes+=1;
+          console.log("liked")
+        }
+        else{
+          console.log("Some error has happened while liking, please try again")
+        }
+      })
     }
   }
   openDialog(id:number){

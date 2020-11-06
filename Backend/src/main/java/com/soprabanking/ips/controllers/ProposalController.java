@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.soprabanking.ips.models.Proposal;
 import com.soprabanking.ips.services.ProposalService;
 
+
 @RestController
 @CrossOrigin
 @RequestMapping("/proposal")
@@ -30,6 +31,31 @@ public class ProposalController {
 		}
 		catch(Exception ex) {
 			return new ResponseEntity<Proposal>(new Proposal(), HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
+
+	@PostMapping(value = "/update", consumes = APPLICATION_JSON_VALUE)
+	public ResponseEntity<Proposal> updateProposal(@RequestBody String body){
+		
+		try {
+			return new ResponseEntity<Proposal>(proposalService.updateProposal(body),HttpStatus.OK);
+		}
+		catch(Exception ex) {
+			return new ResponseEntity<Proposal>(new Proposal(), HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
+
+	@PostMapping(value="/share",consumes = APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> shareProposal(@RequestBody String body)
+	{
+		try
+		{
+			proposalService.shareProposal(body);
+			return new ResponseEntity<String>("SUCCESS",HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<String>("FAILURE",HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
 }
