@@ -99,7 +99,7 @@ public class ProposalService {
 		}
 	}
 	
-public Proposal updateProposal(String body) throws Exception {
+	public Proposal updateProposal(String body) throws Exception {
 		
 		try {
 			
