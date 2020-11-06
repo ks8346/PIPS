@@ -37,7 +37,7 @@ public class Proposal {
 	private Date creationDate;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.PERSIST)
 	@JoinColumn(name = "user_id", nullable = false)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private User user;

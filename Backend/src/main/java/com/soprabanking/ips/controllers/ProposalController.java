@@ -32,4 +32,6 @@ public class ProposalController {
 			return new ResponseEntity<Proposal>(new Proposal(), HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
+	
+	
 }
