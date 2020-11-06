@@ -98,6 +98,7 @@ public class ProposalService {
 			throw new Exception();
 		}
 	}
+
 	
 public Proposal updateProposal(String body) throws Exception {
 		
@@ -122,14 +123,43 @@ public Proposal updateProposal(String body) throws Exception {
 			
 			Proposal addedProposal = proposalDAO.saveProposal(proposal);
 			return addedProposal;
+		}
+		catch(Exception ex)
+		{
+			throw new Exception();
+		}
 			
+	 }
+	public Proposal shareProposal(String body)throws Exception
+	{
+		try
+		{
+			JsonNode jsonObj = JsonUtil.stringToJson(body);
+			Long pid = Long.parseLong(jsonObj.get("id").asText());
+			JsonNode jnode = jsonObj.get("teams");
 			
-			//System.out.println(proposal);
+            Set<Team> teams = new HashSet<>();
 			
-
-			 } 
+			for(JsonNode j : jnode) 
+			{
+				Long tid=(Long.parseLong(j.get("id").asText()));
+				//String tname=(j.get("name").asText());
+				teams.add(teamDAO.getTeam(tid));
+			}
+			
+			Proposal proposal= proposalDAO.getById(pid);
+			
+			for(Team t: teams)
+			{
+				proposal.addTeam(t);
+			}
+			
+			Proposal sharedProposal=proposalDAO.saveProposal(proposal);
+			return sharedProposal;
+		}
 		catch (Exception e) {
 			throw new Exception();
 		}
 	}
+		
 }
