@@ -128,4 +128,20 @@ export class FeedComponent implements OnInit {
       this.show=true
     }
   }
+
+  onDelete(commentId)
+  {
+    // console.log(commentId)
+   
+    this.proposalWork.deleteComment(commentId).subscribe(
+      (error)=>{
+        if(error.status==200)
+        {
+        
+            
+          
+        }
+      }
+    )
+  }
 }
