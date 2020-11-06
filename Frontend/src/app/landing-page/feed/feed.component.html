@@ -30,7 +30,7 @@
             <app-comment *ngIf="!this.commentVisibility && singleComment" class="com" [comment]="singleComment" [userId]="userId" (parentFunction)="onDelete($event)"></app-comment>
         </div>
     </div>
-    <button mat-raised-button color="primary" (click)="this.commentVisibility=true" *ngIf="!this.commentVisibility" style="cursor: pointer;">See Comments</button>
+    <button mat-stroked-button color="primary" (click)="this.commentVisibility=true" *ngIf="!this.commentVisibility" style="height:30px">See Comments</button>
     <div class="commentText row" *ngFor="let comment of this.comments" [class.d-none]="!this.commentVisibility" >
         <div class="col-md-12">
             <app-comment class="com" [class.d-none]="!this.commentVisibility" [comment]="comment" [userId]="userId" (parentFunction)="onDelete($event)"></app-comment>
