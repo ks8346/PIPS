@@ -1,0 +1,27 @@
+
+.selectp{
+width: 90%;
+text-align: justify;
+padding-left: 5%;
+
+}
+
+.bton
+{
+    width: 90%;
+    text-align: center;
+   margin-left: 5%;
+    align-self: center;
+}
+
+.textMessage
+{
+    color: crimson;
+    text-align: center;
+}
+
+.tools{
+    width: 100%;
+    margin-right: 5%;
+}
+   

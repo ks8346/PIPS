@@ -1,0 +1,44 @@
+
+<div mat-dialog-title class="container">
+    <mat-toolbar>
+        <span class="fill-remaining-space"></span>
+        <span>Create Proposal</span>
+        <span class="fill-remaining-space"></span>
+    </mat-toolbar>
+    
+</div>
+
+<form [formGroup]="service.form" class="normal">
+    <div mat-dialog-content class="controles">
+        <input type="hidden" formControlName="key" [(ngModel)]=this.id>
+        <mat-form-field appearance="fill" class="field">
+            <mat-label>Title</mat-label>
+
+
+            <input formControlName="title" matInput placeholder="Title" minlength="6">
+            <mat-error *ngIf="service.form.controls['title'].errors?.required">This field is Mandatory</mat-error>
+            <mat-error *ngIf="service.form.controls['title'].errors?.minlength">Minimum 5 characters needed</mat-error>
+
+        </mat-form-field>
+        <br>
+        <mat-form-field class="field" >
+            <mat-label>Proposal</mat-label>
+            <textarea style="height: 70px;line-height: 16px;" formControlName="description" matInput placeholder="Proposal" maxlength="500" minlength="10" > </textarea>
+            <mat-error *ngIf="service.form.controls['description'].errors?.required">This field is Mandatory</mat-error>
+            <mat-error *ngIf="service.form.controls['description'].errors?.maxlength">Maximum 500 characters</mat-error>
+            <mat-error *ngIf="service.form.controls['description'].errors?.minlength">Minimum 10 characters</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="field" [class.d-none]="!this.teamVisibility">
+            <mat-select  formControlName="teams" matInput placeholder="Team" multiple [(value)]="sentTeam" >
+                <mat-option *ngFor="let team of data.teams" multiple [value]="team">{{team.name}}</mat-option>  
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-action align=end>
+
+       <button mat-raised-button [mat-dialog-close]='this.service.form.value' color="primary" type="submit" [disabled]= "service.form.invalid || service.form.controls['title'].pristine || service.form.controls['teams'].untouched || service.form.controls['description'].pristine" (click)=onSubmit()>submit</button>
+       <button mat-raised-button [mat-dialog-close] color="danger" (click)=onClear()>close</button>
+
+    </div>
+</form>
