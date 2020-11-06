@@ -15,6 +15,7 @@
 }
 .userComment{
     border-right: white 1px solid;
+    font-weight: bold;
 }
 .header{
     height:50px;

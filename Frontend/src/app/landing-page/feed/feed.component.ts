@@ -109,4 +109,9 @@ export class FeedComponent implements OnInit {
       this.show=true
     }
   }
+
+  onDelete(commentId)
+  {
+    console.log(commentId)
+  }
 }
