@@ -33,6 +33,11 @@ public class ProposalController {
 		}
 	}
 
+	@PostMapping("/delete")
+	public ResponseEntity<String> deleteComment(@RequestBody String body){
+		return proposalService.deleteProposal(body)?new ResponseEntity<String>("SUCCESS", HttpStatus.OK):new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
+	}
+
 	@PostMapping(value = "/update", consumes = APPLICATION_JSON_VALUE)
 	public ResponseEntity<Proposal> updateProposal(@RequestBody String body){
 		
@@ -44,8 +49,5 @@ public class ProposalController {
 		}
 	}
 
-	@PostMapping("/delete")
-	public ResponseEntity<String> deleteComment(@RequestBody String body){
-		return proposalService.deleteProposal(body)?new ResponseEntity<String>("SUCCESS", HttpStatus.OK):new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
-	}
+
 }
