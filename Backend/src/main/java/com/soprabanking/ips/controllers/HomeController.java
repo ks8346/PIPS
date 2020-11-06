@@ -168,16 +168,10 @@ public class HomeController
         
        
         	String s= o.writeValueAsString(user);
-		
-<<<<<<< Updated upstream
-        return new AuthenticationBean(s);
-=======
-	//return new AuthenticationBean(s);
-        return new ResponseEntity<AuthenticationBean>(new AuthenticationBean(s),HttpStatus.OK );
->>>>>>> Stashed changes
+        	return new ResponseEntity<AuthenticationBean>(new AuthenticationBean(s),HttpStatus.OK );
+
 		}
 		catch(Exception e) {
-			//return new AuthenticationBean("error");
 			return new ResponseEntity<AuthenticationBean>(HttpStatus.UNAUTHORIZED);
 		}
 	}
