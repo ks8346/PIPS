@@ -122,6 +122,13 @@ public class Proposal {
 	public void setTeams(Set<Team> teams) {
 		this.teams = teams;
 	}
+	public void addTeam(Team team)
+	{
+		if(!this.teams.contains(team))
+		{
+			this.teams.add(team);
+		}
+	}
 	@Override
 	public String toString() {
 		return "Proposal [Id=" + id + ", title=" + title + ", description=" + description + ", upvotesCount="
