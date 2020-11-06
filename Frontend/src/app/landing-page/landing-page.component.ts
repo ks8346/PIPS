@@ -205,6 +205,9 @@ export class LandingPageComponent implements OnInit {
       this.morePost=false;
       this.endMessage="There aren't any proposals to show"
     }
+    else{
+      this.endMessage=""
+    }
   }
   
   destroySession(){
