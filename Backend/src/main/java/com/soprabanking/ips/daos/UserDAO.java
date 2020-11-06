@@ -7,14 +7,12 @@ import com.soprabanking.ips.models.User;
 import com.soprabanking.ips.repositories.UserRepository;
 
 @Component
-public class UserDAO
-{
-	@Autowired
+public class UserDAO {
+    @Autowired
     private UserRepository userRepository;
-	
-	public User getById(Long id)
-	{
-		return userRepository.getOne(id);
-	}
- 
+
+    public User getById(Long id) {
+        return userRepository.getOne(id);
+    }
+
 }

@@ -33,27 +33,27 @@ import com.soprabanking.ips.services.FeedService;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class FeedControllerTest {
-	
-	@Autowired
-	private MockMvc mockMvc;
 
-	@Autowired
-	private ObjectMapper objectMapper;
-	
-	@Mock
-	private FeedService feedService;
-	
-	@Mock
-	private UserRepository userRepository;
-	
-	@Mock
-	private TeamRepository teamRepository;
-	
-	@InjectMocks
-	private FeedController feedController;
-	
-	@Test
-	public void testSave() throws Exception {
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Mock
+    private FeedService feedService;
+
+    @Mock
+    private UserRepository userRepository;
+
+    @Mock
+    private TeamRepository teamRepository;
+
+    @InjectMocks
+    private FeedController feedController;
+
+    @Test
+    public void testSave() throws Exception {
 		
 		/*Date date = new Date();
 		Team team = new Team();
@@ -75,48 +75,48 @@ public class FeedControllerTest {
 				.content(objectMapper.writeValueAsString(user)))
 			.andExpect(status().isOk())
 			.andReturn();*/
-		
-		//assertThat(result.getResponse().getContentAsString())
-			//.isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(user));
-	}
-	
-/////Error with parameters
-	@Test
-	public void testGetAllProposalFeed() throws Exception {
-		
-		
-		String dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
-		//Date date = new SimpleDateFormat(dateFromat).parse("2020-10-29T16:08:59.962+05:30");
-		
-		Date now = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
-		sdf.setTimeZone(TimeZone.getTimeZone("IST"));
-		
-		String ds = sdf.format(now);
-		
-		Proposal proposal1 = new Proposal();
-		Proposal proposal2 = new Proposal();
-		
-		System.out.println(now);
-		System.out.println(ds);
-		
-		List<Proposal> proposals = new ArrayList<>();
-		proposals.add(proposal1);
-		proposals.add(proposal2);
+
+        //assertThat(result.getResponse().getContentAsString())
+        //.isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(user));
+    }
+
+    /////Error with parameters
+    @Test
+    public void testGetAllProposalFeed() throws Exception {
+
+
+        String dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+        //Date date = new SimpleDateFormat(dateFromat).parse("2020-10-29T16:08:59.962+05:30");
+
+        Date now = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+        sdf.setTimeZone(TimeZone.getTimeZone("IST"));
+
+        String ds = sdf.format(now);
+
+        Proposal proposal1 = new Proposal();
+        Proposal proposal2 = new Proposal();
+
+        System.out.println(now);
+        System.out.println(ds);
+
+        List<Proposal> proposals = new ArrayList<>();
+        proposals.add(proposal1);
+        proposals.add(proposal2);
 		
 		/*when(feedService.fetchAllProposals(now, now, 0, 5))
 		.thenReturn(proposals);*/
-	
-		MvcResult actualResult =  mockMvc.perform(post("/feed/all")
-				.param("startDate", ds)
-				.param("endDate", ds)
-				.param("page", "0")
-				.param("size", "5"))
-			.andExpect(status().is4xxClientError())
-			.andReturn();
-		
-		System.out.println(actualResult.getResponse().getContentAsString());
-		//assertThat(actualResult.getResponse().getContentAsString())
-			//.isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(proposals));
-	}
+
+        MvcResult actualResult = mockMvc.perform(post("/feed/all")
+                .param("startDate", ds)
+                .param("endDate", ds)
+                .param("page", "0")
+                .param("size", "5"))
+                .andExpect(status().is4xxClientError())
+                .andReturn();
+
+        System.out.println(actualResult.getResponse().getContentAsString());
+        //assertThat(actualResult.getResponse().getContentAsString())
+        //.isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(proposals));
+    }
 }

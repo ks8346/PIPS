@@ -22,31 +22,31 @@ import com.soprabanking.ips.models.Proposal;
 @SpringBootTest
 public class FeedServiceTest {
 
-	@Mock
-	ProposalDAO proposalDAO;
-	
-	@InjectMocks
-	FeedService feedService;
-	
-	@Test
-	public void testFetchAllProposals() {
-		
-		Proposal proposal1 = new Proposal();
-		Proposal proposal2 = new Proposal();
-		
-		List<Proposal> proposals = new ArrayList<>();
-		proposals.add(proposal1);
-		proposals.add(proposal2);
-		
-		Pageable pageable = PageRequest.of(0, 5);		
-		Date date = new Date();
-		Slice<Proposal> slice = new SliceImpl<>(proposals);
-	
-		when(proposalDAO.fetchAllProposals(date, date, pageable))
-		.thenReturn(slice);
-		
-		/*assertEquals(proposals, feedService.fetchAllProposals(date, date, 0, 5));*/
-	}
-	
-	
+    @Mock
+    ProposalDAO proposalDAO;
+
+    @InjectMocks
+    FeedService feedService;
+
+    @Test
+    public void testFetchAllProposals() {
+
+        Proposal proposal1 = new Proposal();
+        Proposal proposal2 = new Proposal();
+
+        List<Proposal> proposals = new ArrayList<>();
+        proposals.add(proposal1);
+        proposals.add(proposal2);
+
+        Pageable pageable = PageRequest.of(0, 5);
+        Date date = new Date();
+        Slice<Proposal> slice = new SliceImpl<>(proposals);
+
+        when(proposalDAO.fetchAllProposals(date, date, pageable))
+                .thenReturn(slice);
+
+        /*assertEquals(proposals, feedService.fetchAllProposals(date, date, 0, 5));*/
+    }
+
+
 }

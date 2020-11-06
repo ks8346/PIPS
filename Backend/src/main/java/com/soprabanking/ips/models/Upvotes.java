@@ -16,66 +16,60 @@ import org.hibernate.annotations.CascadeType;
 @Entity
 @Table(name = "upvotes")
 public class Upvotes {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
-	@Cascade(CascadeType.PERSIST)
-	private User user;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "proposal_id", nullable = false)
-	@Cascade(CascadeType.PERSIST)
-	private Proposal proposal;
-	
-	public Upvotes() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-	public Long getId() {
-		return id;
-	}
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @Cascade(CascadeType.PERSIST)
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "proposal_id", nullable = false)
+    @Cascade(CascadeType.PERSIST)
+    private Proposal proposal;
+
+    public Upvotes() {
+        // TODO Auto-generated constructor stub
+    }
 
 
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+    public Long getId() {
+        return id;
+    }
 
 
-	public User getUser() {
-		return user;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
 
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
+    public User getUser() {
+        return user;
+    }
 
 
-	public Proposal getProposal() {
-		return proposal;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
 
+    public Proposal getProposal() {
+        return proposal;
+    }
 
-	public void setProposal(Proposal proposal) {
-		this.proposal = proposal;
-	}
+
+    public void setProposal(Proposal proposal) {
+        this.proposal = proposal;
+    }
 
 
-	@Override
-	public String toString() {
-		return "Upvotes [id=" + id + ", user=" + user + ", proposal=" + proposal + "]";
-	}
-
+    @Override
+    public String toString() {
+        return "Upvotes [id=" + id + ", user=" + user + ", proposal=" + proposal + "]";
+    }
 
 
 }
