@@ -18,78 +18,78 @@ import org.hibernate.annotations.CascadeType;
 @Entity
 @Table(name = "comments")
 public class Comment {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	private String comment;
-	private Date creationDate;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id", nullable = false)
-	@Cascade(CascadeType.PERSIST)
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private User user;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "proposal_id", nullable = false)
-	@Cascade(CascadeType.PERSIST)
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private Proposal proposal;
-	
-	public Comment() {
-		// TODO Auto-generated constructor stub
-	}
 
-	public Long getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private String comment;
+    private Date creationDate;
 
-	public String getComment() {
-		return comment;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    @Cascade(CascadeType.PERSIST)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private User user;
 
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "proposal_id", nullable = false)
+    @Cascade(CascadeType.PERSIST)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Proposal proposal;
 
-	public Date getCreationDate() {
-		return creationDate;
-	}
+    public Comment() {
+        // TODO Auto-generated constructor stub
+    }
 
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public User getUser() {
-		return user;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public String getComment() {
+        return comment;
+    }
 
-	public Proposal getProposal() {
-		return proposal;
-	}
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 
-	public void setProposal(Proposal proposal) {
-		this.proposal = proposal;
-	}
+    public Date getCreationDate() {
+        return creationDate;
+    }
 
-	@Override
-	public String toString() {
-		return "Comment{" +
-				"id=" + id +
-				", comment='" + comment + '\'' +
-				", creationDate=" + creationDate +
-				", user=" + user +
-				", proposal=" + proposal +
-				'}';
-	}
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Proposal getProposal() {
+        return proposal;
+    }
+
+    public void setProposal(Proposal proposal) {
+        this.proposal = proposal;
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", comment='" + comment + '\'' +
+                ", creationDate=" + creationDate +
+                ", user=" + user +
+                ", proposal=" + proposal +
+                '}';
+    }
 }
