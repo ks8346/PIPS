@@ -48,10 +48,10 @@ public class ProposalService {
             int page = Integer.parseInt(jsonObj.get("page").asText());
             int size = Integer.parseInt(jsonObj.get("size").asText());
             Long teamId = Long.parseLong(jsonObj.get("teamId").asText());
-
+            if(startDate.after(endDate))
+                return null;
             Team team = teamDAO.getTeam(teamId);
             List<Proposal> proposals = proposalDAO.getDefault(team, startDate, endDate, PageRequest.of(page, size, Sort.Direction.DESC, "upvotesCount"));
-
             return !proposals.isEmpty() ? proposals : null;
 
         } catch (Exception e) {
@@ -63,7 +63,6 @@ public class ProposalService {
         try {
             JsonNode jsonObj = JsonUtil.stringToJson(body);
             Long proposalId = Long.parseLong(jsonObj.get("id").asText());
-            //Proposal proposal=proposalDAO.getById(proposalId);
             commentDao.fetchAllComments(proposalId).forEach(comment -> commentDao.deleteComment(comment.getId()));
             upvotesDAO.fetchAllUpvotes(proposalId).forEach(upvotesDAO::deleteUpvote);
             proposalDAO.deleteProposal(proposalId);
