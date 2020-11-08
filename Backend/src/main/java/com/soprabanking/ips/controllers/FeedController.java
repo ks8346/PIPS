@@ -64,7 +64,7 @@ public class FeedController {
     }
 
     @PostMapping("/team")
-    public ResponseEntity<Object> defaults(@RequestBody String body) {
+    public ResponseEntity<Object> getTeamProposalFeed(@RequestBody String body) {
         Optional<List<Proposal>> optionalProposalDtoList = Optional.ofNullable(proposalService.getDefault(body));
         return optionalProposalDtoList.<ResponseEntity<Object>>map(proposals -> new ResponseEntity<>(proposals, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE));
     }

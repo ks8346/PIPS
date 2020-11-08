@@ -1,18 +1,11 @@
 package com.soprabanking.ips.controllers;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.TimeZone;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.soprabanking.ips.models.Proposal;
+import com.soprabanking.ips.repositories.TeamRepository;
+import com.soprabanking.ips.repositories.UserRepository;
+import com.soprabanking.ips.services.FeedService;
+import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -23,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soprabanking.ips.models.Proposal;
 import com.soprabanking.ips.models.Team;
@@ -31,6 +25,19 @@ import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
 import com.soprabanking.ips.services.FeedService;
 import com.soprabanking.ips.services.FeedServiceTest;
+=======
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.temporal.TemporalAdjusters;
+import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+>>>>>>> 3d06f3554a10a26696a28a10921bcbddf47f8a69
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -72,5 +79,65 @@ public class FeedControllerTest {
 
         assertThat(actualResult.getResponse().getContentAsString())
         .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(proposals));
+    }
+
+    // Team containing feed
+    @Test
+    void getTeamProposalFeed() throws Exception {
+        LocalDate localDate = ZonedDateTime.now(ZoneId.of("UTC")).toLocalDate();
+        Date startDate = Date.from(localDate.with(TemporalAdjusters.firstDayOfMonth()).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Date endDate = Date.from(localDate.with(TemporalAdjusters.lastDayOfMonth()).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        int page = 0, size = 5;
+        Long teamId = 2L;
+
+        String dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+        SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+        sdf.setTimeZone(TimeZone.getTimeZone("Asia/kolkata"));
+        JSONObject body=new JSONObject();
+        body.put("startDate",sdf.format(startDate));
+        body.put("endDate",sdf.format(endDate));
+        body.put("page",page);
+        body.put("size",size);
+        body.put("teamId",teamId);
+
+        MvcResult mvcResult = mockMvc.perform(post("/feed/team")
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(body.toString()))
+                .andExpect(status().is2xxSuccessful())
+                .andReturn();
+
+        List<Proposal> proposals= Arrays.asList(objectMapper.readValue(mvcResult.getResponse().getContentAsString(),Proposal[].class));
+        assertNotNull(proposals);
+
+    }
+
+    // Team containing no feed
+    @Test
+    void getTeamProposalNoFeed() throws Exception {
+        LocalDate localDate = ZonedDateTime.now(ZoneId.of("UTC")).toLocalDate();
+        Date startDate = Date.from(localDate.with(TemporalAdjusters.firstDayOfMonth()).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Date endDate = Date.from(localDate.with(TemporalAdjusters.lastDayOfMonth()).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        int page = 0, size = 5;
+        Long teamId = 1L;
+
+        String dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+        SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+        sdf.setTimeZone(TimeZone.getTimeZone("Asia/kolkata"));
+        JSONObject body=new JSONObject();
+        body.put("startDate",sdf.format(startDate));
+        body.put("endDate",sdf.format(endDate));
+        body.put("page",page);
+        body.put("size",size);
+        body.put("teamId",teamId);
+
+        MvcResult mvcResult = mockMvc.perform(post("/feed/team")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body.toString()))
+                .andExpect(status().is4xxClientError())
+                .andReturn();
+
+        List<Proposal> proposals= Arrays.asList(objectMapper.readValue(mvcResult.getResponse().getContentAsString(),Proposal[].class));
+        assertTrue(proposals.isEmpty());
+
     }
 }

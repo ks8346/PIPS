@@ -28,8 +28,7 @@ export class CommentComponent implements OnInit {
 
   deleteComment()
   {
-      //  console.log(this.commentId)
-
+      
        this.parentFunction.emit(this.commentId) 
   }
 
