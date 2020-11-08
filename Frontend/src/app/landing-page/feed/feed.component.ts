@@ -35,6 +35,7 @@ export class FeedComponent implements OnInit {
     this.proposalWork.getLike(this.post.id,this.userId).subscribe((data)=>{this.hasLiked=data,console.log(this.hasLiked)})
     this.proposalWork.getComment(this.post.id).subscribe(
       (data)=>{
+       
         this.comments=this.comments.concat(data)
         console.log(this.comments)
         this.commentError=""
@@ -68,6 +69,7 @@ export class FeedComponent implements OnInit {
           this.new_comment=""
           this.commentsMessage="Comments"
       },(error)=>{
+       // console.log(id)
         if(error.status==200){
           this.comments.push({'id':this.post.id,'comment':this.new_comment,'creationDate':new Date(),'user':{
             'id':JSON.parse(sessionStorage.getItem('authenticatedUser')).id,'name':JSON.parse(sessionStorage.getItem('authenticatedUser')).name}}) 
@@ -82,6 +84,7 @@ export class FeedComponent implements OnInit {
     );
     console.log(id+this.userId+this.new_comment)
   }
+
   postLike(id:number){
     if(this.hasLiked){
       this.proposalWork.postDislike(id,this.userId).subscribe((data)=>{
@@ -137,5 +140,6 @@ export class FeedComponent implements OnInit {
         }
       }
     )
+   
   }
 }

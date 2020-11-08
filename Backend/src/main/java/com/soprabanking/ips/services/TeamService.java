@@ -11,17 +11,16 @@ import com.soprabanking.ips.models.Team;
 @Service
 public class TeamService {
 
-	@Autowired
-	private TeamDAO teamDAO;
-	
-	public List<Team> fetchAllTeams() throws Exception {
-		
-		try {
-			return teamDAO.fetchAllTeams();
-		}
-		catch(Exception ex){
-			throw new Exception();
-		}
-	}
-	
+    @Autowired
+    private TeamDAO teamDAO;
+
+    public List<Team> fetchAllTeams() throws Exception {
+
+        try {
+            return teamDAO.fetchAllTeams();
+        } catch (Exception ex) {
+            throw new Exception();
+        }
+    }
+
 }
