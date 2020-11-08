@@ -14,8 +14,9 @@ export class PostProposalService {
     console.log(data.key)
     data.value.key=data.key
     if(!data.value.key){
-      data.key="null"
-      console.log(data)
+      data.value.key="null"
+      console.log(data.value)
+      data.value.userId=userId
       return this.http.post(this.createUrl,data.value)
     }
     else{

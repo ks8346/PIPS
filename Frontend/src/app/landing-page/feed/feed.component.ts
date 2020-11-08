@@ -26,8 +26,13 @@ export class FeedComponent implements OnInit {
   public hasLiked=false;
   constructor(public proposalWork:ProposalService) { }
   ngOnInit(): void {
-    if(this.type=="yourPost"){
+    if(this.post.user.id==this.userId){
+      console.log("user id",this.userId,this.post.user)
       this.canUpdate=true
+    }
+    else{
+      console.log("user id",this.userId,this.post.user)
+      this.canUpdate=false
     }
     this.numberLikes=this.post.upvotesCount;
     
@@ -68,6 +73,12 @@ export class FeedComponent implements OnInit {
             'id':JSON.parse(sessionStorage.getItem('authenticatedUser')).id,'name':JSON.parse(sessionStorage.getItem('authenticatedUser')).name}}) 
           this.new_comment=""
           this.commentsMessage="Comments"
+          this.proposalWork.getComment(this.post.id).subscribe(
+            (data)=>{
+              this.comments=[]
+              this.comments=this.comments.concat(data)
+            }
+          )
       },(error)=>{
        // console.log(id)
         if(error.status==200){
@@ -75,6 +86,12 @@ export class FeedComponent implements OnInit {
             'id':JSON.parse(sessionStorage.getItem('authenticatedUser')).id,'name':JSON.parse(sessionStorage.getItem('authenticatedUser')).name}}) 
           this.new_comment=""
           this.commentsMessage="Comments"
+          this.proposalWork.getComment(this.post.id).subscribe(
+            (data)=>{
+              this.comments=[]
+              this.comments=this.comments.concat(data)
+            }
+          )
         }
         if(error.status!=200){
           this.postCommentError="Some error has occured sending the comment please try again."

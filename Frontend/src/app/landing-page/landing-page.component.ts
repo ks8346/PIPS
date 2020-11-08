@@ -117,6 +117,7 @@ export class LandingPageComponent implements OnInit {
     this.data.page=this.page.toString()
     this.selectApi(this.type)
     this.morePost=true
+    this.endMessage=""
   }
   
   onScroll(){
@@ -203,7 +204,7 @@ export class LandingPageComponent implements OnInit {
   errorHandling(error){
     if(error.status==406){
       this.morePost=false;
-      this.endMessage="There aren't any proposals to show"
+      this.endMessage="There aren't any more proposals to show"
     }
     else{
       this.endMessage=""
