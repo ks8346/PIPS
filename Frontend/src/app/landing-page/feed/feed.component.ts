@@ -3,6 +3,7 @@ import { Post } from 'src/app/post';
 import {ProposalService} from '../proposal.service';
 import {Comment} from '../comment'
 import { JsonPipe } from '@angular/common';
+
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
@@ -21,6 +22,7 @@ export class FeedComponent implements OnInit {
   commentError:string;
   postCommentError:string;
   @Output() update=new EventEmitter;
+  @Output() deleteProposal=new EventEmitter;
   @Input() userId:number;
   @Input() type:string;
   public hasLiked=false;
@@ -98,6 +100,7 @@ export class FeedComponent implements OnInit {
         }
       }
       
+      
     );
     console.log(id+this.userId+this.new_comment)
   }
@@ -158,5 +161,24 @@ export class FeedComponent implements OnInit {
       }
     )
    
+  }
+ 
+  delProposal()
+  {
+    this.proposalWork.deletePost(this.post.id).subscribe(
+      (data)=>{
+        console.log(data)
+        this.deleteProposal.emit(this.post.id)
+      },
+      (error)=>{
+        if(error.status==406){
+          console.log("Error deleting proposal")
+        }
+        else if(error.status==200){
+          console.log(error)
+          this.deleteProposal.emit(this.post.id)
+        }
+      }
+    )
   }
 }
