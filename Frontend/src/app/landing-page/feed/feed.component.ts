@@ -81,6 +81,7 @@ export class FeedComponent implements OnInit {
         }
       }
       
+      
     );
     console.log(id+this.userId+this.new_comment)
   }
