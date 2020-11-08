@@ -3,6 +3,7 @@ import { Post } from 'src/app/post';
 import {ProposalService} from '../proposal.service';
 import {Comment} from '../comment'
 import { JsonPipe } from '@angular/common';
+
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
@@ -159,5 +160,17 @@ export class FeedComponent implements OnInit {
       }
     )
    
+  }
+ 
+  deleteProposal()
+  {
+    this.proposalWork.deletePost(this.post.id).subscribe((data)=>console.log(data),
+    (error)=>{
+      if(error.status==406){
+       // this.post=this.post.filter(item => item.id != this.post.id);
+      }
+    }
+   
+    )
   }
 }
