@@ -53,7 +53,7 @@ public class ProposalController {
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<String> deleteComment(@RequestBody String body) {
-        return proposalService.deleteProposal(body) ? new ResponseEntity<String>("SUCCESS", HttpStatus.OK) : new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
+    public ResponseEntity<String> deleteProposal(@RequestBody String body) {
+        return proposalService.deleteProposal(body) ? new ResponseEntity<>("SUCCESS", HttpStatus.OK) : new ResponseEntity<>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
     }
 }
