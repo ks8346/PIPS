@@ -26,8 +26,13 @@ export class FeedComponent implements OnInit {
   public hasLiked=false;
   constructor(public proposalWork:ProposalService) { }
   ngOnInit(): void {
-    if(this.type=="yourPost"){
+    if(this.post.user.id==this.userId){
+      console.log("user id",this.userId,this.post.user)
       this.canUpdate=true
+    }
+    else{
+      console.log("user id",this.userId,this.post.user)
+      this.canUpdate=false
     }
     this.numberLikes=this.post.upvotesCount;
     
