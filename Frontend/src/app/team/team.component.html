@@ -1,0 +1,53 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <a href="https://www.soprabanking.com/"><img src="assets/img/LOGO.png" alt="title logo" style="height: 40px;width:auto;"></a>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="formContainer">
+    <form [formGroup]= "teamForm" (ngSubmit)="onSubmit()" >
+     
+        <div>
+            <h2 style="text-align: center;"> Select Your Team </h2>
+        </div>
+
+        <mat-grid-list cols="7">
+            <mat-grid-tile colspan="3">
+                <label for="sbsiTeam">Enter Team Name: </label>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="3">
+                <mat-form-field appearance ="fill" style="width:100%">
+                    <mat-select formControlName="team"  [(ngModel)]="selectedTeam" required >
+                        <mat-option value = "others" selected>Create a new team</mat-option>
+                        <mat-option *ngFor="let team of teams" [value]="team">{{team}} </mat-option>    
+                    </mat-select>
+                    <mat-error *ngIf="teamForm.controls.team.hasError('required')">Please make a selection</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="1"></mat-grid-tile>
+    
+            <mat-grid-tile colspan="3" *ngIf="selectedTeam == 'others'">
+                <label for="sbsiTeam" [class.d-none]="selectedTeam!='others'">Enter Team Name:</label>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="3" *ngIf="selectedTeam == 'others'">
+                <mat-form-field appearance ="fill" [class.d-none]="selectedTeam!='others'" style="width:100%">
+                    <input matInput type="text"  formControlName="team" required />
+                    <mat-error *ngIf="teamForm.controls.team.hasError('minlength')">Too short</mat-error>
+                    <mat-error *ngIf="teamForm.controls.team.hasError('maxlength')">Too long</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="1" *ngIf="selectedTeam == 'others'"></mat-grid-tile>
+        
+            <mat-grid-tile colspan="7">
+                <button [disabled]="loading" class="btn btn-primary" >
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Submit
+                </button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>    
+</div>
