@@ -2,6 +2,7 @@ import { Component, OnInit ,HostListener} from '@angular/core';
 import { GetProposalsService } from '../get-proposals.service';
 import {MatDialog} from '@angular/material/dialog';
 import { CreateProposalComponent } from './create-proposal/create-proposal.component';
+import { ShareProposalComponent } from './feed/share-proposal/share-proposal.component';
 import {PostProposalService} from 'src/app/post-proposal.service'
 import { FeedParams } from '../feed-params';
 import {TeamsService} from '../teams.service'
@@ -138,6 +139,15 @@ export class LandingPageComponent implements OnInit {
       console.log(this.newFeed)
       this.newFeed=[]
     }
+  }
+  openDialogshare(post){
+    let dialogRef = this.dialog.open(ShareProposalComponent, {
+      height: '400px',
+      width: '600px',
+      data:{prop:post.teams,teams:this._teams}
+    });
+    dialogRef.afterClosed().subscribe(result =>{console.log(result)})
+
   }
   
   openDialog(id?:number){

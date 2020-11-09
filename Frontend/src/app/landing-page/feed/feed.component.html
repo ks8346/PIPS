@@ -14,7 +14,10 @@
     <section>
         <button mat-icon-button [class.text-danger]="this.hasLiked" class="likeButton" (click)="postLike(post.id)">
             <mat-icon>favorite</mat-icon>
-        </button><p style="display:inline">{{this.numberLikes}} people upvoted this</p>
+        </button>
+        <button mat-icon-button  class="shareButton" (click)="openDialogshare()">
+            <mat-icon>share</mat-icon></button>
+        <p style="display:inline">{{this.numberLikes}} people upvoted this</p>
 
         <div class="example-button-container" [class.d-none]="!this.canUpdate">
             <button mat-mini-fab color="primary" (click)="delProposal()"  style="margin-left:1%;float:right; height:35px;width:35px">

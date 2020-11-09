@@ -22,6 +22,7 @@ export class FeedComponent implements OnInit {
   commentError:string;
   postCommentError:string;
   @Output() update=new EventEmitter;
+  @Output() share=new EventEmitter;
   @Output() deleteProposal=new EventEmitter;
   @Input() userId:number;
   @Input() type:string;
@@ -137,6 +138,10 @@ export class FeedComponent implements OnInit {
       })
     }
   }
+  openDialogshare(post){
+    this.share.emit(post)
+  }
+
   openDialog(id:number){
     this.update.emit(id)
   }
