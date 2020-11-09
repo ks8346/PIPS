@@ -41,7 +41,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { CommentComponent } from './landing-page/feed/comment/comment.component';
 import { ShareProposalComponent } from './landing-page/feed/share-proposal/share-proposal.component';
 import { TeamComponent } from './team/team.component';
-
+import { ForgetPasswordComponent} from './forget-password/forget-password.component';
+import { MatSelectFilterModule } from 'mat-select-filter';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { TeamComponent } from './team/team.component';
     CreateProposalComponent,
     CommentComponent,
     ShareProposalComponent,
-    TeamComponent
+    TeamComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,8 @@ import { TeamComponent } from './team/team.component';
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectFilterModule
   ],
   providers: [
     UserRegisterService,
