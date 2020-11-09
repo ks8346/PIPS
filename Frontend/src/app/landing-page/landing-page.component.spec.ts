@@ -9,6 +9,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { MAT_DIALOG_DATA, MatDialogRef,MatDialogModule,MatDialog } from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu'
 import {Overlay} from '@angular/cdk/overlay'
+import {User} from '../user';
+import {AuthorizationService} from '../authorization.service'
+import { of } from 'rxjs';
+import {GetProposalsService} from '../get-proposals.service'
 describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
   let fixture: ComponentFixture<LandingPageComponent>;
@@ -21,7 +25,9 @@ describe('LandingPageComponent', () => {
         {provide:Overlay},
         {provide:MatDialog},
         { provide: MAT_DIALOG_DATA, useValue: {} },
-        { provide: MatDialogRef, useValue: {} }],
+        { provide: MatDialogRef, useValue: {} },
+        {provide:AuthorizationService}
+      ],
       declarations: [ LandingPageComponent ]
     })
     .compileComponents();
@@ -30,46 +36,38 @@ describe('LandingPageComponent', () => {
   });
 
   beforeEach(() => {
+    let team={id:1,name:"Devs"}
+    const user=new User(1,"Kartik","ks8346@gmail.com",team)
     fixture = TestBed.createComponent(LandingPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    let store = {};
-    const mockLocalStorage = {
-    getItem: (key: string): string => {
-      return key in store ? store[key] : null;
-    },
-    setItem: (key: string, value: string) => {
-      store[key] = `${value}`;
-    }};
-    // const store={getUser:{
-    //   id:1,
-    //   name:"Kartik",
-    //   email:"ks8346@gmail.com",
-    //   team:{
-    //     id:1,
-    //     name:"Devs"
-    //   }
-    // }}
-    // spyOn(sessionStorage, 'getItem').and.callFake(
-    //   store.getUser
-    // );
-    spyOn(sessionStorage, 'getItem').and.callFake(
-        mockLocalStorage.getItem
+    // let store = {};
+    // const mockLocalStorage = {
+    // getItem: (key: string): string => {
+    //   return key in store ? store[key] : null;
+    // },
+    // setItem: (key: string, value: string) => {
+    //   store[key] = `${value}`;
+    // }};
+    // mockLocalStorage.setItem('authenticated',JSON.stringify(user)) 
+    let autho:AuthorizationService;
+    spyOn(autho, 'authorization').and.returnValue( 
+      JSON.stringify(user)
     );
   });
 
   it('should create Session', () => {
-    expect(component.User).toBeTruthy();
+    expect(component.user).toBeTruthy()
   });
 
   it("should flood feed array",()=>{
     component.getAll()
-    expect(component.feed.length).toBeGreaterThan(0)
+    spyOn(component,"getAll").and.callThrough()
   })
 
   it("should flood feed array",()=>{
     component.getTeam()
-    expect(component.feed.length).toBeGreaterThan(0)
+    spyOn(component,"getTeam").and.callThrough()
   })
 
   it("should filter the data",()=>{
