@@ -19,7 +19,7 @@ describe('PostProposalService', () => {
     expect(service).toBeTruthy();
   });
   it('should be sent in proposal format', () => {
-    const data={
+    const data={value:{
       key : "null",
       title : "this is a title",
       description : "This is a description",
@@ -33,7 +33,8 @@ describe('PostProposalService', () => {
               id : "2",
               name : "DevsBackend"
           }
-      ]
+      ]},
+      key:null
     }
     service.postProposal(data,2).subscribe(
       (result)=>expect(result).toEqual(data),fail

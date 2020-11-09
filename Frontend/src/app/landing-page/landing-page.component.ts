@@ -25,8 +25,8 @@ export class LandingPageComponent implements OnInit {
   authenticatedUser:string;
   proposalError:string;
   User:{
-    id:number;
-    name:string;
+    id:number,
+    name:string,
     email:string,
     team:{
       id:number,
@@ -142,11 +142,19 @@ export class LandingPageComponent implements OnInit {
   }
   openDialogshare(post){
     let dialogRef = this.dialog.open(ShareProposalComponent, {
-      height: '400px',
-      width: '600px',
+      height: '250px',
+      width: '400px',
       data:{prop:post.teams,teams:this._teams}
     });
-    dialogRef.afterClosed().subscribe(result =>{console.log(result)})
+    dialogRef.afterClosed().subscribe(result =>{
+      this.post.shareProposal(result,post.id).subscribe(
+        (data)=>console.log(data),
+        (error)=>{
+          if(error.status==200){
+            window.location.reload()
+          }
+        })
+    })
 
   }
   

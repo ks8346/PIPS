@@ -138,8 +138,8 @@ export class FeedComponent implements OnInit {
       })
     }
   }
-  openDialogshare(post){
-    this.share.emit(post)
+  openDialogshare(){
+    this.share.emit(this.post)
   }
 
   openDialog(id:number){

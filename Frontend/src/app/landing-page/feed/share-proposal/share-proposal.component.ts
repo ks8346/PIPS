@@ -19,7 +19,30 @@ export class ShareProposalComponent implements OnInit {
     
 
   ngOnInit(): void {
-    this.sentTeam=this.data.teams.filter(item => this.data.prop.indexOf(item) == -1);
+    console.log(this.data.teams,this.data.prop)
+    this.sentTeam=this.data.teams.filter(item => {
+      let flag=true;
+      for(let team of this.data.prop){
+        if(team.id==item.id){
+          flag=false
+        }
+      }
+      if(flag)
+        return item 
+    });
+    console.log(this.sentTeam)
+  }
+  selected(team){
+    for(let item of this.data.prop){
+      let flag=true;
+      if(item.id==team.id){
+        flag=false
+      }
+      if(flag==false)
+        return true
+      else
+        return false
+    }
   }
   onSubmit(){
     console.log(this.updateForm.value);
