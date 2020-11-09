@@ -1,1 +1,21 @@
-<p>share-proposal works!</p>
+<div mat-dialog-title class="container">
+    <mat-toolbar>
+        <span class="fill-remaining-space"></span>
+        <span>Share Proposal</span>
+        <span class="fill-remaining-space"></span>
+    </mat-toolbar>
+</div>
+<form [formGroup]="updateForm" class="normal">
+    <div mat-dialog-content class="controles">
+        <mat-form-field class="field">
+            <mat-select  formControlName="teams" matInput placeholder="Team" multiple [(value)]="sentTeam" >
+                <mat-option *ngFor="let team of sentTeam" multiple [value]="team">{{team.name}}</mat-option>  
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-action align=end>
+
+        <button mat-raised-button [mat-dialog-close]='this.updateForm.value' color="primary" type="submit" [disabled]= "updateForm.invalid || updateForm.controls['teams'].untouched" (click)=onSubmit()>submit</button>
+ 
+     </div>
+</form>

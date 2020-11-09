@@ -2,7 +2,6 @@
 package com.soprabanking.ips.controllers;
 
 
-
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,30 +19,25 @@ import com.soprabanking.ips.models.User;
 @Controller
 @RequestMapping("/user")
 
-public class UserController
-{
-	@Autowired
+public class UserController {
+    @Autowired
     private UserRepository userRepository;
-	@GetMapping("/index")
-	@ResponseBody
-	public User dashboard(Principal principal)
-	{
-		
-		String userName=principal.getName();
-		//get the user using username 
-		
-		User user=userRepository.getUserByUserName(userName);
-		//String name = user.getName();
-		//System.out.println("USER"+user);
-	    //return "!!Welcome Landing Page !!" +"Your Informations are :" + "\n" +"userId : " + user.getId()+ "\n" +"name : " + user.getName() + "\n" + "Email : " + user.getEmail()+ "\n"  ;
-	    return user;
-	}
-	
- 
-    
 
-	
-	
+    @GetMapping("/index")
+    @ResponseBody
+    public User dashboard(Principal principal) {
+
+        String userName = principal.getName();
+        //get the user using username
+
+        User user = userRepository.getUserByUserName(userName);
+        //String name = user.getName();
+        //System.out.println("USER"+user);
+        //return "!!Welcome Landing Page !!" +"Your Informations are :" + "\n" +"userId : " + user.getId()+ "\n" +"name : " + user.getName() + "\n" + "Email : " + user.getEmail()+ "\n"  ;
+        return user;
+    }
+
+
 }
 	
 

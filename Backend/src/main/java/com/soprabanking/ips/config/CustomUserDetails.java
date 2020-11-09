@@ -12,65 +12,62 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.soprabanking.ips.models.User;
 
 
-
 public class CustomUserDetails implements UserDetails {
 
-	private User user;
+    private User user;
 
-	public CustomUserDetails(User user) {
-		super();
-		this.user = user;
-	}
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
+    public CustomUserDetails(User user) {
+        super();
+        this.user = user;
+    }
 
-		SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(user.getRole());
-		return List.of(simpleGrantedAuthority);
-	}
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
 
-
-	@Override
-	public String getPassword() {
-		return user.getPassword();
-	}
-
-	@Override
-	public String getUsername() {
-
-		return user.getEmail();
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-
-		return true;
-	}
-	@Override
-	public String toString() {
-		return "CustomUserDetails [user=" + user + "]";
-	}
-	
-	
+        SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(user.getRole());
+        return List.of(simpleGrantedAuthority);
+    }
 
 
+    @Override
+    public String getPassword() {
+        return user.getPassword();
+    }
+
+    @Override
+    public String getUsername() {
+
+        return user.getEmail();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "CustomUserDetails [user=" + user + "]";
+    }
 
 
 }

@@ -1,4 +1,5 @@
 package com.soprabanking.ips.controllers;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import java.util.ArrayList;
@@ -19,47 +20,40 @@ import com.soprabanking.ips.services.CommentService;
 @RestController
 @CrossOrigin
 @RequestMapping("/comment")
-public class CommentController 
-{
-	@Autowired
-   private CommentService commentService;
-	
-	@PostMapping(value="/all",consumes =APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Comment>> displayComments(@RequestBody String body)
-	{
-		try{
-			return new ResponseEntity<List<Comment>>(commentService.displayComments(body),HttpStatus.OK);
-		}
-		
-		catch(Exception ex){
-			return new ResponseEntity<List<Comment>>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);
-		}
-	}
-	
-	@PostMapping(value="/add",consumes =APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> addComment(@RequestBody String body)
-	{
-		try{
-			commentService.addComment(body);
-		    return new ResponseEntity<String>("SUCCESS",HttpStatus.OK);
-         
-		}
-		catch(Exception ex){
-			return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
-		}
-	}
-	
-	@PostMapping(value = "/delete", consumes = APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> deleteComment(@RequestBody String body){
-		
-		try {
-			commentService.deleteComment(body);
-			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
-			
-		}
-		catch(Exception  ex) {
-			return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
-		}
-	}
-   
+public class CommentController {
+    @Autowired
+    private CommentService commentService;
+
+    @PostMapping(value = "/all", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Comment>> displayComments(@RequestBody String body) {
+        try {
+            return new ResponseEntity<List<Comment>>(commentService.displayComments(body), HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<List<Comment>>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);
+        }
+    }
+
+    @PostMapping(value = "/add", consumes = APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> addComment(@RequestBody String body) {
+        try {
+            commentService.addComment(body);
+            return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+
+        } catch (Exception ex) {
+            return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
+        }
+    }
+
+    @PostMapping(value = "/delete", consumes = APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> deleteComment(@RequestBody String body) {
+
+        try {
+            commentService.deleteComment(body);
+            return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+
+        } catch (Exception ex) {
+            return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
+        }
+    }
+
 }

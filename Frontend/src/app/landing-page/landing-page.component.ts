@@ -2,6 +2,7 @@ import { Component, OnInit ,HostListener} from '@angular/core';
 import { GetProposalsService } from '../get-proposals.service';
 import {MatDialog} from '@angular/material/dialog';
 import { CreateProposalComponent } from './create-proposal/create-proposal.component';
+import { ShareProposalComponent } from './feed/share-proposal/share-proposal.component';
 import {PostProposalService} from 'src/app/post-proposal.service'
 import { FeedParams } from '../feed-params';
 import {TeamsService} from '../teams.service'
@@ -24,8 +25,8 @@ export class LandingPageComponent implements OnInit {
   authenticatedUser:string;
   proposalError:string;
   User:{
-    id:number;
-    name:string;
+    id:number,
+    name:string,
     email:string,
     team:{
       id:number,
@@ -117,6 +118,7 @@ export class LandingPageComponent implements OnInit {
     this.data.page=this.page.toString()
     this.selectApi(this.type)
     this.morePost=true
+    this.endMessage=""
   }
   
   onScroll(){
@@ -138,6 +140,15 @@ export class LandingPageComponent implements OnInit {
       this.newFeed=[]
     }
   }
+  openDialogshare(post){
+    let dialogRef = this.dialog.open(ShareProposalComponent, {
+      height: '250px',
+      width: '400px',
+      data:{prop:post.teams,teams:this._teams}
+    });
+    dialogRef.afterClosed().subscribe(result =>{console.log(result)})
+
+  }
   
   openDialog(id?:number){
     let dialogRef = this.dialog.open(CreateProposalComponent, {
@@ -147,7 +158,7 @@ export class LandingPageComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if(result){
-        console.log(`Dialog result: ${result.teams.length} `);
+        // console.log(`Dialog result: ${result.teams.length} `);
 
         this.post.postProposal(result,this.userId).subscribe(
           (data)=>{
@@ -203,12 +214,20 @@ export class LandingPageComponent implements OnInit {
   errorHandling(error){
     if(error.status==406){
       this.morePost=false;
-      this.endMessage="There aren't any proposals to show"
+      this.endMessage="There aren't any more proposals to show"
+    }
+    else{
+      this.endMessage=""
     }
   }
   
   destroySession(){
     sessionStorage.clear()
     this.router.navigate(['/home']);
+  }
+
+  deleteProposal(id){
+    console.log("in delete proposal")
+    this.feed=this.feed.filter(item => item.id != id);
   }
 }
