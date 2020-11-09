@@ -63,9 +63,6 @@ public class FeedControllerTest {
     @Mock
     private TeamRepository teamRepository;
 
-    @Autowired
-    private FeedController feedController;
-
    
     @Test
     public void testGetAllProposalFeed() throws Exception {
@@ -89,6 +86,32 @@ public class FeedControllerTest {
 
         assertThat(actualResult.getResponse().getContentAsString())
         .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(proposals));
+    }
+    
+    @Test
+    public void testGetAllProposalFeedNoFeed() throws Exception {
+
+        Proposal proposal1 = new Proposal();
+        Proposal proposal2 = new Proposal();
+
+        List<Proposal> proposals = new ArrayList<>();
+        proposals.add(proposal1);
+        proposals.add(proposal2);
+        
+        String body = feedServiceTest.createAllFeedParams(new Date().toString(), "all");
+        
+        when(feedService.fetchAllProposals(body)).thenReturn(new ArrayList<>());
+
+        MvcResult actualResult = mockMvc.perform(post("/feed/all")
+        		.contentType(MediaType.APPLICATION_JSON)
+                .content(body))
+                .andExpect(status().is4xxClientError())
+                .andReturn();
+
+        List<Proposal> result= Arrays.asList(objectMapper.readValue(actualResult.getResponse().getContentAsString(),Proposal[].class));
+        assertTrue(result.isEmpty());
+//        assertThat(actualResult.getResponse().getContentAsString())
+//        .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(proposals));
     }
     
     @Test
@@ -117,7 +140,31 @@ public class FeedControllerTest {
 
     }
     
-    
+    @Test
+    public void testGetUserProposalFeedNoFeed() throws Exception {
+
+        Proposal proposal1 = new Proposal();
+        Proposal proposal2 = new Proposal();
+
+        List<Proposal> proposals = new ArrayList<>();
+        proposals.add(proposal1);
+        proposals.add(proposal2);
+
+        
+        String body = feedServiceTest.createAllFeedParams(new Date().toString(), "create");
+        
+        when(feedService.fetchUserProposals(body)).thenReturn(new ArrayList<>());
+        
+        MvcResult actualResult = mockMvc.perform(post("/feed/create")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body.toString()))
+                .andExpect(status().is4xxClientError())
+                .andReturn();
+
+        List<Proposal> result= Arrays.asList(objectMapper.readValue(actualResult.getResponse().getContentAsString(),Proposal[].class));
+        assertTrue(result.isEmpty());
+
+    }
 
     // Team containing feed
     @Test
