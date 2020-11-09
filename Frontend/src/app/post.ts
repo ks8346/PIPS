@@ -1,6 +1,5 @@
 export class Post {
-    constructor(
-        public creationDate: Date,  
+    constructor(  
         public description: string,
         public id: number,
         public teams:[],

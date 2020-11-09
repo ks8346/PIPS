@@ -28,9 +28,10 @@
                 <div>
                     <div *ngFor="let post of feed;index as i">
                         <div style="background-color: white;margin: 2% auto;border-radius: 10px;">
-                            <app-feed class="feed" [post]="post" [userId]="userId" [type]="type" (update)="openDialog($event)"></app-feed>
+                            <app-feed class="feed" [post]="post" [userId]="userId" [type]="type" (update)="openDialog($event)" (share)="openDialogshare($event)" (deleteProposal)="deleteProposal($event)"></app-feed>
                         </div>
                     </div>
+                    <div class="endMessage">{{this.endMessage}}</div>
                 </div>
             </div> 
         </div>

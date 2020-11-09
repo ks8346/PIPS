@@ -7,17 +7,25 @@ import {Proposal} from './proposal'
 export class PostProposalService {
   public sentTeams:{}[]
   private createUrl="http://localhost:8080/proposal/add";
-  private updateUrl="";
+  private updateUrl="http://localhost:8080/proposal/update";
+  private shareUrl="http://localhost:8080/proposal/share"
   constructor(private http:HttpClient) { }
+  shareProposal(data){
+    this.http.post(this.shareUrl,data)
+  }
   postProposal(data,userId){
     data.userId=userId
-    if(!data.key){
-      data.key="null"
-      console.log(data)
-      return this.http.post(this.createUrl,data)
+    console.log(data.key)
+    data.value.key=data.key
+    if(!data.value.key){
+      data.value.key="null"
+      console.log(data.value)
+      data.value.userId=userId
+      return this.http.post(this.createUrl,data.value)
     }
     else{
-      return this.http.post(this.updateUrl,data)
+      console.log("Updated")
+      return this.http.post(this.updateUrl,data.value)
     }
     
   }

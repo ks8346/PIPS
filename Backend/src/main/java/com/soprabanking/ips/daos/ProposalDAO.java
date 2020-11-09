@@ -15,40 +15,39 @@ import com.soprabanking.ips.repositories.ProposalRepository;
 @Component
 public class ProposalDAO {
 
-	@Autowired
-	private ProposalRepository proposalRepository;
-	
-	public Slice<Proposal> fetchAllProposals(Date startDate, Date endDate, Pageable pageable) {
-		
-		return proposalRepository.findAllByCreationDateBetweenOrderByUpvotesCountDesc(startDate, endDate, pageable);
-		
-	}
+    @Autowired
+    private ProposalRepository proposalRepository;
+
+    public Slice<Proposal> fetchAllProposals(Date startDate, Date endDate, Pageable pageable) {
+
+        return proposalRepository.findAllByCreationDateBetweenOrderByUpvotesCountDesc(startDate, endDate, pageable);
+
+    }
 
 
-	public List<Proposal> getDefault(Team team, Date start, Date end, Pageable pageable){
-		return proposalRepository.findByTeamsAndCreationDateBetween(team,start,end,pageable);
+    public List<Proposal> getDefault(Team team, Date start, Date end, Pageable pageable) {
+        return proposalRepository.findByTeamsAndCreationDateBetween(team, start, end, pageable);
 
-	}
-	
-	public Slice<Proposal> fetchUserProposals(Long id, Date startDate, Date endDate, Pageable pageable){
-		
-		return proposalRepository.findAllByUserIdAndCreationDateBetweenOrderByUpvotesCountDesc(id, startDate, endDate, pageable);
-	}
+    }
 
-	public Proposal getById(Long id)
-	{
-		return proposalRepository.getOne(id);
+    public Slice<Proposal> fetchUserProposals(Long id, Date startDate, Date endDate, Pageable pageable) {
 
-	}
+        return proposalRepository.findAllByUserIdAndCreationDateBetweenOrderByUpvotesCountDesc(id, startDate, endDate, pageable);
+    }
 
-	public void deleteProposal(Long id){
-		proposalRepository.deleteById(id);
-	}
-	
-	public Proposal saveProposal(Proposal p) {
-		
-		Proposal proposal = proposalRepository.save(p);
-		return proposal;
-	}
-	
+    public Proposal getById(Long id) {
+        return proposalRepository.getOne(id);
+
+    }
+
+    public void deleteProposal(Long id) {
+        proposalRepository.deleteById(id);
+    }
+
+    public Proposal saveProposal(Proposal p) {
+
+        Proposal proposal = proposalRepository.save(p);
+        return proposal;
+    }
+
 }
