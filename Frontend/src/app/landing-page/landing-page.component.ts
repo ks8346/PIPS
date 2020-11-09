@@ -215,4 +215,9 @@ export class LandingPageComponent implements OnInit {
     sessionStorage.clear()
     this.router.navigate(['/home']);
   }
+
+  deleteProposal(id){
+    console.log("in delete proposal")
+    this.feed=this.feed.filter(item => item.id != id);
+  }
 }
