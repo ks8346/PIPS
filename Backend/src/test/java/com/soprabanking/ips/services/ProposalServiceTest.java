@@ -1,24 +1,16 @@
 package com.soprabanking.ips.services;
 
-import com.soprabanking.ips.daos.CommentDAO;
-import com.soprabanking.ips.daos.ProposalDAO;
-import com.soprabanking.ips.daos.TeamDAO;
-import com.soprabanking.ips.daos.UpvotesDAO;
-import com.soprabanking.ips.models.Comment;
-import com.soprabanking.ips.models.Proposal;
-import com.soprabanking.ips.models.Team;
-import com.soprabanking.ips.models.Upvotes;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.test.context.junit4.SpringRunner;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -30,9 +22,25 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.*;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.soprabanking.ips.daos.CommentDAO;
+import com.soprabanking.ips.daos.ProposalDAO;
+import com.soprabanking.ips.daos.TeamDAO;
+import com.soprabanking.ips.daos.UpvotesDAO;
+import com.soprabanking.ips.models.Comment;
+import com.soprabanking.ips.models.Proposal;
+import com.soprabanking.ips.models.Team;
+import com.soprabanking.ips.models.Upvotes;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
