@@ -8,7 +8,7 @@
 <form [formGroup]="updateForm" class="normal">
     <div mat-dialog-content class="controles">
         <mat-form-field class="field">
-            <mat-select  formControlName="teams" matInput placeholder="Team" multiple [(value)]="sentTeam" >
+            <mat-select  formControlName="teams" matInput placeholder="Team" multiple  >
                 <mat-option *ngFor="let team of sentTeam" multiple [value]="team">{{team.name}}</mat-option>  
             </mat-select>
         </mat-form-field>
@@ -16,6 +16,7 @@
     <div mat-dialog-action align=end>
 
         <button mat-raised-button [mat-dialog-close]='this.updateForm.value' color="primary" type="submit" [disabled]= "updateForm.invalid || updateForm.controls['teams'].untouched" (click)=onSubmit()>submit</button>
+        <button mat-raised-button [mat-dialog-close]>close</button>
  
      </div>
 </form>

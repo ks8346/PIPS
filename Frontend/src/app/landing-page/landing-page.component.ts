@@ -146,7 +146,15 @@ export class LandingPageComponent implements OnInit {
       width: '400px',
       data:{prop:post.teams,teams:this._teams}
     });
-    dialogRef.afterClosed().subscribe(result =>{console.log(result)})
+    dialogRef.afterClosed().subscribe(result =>{
+      this.post.shareProposal(result,post.id).subscribe(
+        (data)=>console.log(data),
+        (error)=>{
+          if(error.status==200){
+            window.location.reload()
+          }
+        })
+    })
 
   }
   

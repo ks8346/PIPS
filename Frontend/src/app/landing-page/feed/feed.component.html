@@ -15,7 +15,7 @@
         <button mat-icon-button [class.text-danger]="this.hasLiked" class="likeButton" (click)="postLike(post.id)">
             <mat-icon>favorite</mat-icon>
         </button>
-        <button mat-icon-button  class="shareButton" (click)="openDialogshare()">
+        <button mat-icon-button  class="likeButton" (click)="openDialogshare()">
             <mat-icon>share</mat-icon></button>
         <p style="display:inline">{{this.numberLikes}} people upvoted this</p>
 
