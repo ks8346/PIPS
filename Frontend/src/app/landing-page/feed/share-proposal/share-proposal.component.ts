@@ -33,16 +33,16 @@ export class ShareProposalComponent implements OnInit {
     console.log(this.sentTeam)
   }
   selected(team){
+    let flag=true;
     for(let item of this.data.prop){
-      let flag=true;
       if(item.id==team.id){
         flag=false
       }
-      if(flag==false)
+    }
+    if(flag==false)
         return true
       else
         return false
-    }
   }
   onSubmit(){
     console.log(this.updateForm.value);

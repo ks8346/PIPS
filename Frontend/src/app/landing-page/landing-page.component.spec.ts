@@ -33,18 +33,29 @@ describe('LandingPageComponent', () => {
     fixture = TestBed.createComponent(LandingPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    let store={User:{
-      id:1,
-      name:"Kartik",
-      email:"ks8346@gmail.com",
-      team:{
-        id:1,
-        name:"Devs"
-      }
-    }}
-    spyOn(sessionStorage, 'getItem').and.callFake((User) => {
-      return store[User];
-    });
+    let store = {};
+    const mockLocalStorage = {
+    getItem: (key: string): string => {
+      return key in store ? store[key] : null;
+    },
+    setItem: (key: string, value: string) => {
+      store[key] = `${value}`;
+    }};
+    // const store={getUser:{
+    //   id:1,
+    //   name:"Kartik",
+    //   email:"ks8346@gmail.com",
+    //   team:{
+    //     id:1,
+    //     name:"Devs"
+    //   }
+    // }}
+    // spyOn(sessionStorage, 'getItem').and.callFake(
+    //   store.getUser
+    // );
+    spyOn(sessionStorage, 'getItem').and.callFake(
+        mockLocalStorage.getItem
+    );
   });
 
   it('should create Session', () => {

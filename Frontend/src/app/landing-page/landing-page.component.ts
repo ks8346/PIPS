@@ -8,7 +8,6 @@ import { FeedParams } from '../feed-params';
 import {TeamsService} from '../teams.service'
 import {Teams} from '../teams'
 import {Router} from '@angular/router'
-import { Proposal } from '../proposal';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -59,24 +58,16 @@ export class LandingPageComponent implements OnInit {
     this.teamId=this.User.team.id
     console.log( "data",localStorage.getItem('data'))
     this.selectApi(this.type)
-    this.teams.getTeams().subscribe((data)=>{
+    this.getTeams()
+    this.resize()
+  }
+
+  getTeams(){
+    this.teams.getTeams().subscribe(
+      (data)=>{
         this._teams=data
-        console.log("teams"+data[0].name)
       }
     );
-    if(window.innerWidth<916){
-      this.menuButton=true
-      this.width=100
-      this.padding=10
-    }
-    else{
-      this.menuButton=false
-      this.menuVisibility=true
-      this.width=23.5
-      this.padding=2
-    }    
-    
-    console.log("user data",JSON.parse(this.authenticatedUser))
   }
 
   getAll(){
@@ -140,6 +131,7 @@ export class LandingPageComponent implements OnInit {
       this.newFeed=[]
     }
   }
+
   openDialogshare(post){
     let dialogRef = this.dialog.open(ShareProposalComponent, {
       height: '250px',
@@ -166,8 +158,6 @@ export class LandingPageComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if(result){
-        // console.log(`Dialog result: ${result.teams.length} `);
-
         this.post.postProposal(result,this.userId).subscribe(
           (data)=>{
             this.selectApi(this.type)
@@ -188,8 +178,7 @@ export class LandingPageComponent implements OnInit {
               this.proposalError="Some error has occured! please try again later."
             }
           }
-        )
-        
+        ) 
       }
     });
   }
@@ -203,9 +192,7 @@ export class LandingPageComponent implements OnInit {
     }
   }
   
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    this.innerWidth = event.target.innerWidth;
+  resize(){
     if(this.innerWidth<916){
       this.menuButton=true
       this.width=100
@@ -217,6 +204,12 @@ export class LandingPageComponent implements OnInit {
       this.width=23.5
       this.padding=2
     }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = event.target.innerWidth;
+    this.resize()
   }
   
   errorHandling(error){
