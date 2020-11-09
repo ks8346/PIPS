@@ -24,21 +24,21 @@ describe('ProposalService', () => {
     service.postComment(1,"new Comment",2).subscribe((data)=>expect(data).toEqual("SUCCESS"),fail)
   });
   it('should send a Like to db', () => {
-    service.postLike(1,2).subscribe((data)=>expect(data).toEqual("SUCCESS"))
+    service.postLike(1,2).subscribe((data)=>expect(data).toEqual("SUCCESS"),fail)
   });
   it("should send a dislike to db",()=>{
-    service.postDislike(1,2).subscribe((data)=>expect(data).toEqual("SUCCESS"))
+    service.postDislike(1,2).subscribe((data)=>expect(data).toEqual("SUCCESS"),fail)
   })
   it("should get a boolean of liked or disliked",()=>{
-    service.getLike(1,2).subscribe((data)=>expect(data).toBe(Boolean))
+    service.getLike(1,2).subscribe((data)=>expect(data).toBe(Boolean),fail)
   })
   it("should get an array of comments",()=>{
-    service.getComment(1).subscribe((data)=>expect(data).toBe([]))
+    service.getComment(1).subscribe((data)=>expect(data).toBe([]),fail)
   })
   it("should delete a comment",()=>{
-    service.deleteComment(1).subscribe((data)=>expect(data).toBe("SUCCESS"))
+    service.deleteComment(1).subscribe((data)=>expect(data).toBe("SUCCESS"),fail)
   })
   it("should delete a post",()=>{
-    service.deletePost(1).subscribe((data)=>expect(data).toBe("SUCCESS"))
+    service.deletePost(1).subscribe((data)=>expect(data).toBe("SUCCESS"),fail)
   })
 });

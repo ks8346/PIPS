@@ -24,8 +24,8 @@ export class LandingPageComponent implements OnInit {
   authenticatedUser:string;
   proposalError:string;
   User:{
-    id:number;
-    name:string;
+    id:number,
+    name:string,
     email:string,
     team:{
       id:number,
