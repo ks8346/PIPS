@@ -8,7 +8,11 @@ export class PostProposalService {
   public sentTeams:{}[]
   private createUrl="http://localhost:8080/proposal/add";
   private updateUrl="http://localhost:8080/proposal/update";
+  private shareUrl="http://localhost:8080/proposal/share"
   constructor(private http:HttpClient) { }
+  shareProposal(data){
+    this.http.post(this.shareUrl,data)
+  }
   postProposal(data,userId){
     data.userId=userId
     console.log(data.key)

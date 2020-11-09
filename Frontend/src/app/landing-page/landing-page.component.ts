@@ -142,8 +142,8 @@ export class LandingPageComponent implements OnInit {
   }
   openDialogshare(post){
     let dialogRef = this.dialog.open(ShareProposalComponent, {
-      height: '400px',
-      width: '600px',
+      height: '250px',
+      width: '400px',
       data:{prop:post.teams,teams:this._teams}
     });
     dialogRef.afterClosed().subscribe(result =>{console.log(result)})
