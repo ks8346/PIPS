@@ -4,27 +4,19 @@ package com.soprabanking.ips.controllers;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.soprabanking.ips.models.Proposal;
-import com.soprabanking.ips.models.Team;
-import com.soprabanking.ips.models.User;
-import com.soprabanking.ips.repositories.ProposalRepository;
-import com.soprabanking.ips.repositories.UserRepository;
 import com.soprabanking.ips.services.FeedService;
 import com.soprabanking.ips.services.ProposalService;
 
@@ -43,12 +35,17 @@ public class FeedController {
     public ResponseEntity<List<Proposal>> getAllProposalFeed(@RequestBody String body) {
 
         try {
-            return new ResponseEntity<>(feedService.fetchAllProposals(body),
+        	List<Proposal> list = feedService.fetchAllProposals(body);
+        	if(list.isEmpty())
+        		throw new Exception();
+            return new ResponseEntity<List<Proposal>>(list,
                     HttpStatus.OK);
+        	
         } catch (Exception e) {
             return new ResponseEntity<List<Proposal>>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);
 
         }
+        
     }
 
     @PostMapping(value = "/create", consumes = APPLICATION_JSON_VALUE)
@@ -56,7 +53,11 @@ public class FeedController {
             @RequestBody String body) {
 
         try {
-            return new ResponseEntity<>(feedService.fetchUserProposals(body),
+        	List<Proposal> list = feedService.fetchUserProposals(body);
+        	System.out.println(list);
+        	if(list.isEmpty())
+        		throw new Exception();
+            return new ResponseEntity<>(list,
                     HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<List<Proposal>>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);

@@ -1,43 +1,38 @@
 package com.soprabanking.ips.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.soprabanking.ips.models.Proposal;
-import com.soprabanking.ips.repositories.TeamRepository;
-import com.soprabanking.ips.repositories.UserRepository;
-import com.soprabanking.ips.services.FeedService;
-import org.json.JSONObject;
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-<<<<<<< HEAD
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.soprabanking.ips.models.Proposal;
-import com.soprabanking.ips.models.Team;
-import com.soprabanking.ips.models.User;
-import com.soprabanking.ips.repositories.TeamRepository;
-import com.soprabanking.ips.repositories.UserRepository;
-import com.soprabanking.ips.services.FeedService;
-import com.soprabanking.ips.services.FeedServiceTest;
-=======
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.temporal.TemporalAdjusters;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.TimeZone;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
->>>>>>> 3d06f3554a10a26696a28a10921bcbddf47f8a69
+import org.json.JSONObject;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.soprabanking.ips.models.Proposal;
+import com.soprabanking.ips.services.FeedService;
+import com.soprabanking.ips.services.FeedServiceTest;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -51,7 +46,7 @@ public class FeedControllerTest {
     
     private FeedServiceTest feedServiceTest = new FeedServiceTest();
 
-    @Mock
+    @MockBean
     private FeedService feedService;
 
     @InjectMocks
@@ -67,6 +62,7 @@ public class FeedControllerTest {
         List<Proposal> proposals = new ArrayList<>();
         proposals.add(proposal1);
         proposals.add(proposal2);
+        
         String body = feedServiceTest.createAllFeedParams(new Date().toString(), "all");
         
         when(feedService.fetchAllProposals(body)).thenReturn(proposals);
@@ -80,6 +76,32 @@ public class FeedControllerTest {
         assertThat(actualResult.getResponse().getContentAsString())
         .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(proposals));
     }
+    
+    @Test
+    public void testGetUserProposalFeed() throws Exception {
+
+        Proposal proposal1 = new Proposal();
+        Proposal proposal2 = new Proposal();
+
+        List<Proposal> proposals = new ArrayList<>();
+        proposals.add(proposal1);
+        proposals.add(proposal2);
+        
+        String body = feedServiceTest.createAllFeedParams(new Date().toString(), "create");
+        
+        when(feedService.fetchUserProposals(body)).thenReturn(proposals);
+
+        MvcResult actualResult = mockMvc.perform(post("/feed/create")
+        		.contentType(MediaType.APPLICATION_JSON)
+                .content(body))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        assertThat(actualResult.getResponse().getContentAsString())
+        .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(proposals));
+    }
+    
+    
 
     // Team containing feed
     @Test
