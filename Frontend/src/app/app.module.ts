@@ -1,4 +1,3 @@
-import { MatSelectFilterModule } from 'mat-select-filter';
 import { GetTeamService } from './service/get-team.service';
 import { UserRegisterService } from './service/user-register.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -39,10 +38,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { ResetLinkComponent } from './reset-link/reset-link.component';
- 
-
+import { CommentComponent } from './landing-page/feed/comment/comment.component';
+import { ShareProposalComponent } from './landing-page/feed/share-proposal/share-proposal.component';
+import { TeamComponent } from './team/team.component';
 
 
 @NgModule({
@@ -59,8 +57,9 @@ import { ResetLinkComponent } from './reset-link/reset-link.component';
     FilterComponent,
     FeedComponent,
     CreateProposalComponent,
-    ForgetPasswordComponent,
-    ResetLinkComponent
+    CommentComponent,
+    ShareProposalComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,
@@ -85,8 +84,7 @@ import { ResetLinkComponent } from './reset-link/reset-link.component';
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatGridListModule,
-    MatSelectFilterModule
+    MatGridListModule
   ],
   providers: [
     UserRegisterService,

@@ -40,6 +40,10 @@ public class ProposalDAO {
 		return proposalRepository.getOne(id);
 
 	}
+
+	public void deleteProposal(Long id){
+		proposalRepository.deleteById(id);
+	}
 	
 	public Proposal saveProposal(Proposal p) {
 		

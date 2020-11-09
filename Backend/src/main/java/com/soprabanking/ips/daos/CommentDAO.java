@@ -25,5 +25,10 @@ public class CommentDAO {
 		Comment saved=commentRepository.save(com);
 		return saved;
 	}
+	
+	public void deleteComment(Long id) {
+		
+		commentRepository.deleteById(id);
+	}
 
 }

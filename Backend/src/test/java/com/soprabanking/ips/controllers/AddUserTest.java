@@ -38,8 +38,8 @@ class AddUserTest {
 		when(userRepository.getUserByUserName(toString())).thenReturn(user);
 		assertNotNull(user);
 		assertEquals("kavya",user.getName());
-		assertEquals("mukul",user.getName());
-		assertEquals("priyanka",user.getName());
+		//assertEquals("mukul",user.getName());
+		//assertEquals("priyanka",user.getName());
 		
 		
 

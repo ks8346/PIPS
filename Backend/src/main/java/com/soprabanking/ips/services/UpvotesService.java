@@ -12,6 +12,8 @@ import com.soprabanking.ips.models.Upvotes;
 import com.soprabanking.ips.models.User;
 import com.soprabanking.ips.utilities.JsonUtil;
 
+import java.util.List;
+
 @Service
 public class UpvotesService 
 {
@@ -105,6 +107,9 @@ public class UpvotesService
 			throw new Exception();
 		}
 	}
-	
 
+
+	/*public List<Upvotes> listUpvotes(Long proposalId) {
+		return upvotesDao.fetchAllUpvotes(proposalId);
+	}*/
 }
