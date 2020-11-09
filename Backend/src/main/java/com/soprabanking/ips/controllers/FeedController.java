@@ -30,7 +30,10 @@ public class FeedController {
 
     @Autowired
     ProposalService proposalService;
-     
+
+
+
+  
     @PostMapping("/all")
     public ResponseEntity<List<Proposal>> getAllProposalFeed(@RequestBody String body) {
 

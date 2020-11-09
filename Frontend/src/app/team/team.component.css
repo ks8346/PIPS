@@ -1,0 +1,12 @@
+.formContainer{
+    font-style: sans-serif;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: whitesmoke;
+    padding: 10px;
+    width: 50%;
+    height: 40%;
+    border-radius: 10px;
+}

@@ -1,8 +1,8 @@
 package com.soprabanking.ips.controllers;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -20,7 +20,8 @@ import java.util.TimeZone;
 
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -31,8 +32,12 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soprabanking.ips.models.Proposal;
+import com.soprabanking.ips.repositories.TeamRepository;
+import com.soprabanking.ips.repositories.UserRepository;
 import com.soprabanking.ips.services.FeedService;
 import com.soprabanking.ips.services.FeedServiceTest;
+import com.soprabanking.ips.services.ProposalService;
+
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -49,7 +54,16 @@ public class FeedControllerTest {
     @MockBean
     private FeedService feedService;
 
-    @InjectMocks
+    @MockBean
+    private ProposalService proposalService;
+
+    @Mock
+    private UserRepository userRepository;
+
+    @Mock
+    private TeamRepository teamRepository;
+
+    @Autowired
     private FeedController feedController;
 
    
@@ -86,19 +100,21 @@ public class FeedControllerTest {
         List<Proposal> proposals = new ArrayList<>();
         proposals.add(proposal1);
         proposals.add(proposal2);
+
         
         String body = feedServiceTest.createAllFeedParams(new Date().toString(), "create");
         
         when(feedService.fetchUserProposals(body)).thenReturn(proposals);
-
+        
         MvcResult actualResult = mockMvc.perform(post("/feed/create")
-        		.contentType(MediaType.APPLICATION_JSON)
-                .content(body))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body.toString()))
                 .andExpect(status().isOk())
                 .andReturn();
 
         assertThat(actualResult.getResponse().getContentAsString())
         .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(proposals));
+
     }
     
     
@@ -122,14 +138,27 @@ public class FeedControllerTest {
         body.put("size",size);
         body.put("teamId",teamId);
 
+        Proposal proposal1 = new Proposal();
+        Proposal proposal2 = new Proposal();
+
+        List<Proposal> proposals = new ArrayList<>();
+        proposals.add(proposal1);
+        proposals.add(proposal2);
+
+        Mockito.when(proposalService.getDefault(anyString()))
+                .thenReturn(proposals);
+
         MvcResult mvcResult = mockMvc.perform(post("/feed/team")
         .contentType(MediaType.APPLICATION_JSON)
         .content(body.toString()))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
 
-        List<Proposal> proposals= Arrays.asList(objectMapper.readValue(mvcResult.getResponse().getContentAsString(),Proposal[].class));
-        assertNotNull(proposals);
+        assertThat(mvcResult.getResponse().getContentAsString())
+                .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(proposals));
+
+        /*List<Proposal> proposals= Arrays.asList(objectMapper.readValue(mvcResult.getResponse().getContentAsString(),Proposal[].class));
+        assertNotNull(proposals);*/
 
     }
 
@@ -140,7 +169,7 @@ public class FeedControllerTest {
         Date startDate = Date.from(localDate.with(TemporalAdjusters.firstDayOfMonth()).atStartOfDay(ZoneId.systemDefault()).toInstant());
         Date endDate = Date.from(localDate.with(TemporalAdjusters.lastDayOfMonth()).atStartOfDay(ZoneId.systemDefault()).toInstant());
         int page = 0, size = 5;
-        Long teamId = 1L;
+        Long teamId = 4L;
 
         String dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
         SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
@@ -151,6 +180,9 @@ public class FeedControllerTest {
         body.put("page",page);
         body.put("size",size);
         body.put("teamId",teamId);
+
+        Mockito.when(proposalService.getDefault(anyString()))
+                .thenReturn(null);
 
         MvcResult mvcResult = mockMvc.perform(post("/feed/team")
                 .contentType(MediaType.APPLICATION_JSON)
