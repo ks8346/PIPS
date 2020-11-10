@@ -18,6 +18,7 @@ export class CreateProposalComponent implements OnInit {
   values:TestServiceService;
   public tit 
   public descrip
+  public prop
   ngOnInit(){
     this.userId=this.data.userId
     // this.id=this.data.post.id
@@ -26,8 +27,16 @@ export class CreateProposalComponent implements OnInit {
       this.id=this.data.post.id
       this.tit = this.data.post.title
       this.descrip = this.data.post.description
+<<<<<<< HEAD
       this.dialogTitle="Update Proposal"
     }
+=======
+      this.prop= "Update Proposal"
+     }
+     else{
+       this.prop="Create Proposal"
+     }
+>>>>>>> cd264f04b762fe81f8960aa940f3dddcb5975191
   }
   onClear(){
     this.service.form.reset();

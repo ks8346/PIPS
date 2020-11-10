@@ -151,6 +151,7 @@ public class ProposalService {
 
 
     public Proposal shareProposal(String body) throws Exception {
+
         try {
             JsonNode jsonObj = JsonUtil.stringToJson(body);
             Long pid = Long.parseLong(jsonObj.get("id").asText());
