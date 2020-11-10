@@ -1,16 +1,11 @@
 package com.soprabanking.ips.controllers;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
@@ -22,125 +17,34 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.soprabanking.ips.models.Comment;
-import com.soprabanking.ips.models.Proposal;
-import com.soprabanking.ips.services.CommentService;
+
+import com.soprabanking.ips.models.Upvotes;
+import com.soprabanking.ips.services.UpvotesService;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class CommentControllerTest {
+public class UpvotesControllerTest 
+{
 
 	@Autowired
 	private MockMvc mockMvc;
 	
 	@MockBean
-	private CommentService commentService;
-	
-	@Autowired
-    private ObjectMapper objectMapper;
+	private UpvotesService upvoteService;
 	
 	@Test
-	public void testDeleteComment() throws Exception {
-		
-		JSONObject json = new JSONObject();
-		json.put("id", 1L);
-		
-		doNothing().when(commentService).deleteComment(json.toString());
-				
-		MvcResult actualResult = mockMvc.perform(post("/comment/delete")
-        		.contentType(MediaType.APPLICATION_JSON)
-                .content(json.toString()))
-                .andExpect(status().isOk())
-                .andReturn();
-		
-		assertThat(actualResult.getResponse().getContentAsString())
-			.isEqualTo("SUCCESS");
-	}
-	
-	@Test
-	public void testDeleteCommentException() throws Exception {
-		
-		JSONObject json = new JSONObject();
-		json.put("id", 1L);
-		
-		doThrow(new RuntimeException()).when(commentService).deleteComment(json.toString());
-				
-		MvcResult actualResult = mockMvc.perform(post("/comment/delete")
-        		.contentType(MediaType.APPLICATION_JSON)
-                .content(json.toString()))
-                .andExpect(status().is4xxClientError())
-                .andReturn();
-		
-		assertThat(actualResult.getResponse().getContentAsString())
-			.isEqualTo("FAILURE");
-	}
-	
-	@Test
-	public void testDisplayComments() throws Exception {
-		
-		JSONObject json = new JSONObject();
-		json.put("id", 1L);
-		
-		Comment c1=new Comment();
-		c1.setId(1L);
-		Comment c2=new Comment();
-		c2.setId(2L);
-		List<Comment> comments=new ArrayList<>();
-		comments.add(c1);
-		comments.add(c2);
-		when(commentService.displayComments(json.toString())).thenReturn(comments);
-				
-		MvcResult actualResult = mockMvc.perform(post("/comment/all")
-        		.contentType(MediaType.APPLICATION_JSON)
-                .content(json.toString()))
-                .andExpect(status().isOk())
-                .andReturn();
-		
-		assertThat(actualResult.getResponse().getContentAsString())
-        .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(comments));
-	}
-	
-	@Test
-	public void testDisplayCommentsEmpty()throws Exception
+	public void testUpvoteProposal() throws Exception
 	{
 		JSONObject json = new JSONObject();
 		json.put("id", 1L);
-		
-		Comment c1=new Comment();
-		c1.setId(1L);
-		Comment c2=new Comment();
-		c2.setId(2L);
-		List<Comment> comments=new ArrayList<>();
-		comments.add(c1);
-		comments.add(c2);
-		
-		when(commentService.displayComments(json.toString())).thenThrow(new RuntimeException());
-		
-		MvcResult actualResult = mockMvc.perform(post("/comment/all")
-        		.contentType(MediaType.APPLICATION_JSON)
-                .content(json.toString()))
-                .andExpect(status().is4xxClientError())
-                .andReturn();
-		List<Comment> result= Arrays.asList(objectMapper.readValue(actualResult.getResponse().getContentAsString(),Comment[].class));
-        assertTrue(result.isEmpty());
-		
-	}
-	
-	@Test
-	public void testAddComment() throws Exception {
-		
-		JSONObject json = new JSONObject();
-		json.put("id", 1L);
 		json.put("userId", 2L);
-		json.put("text", "Hello this is comment");
 		
-		Comment comment=new Comment();
-		comment.setId(1L);
+		Upvotes upvote=new Upvotes();
+		upvote.setId(1L);
 		
-		when((commentService).addComment(json.toString())).thenReturn(comment);
-				
-		MvcResult actualResult = mockMvc.perform(post("/comment/add")
+		when((upvoteService).upvoteProposal(json.toString())).thenReturn(upvote);
+		
+		MvcResult actualResult = mockMvc.perform(post("/upvotes/like")
         		.contentType(MediaType.APPLICATION_JSON)
                 .content(json.toString()))
                 .andExpect(status().isOk())
@@ -151,19 +55,16 @@ public class CommentControllerTest {
 	}
 	
 	@Test
-	public void testAddCommentException() throws Exception {
-		
+	public void testUpvoteProposalException() throws Exception
+	{
 		JSONObject json = new JSONObject();
 		json.put("id", 1L);
 		json.put("userId", 2L);
-		json.put("text", "Hello this is comment");
 		
-		Comment comment=new Comment();
-		comment.setId(1L);
 		
-		when((commentService).addComment(json.toString())).thenThrow(new RuntimeException());
-				
-		MvcResult actualResult = mockMvc.perform(post("/comment/add")
+		when((upvoteService).upvoteProposal(json.toString())).thenThrow(new RuntimeException());
+		
+		MvcResult actualResult = mockMvc.perform(post("/upvotes/like")
         		.contentType(MediaType.APPLICATION_JSON)
                 .content(json.toString()))
                 .andExpect(status().is4xxClientError())
@@ -174,5 +75,103 @@ public class CommentControllerTest {
 	}
 	
 	
+	@Test
+	public void testReverseUpvoteProposal() throws Exception
+	{
+		JSONObject json = new JSONObject();
+		json.put("id", 1L);
+		json.put("userId", 2L);
+		
+		Upvotes upvote=new Upvotes();
+		upvote.setId(1L);
+		
+		doNothing().when(upvoteService).reverseUpvote(json.toString());
+		
+		MvcResult actualResult = mockMvc.perform(post("/upvotes/dislike")
+        		.contentType(MediaType.APPLICATION_JSON)
+                .content(json.toString()))
+                .andExpect(status().isOk())
+                .andReturn();
+		
+		assertThat(actualResult.getResponse().getContentAsString())
+			.isEqualTo("SUCCESS");
+	}
 	
+	@Test
+	public void testReverseUpvoteProposalException() throws Exception
+	{
+		JSONObject json = new JSONObject();
+		json.put("id", 1L);
+		json.put("userId", 2L);
+		
+		doThrow(new RuntimeException()).when(upvoteService).reverseUpvote(json.toString());
+		
+		MvcResult actualResult = mockMvc.perform(post("/upvotes/dislike")
+        		.contentType(MediaType.APPLICATION_JSON)
+                .content(json.toString()))
+                .andExpect(status().is4xxClientError())
+                .andReturn();
+		
+		assertThat(actualResult.getResponse().getContentAsString())
+			.isEqualTo("FAILURE");
+	}
+	@Test
+	public void testHasUpvotedTrue() throws Exception
+	{
+		JSONObject json = new JSONObject();
+		json.put("id", 1L);
+		json.put("userId", 3L);
+		
+		when(upvoteService.hasUpvoted(json.toString())).thenReturn(true);
+		
+		MvcResult actualResult = mockMvc.perform(post("/upvotes/hasUpvoted")
+        		.contentType(MediaType.APPLICATION_JSON)
+                .content(json.toString()))
+                .andExpect(status().isOk())
+                .andReturn();
+		
+		assertThat(actualResult.getResponse().getContentAsString())
+			.isEqualTo("true");
+		
+	}
+	
+	@Test
+	public void testHasUpvotedFalse() throws Exception
+	{
+		JSONObject json = new JSONObject();
+		json.put("id", 1L);
+		json.put("userId", 3L);
+		
+		when(upvoteService.hasUpvoted(json.toString())).thenReturn(false);
+		
+		MvcResult actualResult = mockMvc.perform(post("/upvotes/hasUpvoted")
+        		.contentType(MediaType.APPLICATION_JSON)
+                .content(json.toString()))
+                .andExpect(status().isOk())
+                .andReturn();
+		
+		assertThat(actualResult.getResponse().getContentAsString())
+			.isEqualTo("false");
+		
+	}
+	
+	@Test
+	public void testHasUpvotedException() throws Exception
+	{
+		JSONObject json = new JSONObject();
+		json.put("id", 1L);
+		json.put("userId", 3L);
+		
+		when(upvoteService.hasUpvoted(json.toString())).thenThrow(new RuntimeException());
+		
+		MvcResult actualResult = mockMvc.perform(post("/upvotes/hasUpvoted")
+        		.contentType(MediaType.APPLICATION_JSON)
+                .content(json.toString()))
+                .andExpect(status().is4xxClientError())
+                .andReturn();
+		
+		assertThat(actualResult.getResponse().getContentAsString())
+			.isEqualTo("false");
+		
+	}
 }
