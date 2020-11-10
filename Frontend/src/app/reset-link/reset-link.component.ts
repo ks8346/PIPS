@@ -9,8 +9,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ConfirmPasswordValidator } from '../confirmPassword.Validator';
 
 
-
-
 @Component({
   selector: 'app-reset-link',
   templateUrl: './reset-link.component.html',
