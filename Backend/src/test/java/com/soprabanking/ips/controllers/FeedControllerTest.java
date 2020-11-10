@@ -74,7 +74,7 @@ public class FeedControllerTest {
         proposals.add(proposal1);
         proposals.add(proposal2);
         
-        String body = feedServiceTest.createAllFeedParams(new Date().toString(), "all");
+        String body = feedServiceTest.createAllFeedParams(new Date().toString(), new Date().toString(), "all");
         
         when(feedService.fetchAllProposals(body)).thenReturn(proposals);
 
@@ -98,7 +98,7 @@ public class FeedControllerTest {
         proposals.add(proposal1);
         proposals.add(proposal2);
         
-        String body = feedServiceTest.createAllFeedParams(new Date().toString(), "all");
+        String body = feedServiceTest.createAllFeedParams(new Date().toString(), new Date().toString(), "all");
         
         when(feedService.fetchAllProposals(body)).thenReturn(new ArrayList<>());
 
@@ -110,8 +110,6 @@ public class FeedControllerTest {
 
         List<Proposal> result= Arrays.asList(objectMapper.readValue(actualResult.getResponse().getContentAsString(),Proposal[].class));
         assertTrue(result.isEmpty());
-//        assertThat(actualResult.getResponse().getContentAsString())
-//        .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(proposals));
     }
     
     @Test
@@ -125,7 +123,7 @@ public class FeedControllerTest {
         proposals.add(proposal2);
 
         
-        String body = feedServiceTest.createAllFeedParams(new Date().toString(), "create");
+        String body = feedServiceTest.createAllFeedParams(new Date().toString(), new Date().toString(), "create");
         
         when(feedService.fetchUserProposals(body)).thenReturn(proposals);
         
@@ -151,7 +149,7 @@ public class FeedControllerTest {
         proposals.add(proposal2);
 
         
-        String body = feedServiceTest.createAllFeedParams(new Date().toString(), "create");
+        String body = feedServiceTest.createAllFeedParams(new Date().toString(), new Date().toString(), "create");
         
         when(feedService.fetchUserProposals(body)).thenReturn(new ArrayList<>());
         

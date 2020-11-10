@@ -57,7 +57,7 @@ public class FeedService {
             Long userId = Long.parseLong(jsonObj.get("userId").asText());
 
             if (startDate.after(endDate))
-                throw new Exception();
+            	throw new Exception();
 
             Pageable pageable = PageRequest.of(page, size);
             Slice<Proposal> result = proposalDAO.fetchUserProposals(userId, startDate, endDate, pageable);
