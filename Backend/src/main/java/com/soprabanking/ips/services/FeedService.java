@@ -24,14 +24,14 @@ public class FeedService {
     public List<Proposal> fetchAllProposals(String body) throws Exception {
 
         try {
-
             JsonNode jsonObj = JsonUtil.stringToJson(body);
 
+            
             Date startDate = DateUtil.stringToISTDate(jsonObj.get("startDate").asText());
             Date endDate = DateUtil.stringToISTDate(jsonObj.get("endDate").asText());
             int page = Integer.parseInt(jsonObj.get("page").asText());
             int size = Integer.parseInt(jsonObj.get("size").asText());
-
+            
             if (startDate.after(endDate))
                 throw new Exception();
 
