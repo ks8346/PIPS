@@ -18,19 +18,18 @@ import com.soprabanking.ips.services.TeamService;
 @CrossOrigin
 @RequestMapping("/team")
 public class TeamController {
-	
-	@Autowired
-	private TeamService teamService;
-	
-	@GetMapping("/all")
-	public ResponseEntity<List<Team>> getAllTeams(){
-		
-		try {
-			return new ResponseEntity<>(teamService.fetchAllTeams(), HttpStatus.OK);
-		}
-		catch(Exception ex) {
-			return new ResponseEntity<List<Team>>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);
-		}
-	}
+
+    @Autowired
+    private TeamService teamService;
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Team>> getAllTeams() {
+
+        try {
+            return new ResponseEntity<>(teamService.fetchAllTeams(), HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<List<Team>>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);
+        }
+    }
 
 }

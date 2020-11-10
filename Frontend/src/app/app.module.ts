@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HomeComponent } from './home/home.component';
@@ -38,13 +37,16 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import { CommentComponent } from './landing-page/feed/comment/comment.component';
+import { ShareProposalComponent } from './landing-page/feed/share-proposal/share-proposal.component';
+import { TeamComponent } from './team/team.component';
+import { ForgetPasswordComponent} from './forget-password/forget-password.component';
+import { MatSelectFilterModule } from 'mat-select-filter';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent,
     HomeComponent,
     ErrorComponent,
     RegisterComponent,
@@ -53,7 +55,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
     LandingPageComponent,
     FilterComponent,
     FeedComponent,
-    CreateProposalComponent
+    CreateProposalComponent,
+    CommentComponent,
+    ShareProposalComponent,
+    TeamComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +84,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectFilterModule
   ],
   providers: [
     UserRegisterService,

@@ -10,16 +10,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TeamDAO {
-	
+
     @Autowired
     TeamRepository teamRepository;
-    
-    public Team getTeam(long id){
+
+    public Team getTeam(long id) {
         return teamRepository.findById(id);
     }
-    
+
     public List<Team> fetchAllTeams() {
-    	
-    	return teamRepository.findAll();
+
+        return teamRepository.findAll();
     }
 }

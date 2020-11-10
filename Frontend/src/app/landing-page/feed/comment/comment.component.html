@@ -1,0 +1,12 @@
+<div class="row">
+<div class="col-md-2 name">  {{userName}}</div>
+        <div class="col-md-9 data">
+            {{commentData}}            
+        </div>
+        <div class="col-md-1">
+            <div class="example-button-container" *ngIf="userId==commentedUserId">
+                <button mat-mini-fab color="primary" (click)="deleteComment()" style="height:35px;width:35px">
+                  <mat-icon style="font-size: 20px;">delete</mat-icon>
+                </button>
+              </div>
+    </div>
