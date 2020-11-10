@@ -5,12 +5,6 @@ import { FormGroup, FormControl, Validators, FormGroupDirective, NgForm } from '
 import { Component, OnInit } from '@angular/core';
 
 
-
-
-
-
-
-
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
@@ -30,6 +24,7 @@ forgetPasswordForm:FormGroup;
 
 data: string;
 error: string;
+isSubmit : boolean=true;
 
   constructor(private sendResetLink: SendResetLinkService ) {
    
@@ -49,6 +44,7 @@ error: string;
     this.sendResetLink.resetLink(data).subscribe(
       (data1) => {
          console.log(data1);
+         this.isSubmit = false;
          this.error="Reset link has been send to your email."
         
        },
@@ -57,6 +53,10 @@ error: string;
       
        }
      );
+
+  }
+
+  onOk(){
 
   }
 

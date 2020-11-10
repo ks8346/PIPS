@@ -32,7 +32,8 @@
                 </mat-error>
               </mat-form-field>
         </div>
-        <button mat-raised-button color="primary" class="btn btn-primary" [disabled]="!loginForm.valid" >Log In</button>
+        <button mat-raised-button color="primary" class="btn btn-primary" [disabled]="!loginForm.valid" style="margin-right: 15px;">Log In</button>
+        <button mat-raised-button color="primary" class="btn btn-primary" [disabled]=true>Log In With Google</button>
         <br>
         <small *ngIf = 'invalidLogin' style="color:red;">{{errorMessage}}</small>
   </form>

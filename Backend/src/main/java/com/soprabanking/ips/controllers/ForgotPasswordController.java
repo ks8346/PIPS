@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,11 +24,12 @@ import com.soprabanking.ips.models.Token;
 import com.soprabanking.ips.repositories.TokenRepository;
 import com.soprabanking.ips.repositories.UserRepository;
 
+@CrossOrigin
 @RestController
 public class ForgotPasswordController {
 	
-	//@Autowired
-	//private JavaMailSender sender;
+	@Autowired
+	private JavaMailSender sender;
 	
 	@Autowired
 	private TokenRepository token_repo;
@@ -64,7 +66,7 @@ public class ForgotPasswordController {
 		msg.setSubject("Forgot Password");
 		
 		//sending reset password link through mail
-		//sender.send(msg);
+		sender.send(msg);
 		
 		//creating and setting timer
 		TimerTask task = new TimerTask() {
@@ -74,9 +76,9 @@ public class ForgotPasswordController {
 		};
 		
 		Timer timer = new Timer("timer");
-		timer.schedule(task, 120000L);
+		timer.schedule(task, 300000L);
 		
-		System.out.println(mail_content);
+		//System.out.println(mail_content);
 		
 		return new ResponseEntity<String>("message sent successfully", HttpStatus.OK);
 	}
