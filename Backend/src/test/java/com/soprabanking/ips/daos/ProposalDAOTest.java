@@ -94,4 +94,28 @@ class ProposalDAOTest {
 
         assertThrows(RuntimeException.class,()->proposalDAO.deleteProposal(-1L));
     }
+
+    //Correct Values Testing
+    @Test
+    void getById() {
+        Proposal p =new Proposal();
+        p.setTitle("Hello");
+
+        when(proposalRepository.getOne(anyLong())).thenReturn(p);
+
+        Proposal proposal=proposalDAO.getById(1L);
+        assertEquals(p.getTitle(),proposal.getTitle());
+    }
+
+    //Correct Values Testing
+    @Test
+    void saveProposal() {
+        Proposal p =new Proposal();
+        p.setTitle("Hello");
+
+        when(proposalRepository.save(any(Proposal.class))).thenReturn(p);
+
+        Proposal proposal=proposalDAO.saveProposal(p);
+        assertEquals(p.getTitle(),proposal.getTitle());
+    }
 }
