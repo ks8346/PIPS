@@ -98,10 +98,14 @@ export class FeedComponent implements OnInit {
       (data)=>{
           this.new_comment=""
           this.commentsMessage="Comments"
+          this.commentVisibility=true
+          this.noComments=true
           this.commentsSetup()
       },(error)=>{
         if(error.status==200){
           this.new_comment=""
+          this.commentVisibility=true
+          this.noComments=true
           this.commentsMessage="Comments"
           this.commentsSetup()
         }
