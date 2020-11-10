@@ -1,4 +1,3 @@
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { PasswordSpecsComponent } from './../password-specs/password-specs.component';
 import { ResetPasswordService } from './../service/reset-password.service';
 import { ValidateTokenService } from './../service/validate-token.service';
@@ -18,7 +17,7 @@ import { ConfirmPasswordValidator } from '../confirmPassword.Validator';
 export class ResetLinkComponent implements OnInit {
 
   resetLinkForm: FormGroup
-  validToken:boolean=true;
+  validToken:boolean;
   msg:string="reset sucessfull!"
   token
   hide=true;

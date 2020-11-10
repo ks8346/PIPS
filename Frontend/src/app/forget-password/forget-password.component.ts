@@ -24,7 +24,8 @@ forgetPasswordForm:FormGroup;
 
 data: string;
 error: string;
-isSubmit:boolean=true;
+isSubmit : boolean=true;
+
   constructor(private sendResetLink: SendResetLinkService ) {
    
    }
@@ -36,17 +37,14 @@ isSubmit:boolean=true;
     });
     
   }
-  onOk(){
-    // this.dialogRef.close();
-  }
 
   onSubmit(){
     var data={"data1":{"mail":this.forgetPasswordForm.value.email}}
     console.log(data)
     this.sendResetLink.resetLink(data).subscribe(
       (data1) => {
-        this.isSubmit=false
          console.log(data1);
+         this.isSubmit = false;
          this.error="Reset link has been send to your email."
         
        },
@@ -55,6 +53,10 @@ isSubmit:boolean=true;
       
        }
      );
+
+  }
+
+  onOk(){
 
   }
 

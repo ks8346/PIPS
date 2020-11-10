@@ -1,14 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LandingPageComponent } from './landing-page.component';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MAT_DIALOG_DATA, MatDialogRef,MatDialogModule,MatDialog } from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu'
 import {Overlay} from '@angular/cdk/overlay'
+import {User} from '../user';
+import {AuthorizationService} from '../authorization.service'
+import {GetProposalsService} from '../get-proposals.service'
+import { getMultipleValuesInSingleSelectionError } from '@angular/cdk/collections';
 describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
   let fixture: ComponentFixture<LandingPageComponent>;
@@ -21,44 +23,43 @@ describe('LandingPageComponent', () => {
         {provide:Overlay},
         {provide:MatDialog},
         { provide: MAT_DIALOG_DATA, useValue: {} },
-        { provide: MatDialogRef, useValue: {} }],
+        { provide: MatDialogRef, useValue: {} },
+        AuthorizationService
+      ],
       declarations: [ LandingPageComponent ]
     })
     .compileComponents();
     httpClient=TestBed.inject(HttpClient)
     httpTestingController=TestBed.inject(HttpTestingController)
+    let team={id:1,name:"Devs"}
+    const user=new User(1,"Kartik","ks8346@gmail.com",team)
+    let autho:AuthorizationService;
+    autho=TestBed.inject(AuthorizationService)
+    spyOn(autho, 'authorization').and.returnValue(user);
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LandingPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    let store={User:{
-      id:1,
-      name:"Kartik",
-      email:"ks8346@gmail.com",
-      team:{
-        id:1,
-        name:"Devs"
-      }
-    }}
-    spyOn(sessionStorage, 'getItem').and.callFake((User) => {
-      return store[User];
-    });
   });
 
-  it('should create Session', () => {
-    expect(component.User).toBeTruthy();
+
+  it('should create Landing Page', () => {
+    expect(component).toBeTruthy()
+  });
+
+  it('should create session', () => {
+    expect(component.user).toBeTruthy()
   });
 
   it("should flood feed array",()=>{
-    component.getAll()
-    expect(component.feed.length).toBeGreaterThan(0)
+    let get:GetProposalsService
+    spyOn(get,"getAllPosts").and.callThrough()
   })
 
   it("should flood feed array",()=>{
-    component.getTeam()
-    expect(component.feed.length).toBeGreaterThan(0)
+    spyOn(component,"getTeam").and.callThrough()
   })
 
   it("should filter the data",()=>{
