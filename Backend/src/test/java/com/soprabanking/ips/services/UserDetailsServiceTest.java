@@ -1,6 +1,7 @@
 package com.soprabanking.ips.services;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -10,9 +11,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 import com.soprabanking.ips.config.UserDetailsServiceImpl;
-import com.soprabanking.ips.dao.UserRepository;
-import com.soprabanking.ips.entities.User;
+import com.soprabanking.ips.models.User;
+import com.soprabanking.ips.repositories.UserRepository;
 
 @ExtendWith(MockitoExtension.class)
 class UserDetailsServiceTest {
