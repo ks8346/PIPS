@@ -72,7 +72,7 @@ export class FeedComponent implements OnInit {
           this.commentVisibility=true
           this.commentsMessage="No comments on this post yet"
           this.noComments=false
-          this.height=10
+          this.height=95
         }
       },
       (error)=>{
@@ -164,8 +164,8 @@ export class FeedComponent implements OnInit {
     this.share.emit(this.post)
   }
 
-  openDialog(id:number){
-    this.update.emit(id)
+  openDialog(post){
+    this.update.emit(post)
   }
   seeMore(){
     if(this.show){
@@ -176,10 +176,7 @@ export class FeedComponent implements OnInit {
     }
   }
 
-  onDelete(commentId)
-  {
-    // console.log(commentId)
-   
+  onDelete(commentId){
     this.proposalWork.deleteComment(commentId).subscribe((data)=>console.log(data),
       (error)=>{
         if(error.status==200){

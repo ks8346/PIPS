@@ -131,11 +131,11 @@ export class LandingPageComponent implements OnInit {
 
   }
   
-  openDialog(id?:number){
+  openDialog(post?){
     let dialogRef = this.dialog.open(CreateProposalComponent, {
       height: '400px',
       width: '600px',
-      data:{name:this.user.id,id,teams:this._teams}
+      data:{name:this.user.id,post:post,teams:this._teams}
     });
     dialogRef.afterClosed().subscribe(result => {
       if(result){
