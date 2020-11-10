@@ -1,3 +1,4 @@
+import { ResetLinkComponent } from './reset-link/reset-link.component';
 import { GetTeamService } from './service/get-team.service';
 import { UserRegisterService } from './service/user-register.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -42,6 +43,7 @@ import { ShareProposalComponent } from './landing-page/feed/share-proposal/share
 import { TeamComponent } from './team/team.component';
 import { ForgetPasswordComponent} from './forget-password/forget-password.component';
 import { MatSelectFilterModule } from 'mat-select-filter';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { MatSelectFilterModule } from 'mat-select-filter';
     CommentComponent,
     ShareProposalComponent,
     TeamComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    ResetLinkComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +88,7 @@ import { MatSelectFilterModule } from 'mat-select-filter';
     MatDatepickerModule,
     MatNativeDateModule,
     MatGridListModule,
-    MatSelectFilterModule
+    MatSelectFilterModule,CommonModule
   ],
   providers: [
     UserRegisterService,
