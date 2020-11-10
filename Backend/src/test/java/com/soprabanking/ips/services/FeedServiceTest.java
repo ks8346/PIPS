@@ -1,6 +1,9 @@
 package com.soprabanking.ips.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.text.SimpleDateFormat;
@@ -48,9 +51,9 @@ public class FeedServiceTest {
         SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
         sdf.setTimeZone(TimeZone.getTimeZone("Asia/kolkata"));
 
-        String ds = sdf.format(now);
+        String sd = sdf.format(now);
         
-        String body = createAllFeedParams(ds, "all");
+        String body = createAllFeedParams(sd, sd, "all");
 
         Pageable pageable = PageRequest.of(0, 10);
         Slice<Proposal> slice = new SliceImpl<>(proposals);
@@ -60,6 +63,38 @@ public class FeedServiceTest {
         
         assertEquals(proposals, feedService.fetchAllProposals(body));
     }
+    
+    @Test
+    public void testFetchAllProposalsReverseDate() throws Exception {
+
+        Proposal proposal1 = new Proposal();
+        Proposal proposal2 = new Proposal();
+
+        List<Proposal> proposals = new ArrayList<>();
+        proposals.add(proposal1);
+        proposals.add(proposal2);
+        
+        String dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+
+        Date now = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+        sdf.setTimeZone(TimeZone.getTimeZone("Asia/kolkata"));
+        String sd = sdf.format(now);
+        now.setHours(0);
+        String ed = sdf.format(now);
+        
+        String body = createAllFeedParams(sd, ed, "all");
+
+        Pageable pageable = PageRequest.of(0, 10);
+        Slice<Proposal> slice = new SliceImpl<>(proposals);
+
+        when(proposalDAO.fetchAllProposals(now, now, pageable))
+                .thenReturn(slice);
+
+        assertThrows(Exception.class, () -> feedService.fetchAllProposals(body));
+        verify(proposalDAO,times(0)).fetchAllProposals(now, now, pageable);
+    }
+    
     
     @Test
     public void testFetchUserProposals() throws Exception{
@@ -77,10 +112,9 @@ public class FeedServiceTest {
         SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
         sdf.setTimeZone(TimeZone.getTimeZone("Asia/kolkata"));
 
-        String ds = sdf.format(now);
+        String sd = sdf.format(now);
+        String body = createAllFeedParams(sd, sd, "create");
         
-        String body = createAllFeedParams(ds, "create");
-
         Pageable pageable = PageRequest.of(0, 10);
         Slice<Proposal> slice = new SliceImpl<>(proposals);
 
@@ -90,12 +124,44 @@ public class FeedServiceTest {
         assertEquals(proposals, feedService.fetchUserProposals(body));
     	
     }
+    
+    @Test
+    public void testFetchUserProposalsReverseDate() throws Exception{
+    	
+    	Proposal proposal1 = new Proposal();
+        Proposal proposal2 = new Proposal();
 
-    public String createAllFeedParams(String ds, String str) throws JSONException {
+        List<Proposal> proposals = new ArrayList<>();
+        proposals.add(proposal1);
+        proposals.add(proposal2);
+        
+        String dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+
+        Date now = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+        sdf.setTimeZone(TimeZone.getTimeZone("Asia/kolkata"));
+        String sd = sdf.format(now);
+        now.setHours(0);
+        String ed = sdf.format(now);
+        
+        String body = createAllFeedParams(sd, ed, "create");
+
+        Pageable pageable = PageRequest.of(0, 10);
+        Slice<Proposal> slice = new SliceImpl<>(proposals);
+
+        when(proposalDAO.fetchUserProposals(1L, now, now, pageable))
+                .thenReturn(slice);
+        
+        assertThrows(Exception.class, () -> feedService.fetchUserProposals(body));
+        verify(proposalDAO,times(0)).fetchAllProposals(now, now, pageable);
+    	
+    }
+
+    public String createAllFeedParams(String sd, String ed, String str) throws JSONException {
     	
     	JSONObject json = new JSONObject();
-    	json.put("startDate", ds);
-    	json.put("endDate", ds);
+    	json.put("startDate", sd);
+    	json.put("endDate", ed);
     	json.put("page", 0);
     	json.put("size", 10);
     	

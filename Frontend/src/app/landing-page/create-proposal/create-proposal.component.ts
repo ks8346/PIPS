@@ -13,15 +13,25 @@ export class CreateProposalComponent implements OnInit {
   Teams:{}[]=[]
   userId:string
   teamVisibility=true
+  dialogTitle:string="Create Proposal"
   id:number=null
   values:TestServiceService;
+  public tit 
+  public descrip
+  public prop
   ngOnInit(){
     this.userId=this.data.userId
     // this.id=this.data.post.id
     if(this.data.post){
       this.teamVisibility=false
       this.id=this.data.post.id
-    }
+      this.tit = this.data.post.title
+      this.descrip = this.data.post.description
+      this.prop= "Update Proposal"
+     }
+     else{
+       this.prop="Create Proposal"
+     }
   }
   onClear(){
     this.service.form.reset();

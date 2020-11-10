@@ -49,7 +49,6 @@ public class FeedService {
 
         try {
             JsonNode jsonObj = JsonUtil.stringToJson(body);
-
             Date startDate = DateUtil.stringToISTDate(jsonObj.get("startDate").asText());
             Date endDate = DateUtil.stringToISTDate(jsonObj.get("endDate").asText());
             int page = Integer.parseInt(jsonObj.get("page").asText());
@@ -57,7 +56,7 @@ public class FeedService {
             Long userId = Long.parseLong(jsonObj.get("userId").asText());
 
             if (startDate.after(endDate))
-                throw new Exception();
+            	throw new Exception();
 
             Pageable pageable = PageRequest.of(page, size);
             Slice<Proposal> result = proposalDAO.fetchUserProposals(userId, startDate, endDate, pageable);
@@ -66,6 +65,7 @@ public class FeedService {
 
 
         } catch (Exception ex) {
+        	ex.printStackTrace();
             throw new Exception();
 
         }
