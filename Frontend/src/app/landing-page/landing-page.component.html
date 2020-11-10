@@ -3,13 +3,13 @@
         <button mat-icon-button (click)="showMenu()" [class.d-none]="!this.menuButton">
             <mat-icon>menu</mat-icon>
         </button>
-        <span><img src="assets/img/LOGO.png" alt="title logo" style="height: 40px;width:auto;"></span>
+        <span><a href="/welcome"><img src="assets/img/LOGO.png" alt="title logo" style="height: 40px;width:auto;"></a></span>
         <span class="space"></span>
         <button mat-button [matMenuTriggerFor]="beforeMenu">Hello, {{this.name}}</button>
         <mat-menu class="menu" #beforeMenu="matMenu" xPosition="before" >
-            <div mat-menu-item style="width: 150px;">{{this.email}}</div>
-            <div mat-menu-item style="width: 150px;">Team</div>
-            <div mat-menu-item style="width: 150px; margin:auto 10px;" class="btn btn-danger">Logout</div>
+            <div mat-menu-item style="width: auto;">{{this.email}}</div>
+            <div mat-menu-item style="width: auto;">{{this.User.team.name}}</div>
+            <div mat-menu-item style="width: auto; margin:auto 10px;" class="btn btn-danger" (click)="destroySession()">Logout</div>
         </mat-menu>
     </mat-toolbar>
     <div style="background-color: rgb(238, 236, 236);">
@@ -28,9 +28,10 @@
                 <div>
                     <div *ngFor="let post of feed;index as i">
                         <div style="background-color: white;margin: 2% auto;border-radius: 10px;">
-                            <app-feed class="feed" [post]="post" [userId]="userId" [type]="type" (update)="openDialog($event)"></app-feed>
+                            <app-feed class="feed" [post]="post" [userId]="userId" [type]="type" (update)="openDialog($event)" (share)="openDialogshare($event)" (deleteProposal)="deleteProposal($event)"></app-feed>
                         </div>
                     </div>
+                    <div class="endMessage">{{this.endMessage}}</div>
                 </div>
             </div> 
         </div>

@@ -18,58 +18,56 @@ import com.soprabanking.ips.utilities.JsonUtil;
 @Service
 public class FeedService {
 
-	@Autowired
-	private ProposalDAO proposalDAO;
-	
-	public List<Proposal> fetchAllProposals(String body) throws Exception {
-		
-		try {
+    @Autowired
+    private ProposalDAO proposalDAO;
 
-			JsonNode jsonObj = JsonUtil.stringToJson(body);
-			
-			Date startDate = DateUtil.stringToISTDate(jsonObj.get("startDate").asText());
-			Date endDate = DateUtil.stringToISTDate(jsonObj.get("endDate").asText());
-			int page = Integer.parseInt(jsonObj.get("page").asText());
-			int size = Integer.parseInt(jsonObj.get("size").asText());
-			
-			if(startDate.after(endDate))
-				throw new Exception();
-			
-			Pageable pageable = PageRequest.of(page, size);
-			Slice<Proposal> result = proposalDAO.fetchAllProposals(startDate, endDate, pageable);
-			return result.getContent();
-		}
-		catch(Exception ex) {
+    public List<Proposal> fetchAllProposals(String body) throws Exception {
+
+        try {
+
+            JsonNode jsonObj = JsonUtil.stringToJson(body);
+
+            Date startDate = DateUtil.stringToISTDate(jsonObj.get("startDate").asText());
+            Date endDate = DateUtil.stringToISTDate(jsonObj.get("endDate").asText());
+            int page = Integer.parseInt(jsonObj.get("page").asText());
+            int size = Integer.parseInt(jsonObj.get("size").asText());
+
+            if (startDate.after(endDate))
+                throw new Exception();
+
+            Pageable pageable = PageRequest.of(page, size);
+            Slice<Proposal> result = proposalDAO.fetchAllProposals(startDate, endDate, pageable);
+            return result.getContent();
+        } catch (Exception ex) {
 
 
-			throw new Exception();
-		}
-	}
+            throw new Exception();
+        }
+    }
 
-	public List<Proposal> fetchUserProposals(String body) throws Exception {
+    public List<Proposal> fetchUserProposals(String body) throws Exception {
 
-		try {
-			JsonNode jsonObj = JsonUtil.stringToJson(body);
-			
-			Date startDate = DateUtil.stringToISTDate(jsonObj.get("startDate").asText());
-			Date endDate = DateUtil.stringToISTDate(jsonObj.get("endDate").asText());
-			int page = Integer.parseInt(jsonObj.get("page").asText());
-			int size = Integer.parseInt(jsonObj.get("size").asText());
-			Long userId = Long.parseLong(jsonObj.get("userId").asText());
-			
-			if(startDate.after(endDate))
-				throw new Exception();
-			
-			Pageable pageable = PageRequest.of(page, size);
-			Slice<Proposal> result = proposalDAO.fetchUserProposals(userId, startDate, endDate, pageable);
-			
-			return result.getContent();
-			
-			
-		}
-		catch(Exception ex) {
-			throw new Exception();
+        try {
+            JsonNode jsonObj = JsonUtil.stringToJson(body);
 
-		}
-	}
+            Date startDate = DateUtil.stringToISTDate(jsonObj.get("startDate").asText());
+            Date endDate = DateUtil.stringToISTDate(jsonObj.get("endDate").asText());
+            int page = Integer.parseInt(jsonObj.get("page").asText());
+            int size = Integer.parseInt(jsonObj.get("size").asText());
+            Long userId = Long.parseLong(jsonObj.get("userId").asText());
+
+            if (startDate.after(endDate))
+                throw new Exception();
+
+            Pageable pageable = PageRequest.of(page, size);
+            Slice<Proposal> result = proposalDAO.fetchUserProposals(userId, startDate, endDate, pageable);
+
+            return result.getContent();
+
+
+        } catch (Exception ex) {
+            throw new Exception();
+
+        }
+    }
 }

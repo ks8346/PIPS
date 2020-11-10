@@ -21,8 +21,11 @@
     "@angular/platform-browser": "~10.1.4",
     "@angular/platform-browser-dynamic": "~10.1.4",
     "@angular/router": "~10.1.4",
+    "angular-local-storage": "^0.7.1",
     "bootstrap": "^4.5.3",
+    "mat-select-filter": "^2.3.7",
     "ngx-infinite-scroll": "^9.1.0",
+    "ngx-mat-select-search": "^3.1.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

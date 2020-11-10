@@ -10,15 +10,12 @@
 
 <form [formGroup]="service.form" class="normal">
     <div mat-dialog-content class="controles">
-        <input type="hidden" formControlName="key" [(ngModel)]=this.id>
+        <input type="hidden" formControlName="key" [value]=this.data.id>
         <mat-form-field appearance="fill" class="field">
             <mat-label>Title</mat-label>
-
-
             <input formControlName="title" matInput placeholder="Title" minlength="6">
             <mat-error *ngIf="service.form.controls['title'].errors?.required">This field is Mandatory</mat-error>
             <mat-error *ngIf="service.form.controls['title'].errors?.minlength">Minimum 5 characters needed</mat-error>
-
         </mat-form-field>
         <br>
         <mat-form-field class="field" >
@@ -36,9 +33,7 @@
         </mat-form-field>
     </div>
     <div mat-dialog-action align=end>
-
-       <button mat-raised-button [mat-dialog-close]='this.service.form.value' color="primary" type="submit" [disabled]= "service.form.invalid || service.form.controls['title'].pristine || service.form.controls['teams'].untouched || service.form.controls['description'].pristine" (click)=onSubmit()>submit</button>
+       <button mat-raised-button [mat-dialog-close]='{value:this.service.form.value,key:this.data.id}' color="primary" type="submit" [disabled]= "(service.form.invalid || service.form.controls['title'].pristine || service.form.controls['description'].pristine) || (service.form.controls['teams'].untouched && this.data.id==null) " (click)=onSubmit()>submit</button>
        <button mat-raised-button [mat-dialog-close] color="danger" (click)=onClear()>close</button>
-
     </div>
 </form>

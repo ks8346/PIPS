@@ -3,6 +3,11 @@
     width: 100%;
     ;
 }
+.endMessage{
+    font-size: 15px;
+    text-align: center;
+    color: black;
+}
 .header{
     height:60px;
     margin-bottom: 1em;

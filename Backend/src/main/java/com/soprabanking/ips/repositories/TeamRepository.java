@@ -12,11 +12,10 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
     Team findById(long id);
 
     @Query("SELECT t.name FROM Team t ")
-	List<Object> getTeamIdANDName();
-    
-    @Query("select t from Team t where t.name = :name")
-	public Team getTeamByTeamName(@Param("name") String name);
+    List<Object> getTeamIdANDName();
 
-	
+    @Query("select t from Team t where t.name = :name")
+    public Team getTeamByTeamName(@Param("name") String name);
+
 
 }

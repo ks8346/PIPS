@@ -1,3 +1,4 @@
+import { ForgetPasswordComponent } from './../forget-password/forget-password.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Component, OnInit ,Inject} from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, FormArray, FormGroupDirective, NgForm } from '@angular/forms';
@@ -9,6 +10,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatDialogRef} from '@angular/material/dialog';
 import { UserLoginService } from '../service/user-login.service';
+
 
 export interface DialogData {
   email: string;
@@ -34,7 +36,9 @@ export class LoginComponent implements OnInit {
   loginSuccess=false;
   successMessage: string;
   errorMessage = "Invalid Credentials"
+  userData;
   constructor(private router: Router,
+   
     public dialog: MatDialog,
     public loginService:UserLoginService) {
     this.loginForm = new FormGroup({
@@ -62,14 +66,18 @@ export class LoginComponent implements OnInit {
         //  });
 
          this.loginService.doLogin(this.loginForm.get('email').value,this.loginForm.get('password').value).subscribe((result)=> {
-         console.log("success")
+        
+          this.userData=sessionStorage.getItem('authenticatedUser')
+          console.log("results",this.userData, this.userData)
+          
           this.invalidLogin = false;
           this.loginSuccess = true;
-          
+          sessionStorage.setItem('data', JSON.stringify(result));
+          console.log("data", result)
           this.successMessage = 'Login Successful.';
           this.router.navigate(['/welcome']);
-        }, () => {
-          console.log("fail")
+        }, (error) => {
+          console.log(error)
           this.invalidLogin = true;
           this.loginSuccess = false;
         });
@@ -77,17 +85,18 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // openDialog(): void{
-  //   const dialogRef = this.dialog.open(ForgotPasswordDialog, {
-  //     width: '500px',
-  //     data: {email: this.email}
-  //   });
+  openDialog(): void{
+    const dialogRef = this.dialog.open(ForgetPasswordComponent, {
+      width: '500px',
+     
+    });
 
   //   dialogRef.afterClosed().subscribe(result => {
   //     console.log('The dialog was closed');
   //     this.email = result;
   //   });
   // }
+  }
 }
 
 // @Component({

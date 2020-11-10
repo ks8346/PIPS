@@ -13,7 +13,7 @@ export class UserRegisterService {
 
    doRegister(data){
     console.log("inside do_register")
-    return this.http.post("http://localhost:1998/userRegister",
+    return this.http.post("http://localhost:8080/userRegister",
     data["data1"],{responseType:'text' as 'json'})
     
     
