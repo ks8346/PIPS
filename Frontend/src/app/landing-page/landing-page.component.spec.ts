@@ -26,18 +26,21 @@ describe('LandingPageComponent', () => {
         {provide:MatDialog},
         { provide: MAT_DIALOG_DATA, useValue: {} },
         { provide: MatDialogRef, useValue: {} },
-        {provide:AuthorizationService}
+        AuthorizationService
       ],
       declarations: [ LandingPageComponent ]
     })
     .compileComponents();
     httpClient=TestBed.inject(HttpClient)
     httpTestingController=TestBed.inject(HttpTestingController)
+    let team={id:1,name:"Devs"}
+    const user=new User(1,"Kartik","ks8346@gmail.com",team)
+    let autho:AuthorizationService;
+    autho=TestBed.inject(AuthorizationService)
+    spyOn(autho, 'authorization').and.returnValue(user);
   });
 
   beforeEach(() => {
-    let team={id:1,name:"Devs"}
-    const user=new User(1,"Kartik","ks8346@gmail.com",team)
     fixture = TestBed.createComponent(LandingPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -50,23 +53,22 @@ describe('LandingPageComponent', () => {
     //   store[key] = `${value}`;
     // }};
     // mockLocalStorage.setItem('authenticated',JSON.stringify(user)) 
-    let autho:AuthorizationService;
-    spyOn(autho, 'authorization').and.returnValue( 
-      JSON.stringify(user)
-    );
   });
 
-  it('should create Session', () => {
+
+  it('should create Landing Page', () => {
+    expect(component).toBeTruthy()
+  });
+
+  it('should create session', () => {
     expect(component.user).toBeTruthy()
   });
 
   it("should flood feed array",()=>{
-    component.getAll()
     spyOn(component,"getAll").and.callThrough()
   })
 
   it("should flood feed array",()=>{
-    component.getTeam()
     spyOn(component,"getTeam").and.callThrough()
   })
 
