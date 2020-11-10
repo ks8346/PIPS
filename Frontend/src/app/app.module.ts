@@ -5,9 +5,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule} from '@angular/material/toolbar';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import {CreateProposalComponent} from './landing-page/create-proposal/create-proposal.component'
@@ -43,12 +42,12 @@ import { ShareProposalComponent } from './landing-page/feed/share-proposal/share
 import { TeamComponent } from './team/team.component';
 import { ForgetPasswordComponent} from './forget-password/forget-password.component';
 import { MatSelectFilterModule } from 'mat-select-filter';
+import { ResetLinkComponent } from './reset-link/reset-link.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent,
     HomeComponent,
     ErrorComponent,
     RegisterComponent,
@@ -61,7 +60,8 @@ import { MatSelectFilterModule } from 'mat-select-filter';
     CommentComponent,
     ShareProposalComponent,
     TeamComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    ResetLinkComponent
   ],
   imports: [
     BrowserModule,

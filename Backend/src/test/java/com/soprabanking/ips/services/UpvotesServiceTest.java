@@ -50,7 +50,7 @@ public class UpvotesServiceTest
 	UpvotesService upvoteService;
 	
 	@Test
-	public void testUpvoteProposal() throws Exception
+	public void testUpvoteProposalNew() throws Exception
 	{
 		Long proposalID=1L;
 		Long userID=1L;
@@ -67,6 +67,7 @@ public class UpvotesServiceTest
 		upvote.setUser(user);
 		
 		when(userDAO.getById(anyLong())).thenReturn(user);
+		when(upvotesDAO.getUpvoteforUserIdAndProposalId(anyLong(), anyLong())).thenReturn(null);
 		when(proposalDAO.getById(anyLong())).thenReturn(proposal);
 		when(proposalDAO.saveProposal(any(Proposal.class))).thenReturn(proposal);
 		when(upvotesDAO.createUpvote(any(Upvotes.class))).thenReturn(upvote);
@@ -82,8 +83,43 @@ public class UpvotesServiceTest
 		verify(userDAO,times(1)).getById(anyLong());
 		verify(proposalDAO,times(1)).getById(anyLong());
 		verify(proposalDAO,times(1)).saveProposal(any(Proposal.class));
-		verify(upvotesDAO,times(1)).createUpvote(any(Upvotes.class));		
+		verify(upvotesDAO,times(1)).createUpvote(any(Upvotes.class));
+		verify(upvotesDAO,times(1)).getUpvoteforUserIdAndProposalId(anyLong(), anyLong());
 	}
+	
+	@Test
+	public void testUpvoteProposalExisting() throws Exception
+	{
+		Long proposalID=1L;
+		Long userID=1L;
+		
+		User user=new User();
+		user.setId(userID);
+		Proposal proposal=new Proposal();
+		proposal.setId(proposalID);
+		
+		Upvotes upvote=new Upvotes();
+		upvote.setId(1L);
+		upvote.setProposal(proposal);
+		upvote.setUser(user);
+		
+		when(upvotesDAO.getUpvoteforUserIdAndProposalId(anyLong(), anyLong())).thenReturn(upvote);
+		
+		JSONObject body=new JSONObject();
+        body.put("userId",userID);
+        body.put("id",proposalID);
+        
+        Upvotes upvoted=upvoteService.upvoteProposal(body.toString());
+        
+        assertEquals(upvoted.getId(),upvote.getId());
+		assertNotNull(upvoted);
+		verify(userDAO,never()).getById(anyLong());
+		verify(proposalDAO,never()).getById(anyLong());
+		verify(proposalDAO,never()).saveProposal(any(Proposal.class));
+		verify(upvotesDAO,never()).createUpvote(any(Upvotes.class));
+		verify(upvotesDAO,times(1)).getUpvoteforUserIdAndProposalId(anyLong(), anyLong());
+	}
+	
 	
 	@Test
 	void testUpvoteProposalDAOError() throws Exception

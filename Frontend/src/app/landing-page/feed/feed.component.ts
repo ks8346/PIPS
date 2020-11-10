@@ -16,6 +16,8 @@ export class FeedComponent implements OnInit {
   public canUpdate=false;
   public numberLikes:number;
   public comments:Comment[]=[];
+  public noComments:boolean=true;
+  public height:number;
   public show=false;
   public commentVisibility=false;
   public commentsMessage="Comments";
@@ -43,27 +45,45 @@ export class FeedComponent implements OnInit {
     this.proposalWork.getLike(this.post.id,this.userId).subscribe((data)=>{this.hasLiked=data,console.log(this.hasLiked)})
     this.proposalWork.getComment(this.post.id).subscribe(
       (data)=>{
-       
         this.comments=this.comments.concat(data)
-        console.log(this.comments)
+        // console.log(this.comments)
         this.commentError=""
-        if(data.length<=1){
-          this.commentVisibility=true
-          if(data.length==0){
-            this.commentsMessage="No comments on this post yet"
-            console.log("No comment",this.comments.length)
+        if(data!=null){
+          if(data.length<=1){
+            console.log("In comments",this.comments.length)
+            this.commentVisibility=true
+            if(this.comments.length==0){
+              this.commentsMessage="No comments on this post yet"
+              console.log("No comment",this.comments.length)
+            }
+            else{
+              this.singleComment=data[0]
+              this.commentsMessage="Comments"
+              this.height=95
+              console.log("comment",this.singleComment)
+            }
           }
           else{
-            this.singleComment=data[0]
-            this.commentsMessage="Comments"
-            console.log("comment",this.singleComment)
+            this.height=200
+            console.log("in comments",this.comments.length)
           }
+        }
+        else{
+          this.commentVisibility=true
+          this.commentsMessage="No comments on this post yet"
+          this.noComments=false
+          this.height=95
         }
       },
       (error)=>{
         if(error.status!=200){
           console.log("Some error has occured retrieving the comments please reload")
           this.commentError="Some error has occured retrieving the comments please reload"
+        }
+        else if(error.status==200) {
+          this.commentVisibility=true
+          this.commentsMessage="No comments on this post yet"
+          console.log("No comment",this.comments.length)
         }
       }
     )
@@ -80,6 +100,7 @@ export class FeedComponent implements OnInit {
             (data)=>{
               this.comments=[]
               this.comments=this.comments.concat(data)
+              this.noComments=true
             }
           )
       },(error)=>{
@@ -93,6 +114,7 @@ export class FeedComponent implements OnInit {
             (data)=>{
               this.comments=[]
               this.comments=this.comments.concat(data)
+              this.noComments=true
             }
           )
         }
@@ -142,8 +164,8 @@ export class FeedComponent implements OnInit {
     this.share.emit(this.post)
   }
 
-  openDialog(id:number){
-    this.update.emit(id)
+  openDialog(post){
+    this.update.emit(post)
   }
   seeMore(){
     if(this.show){
@@ -154,10 +176,7 @@ export class FeedComponent implements OnInit {
     }
   }
 
-  onDelete(commentId)
-  {
-    // console.log(commentId)
-   
+  onDelete(commentId){
     this.proposalWork.deleteComment(commentId).subscribe((data)=>console.log(data),
       (error)=>{
         if(error.status==200){

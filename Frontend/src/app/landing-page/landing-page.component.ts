@@ -118,22 +118,24 @@ export class LandingPageComponent implements OnInit {
       data:{prop:post.teams,teams:this._teams}
     });
     dialogRef.afterClosed().subscribe(result =>{
-      this.post.shareProposal(result,post.id).subscribe(
-        (data)=>console.log(data),
-        (error)=>{
-          if(error.status==200){
-            window.location.reload()
-          }
-        })
+      if(result){
+        this.post.shareProposal(result,post.id).subscribe(
+          (data)=>console.log(data),
+          (error)=>{
+            if(error.status==200){
+              window.location.reload()
+            }
+          })
+      }
     })
 
   }
   
-  openDialog(id?:number){
+  openDialog(post?){
     let dialogRef = this.dialog.open(CreateProposalComponent, {
       height: '400px',
       width: '600px',
-      data:{name:this.user.id,id,teams:this._teams}
+      data:{name:this.user.id,post:post,teams:this._teams}
     });
     dialogRef.afterClosed().subscribe(result => {
       if(result){

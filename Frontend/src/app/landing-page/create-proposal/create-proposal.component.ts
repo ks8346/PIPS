@@ -13,13 +13,14 @@ export class CreateProposalComponent implements OnInit {
   Teams:{}[]=[]
   userId:string
   teamVisibility=true
-  id;
+  id:number=null
   values:TestServiceService;
   ngOnInit(){
     this.userId=this.data.userId
-    this.id=this.data.id
-    if(this.data.id){
+    // this.id=this.data.post.id
+    if(this.data.post){
       this.teamVisibility=false
+      this.id=this.data.post.id
     }
   }
   onClear(){
