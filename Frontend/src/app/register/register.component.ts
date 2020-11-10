@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  responseDialog(msg) {
+  responseDialog() {
     const dialogRef = this.dialog.open(ApiResponseComponent, {
       height: '180px',
       width: '400px',
@@ -134,11 +134,11 @@ export class RegisterComponent implements OnInit {
           if(data1=="Email Id already exists !!"){
             this.message="Email Id already exists!"
             this.loading=false;
-            this.responseDialog(this.message)
+            this.responseDialog()
           }
           else{
             this.message="You have been signed up!"
-            this.responseDialog(this.message)
+            this.responseDialog()
             this.router.navigate(['/home']) ;
             this.loading=false;
           }
@@ -146,7 +146,7 @@ export class RegisterComponent implements OnInit {
         (error)=>{
           if(error.status==200){
             this.message="You have been signed up!"
-            this.responseDialog(this.message)
+            this.responseDialog()
             this.router.navigate(['/home']) ;
             this.loading=false;
           }

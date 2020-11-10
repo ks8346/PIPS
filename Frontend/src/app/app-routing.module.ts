@@ -1,3 +1,4 @@
+import { ResetLinkComponent } from './reset-link/reset-link.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path : 'home',component:HomeComponent},
   {path : 'welcome',component:LandingPageComponent},
   {path : 'team',component:TeamComponent},
+  {path : 'resetLink/:token', component:ResetLinkComponent},
   {path : '**',component:ErrorComponent}
 ];
 
