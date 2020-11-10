@@ -1,14 +1,14 @@
 package com.soprabanking.ips.controllers;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.soprabanking.ips.daos.ProposalDAO;
-import com.soprabanking.ips.models.Proposal;
-import com.soprabanking.ips.models.Team;
-import com.soprabanking.ips.services.FeedService;
-import com.soprabanking.ips.services.ProposalService;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
@@ -21,24 +21,52 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import java.util.ArrayList;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.soprabanking.ips.models.Proposal;
+import com.soprabanking.ips.models.Team;
+import com.soprabanking.ips.services.ProposalService;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 class ProposalControllerTest {
-
-
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
     private ProposalService proposalService;
+    
+    @Test
+    public void testShareProposal() throws Exception {
+    	
+    	String body = shareProposalData();
+    	
+    	when(proposalService.shareProposal(body)).thenReturn(new Proposal());
+    	
+    	MvcResult mvcResult = mockMvc.perform(post("/proposal/share")
+    	        .contentType(MediaType.APPLICATION_JSON)
+    	        .content(body))
+    	        .andExpect(status().isOk())
+    	        .andReturn();
+    	
+    	assertEquals("SUCCESS", mvcResult.getResponse().getContentAsString());
+    }
+    
+    @Test
+    public void testShareProposalError() throws Exception {
+    	
+    	String body = shareProposalData();
+    	
+    	when(proposalService.shareProposal(body)).thenThrow(new RuntimeException());
+    	
+    	MvcResult mvcResult = mockMvc.perform(post("/proposal/share")
+    	        .contentType(MediaType.APPLICATION_JSON)
+    	        .content(body))
+    	        .andExpect(status().is4xxClientError())
+    	        .andReturn();
+    	
+    	assertEquals("FAILURE", mvcResult.getResponse().getContentAsString());
+    }
 
 
     //Correct Values Testing
@@ -188,5 +216,25 @@ class ProposalControllerTest {
 
         assertThat(mvcResult.getResponse().getContentAsString())
                 .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(new Proposal()));
+    }
+    
+    private String shareProposalData() throws JSONException {
+    	
+    	JSONObject json = new JSONObject();
+    	json.put("id", 1);
+    	JSONArray teams = new JSONArray();
+		JSONObject t = new JSONObject();
+		t.put("id","1");
+    	t.put("name","Devs");
+        teams.put(t);
+        JSONObject t2 = new JSONObject();
+		t.put("id","2");
+    	t.put("name","Sparks");
+    	teams.put(t2);
+    	json.put("teams", teams);
+    	
+    	return json.toString();
+    	
+    	
     }
 }
