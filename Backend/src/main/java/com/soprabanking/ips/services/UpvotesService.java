@@ -30,6 +30,13 @@ public class UpvotesService {
             JsonNode jsonObj = JsonUtil.stringToJson(body);
             Long pid = Long.parseLong(jsonObj.get("id").asText());
             Long uid = Long.parseLong(jsonObj.get("userId").asText());
+            Upvotes upvotes=upvotesDao.getUpvoteforUserIdAndProposalId(uid, pid);
+            if(upvotes!=null)
+            {
+            	return upvotes;
+            }
+            else
+            {
             User user = userDao.getById(uid);
             
             Upvotes upvote = new Upvotes();
@@ -57,6 +64,7 @@ public class UpvotesService {
             	throw new Exception();
             }
             return upvoted;
+            }
         } catch (Exception ex) {
             throw new Exception();
         }
