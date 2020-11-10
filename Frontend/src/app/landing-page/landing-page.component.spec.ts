@@ -36,6 +36,8 @@ describe('LandingPageComponent', () => {
     let autho:AuthorizationService;
     autho=TestBed.inject(AuthorizationService)
     spyOn(autho, 'authorization').and.returnValue(user);
+    let getProposals:GetProposalsService
+    getProposals=TestBed.inject(GetProposalsService)
   });
 
   beforeEach(() => {
@@ -61,7 +63,6 @@ describe('LandingPageComponent', () => {
 
   it("should flood feed array",()=>{
     let getProposals:GetProposalsService
-    getProposals=TestBed.inject(GetProposalsService)
     spyOn(getProposals,"getTeamPosts").and.callThrough()
   })
 
@@ -77,5 +78,20 @@ describe('LandingPageComponent', () => {
     expect(component.type).toEqual("allPost")
   })
 
-  
+  it("should select Your Post api",()=>{
+    let data="yourPost"
+    component.selectApi(data)
+    spyOn(component,"getYour").and.callThrough()
+  })
+
+  it("should select Team Post api",()=>{
+    let data="teamPost"
+    component.selectApi(data)
+    spyOn(component,"getTeam").and.callThrough()
+  })
+
+  it("should show menu",()=>{
+    component.showMenu()
+    expect(component.menuVisibility).toEqual(false)
+  })
 });

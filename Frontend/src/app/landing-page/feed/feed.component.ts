@@ -12,7 +12,6 @@ import { JsonPipe } from '@angular/common';
 export class FeedComponent implements OnInit {
   @Input() post:Post;
   public new_comment:string;
-  public singleComment:Comment;
   public canUpdate=false;
   public numberLikes:number;
   public comments:Comment[]=[];
@@ -57,10 +56,8 @@ export class FeedComponent implements OnInit {
               console.log("No comment",this.comments.length)
             }
             else{
-              this.singleComment=data[0]
               this.commentsMessage="Comments"
               this.height=95
-              console.log("comment",this.singleComment)
             }
           }
           else{
