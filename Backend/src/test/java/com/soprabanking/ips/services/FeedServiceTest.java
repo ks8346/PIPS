@@ -113,7 +113,7 @@ public class FeedServiceTest {
         sdf.setTimeZone(TimeZone.getTimeZone("Asia/kolkata"));
 
         String sd = sdf.format(now);
-        String body = createAllFeedParams(sd, sd, "all");
+        String body = createAllFeedParams(sd, sd, "create");
         
         Pageable pageable = PageRequest.of(0, 10);
         Slice<Proposal> slice = new SliceImpl<>(proposals);
@@ -121,8 +121,7 @@ public class FeedServiceTest {
         when(proposalDAO.fetchUserProposals(1L, now, now, pageable))
                 .thenReturn(slice);
         
-        assertThrows(Exception.class, () -> feedService.fetchUserProposals(body));
-        verify(proposalDAO, times(0)).fetchUserProposals(1L, now, now, pageable);
+        assertEquals(proposals, feedService.fetchUserProposals(body));
     	
     }
     

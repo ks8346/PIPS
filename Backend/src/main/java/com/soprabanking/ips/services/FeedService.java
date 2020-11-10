@@ -49,7 +49,6 @@ public class FeedService {
 
         try {
             JsonNode jsonObj = JsonUtil.stringToJson(body);
-
             Date startDate = DateUtil.stringToISTDate(jsonObj.get("startDate").asText());
             Date endDate = DateUtil.stringToISTDate(jsonObj.get("endDate").asText());
             int page = Integer.parseInt(jsonObj.get("page").asText());
@@ -66,6 +65,7 @@ public class FeedService {
 
 
         } catch (Exception ex) {
+        	ex.printStackTrace();
             throw new Exception();
 
         }
