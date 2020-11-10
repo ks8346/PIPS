@@ -19,30 +19,32 @@ import com.soprabanking.ips.services.ProposalService;
 @RequestMapping("/proposal")
 public class ProposalController {
 
-    @Autowired
-    private ProposalService proposalService;
+	
+	@Autowired
+	private ProposalService proposalService;
 
-    @PostMapping(value = "/add", consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Proposal> addProposal(@RequestBody String body) {
-
-        try {
-            return new ResponseEntity<Proposal>(proposalService.saveProposal(body), HttpStatus.OK);
-        } catch (Exception ex) {
-            return new ResponseEntity<Proposal>(new Proposal(), HttpStatus.NOT_ACCEPTABLE);
-        }
-    }
-
-    @PostMapping(value = "/update", consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Proposal> updateProposal(@RequestBody String body) {
-
-        try {
-            return new ResponseEntity<Proposal>(proposalService.updateProposal(body), HttpStatus.OK);
-        } catch (Exception ex) {
-            return new ResponseEntity<Proposal>(new Proposal(), HttpStatus.NOT_ACCEPTABLE);
-        }
-    }
-
-    @PostMapping(value = "/share", consumes = APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/add", consumes = APPLICATION_JSON_VALUE)
+	public ResponseEntity<Proposal> addProposal(@RequestBody String body){
+		
+		try {
+			return new ResponseEntity<Proposal>(proposalService.saveProposal(body),HttpStatus.OK);
+		}
+		catch(Exception ex) {
+			return new ResponseEntity<Proposal>(new Proposal(), HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
+	@PostMapping(value = "/update", consumes = APPLICATION_JSON_VALUE)
+	public ResponseEntity<Proposal> updateProposal(@RequestBody String body){
+		
+		try {
+			return new ResponseEntity<Proposal>(proposalService.updateProposal(body),HttpStatus.OK);
+		}
+		catch(Exception ex) {
+			return new ResponseEntity<Proposal>(new Proposal(), HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
+	
+	@PostMapping(value = "/share", consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<String> shareProposal(@RequestBody String body) {
         try {
             proposalService.shareProposal(body);
@@ -52,8 +54,9 @@ public class ProposalController {
         }
     }
 
-    @PostMapping("/delete")
-    public ResponseEntity<String> deleteProposal(@RequestBody String body) {
-        return proposalService.deleteProposal(body) ? new ResponseEntity<>("SUCCESS", HttpStatus.OK) : new ResponseEntity<>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
-    }
+	@PostMapping("/delete")
+	public ResponseEntity<String> deleteProposal(@RequestBody String body){
+		return proposalService.deleteProposal(body)?new ResponseEntity<String>("SUCCESS", HttpStatus.OK):new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
+	}
+
 }

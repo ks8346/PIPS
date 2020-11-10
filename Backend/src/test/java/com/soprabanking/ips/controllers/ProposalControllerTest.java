@@ -1,10 +1,14 @@
 package com.soprabanking.ips.controllers;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soprabanking.ips.daos.ProposalDAO;
 import com.soprabanking.ips.models.Proposal;
+import com.soprabanking.ips.models.Team;
 import com.soprabanking.ips.services.FeedService;
 import com.soprabanking.ips.services.ProposalService;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
@@ -19,6 +23,7 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import java.util.ArrayList;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -71,5 +76,117 @@ class ProposalControllerTest {
                 .andReturn();
 
         assertEquals("FAILURE",mvcResult.getResponse().getContentAsString());
+    }
+
+    //Correct Values
+    @Test
+    void addProposal() throws Exception {
+        JSONObject object=new JSONObject();
+        object.put("key",2L);
+        object.put("title","ABCD");
+        object.put("description","WXYZ");
+        object.put("userId",1L);
+
+        Team team=new Team();
+        team.setId(1L);
+        team.setName("Random");
+        JSONArray jsonArray=new JSONArray();
+        ObjectMapper objectMapper=new ObjectMapper();
+        jsonArray.put(new JSONObject(objectMapper.writeValueAsString(team)));
+        object.put("teams",jsonArray);
+
+        Proposal p =new Proposal();
+        p.setTitle("Hello");
+
+        Mockito.when(proposalService.saveProposal(ArgumentMatchers.anyString())).thenReturn(p);
+
+        MvcResult mvcResult = mockMvc.perform(post("/proposal/add")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(object.toString()))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        assertThat(mvcResult.getResponse().getContentAsString())
+                .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(p));
+    }
+
+    //Incorrect Values testing
+    @Test
+    void addProposalError() throws Exception {
+        JSONObject object=new JSONObject();
+        object.put("key",2L);
+        object.put("title","ABCD");
+        object.put("description","WXYZ");
+        object.put("userId",1L);
+
+        Team team=new Team();
+        team.setId(1L);
+        team.setName("Random");
+        JSONArray jsonArray=new JSONArray();
+        ObjectMapper objectMapper=new ObjectMapper();
+        jsonArray.put(new JSONObject(objectMapper.writeValueAsString(team)));
+        object.put("teams",jsonArray);
+
+        Proposal p =new Proposal();
+        p.setTitle("Hello");
+
+        Mockito.when(proposalService.saveProposal(ArgumentMatchers.anyString())).thenThrow(new Exception());
+
+        MvcResult mvcResult = mockMvc.perform(post("/proposal/add")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(object.toString()))
+                .andExpect(status().is4xxClientError())
+                .andReturn();
+
+        assertThat(mvcResult.getResponse().getContentAsString())
+                .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(new Proposal()));
+    }
+
+    //Correct Values Testing
+    @Test
+    void updateProposal() throws Exception {
+        JSONObject object=new JSONObject();
+        ObjectMapper objectMapper=new ObjectMapper();
+        object.put("key",2L);
+        object.put("title","ABCD");
+        object.put("description","WXYZ");
+
+        Proposal p =new Proposal();
+        p.setTitle("Hello");
+
+        Mockito.when(proposalService.updateProposal(ArgumentMatchers.anyString())).thenReturn(p);
+
+        MvcResult mvcResult = mockMvc.perform(post("/proposal/update")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(object.toString()))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        assertThat(mvcResult.getResponse().getContentAsString())
+                .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(p));
+    }
+
+    //Incorrect Values testing
+    @Test
+    void updateProposalError() throws Exception {
+        JSONObject object=new JSONObject();
+        object.put("key",2L);
+        object.put("title","ABCD");
+        object.put("description","WXYZ");
+        ObjectMapper objectMapper=new ObjectMapper();
+
+        Proposal p =new Proposal();
+        p.setTitle("Hello");
+
+        Mockito.when(proposalService.updateProposal(ArgumentMatchers.anyString())).thenThrow(new Exception());
+
+        MvcResult mvcResult = mockMvc.perform(post("/proposal/update")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(object.toString()))
+                .andExpect(status().is4xxClientError())
+                .andReturn();
+
+        assertThat(mvcResult.getResponse().getContentAsString())
+                .isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(new Proposal()));
     }
 }

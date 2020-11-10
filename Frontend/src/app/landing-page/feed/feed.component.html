@@ -15,7 +15,7 @@
         <button mat-icon-button [class.text-danger]="this.hasLiked" class="likeButton" (click)="postLike(post.id)">
             <mat-icon>favorite</mat-icon>
         </button>
-        <button mat-icon-button  class="shareButton" (click)="openDialogshare()">
+        <button mat-icon-button  class="likeButton" (click)="openDialogshare()">
             <mat-icon>share</mat-icon></button>
         <p style="display:inline">{{this.numberLikes}} people upvoted this</p>
 
@@ -36,10 +36,12 @@
         <button type="submit" mat-raised-button color="primary" style="height:35px" (click)="postComment(post.id)">Comment</button>
     </form>
     <div style="margin:2px auto; border-top: 1px lightgray solid;padding-top: 1%;">{{this.commentsMessage}}</div>
-    <button mat-stroked-button color=primary  (click)="this.commentVisibility=true" [class.d-none]="this.commentVisibility" >See more</button>
-    <div class="commentText row" *ngFor="let comment of this.comments" [class.d-none]="!this.commentVisibility" >
-        <div class="col-md-12">
-            <app-comment class="com" [class.d-none]="!this.commentVisibility" [comment]="comment" [userId]="userId" (parentFunction)="onDelete($event)"></app-comment>
+    <button mat-stroked-button color=primary  (click)="this.commentVisibility=true" *ngIf="!this.commentVisibility" >See more</button>
+    <div class="comments" [class.d-none]="!this.commentVisibility" *ngIf="this.noComments" [style.height.px]="height" >
+        <div class="commentText row"  *ngFor="let comment of this.comments" >
+            <div class="col-md-12">
+                <app-comment class="com" *ngIf="this.commentVisibility" [comment]="comment" [userId]="userId" (parentFunction)="onDelete($event)"></app-comment>
+            </div>
         </div>
     </div>
 </div>

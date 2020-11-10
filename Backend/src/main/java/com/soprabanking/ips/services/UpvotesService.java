@@ -30,36 +30,67 @@ public class UpvotesService {
             JsonNode jsonObj = JsonUtil.stringToJson(body);
             Long pid = Long.parseLong(jsonObj.get("id").asText());
             Long uid = Long.parseLong(jsonObj.get("userId").asText());
+            Upvotes upvotes=upvotesDao.getUpvoteforUserIdAndProposalId(uid, pid);
+            if(upvotes!=null)
+            {
+            	return upvotes;
+            }
+            else
+            {
             User user = userDao.getById(uid);
-            Proposal proposal = proposalDao.getById(pid);
+            
             Upvotes upvote = new Upvotes();
-
+            Upvotes upvoted;
+            if(user!=null)
+            {	
+            Proposal proposal = proposalDao.getById(pid);
+            if(proposal!=null)
+            {
             upvote.setProposal(proposal);
             upvote.setUser(user);
 
             proposal.setUpvotesCount(proposal.getUpvotesCount() + 1);
             proposalDao.saveProposal(proposal);
 
-            Upvotes upvoted = upvotesDao.createUpvote(upvote);
+            upvoted = upvotesDao.createUpvote(upvote);
+            }
+            else
+            {
+            	throw new Exception();
+            }
+            }
+            else
+            {
+            	throw new Exception();
+            }
             return upvoted;
+            }
         } catch (Exception ex) {
             throw new Exception();
         }
     }
 
-    public void reverseUpvote(String body) {
+    public void reverseUpvote(String body) throws Exception {
         try {
             JsonNode jsonObj = JsonUtil.stringToJson(body);
             Long pid = Long.parseLong(jsonObj.get("id").asText());
             Long uid = Long.parseLong(jsonObj.get("userId").asText());
             Upvotes upvote = upvotesDao.getUpvoteforUserIdAndProposalId(uid, pid);
-            Proposal proposal = proposalDao.getById(pid);
-            proposal.setUpvotesCount(proposal.getUpvotesCount() - 1);
-            proposalDao.saveProposal(proposal);
-
-            upvotesDao.deleteUpvote(upvote);
+            if(upvote!=null)
+            {
+            	Proposal proposal = proposalDao.getById(pid);
+            	if(proposal.getUpvotesCount()>=1)
+            		proposal.setUpvotesCount(proposal.getUpvotesCount() - 1);
+                proposalDao.saveProposal(proposal);
+                upvotesDao.deleteUpvote(upvote);
+            }
+            else
+            {
+            	throw new Exception();
+            }
+            
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new Exception();
         }
     }
 	
