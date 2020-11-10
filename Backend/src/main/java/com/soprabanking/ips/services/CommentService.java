@@ -50,19 +50,19 @@ public class CommentService {
             	Comment addedComment;
             	if(user!=null)
             	{
-            	Proposal proposal = proposalDao.getById(pid);
-            	if(proposal!= null)
-            	{
-	            comment.setComment(text);
-	           	comment.setUser(user);
-	           	comment.setProposal(proposal);
-	           	comment.setCreationDate(new Date());
-	           	addedComment = commentDao.createComment(comment);
-            	} 
-            	else
-            	{
-            		throw new Exception();
-            	}
+            		Proposal proposal = proposalDao.getById(pid);
+            		if(proposal!= null)
+            		{
+			            comment.setComment(text);
+			           	comment.setUser(user);
+			           	comment.setProposal(proposal);
+			           	comment.setCreationDate(new Date());
+			           	addedComment = commentDao.createComment(comment);
+		            } 
+	            	else
+	            	{
+	            		throw new Exception();
+	            	}
             	}
             	else
             	{
