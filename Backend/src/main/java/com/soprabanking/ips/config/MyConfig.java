@@ -1,7 +1,5 @@
 package com.soprabanking.ips.config;
 
-import java.util.concurrent.locks.ReentrantLock;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -20,11 +18,6 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public UserDetailsService getUserDetailService() {
         return new UserDetailsServiceImpl();
-    }
-    
-    @Bean
-    public ReentrantLock getLock() {
-        return new ReentrantLock();
     }
 
     @Bean

@@ -116,13 +116,9 @@
         
         <mat-grid-tile colspan="7">
         <div class=" x">
-            <button [disabled]="loading" class="btn btn-primary" style="margin-right: 20px;">
+            <button [disabled]="loading" class="btn btn-primary" >
                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                 Submit
-            </button>
-            <button [disabled]=true class="btn btn-primary" >
-                <!-- <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> -->
-                Register with Google
             </button>
         </div>
         </mat-grid-tile>
