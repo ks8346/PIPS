@@ -13,6 +13,7 @@ export class CreateProposalComponent implements OnInit {
   Teams:{}[]=[]
   userId:string
   teamVisibility=true
+  dialogTitle:string="Create Proposal"
   id:number=null
   values:TestServiceService;
   public tit 
@@ -23,10 +24,9 @@ export class CreateProposalComponent implements OnInit {
     if(this.data.post){
       this.teamVisibility=false
       this.id=this.data.post.id
-      console.log(this.data.post)
       this.tit = this.data.post.title
       this.descrip = this.data.post.description
-     
+      this.dialogTitle="Update Proposal"
     }
   }
   onClear(){
