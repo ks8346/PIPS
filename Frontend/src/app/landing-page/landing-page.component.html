@@ -7,8 +7,8 @@
         <span class="space"></span>
         <button mat-button [matMenuTriggerFor]="beforeMenu">Hello, {{this.user.name}}</button>
         <mat-menu class="menu" #beforeMenu="matMenu" xPosition="before" >
-            <div mat-menu-item style="width: auto;">{{this.user.email}}</div>
-            <div mat-menu-item style="width: auto;">{{this.user.team.name}}</div>
+            <div mat-menu-item style="width: auto;">Email : {{this.user.email}}</div>
+            <div mat-menu-item style="width: auto;">Team  : {{this.user.team.name}}</div>
             <div mat-menu-item style="width: auto; margin:auto 10px;" class="btn btn-danger" (click)="destroySession()">Logout</div>
         </mat-menu>
     </mat-toolbar>
