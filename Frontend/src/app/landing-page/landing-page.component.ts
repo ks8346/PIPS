@@ -156,7 +156,7 @@ export class LandingPageComponent implements OnInit {
               this.proposalError=""
             }
             else{
-              this.proposalError="Some error has occured! please try again later."
+              alert("Some error has occured! please try again later.")
             }
           }
         ) 
