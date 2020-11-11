@@ -59,89 +59,99 @@ public class ProposalService {
         }
     }
 
-    public boolean deleteProposal(String body) {
-        try {
-            JsonNode jsonObj = JsonUtil.stringToJson(body);
-            Long proposalId = Long.parseLong(jsonObj.get("id").asText());
-            commentDao.fetchAllComments(proposalId).forEach(comment -> commentDao.deleteComment(comment.getId()));
-            upvotesDAO.fetchAllUpvotes(proposalId).forEach(upvotesDAO::deleteUpvote);
-            proposalDAO.deleteProposal(proposalId);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
+    public boolean deleteProposal(String body){
+    	try{
+			JsonNode jsonObj = JsonUtil.stringToJson(body);
+			Long proposalId = Long.parseLong(jsonObj.get("id").asText());
+			//Proposal proposal=proposalDAO.getById(proposalId);
+			commentDao.fetchAllComments(proposalId).forEach(comment -> commentDao.deleteComment(comment.getId()));
+			upvotesDAO.fetchAllUpvotes(proposalId).forEach(upvotesDAO::deleteUpvote);
+			proposalDAO.deleteProposal(proposalId);
+			return true;
+		}
+    	catch (Exception e){
+    		return false;
+		}
+	}
 
-    public Proposal saveProposal(String body) throws Exception {
+	public Proposal saveProposal(String body) throws Exception {
+		
+		try {
+			
+			JsonNode jsonObj = JsonUtil.stringToJson(body);
+			
+			String key = jsonObj.get("key").asText();
+			String title = jsonObj.get("title").asText();
+			String desc = jsonObj.get("description").asText();
+			Long userId = Long.parseLong(jsonObj.get("userId").asText());
+			
+			JsonNode jnode = jsonObj.get("teams");
+			
+			Set<Team> teams = new HashSet<>();
+			
+			for(JsonNode j : jnode) {
+				Team t = new Team();
+				
+				t.setId(Long.parseLong(j.get("id").asText()));
+				t.setName(j.get("name").asText());
+				teams.add(teamDAO.getTeam(Long.parseLong(j.get("id").asText())));
+			}
+			
+			//System.out.println(teams);
+			User user = userDAO.getById(userId);
+			Proposal proposal = new Proposal();
+			proposal.setTitle(title);
+			proposal.setDescription(desc);
+			proposal.setUpvotesCount((long)0);
+			proposal.setUser(user);
+			proposal.setCreationDate(new Date());
+			proposal.setTeams(teams);
 
-        try {
+			//System.out.println(proposal);
+			Proposal addedProposal = proposalDAO.saveProposal(proposal);
+			return addedProposal;
 
-            JsonNode jsonObj = JsonUtil.stringToJson(body);
+			 } 
+		catch (Exception e) {
+			throw new Exception();
+		}
+	}
 
-            String key = jsonObj.get("key").asText();
-            String title = jsonObj.get("title").asText();
-            String desc = jsonObj.get("description").asText();
-            Long userId = Long.parseLong(jsonObj.get("userId").asText());
+	
+	public Proposal updateProposal(String body) throws Exception {
+		
+		try {
+			
+			JsonNode jsonObj = JsonUtil.stringToJson(body);
+			
+			Long key = Long.parseLong(jsonObj.get("key").asText());
+			String title = jsonObj.get("title").asText();
+			String desc = jsonObj.get("description").asText();
+			
+			
+			
+			Proposal proposal=proposalDAO.getById(key);
+			
+			
+				
+			proposal.setTitle(title);
+			proposal.setDescription(desc);
+			
+			
+			
+			Proposal addedProposal = proposalDAO.saveProposal(proposal);
+			return addedProposal;
+		}
+		catch(Exception ex)
+		{
+			throw new Exception();
+		}
+			
+	 }
 
-            JsonNode jnode = jsonObj.get("teams");
-
-            Set<Team> teams = new HashSet<>();
-
-            for (JsonNode j : jnode) {
-                Team t = new Team();
-
-                t.setId(Long.parseLong(j.get("id").asText()));
-                t.setName(j.get("name").asText());
-                teams.add(teamDAO.getTeam(Long.parseLong(j.get("id").asText())));
-            }
-
-            //System.out.println(teams);
-            User user = userDAO.getById(userId);
-            Proposal proposal = new Proposal();
-            proposal.setTitle(title);
-            proposal.setDescription(desc);
-            proposal.setUpvotesCount((long) 0);
-            proposal.setUser(user);
-            proposal.setCreationDate(new Date());
-            proposal.setTeams(teams);
-
-            //System.out.println(proposal);
-            Proposal addedProposal = proposalDAO.saveProposal(proposal);
-            return addedProposal;
-
-        } catch (Exception e) {
-            throw new Exception();
-        }
-    }
-
-
-    public Proposal updateProposal(String body) throws Exception {
-
-        try {
-
-            JsonNode jsonObj = JsonUtil.stringToJson(body);
-
-            Long key = Long.parseLong(jsonObj.get("key").asText());
-            String title = jsonObj.get("title").asText();
-            String desc = jsonObj.get("description").asText();
-
-
-            Proposal proposal = proposalDAO.getById(key);
-
-
-            proposal.setTitle(title);
-            proposal.setDescription(desc);
-
-
-            Proposal addedProposal = proposalDAO.saveProposal(proposal);
-            return addedProposal;
-        } catch (Exception ex) {
-            throw new Exception();
-        }
-
-    }
 
     public Proposal shareProposal(String body) throws Exception {
+
         try {
             JsonNode jsonObj = JsonUtil.stringToJson(body);
             Long pid = Long.parseLong(jsonObj.get("id").asText());
