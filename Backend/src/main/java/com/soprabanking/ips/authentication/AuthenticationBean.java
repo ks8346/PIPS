@@ -1,5 +1,11 @@
 
 package com.soprabanking.ips.authentication;
+/**
+ * Returns the details of that user who attempting to login.
+ *
+ * 
+ * 
+ */
 
 public class AuthenticationBean {
     private String message;
