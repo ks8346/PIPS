@@ -38,30 +38,24 @@ public class UpvotesService {
             else
             {
             User user = userDao.getById(uid);
-            
+
             Upvotes upvote = new Upvotes();
             Upvotes upvoted;
-            if(user!=null)
-            {	
-            Proposal proposal = proposalDao.getById(pid);
-            if(proposal!=null)
-            {
-            upvote.setProposal(proposal);
-            upvote.setUser(user);
+            if (user != null) {
+                Proposal proposal = proposalDao.getById(pid);
+                if (proposal != null) {
+                    upvote.setProposal(proposal);
+                    upvote.setUser(user);
 
-            proposal.setUpvotesCount(proposal.getUpvotesCount() + 1);
-            proposalDao.saveProposal(proposal);
+                    proposal.setUpvotesCount(proposal.getUpvotesCount() + 1);
+                    proposalDao.saveProposal(proposal);
 
-            upvoted = upvotesDao.createUpvote(upvote);
-            }
-            else
-            {
-            	throw new Exception();
-            }
-            }
-            else
-            {
-            	throw new Exception();
+                    upvoted = upvotesDao.createUpvote(upvote);
+                } else {
+                    throw new Exception();
+                }
+            } else {
+                throw new Exception();
             }
             return upvoted;
             }
@@ -76,19 +70,16 @@ public class UpvotesService {
             Long pid = Long.parseLong(jsonObj.get("id").asText());
             Long uid = Long.parseLong(jsonObj.get("userId").asText());
             Upvotes upvote = upvotesDao.getUpvoteforUserIdAndProposalId(uid, pid);
-            if(upvote!=null)
-            {
-            	Proposal proposal = proposalDao.getById(pid);
-            	if(proposal.getUpvotesCount()>=1)
-            		proposal.setUpvotesCount(proposal.getUpvotesCount() - 1);
+            if (upvote != null) {
+                Proposal proposal = proposalDao.getById(pid);
+                if (proposal.getUpvotesCount() >= 1)
+                    proposal.setUpvotesCount(proposal.getUpvotesCount() - 1);
                 proposalDao.saveProposal(proposal);
                 upvotesDao.deleteUpvote(upvote);
+            } else {
+                throw new Exception();
             }
-            else
-            {
-            	throw new Exception();
-            }
-            
+
         } catch (Exception e) {
             throw new Exception();
         }

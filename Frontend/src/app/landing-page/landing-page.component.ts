@@ -183,7 +183,7 @@ export class LandingPageComponent implements OnInit {
       this.menuButton=false
       this.menuVisibility=true
       this.width=23.5
-      this.padding=2
+      this.padding=4
     }
   }
 
