@@ -73,7 +73,7 @@ export class FeedComponent implements OnInit {
       },
       (error)=>{
         if(error.status!=200){
-          console.log("Some error has occured retrieving the comments please reload")
+          alert("Some error has occured retrieving the comments please reload")
           this.commentError="Some error has occured retrieving the comments please reload"
         }
         else if(error.status==200) {
@@ -128,7 +128,7 @@ export class FeedComponent implements OnInit {
           this.numberLikes-=1;
         }
         else{
-          console.log("Some error has happened while disliking, please try again")
+          alert("Some error has happened while disliking, please try again")
         }
       })
     }
@@ -142,7 +142,7 @@ export class FeedComponent implements OnInit {
           this.numberLikes+=1;
         }
         else{
-          console.log("Some error has happened while liking, please try again")
+          alert("Some error has happened while liking, please try again")
         }
       })
     }
@@ -175,7 +175,7 @@ export class FeedComponent implements OnInit {
       },
       (error)=>{
         if(error.status==406){
-          console.log("Error deleting proposal")
+          alert("Error deleting proposal")
         }
         else if(error.status==200){
           console.log(error)

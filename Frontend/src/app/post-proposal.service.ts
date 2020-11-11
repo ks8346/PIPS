@@ -9,7 +9,8 @@ export class PostProposalService {
   public sentTeams:{}[]
   private createUrl="http://localhost:8080/proposal/add";
   private updateUrl="http://localhost:8080/proposal/update";
-  private shareUrl="http://localhost:8080/proposal/share"
+  private shareUrl="http://localhost:8080/proposal/share";
+  private deleteUrl="http://localhost:8080/proposal/delete"
   constructor(private http:HttpClient) { }
   shareProposal(data,id):Observable<any>{
     data.id=id
