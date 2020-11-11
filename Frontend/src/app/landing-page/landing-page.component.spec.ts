@@ -18,6 +18,8 @@ import {TeamsService} from '../teams.service'
 import { DebugElement } from '@angular/core';
 import { FeedComponent } from './feed/feed.component';
 import {SpyLocation} from '@angular/common/testing'
+import { Post } from '../post';
+import { ShareProposalComponent } from './feed/share-proposal/share-proposal.component';
 describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
   let create:CreateProposalComponent;
@@ -146,12 +148,25 @@ describe('LandingPageComponent', () => {
     expect(component.menuVisibility).toEqual(false)
   })
 
+  it("should open share dialog",()=>{
+    let post=new Post("Description",1,[],"title",10,{id:1,name:"kartik",email:"ks@gmail.com",teams:{id:1,name:"devs"}})
+    let spy=spyOn(component.dialog,"open").and.callThrough()
+    component.openDialogshare(post)
+    expect(spy).toHaveBeenCalled()
+    // let dialogref=component.dialog.open
+    // dialogref.after
+  })
+
   it("should open Dialog",()=>{
     spyOn(component.dialog,"open")
     let button = fixture.debugElement.query(By.css('.postButton')).nativeElement
     button.click();
     expect(component.dialog.open).toHaveBeenCalled()
   })
+
+  
+
+
 
   // it("should run delete proposal",()=>{
   //   let feed:FeedComponent
@@ -216,6 +231,6 @@ describe('LandingPageComponent', () => {
     component.onScroll()
     expect(spy).toHaveBeenCalled()
   })
-
+  
 
 });
