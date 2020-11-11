@@ -13,12 +13,18 @@ import {GetProposalsService} from '../get-proposals.service'
 import {CreateProposalComponent} from './create-proposal/create-proposal.component'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {By} from '@angular/platform-browser'
+import { Router } from '@angular/router';
+import {TeamsService} from '../teams.service'
+import { DebugElement } from '@angular/core';
+import { FeedComponent } from './feed/feed.component';
+import {SpyLocation} from '@angular/common/testing'
 describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
   let create:CreateProposalComponent;
   let fixture: ComponentFixture<LandingPageComponent>;
   let httpClient:HttpClient;
   let httpTestingController: HttpTestingController;
+  let router:Router;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports:[RouterTestingModule,HttpClientTestingModule,MatDialogModule,MatMenuModule,NoopAnimationsModule],
@@ -29,12 +35,16 @@ describe('LandingPageComponent', () => {
         { provide: MatDialogRef, useValue: {} },
         AuthorizationService,
         GetProposalsService,
+        {provide:FeedComponent},
+        {provide:SpyLocation}
+
       ],
-      declarations: [ LandingPageComponent,CreateProposalComponent ]
+      declarations: [ LandingPageComponent,CreateProposalComponent,FeedComponent ]
     })
     .compileComponents();
     httpClient=TestBed.inject(HttpClient)
     httpTestingController=TestBed.inject(HttpTestingController)
+    router=TestBed.inject(Router)
     let team={id:1,name:"Devs"}
     const user=new User(1,"Kartik","ks8346@gmail.com",team)
     let autho:AuthorizationService;
@@ -62,13 +72,29 @@ describe('LandingPageComponent', () => {
   it("should flood feed array",()=>{
     let getProposals:GetProposalsService
     getProposals=TestBed.inject(GetProposalsService)
-    spyOn(getProposals,"getAllPosts").and.callThrough()
+    component.type="allPost"
+    let spy=spyOn(getProposals,"getAllPosts").and.callThrough()
+    component.ngOnInit()
+    expect(spy).toHaveBeenCalled()
   })
 
   it("should flood feed array",()=>{
     let getProposals:GetProposalsService
     getProposals=TestBed.inject(GetProposalsService)
-    spyOn(getProposals,"getTeamPosts").and.callThrough()
+    component.type="teamPost"
+    let spy=spyOn(getProposals,"getTeamPosts").and.callThrough()
+    component.ngOnInit()
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it("should flood feed array",()=>{
+    let teams:TeamsService
+    teams=TestBed.inject(TeamsService)
+    let spy=spyOn(teams,"getTeams").and.callThrough()
+    let resize=spyOn(component,"resize").and.callThrough()
+    component.ngOnInit()
+    expect(spy).toHaveBeenCalled()
+    expect(resize).toHaveBeenCalled()
   })
 
   it("should filter the data",()=>{
@@ -96,14 +122,23 @@ describe('LandingPageComponent', () => {
 
   it("should select Your Post api",()=>{
     let data="yourPost"
+    let spy=spyOn(component,"getYour").and.callThrough()
     component.selectApi(data)
-    spyOn(component,"getYour").and.callThrough()
+    expect(spy).toHaveBeenCalled()
   })
 
   it("should select Team Post api",()=>{
     let data="teamPost"
+    let spy=spyOn(component,"getTeam").and.callThrough()
     component.selectApi(data)
-    spyOn(component,"getTeam").and.callThrough()
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it("should select All Post api",()=>{
+    let data="allPost"
+    let spy=spyOn(component,"getAll").and.callThrough()
+    component.selectApi(data)
+    expect(spy).toHaveBeenCalled()
   })
 
   it("should show menu",()=>{
@@ -118,7 +153,69 @@ describe('LandingPageComponent', () => {
     expect(component.dialog.open).toHaveBeenCalled()
   })
 
-  it("window resize should run onResize",()=>{
+  // it("should run delete proposal",()=>{
+  //   let feed:FeedComponent
+  //   let flag=false
+  //   component.feed=[{"id":5}]
+  //   feed=TestBed.inject(FeedComponent)
+  //   spyOn(component,"deleteProposal").and.callFake(
+  //     ()=>flag=true
+  //   )
+  //   feed.deleteProposal.emit(5)
     
+  //   let feedtag = fixture.debugElement.query(By.css('app-feed')).nativeElement
+  //   feedtag.share
+  //   expect(component.deleteProposal).toHaveBeenCalled()
+  // })
+
+  it("window resize should run onResize",()=>{
+    let spy=spyOn(component,"onResize")
+    window.dispatchEvent(new Event('resize'));
+    expect(spy).toHaveBeenCalled()
   })
+
+  it("resize should be called",()=>{
+    let resize=spyOn(component,"resize")
+    window.dispatchEvent(new Event('resize'));
+    expect(resize).toHaveBeenCalled()
+  })
+
+  it("should destroy session ",()=>{
+    let autho:AuthorizationService;
+    let flag=false
+    autho=TestBed.inject(AuthorizationService)
+    let spy=spyOn(autho,"clearSession").and.callThrough()
+    component.destroySession()
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it("should destroy session on click",()=>{
+    let location:SpyLocation
+    location=TestBed.inject(SpyLocation)
+    let autho:AuthorizationService;
+    // let flag=false
+    autho=TestBed.inject(AuthorizationService)
+    location.setBaseHref("http://localhost:4200")
+    location.setInitialPath('/welcome')
+    let button = fixture.debugElement.query(By.css('.profile')).nativeElement
+    button.click();
+    let log=fixture.debugElement.query(By.css('.logout')).nativeElement
+    log.click()
+    let spy=spyOn(autho,"clearSession").and.callThrough()
+    component.destroySession()
+    expect(spy).toHaveBeenCalled()
+  })
+  it("should get new posts when scroll",()=>{
+    let getProposals:GetProposalsService
+    getProposals=TestBed.inject(GetProposalsService)
+    component.type="yourPost"
+    component.newFeed=["blah","blah"]
+    component.morePost=true
+    component.page=0
+    let spy=spyOn(getProposals,"getYourNextPost").and.callThrough()
+    component.onScroll()
+    expect(spy).toHaveBeenCalled()
+  })
+
+
 });

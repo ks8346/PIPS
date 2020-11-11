@@ -15,9 +15,7 @@ import {MatDialog, MatDialogModule, MAT_DIALOG_DATA} from '@angular/material/dia
   styleUrls: ['./register.component.css']
 })
 
-@NgModule({
-  imports: [MatDialogModule],
-})
+
 
 export class RegisterComponent implements OnInit {
 
