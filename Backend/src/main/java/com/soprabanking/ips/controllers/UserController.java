@@ -29,7 +29,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
-import com.soprabanking.ips.helper.ResponseMessage;
 import com.soprabanking.ips.helper.UserAuth;
 import com.soprabanking.ips.models.Team;
 import com.soprabanking.ips.models.User;
