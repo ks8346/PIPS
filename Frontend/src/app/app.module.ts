@@ -43,6 +43,15 @@ import { TeamComponent } from './team/team.component';
 import { ForgetPasswordComponent} from './forget-password/forget-password.component';
 import { MatSelectFilterModule } from 'mat-select-filter';
 import { ResetLinkComponent } from './reset-link/reset-link.component';
+import { SocialLoginModule, SocialAuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider} from "angularx-social-login";
+
+// let config = new SocialAuthServiceConfig ([
+//   {
+//   id: GoogleLoginProvider.PROVIDER_ID,
+//   provider: new GoogleLoginProvider("1091774612794-pi3m6cm0fbpqm3c3trpgp715bgbuc1rp.apps.googleusercontent.com")
+//   }
+//   ]);
 
 @NgModule({
   declarations: [
@@ -87,14 +96,29 @@ import { ResetLinkComponent } from './reset-link/reset-link.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatGridListModule,
-    MatSelectFilterModule
+    MatSelectFilterModule,
+    SocialLoginModule
   ],
   providers: [
     UserRegisterService,
     GetTeamService,
     ProposalService,
     PostProposalService,
-    GetProposalsService
+    GetProposalsService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: true,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '1091774612794-ck1f5rcf8j2fov97b6b85ar9ougd0k5j.apps.googleusercontent.com'
+            ),
+          }
+        ],
+      } as SocialAuthServiceConfig,
+    }
   ],
   bootstrap: [AppComponent]
 })
