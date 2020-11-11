@@ -1,5 +1,7 @@
 package com.soprabanking.ips.helper;
-
+/**
+ * This is a helper class which contains the message which is used during the exception handling.
+ */
 public class Message {
 
     private String content;

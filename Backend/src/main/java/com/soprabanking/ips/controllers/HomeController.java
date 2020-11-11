@@ -1,6 +1,7 @@
 package com.soprabanking.ips.controllers;
 
 import java.security.Principal;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,9 @@ import org.hibernate.mapping.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserCache;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +42,15 @@ import com.soprabanking.ips.repositories.UserRepository;
 
 @CrossOrigin
 @RestController
+/**
+ * Provides Rest-APIs for user registration and login.
+ *
+ * <p>
+ * This is a Home Controller Class which implements registration handler(registration rest-API), handler for fetching all teams 
+ * from database(getTeam rest-API) and login handler (login rest-API)
+ * 
+ */
+
 public class HomeController {
     @Autowired
     private UserRepository userRepository;
@@ -48,13 +61,22 @@ public class HomeController {
 
     @Autowired
     private TeamRepository teamRepository;
-
+    /**
+	 * This method returns home page for our product.
+	 *
+	 * @return a string
+	 * */
     @RequestMapping("/home")
     @ResponseBody
     public String home(Model model) {
-        //model.addAttribute("title", "IPS");
+        
         return "this is home page of IPS";
     }
+    /**
+	 * This method returns list of the team which are already exist in our database.
+	 *
+	 * @return a list of team names.
+	 * */
 
     @GetMapping("/getTeam")
     public ResponseEntity<List<Object>> findAllTeams() {
@@ -69,7 +91,12 @@ public class HomeController {
             return new ResponseEntity<List<Object>>(new ArrayList<>(), HttpStatus.NOT_FOUND);
         }
     }
-
+    /**
+   	 * This method returns the response message which shows whether the user has successfully registered or not.
+   	 * @param modelwrap the modelwrap has both user object and team object.
+   	 * @return ResponseEntity with HTTP Status .
+   	 * @exception e this exception occurs when user enters email which already exists in our database.
+   	 * */
 
     @PostMapping("/userRegister")
     public ResponseEntity<String> registerUser(@RequestBody ModelWrap modelWrap) {
@@ -92,64 +119,27 @@ public class HomeController {
             System.out.println(user);
             userRepository.save(user);
             System.out.println(user);
-            //String s="Hi  " + user.getName() + "  your Registration Process successfully completed. Now Please Login to Continue";
-
-            //return ("{message:"+s+"}");
+           
             return new ResponseEntity<>(HttpStatus.OK);
 
-            //Team team1=this.teamRepository.getTeamByTeamName(team.getName());
-       	    /*if(team1==null)
-       	    {
-       	        user.setRole("ROLE_USER");
-       	        user.setPassword(passwordEncoder.encode(user.getPassword()));
-       	        user.setTeam(team);
-    	        System.out.println(user);
-    	        userRepository.save(user);
-    	        System.out.println(user);
-                String s="Hi  " + user.getName() + "  your Registration Process successfully completed. Now Please Login to Continue";
-               
-           		return ("{message:"+s+"}");
-
-       	    }
-       	    else
-       	    {    
-       	    	user.setRole("ROLE_USER");
-       	        user.setPassword(passwordEncoder.encode(user.getPassword()));
-       	        user.setTeam(team1);
-    	        System.out.println(user);
-    	        userRepository.save(user);
-    	        System.out.println(user);
-       	    	
-           	    
-           	    String s="Hi  " + user.getName() + "  your Registration Process successfully completed. Now Please Login to Continue";
-              
-         		return ("{message:"+s+"}");
-
-           		//return "Hello  " + user.getName() + "  your Registration Process successfully completed" ;
-
-    	
-       	    }*/
+           
 
 
         } catch (Exception e) {
             e.printStackTrace();
-            //model.addAttribute("user", user);
-            //session.setAttribute("message", new Message("Something Went wrong !! " + e.getMessage(), "alert-danger"));
-
-            //String s="Email Id already exists !!" 	;
-            //return s;
+            
             return new ResponseEntity<String>(HttpStatus.FOUND);
         }
 
 
     }
-    //handler for login page
-	  /*@GetMapping("/signIn")
-	  public String customLogin() {
-		//model.addAttribute("title", "LogInPage - Smaeamrt Contact Manager");
-		//model.addAttribute("user", new User());
-		
-		return "username";*/
+    /**
+   	 * This method returns all details of user when the user logins into the system and shows that details on the landing page.
+   	 * @param principal the principal has the object of that user who logins into the system.
+   	 * @return ResponseEntity with HTTP Status .
+   	 * @exception e this exception occurs when user enters wrong credentials
+   	 * */
+    
 
     @GetMapping(path = "/signIn") // /signIn
     public ResponseEntity<AuthenticationBean> basicauth(Principal principal) {

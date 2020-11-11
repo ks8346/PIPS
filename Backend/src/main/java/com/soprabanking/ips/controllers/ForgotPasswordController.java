@@ -3,6 +3,7 @@ package com.soprabanking.ips.controllers;
  
 
 import java.util.Timer;
+
 import java.util.TimerTask;
 import java.util.UUID;
 import java.util.concurrent.locks.ReentrantLock;
@@ -31,7 +32,14 @@ import com.soprabanking.ips.repositories.TokenRepository;
 import com.soprabanking.ips.repositories.UserRepository;
 import com.soprabanking.ips.services.DeleteTokenService;
 
- 
+/**
+ * Provides Rest-APIs for forgot password and reset password.
+ *
+ * <p>
+ * This is a ForgotPassword Controller Class which implements forget password handler(forgot_password rest-API), 
+ * reset password handler (reset_password rest-API)
+ * 
+ */
 @CrossOrigin
 @RestController
 public class ForgotPasswordController {
@@ -54,7 +62,12 @@ public class ForgotPasswordController {
     @Autowired
     private BCryptPasswordEncoder encoder;
     
-    
+    /**
+	 * This method is used for verification of valid email id entered by the user, 
+	 * generation of the token link and setting up the timer for the same.
+	 * @param email registered email of the user who wants to reset the password.
+	 * @return responseEntity which holds the response messages with their respective status codes.
+	 * */
     @PostMapping("/forgot_password")
     public ResponseEntity<String> forgot_password(@RequestBody Email email) {
         
@@ -118,7 +131,12 @@ public class ForgotPasswordController {
         
         return new ResponseEntity<String>("Validation Successfull", HttpStatus.ACCEPTED);
     }
-    
+    /**
+	 * This method helps in validating the token whether the session is in continuation or expired 
+	 * stores the updated password in the database
+	 * @param password new password entered by the user
+	 * @return responseEntity which holds the response messages with their respective status codes.
+	 * */
     @PutMapping("reset_password")
     public ResponseEntity<String> reset_password(@RequestBody Password password) {
         
