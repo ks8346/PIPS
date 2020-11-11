@@ -33,8 +33,8 @@
         </mat-form-field>
     </div>
     <div mat-dialog-action align=end>
-       <button mat-raised-button style="margin-right: 1%;" [mat-dialog-close]='this.service.form.value' color="primary" type="submit" [disabled]= "(service.form.invalid) || (service.form.controls['teams'].untouched && this.data.post.id==null) " (click)=onSubmit()>submit</button>
-       <button mat-raised-button [mat-dialog-close] color="danger" (click)=onClear()>close</button>
+       <button mat-raised-button style="margin-right: 1%;" [mat-dialog-close]='this.service.form.value' color="primary" type="submit" [disabled]= "(service.form.invalid) || (service.form.controls['teams'].untouched && this.data.post.id==null) " >submit</button>
+       <button mat-raised-button [mat-dialog-close] class="close" >close</button>
     </div>
   
 </form>
