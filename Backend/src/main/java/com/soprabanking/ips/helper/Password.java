@@ -1,4 +1,7 @@
 package com.soprabanking.ips.helper;
+/**
+ * This is a helper class which contains the object of the password.
+ */
 
 import java.util.UUID;
 

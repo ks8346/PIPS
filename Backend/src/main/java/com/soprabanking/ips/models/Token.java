@@ -5,6 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * This is a model class for token
+ * this class generates the token which is used during the forget password API.
+ * In this class, we are using annotation @Entity to create a table in database.
+ */
 @Entity
 @Table(name="tokens")
 public class Token {
