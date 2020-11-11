@@ -1,4 +1,8 @@
 package com.soprabanking.ips.helper;
+/**
+ 
+* This is a helper class which contains the object of the tokenId.
+ */
 
 import java.util.UUID;
 

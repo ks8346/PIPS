@@ -16,10 +16,25 @@ describe('CommentComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CommentComponent);
     component = fixture.componentInstance;
+    component.comment = {
+                              comment: 'this is a comment',
+                              id: 7,
+                              creationDate : new Date("12/11/202"),
+                              user :{
+                                id: 7,
+                                name: 'Priyank'
+                                      }
+                        };
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit when we delete a comment', () => {
+    component.deleteComment()
+    spyOn(component.parentFunction, 'emit').and.callThrough();
+    
   });
 });

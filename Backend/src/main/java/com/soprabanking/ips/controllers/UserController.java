@@ -24,15 +24,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
- 
-
 import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.soprabanking.ips.authentication.AuthenticationBean;
 import com.soprabanking.ips.helper.UserAuth;
 import com.soprabanking.ips.models.Team;
 import com.soprabanking.ips.models.User;
+
 
  
 
@@ -41,7 +40,14 @@ import com.soprabanking.ips.models.User;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
-@RequestMapping("/user")
+//@RequestMapping("/user")
+/**
+ * Provides Rest-APIs for logging in through social media .
+ *
+ * <p>
+ * This is a User Controller Class which implements social media handler(getSocialInfo rest API) and with this handler, 
+ * user can access our landing page via social media(GMAIL).
+ */
 
  
 
@@ -55,132 +61,59 @@ public class UserController
     
     @Autowired
     private TeamRepository teamRepository;
-    
-    
-    
-    @RequestMapping(value="/fbTeam", method = { RequestMethod.GET, RequestMethod.POST })
-    //@RequestBody Team team,
-    //(@ModelAttribute("team") Team team
-    public String dashboard( Principal principal)
-    {
-        User user=new User();
-       // Team team=new Team();
-        String s=principal.toString();
-        String email = s.substring(s.indexOf("email=")+6,s.indexOf(".com}];")+4);
-        String name = s.substring(s.indexOf("given_name=")+11,s.indexOf(", locale"));
-        int pass=ThreadLocalRandom.current().nextInt();
-        String pswd=String.valueOf(pass);
-        user.setName(name);
-        user.setEmail(email);
-        user.setPassword(pswd);
-        user.setRole("ROLE_USER");
-        //user.setTeam();
-        User user1=this.userRepository.getUserByUserName(email);
-        if(user1==null)
-         
-           {
-
-              // userRepository.save(user);
-              
-              // return "Hiiii" + user.getName() + " and Your Team " + "  your Registration Process successfully completed" ;
-                //return "False";
-        	//return "success  " + email+ name;
-        	return "{"+"\n"+"email :"+email+","+"\n"+"name :"+name+","+"\n"+"team : null"+"\n"+"}";
+    /**
+   	 * This method verifies that the user exists in our database or not.
+   	 * if the user already exists then it returns all the information of that user and redirects to landing page.
+   	 * else user redirects to create team page for registration.
+   	 * @param  the userAuth has the information of that user who logged in via social media.
+   	 * @return ResponseEntity with HTTP Status .
+   	 * @exception e this exception occurs when user is unauthorized.
+   	 * */
   
-           }
-           
-//           else if(user1.getTeam()==null && user1!=null)
-//        {
-//
-//           return "Hello" + user1.getName() + " and Yout Team " + user1.getTeam()+"  your Registration Process successfully completed" ;
-//
-// 
-//        }
-           else 
-           {
-               return "this is your landing Page and You are Social User";
-           }
-    
-           
-        
-       
-
- 
-
-        
-       
-        
-        
-    }
-    
-    @GetMapping("/index")
-    @ResponseBody
-    public  String indexPage(Principal principal)
-    {
-        
-        //String userName=principal.getName();
-        //get the user using username 
-        
-        //User user=userRepository.getUserByUserName(userName);
-        //String name = user.getName();
-        //System.out.println("USER"+user);
-        //return "!!Welcome Landing Page !!" +"Your Informations are :" + "\n" +"userId : " + user.getId()+ "\n" +"name : " + user.getName() + "\n" + "Email : " + user.getEmail()+ "\n"  ;
-        return "You are normal user so this is your landing page";
-    }
-    
-    
     @PostMapping("/getSocialInfo")
     @ResponseBody
-    public  ResponseEntity<UserAuth> getSocialInfo(@RequestBody UserAuth userAuth)
+    public  ResponseEntity<String> getSocialInfo(@RequestBody UserAuth userAuth)
     {
+    	System.out.println("hiii");
     	
-    	//String email=userAuth.getEmail();
-    	 //User user=new User();
-         // Team team=new Team();
-         // String s=principal.toString();
-          String email =userAuth.getEmail();
+    	String email=userAuth.getEmail();
+    	
 
         
           User user1=this.userRepository.getUserByUserName(email);
-             
-    	 
+        
           if(user1==null)
            
              {
         	  
 
         	  
-                // userRepository.save(user);
-                
-                // return "Hiiii" + user.getName() + " and Your Team " + "  your Registration Process successfully completed" ;
-                  //return "False";
-          	//return "success  " + email+ name;
-          	//return "{"+"\n"+"email :"+userAuth.getEmail()+","+"\n"+"name :"+userAuth.getName()+","+"\n"+"team : null"+"\n"+"}";
-        	  return new ResponseEntity<>(userAuth,HttpStatus.NOT_FOUND);
+               
+          	String s="{"+"\n"+"email :"+userAuth.getEmail()+","+"\n"+"name :"+userAuth.getName()+","+"\n"+"team : null"+"\n"+"}";
+        	  return new ResponseEntity<String>(s,HttpStatus.NOT_FOUND);
              }
-             
-//             else if(user1.getTeam()==null && user1!=null)
-//          {
-  //
-//             return "Hello" + user1.getName() + " and Yout Team " + user1.getTeam()+"  your Registration Process successfully completed" ;
-  //
-  // 
-//          }
+     
              else 
              {
-            	 //responseMessage.setTeam(user1.getTeam());
-                 return new ResponseEntity<>(userAuth, HttpStatus.FOUND);
+            	 
+            	        try {
+
+            	           
+            	        	
+            	             String msg="{"+"\n"+"id :"+user1.getId()+","+"\n"+"name :"+user1.getName()+","+"\n"+"email :"+user1.getEmail()+","+"\n"+"role :"+user1.getRole()+","+"\n"+"team : {"+"\n"+"id :"+user1.getTeam().getId()+","+"\n"+"name :"+user1.getTeam().getName()+"}"+"\n"+"}";
+            	            return new ResponseEntity<String>(msg, HttpStatus.OK);
+
+            	        } catch (Exception e) {
+            	            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+            	        }
+            	    }
+
+            	
              }
+          
     	
         
-        //String userName=principal.getName();
-        //get the user using username 
-        
-        //User user=userRepository.getUserByUserName(userName);
-        //String name = user.getName();
-        //System.out.println("USER"+user);
-        //return "!!Welcome Landing Page !!" +"Your Informations are :" + "\n" +"userId : " + user.getId()+ "\n" +"name : " + user.getName() + "\n" + "Email : " + user.getEmail()+ "\n"  ;
-       // return "You are normal user so this is your landing page";
+       
     }
     
 
@@ -194,7 +127,7 @@ public class UserController
 
     
     
-}
+
 
  
 
