@@ -252,7 +252,7 @@ public class CommentServiceTest {
 	}
 	
 	@Test
-	void testAddCommentInvalidException() throws Exception
+	void testAddCommentInvalidUserException() throws Exception
 	{
 			JSONObject body=new JSONObject();	
 			body.put("text", "This is comment");
@@ -265,6 +265,27 @@ public class CommentServiceTest {
 			
 			verify(userDAO,times(1)).getById(anyLong());
 			verify(proposalDAO,never()).getById(anyLong());
+			verify(commentDAO,never()).createComment(any(Comment.class));		
+	}
+	
+	@Test
+	void testAddCommentInvalidProposalException() throws Exception
+	{
+			JSONObject body=new JSONObject();	
+			body.put("text", "This is comment");
+			body.put("userId", 3L);
+			body.put("id",2L);
+			
+			User user=new User();
+			user.setId(3L);
+			
+			when(userDAO.getById(anyLong())).thenReturn(user);
+			when(proposalDAO.getById(anyLong())).thenReturn(null);
+			
+			assertThrows(Exception.class,()->commentService.addComment(body.toString()));
+			
+			verify(userDAO,times(1)).getById(anyLong());
+			verify(proposalDAO,times(1)).getById(anyLong());
 			verify(commentDAO,never()).createComment(any(Comment.class));		
 	}
 	

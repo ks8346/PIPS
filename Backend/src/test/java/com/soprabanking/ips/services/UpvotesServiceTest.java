@@ -144,7 +144,7 @@ public class UpvotesServiceTest
 	}
 	
 	@Test
-	void testUpvoteProposalInvalidException() throws Exception
+	void testUpvoteProposalInvalidUserException() throws Exception
 	{
 			JSONObject body=new JSONObject();	
 			body.put("userId", 3L);
@@ -160,7 +160,27 @@ public class UpvotesServiceTest
 	}
 	
 	@Test
-	public void testReverseUpvote() throws Exception {
+	void testUpvoteProposalInvalidProposalException() throws Exception
+	{
+			JSONObject body=new JSONObject();	
+			body.put("userId", 3L);
+			body.put("id",2L);
+			
+			User user=new User();
+			user.setId(3L);
+			
+			when(userDAO.getById(anyLong())).thenReturn(user);
+			when(proposalDAO.getById(anyLong())).thenReturn(null);
+			
+			assertThrows(Exception.class,()->upvoteService.upvoteProposal(body.toString()));
+			
+			verify(userDAO,times(1)).getById(anyLong());
+			verify(proposalDAO,times(1)).getById(anyLong());
+			verify(upvotesDAO,never()).createUpvote(any(Upvotes.class));		
+	}
+	
+	@Test
+	public void testReverseUpvoteFiniteUpvotes() throws Exception {
 		
 		JSONObject json = new JSONObject();
 		json.put("id", 1L);
@@ -170,7 +190,38 @@ public class UpvotesServiceTest
 		user.setId(3L);
 		Proposal proposal=new Proposal();
 		proposal.setId(1L);
+		proposal.setUpvotesCount(2L);
+		
+		Upvotes upvote=new Upvotes();
+		upvote.setUser(user);
+		upvote.setProposal(proposal);
+		
+		when(upvotesDAO.getUpvoteforUserIdAndProposalId(anyLong(), anyLong())).thenReturn(upvote);
+		when(proposalDAO.getById(anyLong())).thenReturn(proposal);
 		proposal.setUpvotesCount(proposal.getUpvotesCount()-1);
+        when(proposalDAO.saveProposal(any(Proposal.class))).thenReturn(proposal);
+        
+		doNothing().when(upvotesDAO).deleteUpvote(any(Upvotes.class));
+		
+		upvoteService.reverseUpvote(json.toString());
+		verify(upvotesDAO,times(1)).getUpvoteforUserIdAndProposalId(anyLong(), anyLong());
+		verify(proposalDAO,times(1)).saveProposal(any(Proposal.class));
+		verify(upvotesDAO,times(1)).deleteUpvote(any(Upvotes.class));
+	}
+	
+	@Test
+	public void testReverseUpvoteZeroUpvotes() throws Exception {
+		
+		JSONObject json = new JSONObject();
+		json.put("id", 1L);
+		json.put("userId", 3L);
+		
+		User user=new User();
+		user.setId(3L);
+		Proposal proposal=new Proposal();
+		proposal.setId(1L);
+		proposal.setUpvotesCount(0L);
+		
 		Upvotes upvote=new Upvotes();
 		upvote.setUser(user);
 		upvote.setProposal(proposal);
@@ -186,6 +237,7 @@ public class UpvotesServiceTest
 		verify(proposalDAO,times(1)).saveProposal(any(Proposal.class));
 		verify(upvotesDAO,times(1)).deleteUpvote(any(Upvotes.class));
 	}
+	
 	
 	@Test
 	public void testReverseUpvoteDAOError() throws Exception {
@@ -203,7 +255,7 @@ public class UpvotesServiceTest
 		upvote.setUser(user);
 		upvote.setProposal(proposal);
 		
-		when(upvotesDAO.getUpvoteforUserIdAndProposalId(3L, 1L)).thenReturn(upvote);
+		when(upvotesDAO.getUpvoteforUserIdAndProposalId(anyLong(), anyLong())).thenReturn(upvote);
 		when(proposalDAO.getById(anyLong())).thenReturn(proposal);
         when(proposalDAO.saveProposal(any(Proposal.class))).thenReturn(proposal);
 		doThrow(new RuntimeException()).when(upvotesDAO).deleteUpvote(any(Upvotes.class));
@@ -217,19 +269,19 @@ public class UpvotesServiceTest
 	}
 
 	@Test
-	void testReverseUpvoteInvalidException() throws Exception
+	void testReverseUpvoteNullUpvoteException() throws Exception
 	{
 			JSONObject body=new JSONObject();	
 			body.put("userId", 3L);
 			body.put("id",2L);
 			
-			when(userDAO.getById(anyLong())).thenReturn(null);
+			when(upvotesDAO.getUpvoteforUserIdAndProposalId(anyLong(), anyLong())).thenReturn(null);
 			
-			assertThrows(Exception.class,()->upvoteService.upvoteProposal(body.toString()));
+			assertThrows(Exception.class,()->upvoteService.reverseUpvote(body.toString()));
 			
-			verify(userDAO,times(1)).getById(anyLong());
+			verify(upvotesDAO,times(1)).getUpvoteforUserIdAndProposalId(anyLong(), anyLong());
 			verify(proposalDAO,never()).getById(anyLong());
-			verify(upvotesDAO,never()).createUpvote(any(Upvotes.class));		
+			verify(upvotesDAO,never()).deleteUpvote(any(Upvotes.class));		
 	}
 	
 	@Test
@@ -270,5 +322,19 @@ public class UpvotesServiceTest
 		assertFalse(upvoteService.hasUpvoted(json.toString()));
 		verify(upvotesDAO,times(1)).getUpvoteforUserIdAndProposalId(anyLong(), anyLong());
 		
+	}
+	
+	@Test
+	void testHasUpvotedDAOError() throws Exception
+	{
+		JSONObject json = new JSONObject();
+		json.put("id", 1L);
+		json.put("userId", 3L);
+		
+		when(upvotesDAO.getUpvoteforUserIdAndProposalId(anyLong(),anyLong())).thenThrow(new RuntimeException());
+		
+		assertThrows(Exception.class,()->upvoteService.hasUpvoted(json.toString()));
+		
+		verify(upvotesDAO,times(1)).getUpvoteforUserIdAndProposalId(anyLong(), anyLong());
 	}
 }

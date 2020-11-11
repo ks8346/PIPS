@@ -1,3 +1,4 @@
+import { SocialMediaAuthService } from './../service/social-media-auth.service';
 import { ForgetPasswordComponent } from './../forget-password/forget-password.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Component, OnInit ,Inject} from '@angular/core';
@@ -10,7 +11,9 @@ import {MatDialog} from '@angular/material/dialog';
 import { MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatDialogRef} from '@angular/material/dialog';
 import { UserLoginService } from '../service/user-login.service';
-
+import { SocialAuthService } from "angularx-social-login";
+import { GoogleLoginProvider } from "angularx-social-login";
+import { SocialUser } from "angularx-social-login";
 
 export interface DialogData {
   email: string;
@@ -37,10 +40,15 @@ export class LoginComponent implements OnInit {
   successMessage: string;
   errorMessage = "Invalid Credentials"
   userData;
+  socialData;
+  private user: SocialUser;
+  private loggedIn: boolean;
+
   constructor(private router: Router,
-   
+   private socialMediaAuth:SocialMediaAuthService,
     public dialog: MatDialog,
-    public loginService:UserLoginService) {
+    public loginService:UserLoginService,
+    private authService: SocialAuthService) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
@@ -48,6 +56,32 @@ export class LoginComponent implements OnInit {
   }
   matcher = new MyErrorStateMatcher()
   ngOnInit(): void {
+    // this.authService.authState.subscribe((user) => {
+    //   this.user = user;
+    //   this.loggedIn = (user != null);
+    //   });
+  }
+
+  socialMedia(){
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.socialData={"data1":{"name":this.user["name"],"email":this.user["email"]}}
+      console.log(this.user["name"])
+      console.log(this.user["email"])
+      this.loggedIn = (user != null);
+      });
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    // console.log(this.user)
+    this.socialMediaAuth.socialMedia(this.socialData).subscribe(
+      (data1) => {
+      console.log(data1);
+      // data1={"email":"kshitij.goel@gmail.com","name":"Kshitij","team":"default"} -----> reroute to team page ---> Reroute to landing page
+      // data1={"email":"kshitij.goel@gmail.com","name":"Kshitij","team":"Sparks"} ----> Reroute to landing page
+     
+    },
+    (error)=>{
+    }
+  );
   }
 
   handleLogin() {
