@@ -1,9 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, ComponentFixtureAutoDetect, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import {HttpClientModule} from '@angular/common/http';
 import { FeedComponent } from './feed.component';
 import {ProposalService} from '../proposal.service';
 import { Proposal } from 'src/app/proposal';
+import { emit } from 'process';
 
 
 describe('FeedComponent', () => {
@@ -25,7 +26,7 @@ describe('FeedComponent', () => {
     fixture = TestBed.createComponent(FeedComponent);
     component = fixture.componentInstance;
     component.post = {
-      id:7,
+      id:16,
       description :'this is description',
       title:'this is title',
       teams: [],
@@ -57,8 +58,13 @@ describe('FeedComponent', () => {
   });
 
   it('should upvote', () => {
-    component.postLike(component.post.id)
-    expect(component.hasLiked).toBe(false)
+    component.hasLiked=false
+    
+    let proposalServe:ProposalService
+    proposalServe=TestBed.inject(ProposalService)
+    let spy = spyOn(proposalServe,'postLike').and.callThrough()
+    component.postLike(7)
+    expect(spy).toHaveBeenCalled()
   });
 
 
@@ -68,8 +74,11 @@ describe('FeedComponent', () => {
   });
 
   it('should delete comment',()=>{
+    let proposalServe:ProposalService
+    proposalServe=TestBed.inject(ProposalService)
+    let spy = spyOn(proposalServe, 'deleteComment').and.callThrough();
     component.onDelete(6)
-    spyOn(component.update, 'emit').and.callThrough();
+    expect(spy).toHaveBeenCalled();    
   });
 
   it('should update approval',()=>{
@@ -81,8 +90,39 @@ describe('FeedComponent', () => {
   it('should get all comments',()=>{
     let proposalServe: ProposalService
     proposalServe = TestBed.inject(ProposalService)
-    spyOn(proposalServe,'getComment').and.callThrough()
+    let spy = spyOn(proposalServe,'getComment').and.callThrough()
+    component.commentsSetup()
+    expect(spy).toHaveBeenCalled()
+    expect(component.commentVisibility).toEqual(false)
+    expect(component.noComments).toEqual(true)
+    expect(component.commentsMessage).toEqual("Comments")
  });
 
+ it('Should delete proposal',()=>{
+  let proposalServe: ProposalService
+  proposalServe = TestBed.inject(ProposalService)
+  let spy = spyOn(proposalServe,'deletePost').and.callThrough()
+  
+  component.delProposal()
+   expect(spy).toHaveBeenCalled()
+
+});
+
+it('for the likesetup() method',()=>{
+  let proposalServe: ProposalService
+  proposalServe = TestBed.inject(ProposalService)
+  let spy = spyOn(proposalServe,'getLike').and.callThrough()
+  component.likeSetup()
+  expect(spy).toHaveBeenCalled()
+});
+
+
+it('should post comment',()=>{
+  let proposalServe: ProposalService
+  proposalServe = TestBed.inject(ProposalService)
+  let spy = spyOn(proposalServe,'postComment').and.callThrough()
+  component.postComment(7)
+  expect(component.commentsSetup()).toHaveBeenCalled
+});
 
 });

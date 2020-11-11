@@ -2,8 +2,10 @@ package com.soprabanking.ips.modelwrap;
 
 import com.soprabanking.ips.models.Team;
 
-
 import com.soprabanking.ips.models.User;
+/**
+ * This class wraps the object of user model and team models
+ */
 
 public class ModelWrap {
 
