@@ -14,12 +14,20 @@ describe('CreateProposalComponent', () => {
       providers:[
         {provide:Overlay},
         {provide:MatDialog},
-        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: {
+          post:{
+                id:2,
+                title:"blah",
+                description:"blah blah"
+              },
+              userId:2
+              
+
+        } },
         { provide: MatDialogRef, useValue: {} },],
       declarations: [ CreateProposalComponent ]
     })
     .compileComponents();
-    
   });
 
   beforeEach(() => {
@@ -28,28 +36,14 @@ describe('CreateProposalComponent', () => {
     fixture.detectChanges();
   });
 
+
   it('should create CreateProposal', () => {
-    component.data={post:{
-      id:2,
-      title:"blah",
-      description:"blah blah"
-    },
-    userId:2
-    }
-    
-    component.id=2
     expect(component).toBeTruthy();
   });
 
-  it('should create CreateProposal', () => {
-    component.data={post:{
-      id:2,
-      title:"blah",
-      description:"blah blah"
-    },
-    userId:2
-    }
+  
+  it('should select message', () => {
     component.ngOnInit()
-    expect(component).toBeTruthy();
+    expect(component.prop).toEqual("Update Proposal")
   });
 });
