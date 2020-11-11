@@ -13,12 +13,14 @@ import {GetProposalsService} from '../get-proposals.service'
 import {CreateProposalComponent} from './create-proposal/create-proposal.component'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {By} from '@angular/platform-browser'
+import { Router } from '@angular/router';
 describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
   let create:CreateProposalComponent;
   let fixture: ComponentFixture<LandingPageComponent>;
   let httpClient:HttpClient;
   let httpTestingController: HttpTestingController;
+  let router:Router;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports:[RouterTestingModule,HttpClientTestingModule,MatDialogModule,MatMenuModule,NoopAnimationsModule],
@@ -35,6 +37,7 @@ describe('LandingPageComponent', () => {
     .compileComponents();
     httpClient=TestBed.inject(HttpClient)
     httpTestingController=TestBed.inject(HttpTestingController)
+    router=TestBed.inject(Router)
     let team={id:1,name:"Devs"}
     const user=new User(1,"Kartik","ks8346@gmail.com",team)
     let autho:AuthorizationService;
@@ -119,6 +122,31 @@ describe('LandingPageComponent', () => {
   })
 
   it("window resize should run onResize",()=>{
-    
+    let spy=spyOn(component,"onResize")
+    window.dispatchEvent(new Event('resize'));
+    expect(spy).toHaveBeenCalled()
   })
+
+  it("resize should be called",()=>{
+    let resize=spyOn(component,"resize")
+    window.dispatchEvent(new Event('resize'));
+    expect(resize).toHaveBeenCalled()
+  })
+
+  it("should destroy session ",()=>{
+    let autho:AuthorizationService;
+    let flag=false
+    autho=TestBed.inject(AuthorizationService)
+    let spy=spyOn(autho,"clearSession").and.callThrough()
+    component.destroySession()
+    expect(spy).toHaveBeenCalled()
+  })
+
+  // it("should relocate to home",()=>{
+  //   component.destroySession()
+  //   expect(location.href).toEqual('/home')
+  // })
+
+  
+
 });
