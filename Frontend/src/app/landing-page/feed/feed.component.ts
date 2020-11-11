@@ -32,6 +32,7 @@ export class FeedComponent implements OnInit {
     this.updateApproval()
     this.likeSetup()
     this.commentsSetup()
+    
   }
 
   updateApproval(){
@@ -134,7 +135,7 @@ export class FeedComponent implements OnInit {
     }
     else{
       this.proposalWork.postLike(id,this.userId).subscribe((data)=>{
-        this.hasLiked=false
+        this.hasLiked=true
         this.numberLikes-=1;
       },(error)=>{
         if(error.status==200){
@@ -168,9 +169,9 @@ export class FeedComponent implements OnInit {
  
   delProposal()
   {
-    this.proposalWork.deletePost(this.post.id).subscribe(
+    this.proposalWork.deletePost(this.post.id).subscribe( 
       (data)=>{
-        console.log(data)
+       console.log(data)
         this.deleteProposal.emit(this.post.id)
       },
       (error)=>{

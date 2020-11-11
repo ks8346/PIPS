@@ -16,6 +16,7 @@ import {MatDialog, MatDialogModule, MAT_DIALOG_DATA} from '@angular/material/dia
 })
 
 
+
 export class RegisterComponent implements OnInit {
 
   message: any;
