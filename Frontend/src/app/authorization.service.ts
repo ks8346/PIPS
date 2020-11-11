@@ -9,7 +9,7 @@ export class AuthorizationService {
   authorization(){
   this.authenticatedUser=sessionStorage.getItem('authenticatedUser')
     if(!this.authenticatedUser){
-      this.router.navigate(['/home'])
+      this.router.navigate([''])
     }
     return JSON.parse(this.authenticatedUser)
   }
