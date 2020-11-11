@@ -37,4 +37,14 @@ describe('TeamComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('team should be selected',()=>{
+    let team = component.teamForm.controls.team;
+
+    team.setValue("");
+    expect(team.hasError('required', ['required'])).toBeTruthy;
+
+    team.setValue("Sparks");
+    expect(team.hasError('required', ['required'])).toBeFalsy;
+  });
 });

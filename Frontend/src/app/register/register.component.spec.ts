@@ -153,5 +153,10 @@ describe('RegisterComponent', () => {
     component.onSubmit();
     expect(component.dialog.open).toHaveBeenCalled()
   })
+
+  it("submit loading status changed",()=>{
+    component.onSubmit();
+    expect(component.loading).toBe(true);
+  })
   
 });
