@@ -204,12 +204,11 @@ export class LandingPageComponent implements OnInit {
   }
   
   destroySession(){
-    sessionStorage.clear()
     this.router.navigate(['/home']);
+    this.autho.clearSession()
   }
 
   deleteProposal(id){
-    console.log("in delete proposal")
     this.feed=this.feed.filter(item => item.id != id);
   }
 }
