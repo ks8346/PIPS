@@ -1,4 +1,4 @@
-<div style="background-color: rgb(238, 236, 236); height:100%">
+<div style="background-color: rgb(238, 236, 236); height:100%;">
     <mat-toolbar  color="primary" class="header">
         <button mat-icon-button (click)="showMenu()" [class.d-none]="!this.menuButton">
             <mat-icon>menu</mat-icon>
@@ -25,7 +25,8 @@
             [infiniteScrollDistance]="3"
             [infiniteScrollThrottle]="50"
             (scrolled)="onScroll()"
-            [style.padding-left.%]="padding">
+            [style.padding-left.%]="padding"
+            style="padding-right: 3%;">
                 <div class="container" style="background-color: white;padding:1%;border-radius: 10px;margin-bottom: 1%;">
                     <button mat-stroked-button class="postButton"   (click)="openDialog()">
                         <mat-icon style="font-size: 25px;" > how_to_vote</mat-icon>&nbsp;
