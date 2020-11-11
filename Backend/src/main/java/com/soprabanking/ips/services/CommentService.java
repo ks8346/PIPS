@@ -27,35 +27,53 @@ public class CommentService {
     private ProposalDAO proposalDao;
 
 
-    public List<Comment> displayComments(String body) {
+    public List<Comment> displayComments(String body) throws Exception {
         try {
             JsonNode jsonObj = JsonUtil.stringToJson(body);
             Long proposalId = Long.parseLong(jsonObj.get("id").asText());
 
             List<Comment> result = commentDao.fetchAllComments(proposalId);
-            return result;
+            return !result.isEmpty()?result:null;
         } catch (Exception ex) {
-            return null;
+            throw new Exception();
         }
     }
 
-    public Comment addComment(String body) {
+    public Comment addComment(String body) throws Exception {
         try {
-            JsonNode jsonObj = JsonUtil.stringToJson(body);
-            String text = jsonObj.get("text").asText();
-            Long uid = Long.parseLong(jsonObj.get("userId").asText());
-            Long pid = Long.parseLong(jsonObj.get("id").asText());
-            User user = userDao.getById(uid);
-            Proposal proposal = proposalDao.getById(pid);
-            Comment comment = new Comment();
-            comment.setComment(text);
-            comment.setUser(user);
-            comment.setProposal(proposal);
-            comment.setCreationDate(new Date());
-            Comment addedComment = commentDao.createComment(comment);
-            return addedComment;
-        } catch (Exception e) {
-            return null;
+            	JsonNode jsonObj = JsonUtil.stringToJson(body);
+            	String text = jsonObj.get("text").asText();
+            	Long uid = Long.parseLong(jsonObj.get("userId").asText());
+            	Long pid = Long.parseLong(jsonObj.get("id").asText());
+            	User user = userDao.getById(uid);
+            	Comment comment = new Comment();
+            	Comment addedComment;
+            	if(user!=null)
+            	{
+            		Proposal proposal = proposalDao.getById(pid);
+            		if(proposal!= null)
+            		{
+			            comment.setComment(text);
+			           	comment.setUser(user);
+			           	comment.setProposal(proposal);
+			           	comment.setCreationDate(new Date());
+			           	addedComment = commentDao.createComment(comment);
+		            } 
+	            	else
+	            	{
+	            		throw new Exception();
+	            	}
+            	}
+            	else
+            	{
+            		throw new Exception();
+            	}
+	            
+            	return addedComment;
+            	
+        	} 
+        catch (Exception e) {
+            throw new Exception();
         }
 
 

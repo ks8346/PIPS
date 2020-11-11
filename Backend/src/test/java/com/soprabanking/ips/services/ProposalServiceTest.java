@@ -1,24 +1,17 @@
 package com.soprabanking.ips.services;
 
-import com.soprabanking.ips.daos.CommentDAO;
-import com.soprabanking.ips.daos.ProposalDAO;
-import com.soprabanking.ips.daos.TeamDAO;
-import com.soprabanking.ips.daos.UpvotesDAO;
-import com.soprabanking.ips.models.Comment;
-import com.soprabanking.ips.models.Proposal;
-import com.soprabanking.ips.models.Team;
-import com.soprabanking.ips.models.Upvotes;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.test.context.junit4.SpringRunner;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -30,9 +23,27 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.soprabanking.ips.daos.CommentDAO;
+import com.soprabanking.ips.daos.ProposalDAO;
+import com.soprabanking.ips.daos.TeamDAO;
+import com.soprabanking.ips.daos.UpvotesDAO;
+import com.soprabanking.ips.models.Comment;
+import com.soprabanking.ips.models.Proposal;
+import com.soprabanking.ips.models.Team;
+import com.soprabanking.ips.models.Upvotes;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -52,7 +63,6 @@ class ProposalServiceTest {
 
     @Autowired
     ProposalService service;
-
 
     //Correct Values Testing
     @Test
@@ -278,5 +288,196 @@ class ProposalServiceTest {
         catch (JSONException e){
             e.printStackTrace();
         }
+    }
+    //Correct Values Testing
+    @Test
+    void saveProposal() throws Exception {
+        Proposal p =new Proposal();
+        p.setTitle("Hello");
+        JSONObject object=new JSONObject();
+        object.put("key",2L);
+        object.put("title","ABCD");
+        object.put("description","WXYZ");
+        object.put("userId",1L);
+
+        Team team=new Team();
+        team.setId(1L);
+        team.setName("Random");
+        JSONArray jsonArray=new JSONArray();
+        ObjectMapper objectMapper=new ObjectMapper();
+        jsonArray.put(new JSONObject(objectMapper.writeValueAsString(team)));
+        object.put("teams",jsonArray);
+
+        when(dao.saveProposal(any(Proposal.class))).thenReturn(p);
+
+        Proposal proposal=service.saveProposal(object.toString());
+        assertEquals(p.getTitle(),proposal.getTitle());
+        verify(teamDAO,atLeastOnce()).getTeam(anyLong());
+    }
+
+    //Incorrect Values testing
+    @Test
+    void saveProposalError() throws Exception {
+        Proposal p =new Proposal();
+        p.setTitle("Hello");
+        JSONObject object=new JSONObject();
+        object.put("key",2L);
+        object.put("title","ABCD");
+        object.put("description","WXYZ");
+        object.put("userId",1L);
+
+        Team team=new Team();
+        team.setId(1L);
+        team.setName("Random");
+        JSONArray jsonArray=new JSONArray();
+        ObjectMapper objectMapper=new ObjectMapper();
+        jsonArray.put(new JSONObject(objectMapper.writeValueAsString(team)));
+        object.put("teams",jsonArray);
+
+        when(teamDAO.getTeam(anyLong())).thenThrow(new RuntimeException());
+
+        assertThrows(Exception.class,()->service.saveProposal(object.toString()));
+        verify(dao,never()).saveProposal(any(Proposal.class));
+    }
+
+    // Correct Values Testing
+    @Test
+    void updateProposal() throws Exception{
+        Proposal p =new Proposal();
+        p.setTitle("Hello");
+        JSONObject object=new JSONObject();
+        object.put("key",2L);
+        object.put("title","ABCD");
+        object.put("description","WXYZ");
+
+        when(dao.getById(anyLong())).thenReturn(new Proposal());
+        when(dao.saveProposal(any(Proposal.class))).thenReturn(p);
+
+        Proposal proposal=service.updateProposal(object.toString());
+        assertEquals(p.getTitle(),proposal.getTitle());
+    }
+
+    // Incorrect Values Testing
+    @Test
+    void updateProposalError() throws Exception{
+        Proposal p =new Proposal();
+        p.setTitle("Hello");
+        JSONObject object=new JSONObject();
+        object.put("key",2L);
+        object.put("title","ABCD");
+        object.put("description","WXYZ");
+
+        when(dao.getById(anyLong())).thenThrow(new RuntimeException());
+
+        assertThrows(Exception.class,()->service.updateProposal(object.toString()));
+        verify(dao,never()).saveProposal(any(Proposal.class));
+    }
+    
+    @Test
+    public void testShareProposal() throws Exception {
+    	
+    	String body = shareProposalData();
+    	Team t1 = new Team();
+    	t1.setName("Devs");
+    	Team t2 = new Team();
+    	t2.setName("Sparks");
+    	Proposal proposal = new Proposal();
+    	proposal.addTeam(t1);
+    	proposal.addTeam(t2);
+    	
+    	when(teamDAO.getTeam(1L)).thenReturn(t1);
+    	when(teamDAO.getTeam(2L)).thenReturn(t2);
+    	when(dao.getById(1L)).thenReturn(proposal);
+    	when(dao.saveProposal(proposal)).thenReturn(proposal);
+    	
+    	Proposal result = service.shareProposal(body);
+    	assertEquals(2, result.getTeams().size());
+    	assertTrue(result.getTeams().contains(t1));
+    	assertTrue(result.getTeams().contains(t2));
+    	verify(dao, times(1)).saveProposal(proposal);
+    	
+    }
+    
+    @Test
+    public void testShareProposalGetTeamError() throws Exception {
+    	
+    	String body = shareProposalData();
+    	Team t1 = new Team();
+    	t1.setName("Devs");
+    	Team t2 = new Team();
+    	t2.setName("Sparks");
+    	Proposal proposal = new Proposal();
+    	proposal.addTeam(t1);
+    	proposal.addTeam(t2);
+    	
+    	when(teamDAO.getTeam(1L)).thenReturn(t1);
+    	when(teamDAO.getTeam(2L)).thenThrow(new RuntimeException());
+    	
+    	assertThrows(Exception.class, ()-> service.shareProposal(body));
+    	verify(dao, times(0)).saveProposal(proposal);
+    	
+    }
+    
+    @Test
+    public void testShareProposalGetProposalError() throws Exception {
+    	
+    	String body = shareProposalData();
+    	Team t1 = new Team();
+    	t1.setName("Devs");
+    	Team t2 = new Team();
+    	t2.setName("Sparks");
+    	Proposal proposal = new Proposal();
+    	proposal.addTeam(t1);
+    	proposal.addTeam(t2);
+    	
+    	when(teamDAO.getTeam(1L)).thenReturn(t1);
+    	when(teamDAO.getTeam(2L)).thenReturn(t2);
+    	when(dao.getById(1L)).thenThrow(new RuntimeException());
+    	
+    	assertThrows(Exception.class, () -> service.shareProposal(body));
+    	verify(dao, times(0)).saveProposal(proposal);
+    	
+    }
+    
+    @Test
+    public void testShareProposalSaveError() throws Exception {
+    	
+    	String body = shareProposalData();
+    	Team t1 = new Team();
+    	t1.setName("Devs");
+    	Team t2 = new Team();
+    	t2.setName("Sparks");
+    	Proposal proposal = new Proposal();
+    	proposal.addTeam(t1);
+    	proposal.addTeam(t2);
+    	
+    	when(teamDAO.getTeam(1L)).thenReturn(t1);
+    	when(teamDAO.getTeam(2L)).thenReturn(t2);
+    	when(dao.getById(1L)).thenReturn(proposal);
+    	when(dao.saveProposal(proposal)).thenThrow(new RuntimeException());
+    	
+    	assertThrows(Exception.class, () -> service.shareProposal(body));
+    	verify(dao, times(1)).saveProposal(proposal);
+    	
+    }
+    
+    private String shareProposalData() throws JSONException {
+    	
+    	JSONObject json = new JSONObject();
+    	json.put("id", 1);
+    	JSONArray teams = new JSONArray();
+		JSONObject t = new JSONObject();
+		t.put("id","1");
+    	t.put("name","Devs");
+        teams.put(t);
+        JSONObject t2 = new JSONObject();
+		t2.put("id","2");
+    	t2.put("name","Sparks");
+    	teams.put(t2);
+    	json.put("teams", teams);
+    	
+    	return json.toString();
+    	
+    	
     }
 }

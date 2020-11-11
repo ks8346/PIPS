@@ -1,3 +1,6 @@
 .field{
     width: 100%;
 }
+.fill-remaining-space{
+    width:35%
+}

@@ -10,23 +10,27 @@ import {Overlay} from '@angular/cdk/overlay'
 import {User} from '../user';
 import {AuthorizationService} from '../authorization.service'
 import {GetProposalsService} from '../get-proposals.service'
-import { getMultipleValuesInSingleSelectionError } from '@angular/cdk/collections';
+import {CreateProposalComponent} from './create-proposal/create-proposal.component'
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {By} from '@angular/platform-browser'
 describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
+  let create:CreateProposalComponent;
   let fixture: ComponentFixture<LandingPageComponent>;
   let httpClient:HttpClient;
   let httpTestingController: HttpTestingController;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[RouterTestingModule,HttpClientTestingModule,MatDialogModule,MatMenuModule],
+      imports:[RouterTestingModule,HttpClientTestingModule,MatDialogModule,MatMenuModule,NoopAnimationsModule],
       providers:[
         {provide:Overlay},
         {provide:MatDialog},
         { provide: MAT_DIALOG_DATA, useValue: {} },
         { provide: MatDialogRef, useValue: {} },
-        AuthorizationService
+        AuthorizationService,
+        GetProposalsService,
       ],
-      declarations: [ LandingPageComponent ]
+      declarations: [ LandingPageComponent,CreateProposalComponent ]
     })
     .compileComponents();
     httpClient=TestBed.inject(HttpClient)
@@ -36,6 +40,8 @@ describe('LandingPageComponent', () => {
     let autho:AuthorizationService;
     autho=TestBed.inject(AuthorizationService)
     spyOn(autho, 'authorization').and.returnValue(user);
+    let getProposals:GetProposalsService
+    getProposals=TestBed.inject(GetProposalsService)
   });
 
   beforeEach(() => {
@@ -54,17 +60,65 @@ describe('LandingPageComponent', () => {
   });
 
   it("should flood feed array",()=>{
-    let get:GetProposalsService
-    spyOn(get,"getAllPosts").and.callThrough()
+    let getProposals:GetProposalsService
+    getProposals=TestBed.inject(GetProposalsService)
+    spyOn(getProposals,"getAllPosts").and.callThrough()
   })
 
   it("should flood feed array",()=>{
-    spyOn(component,"getTeam").and.callThrough()
+    let getProposals:GetProposalsService
+    getProposals=TestBed.inject(GetProposalsService)
+    spyOn(getProposals,"getTeamPosts").and.callThrough()
   })
 
   it("should filter the data",()=>{
-    const data=[new Date(),new Date()]
+    const data=[new Date("2020/10/05"),new Date("2020/10/11")]
     component.onFilter(data)
-    expect(component.data.startDate).toEqual(new Date())
+    expect(component.data.startDate).toEqual(new Date("2020/10/05"))
+  })
+
+  it("should filter the data",()=>{
+    const data="allPost"
+    component.onFilter(data)
+    expect(component.type).toEqual("allPost")
+  })
+  it("should filter the data",()=>{
+    const data="teamPost"
+    component.onFilter(data)
+    expect(component.type).toEqual("teamPost")
+  })
+
+  it("should filter the data",()=>{
+    const data="yourPost"
+    component.onFilter(data)
+    expect(component.type).toEqual("yourPost")
+  })
+
+  it("should select Your Post api",()=>{
+    let data="yourPost"
+    component.selectApi(data)
+    spyOn(component,"getYour").and.callThrough()
+  })
+
+  it("should select Team Post api",()=>{
+    let data="teamPost"
+    component.selectApi(data)
+    spyOn(component,"getTeam").and.callThrough()
+  })
+
+  it("should show menu",()=>{
+    component.showMenu()
+    expect(component.menuVisibility).toEqual(false)
+  })
+
+  it("should open Dialog",()=>{
+    spyOn(component.dialog,"open")
+    let button = fixture.debugElement.query(By.css('.postButton')).nativeElement
+    button.click();
+    expect(component.dialog.open).toHaveBeenCalled()
+  })
+
+  it("window resize should run onResize",()=>{
+    
   })
 });
