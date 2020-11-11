@@ -156,7 +156,7 @@ export class LandingPageComponent implements OnInit {
               this.proposalError=""
             }
             else{
-              this.proposalError="Some error has occured! please try again later."
+              alert("Some error has occured! please try again later.")
             }
           }
         ) 
@@ -209,7 +209,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   deleteProposal(id){
-    console.log("in delete proposal")
+   
     this.feed=this.feed.filter(item => item.id != id);
   }
 }
