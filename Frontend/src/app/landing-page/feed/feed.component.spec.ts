@@ -26,7 +26,7 @@ describe('FeedComponent', () => {
     fixture = TestBed.createComponent(FeedComponent);
     component = fixture.componentInstance;
     component.post = {
-      id:7,
+      id:16,
       description :'this is description',
       title:'this is title',
       teams: [],
@@ -78,9 +78,7 @@ describe('FeedComponent', () => {
     proposalServe=TestBed.inject(ProposalService)
     let spy = spyOn(proposalServe, 'deleteComment').and.callThrough();
     component.onDelete(6)
-    expect(spy).toHaveBeenCalled();
-    
-    
+    expect(spy).toHaveBeenCalled();    
   });
 
   it('should update approval',()=>{
@@ -92,11 +90,12 @@ describe('FeedComponent', () => {
   it('should get all comments',()=>{
     let proposalServe: ProposalService
     proposalServe = TestBed.inject(ProposalService)
- 
     let spy = spyOn(proposalServe,'getComment').and.callThrough()
     component.commentsSetup()
     expect(spy).toHaveBeenCalled()
-   
+    expect(component.commentVisibility).toEqual(false)
+    expect(component.noComments).toEqual(true)
+    expect(component.commentsMessage).toEqual("Comments")
  });
 
  it('Should delete proposal',()=>{

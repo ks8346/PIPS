@@ -62,6 +62,7 @@ export class FeedComponent implements OnInit {
             }
           }
           else{
+            this.commentsMessage="Comments"
             this.height=200
           }
         }
