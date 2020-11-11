@@ -16,27 +16,31 @@
             <mat-icon>favorite</mat-icon>
         </button>
         <button mat-icon-button  class="likeButton" (click)="openDialogshare()">
-            <mat-icon>share</mat-icon></button>
+            <mat-icon>share</mat-icon>
+        </button>
         <p style="display:inline">{{this.numberLikes}} people upvoted this</p>
-
-        <div class="example-button-container" [class.d-none]="!this.canUpdate">
-            <button mat-mini-fab color="primary" (click)="delProposal()"  style="margin-left:1%;float:right; height:35px;width:35px">
-            <mat-icon style="font-size: 20px;">delete</mat-icon>
+        <div class="buttonContainer" [class.d-none]="!this.canUpdate">
+            <button [class.d-none]="!this.canUpdate" mat-mini-fab style="width: 35px;height:35px;" color="primary" (click)="openDialog(post)">
+                <mat-icon style="font-size: 20px;">create</mat-icon>
             </button>
-        </div>
-
-        <button [class.d-none]="!this.canUpdate" mat-raised-button style="float:right" color="primary" (click)="openDialog(post.id)">Update</button>
-                
+            <button mat-mini-fab color="primary" (click)="delProposal()"  style="margin-left:1%; height:35px;width:35px;">
+                <mat-icon style="font-size: 20px;">delete</mat-icon>
+            </button>
+        </div>        
     </section>
+    
     <form >
         <mat-form-field class="commentBoxLength">
-            <mat-label>Comment</mat-label>
+            <mat-label>Write a comment...</mat-label>
             <input type="text" matInput name="comment" [(ngModel)]="new_comment" >
         </mat-form-field>
-        <button type="submit" mat-raised-button color="primary" style="height:35px" (click)="postComment(post.id)">Comment</button>
+        <button type="submit" mat-raised-button color="primary" style="height:35px;float:right" (click)="postComment(post.id)">Comment</button>
     </form>
-    <div style="margin:2px auto; border-top: 1px lightgray solid;padding-top: 1%;">{{this.commentsMessage}}</div>
-    <button mat-stroked-button color=primary  (click)="this.commentVisibility=true" *ngIf="!this.commentVisibility" >See more</button>
+    <!-- <div style="margin:2px auto; border-top: 1px lightgray solid;padding-top: 1%;">{{this.commentsMessage}}</div> -->
+    <button mat-stroked-button color=primary  (click)="this.commentVisibility=true" *ngIf="!this.commentVisibility" >
+        <mat-icon>chat_bubble_outline</mat-icon>
+        View Comments
+    </button>
     <div class="comments" [class.d-none]="!this.commentVisibility" *ngIf="this.noComments" [style.height.px]="height" >
         <div class="commentText row"  *ngFor="let comment of this.comments" >
             <div class="col-md-12">
