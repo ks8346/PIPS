@@ -47,7 +47,7 @@ public class UserController
   
     @PostMapping("/getSocialInfo")
     @ResponseBody
-    public  ResponseEntity<String> getSocialInfo(@RequestBody UserAuth userAuth)
+    public  ResponseEntity getSocialInfo(@RequestBody UserAuth userAuth)
     {
     	System.out.println("hiii");
     	
@@ -64,8 +64,8 @@ public class UserController
 
         	  
                
-          	String s="{"+"\n"+"email :"+userAuth.getEmail()+","+"\n"+"name :"+userAuth.getName()+","+"\n"+"team : null"+"\n"+"}";
-        	  return new ResponseEntity<String>(s,HttpStatus.NOT_FOUND);
+          	//String s="{"+"\n"+"email :"+userAuth.getEmail()+","+"\n"+"name :"+userAuth.getName()+","+"\n"+"team : null"+"\n"+"}";
+        	  return new ResponseEntity(userAuth,HttpStatus.NOT_FOUND);
              }
      
              else 
@@ -73,10 +73,14 @@ public class UserController
             	 
             	        try {
 
-            	           
+            	            ObjectMapper o = new ObjectMapper();
+
+
+            	            String s = o.writeValueAsString(user1);
+            	            return new ResponseEntity(new AuthenticationBean(s), HttpStatus.OK);
             	        	
-            	             String msg="{"+"\n"+"id :"+user1.getId()+","+"\n"+"name :"+user1.getName()+","+"\n"+"email :"+user1.getEmail()+","+"\n"+"role :"+user1.getRole()+","+"\n"+"team : {"+"\n"+"id :"+user1.getTeam().getId()+","+"\n"+"name :"+user1.getTeam().getName()+"}"+"\n"+"}";
-            	            return new ResponseEntity<String>(msg, HttpStatus.OK);
+            	             //String msg="{"+"\n"+"id :"+user1.getId()+","+"\n"+"name :"+user1.getName()+","+"\n"+"email :"+user1.getEmail()+","+"\n"+"role :"+user1.getRole()+","+"\n"+"team : {"+"\n"+"id :"+user1.getTeam().getId()+","+"\n"+"name :"+user1.getTeam().getName()+"}"+"\n"+"}";
+            	           // return new ResponseEntity<String>(msg, HttpStatus.OK);
 
             	        } catch (Exception e) {
             	            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);

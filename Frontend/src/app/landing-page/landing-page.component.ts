@@ -1,3 +1,4 @@
+import { SocialAuthService } from 'angularx-social-login';
 import { Component, OnInit ,HostListener} from '@angular/core';
 import { GetProposalsService } from '../get-proposals.service';
 import {MatDialog} from '@angular/material/dialog';
@@ -33,7 +34,8 @@ export class LandingPageComponent implements OnInit {
   morePost=true;
   startDate=new Date()
   data=new FeedParams(new Date(this.startDate.setDate(this.startDate.getDate()-30)),new Date(),"0","3")
-  constructor(public autho:AuthorizationService,public router:Router,public post:PostProposalService,public dialog:MatDialog,private getProposals:GetProposalsService,private teams:TeamsService) { }
+  constructor(private authService: SocialAuthService,
+    public autho:AuthorizationService,public router:Router,public post:PostProposalService,public dialog:MatDialog,private getProposals:GetProposalsService,private teams:TeamsService) { }
 
   ngOnInit(): void {
     this.user=this.autho.authorization()
@@ -131,11 +133,11 @@ export class LandingPageComponent implements OnInit {
 
   }
   
-  openDialog(post?){
+  openDialog(id?:number){
     let dialogRef = this.dialog.open(CreateProposalComponent, {
       height: '400px',
       width: '600px',
-      data:{name:this.user.id,post:post,teams:this._teams}
+      data:{name:this.user.id,id,teams:this._teams}
     });
     dialogRef.afterClosed().subscribe(result => {
       if(result){
@@ -156,7 +158,7 @@ export class LandingPageComponent implements OnInit {
               this.proposalError=""
             }
             else{
-              alert("Some error has occured! please try again later.")
+              this.proposalError="Some error has occured! please try again later."
             }
           }
         ) 
@@ -183,7 +185,7 @@ export class LandingPageComponent implements OnInit {
       this.menuButton=false
       this.menuVisibility=true
       this.width=23.5
-      this.padding=4
+      this.padding=2
     }
   }
 
@@ -204,11 +206,13 @@ export class LandingPageComponent implements OnInit {
   }
   
   destroySession(){
+    sessionStorage.clear()
+    this.authService.signOut();
     this.router.navigate(['/home']);
-    this.autho.clearSession()
   }
 
   deleteProposal(id){
+    console.log("in delete proposal")
     this.feed=this.feed.filter(item => item.id != id);
   }
 }

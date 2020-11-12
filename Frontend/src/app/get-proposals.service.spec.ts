@@ -20,7 +20,6 @@ describe('GetProposalsService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
   it('should send an array of all posts', () => {
     const feedData=new FeedParams(new Date("2020-10-25"),new Date("2020-11-06"), "0","10");
     service.getAllPosts(feedData).subscribe(

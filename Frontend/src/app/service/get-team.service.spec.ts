@@ -20,9 +20,4 @@ describe('GetTeamService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
-  it("should get all the teams",()=>{
-    const teamList=[{teamName:"Devs"},{teamName:"Sparks"}]
-    service.getTeam().subscribe((data)=>expect(data).toEqual(teamList))
-  })
 });

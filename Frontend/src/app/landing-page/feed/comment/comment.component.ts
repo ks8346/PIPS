@@ -19,7 +19,7 @@ export class CommentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-     console.log(this.comment)
+    // console.log(this.comment)
     this.commentData = this.comment.comment;
     this.commentId = this.comment.id;
     this.userName = this.comment.user.name;
@@ -28,7 +28,7 @@ export class CommentComponent implements OnInit {
 
   deleteComment()
   {
-
+      
        this.parentFunction.emit(this.commentId) 
   }
 
