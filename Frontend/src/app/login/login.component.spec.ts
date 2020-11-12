@@ -10,7 +10,6 @@ import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { SocialLoginModule, SocialAuthServiceConfig } from "angularx-social-login";
 
 
-
 describe('LoginComponent',()=>{
   it('true should be true',()=>{
     expect(true).toBe(true);

@@ -13,4 +13,8 @@ export class AuthorizationService {
     }
     return JSON.parse(this.authenticatedUser)
   }
+
+  clearSession(){
+    sessionStorage.clear()
+  }
 }
