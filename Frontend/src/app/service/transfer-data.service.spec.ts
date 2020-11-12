@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SendResetLinkService } from './send-reset-link.service';
+import { TransferDataService } from './transfer-data.service';
 
-describe('SendResetLinkService', () => {
-  let service: SendResetLinkService;
+describe('TransferDataService', () => {
+  let service: TransferDataService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SendResetLinkService);
+    service = TestBed.inject(TransferDataService);
   });
 
   it('should be created', () => {

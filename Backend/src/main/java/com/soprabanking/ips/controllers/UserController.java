@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
-import com.soprabanking.ips.services.UserControllerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soprabanking.ips.authentication.AuthenticationBean;
 import com.soprabanking.ips.helper.UserAuth;
@@ -62,9 +61,6 @@ public class UserController
     
     @Autowired
     private TeamRepository teamRepository;
-    
-    @Autowired
-    private UserControllerService userControllerService;
     /**
    	 * This method verifies that the user exists in our database or not.
    	 * if the user already exists then it returns all the information of that user and redirects to landing page.
@@ -84,9 +80,7 @@ public class UserController
     	
 
         
-         // User user1=this.userRepository.getUserByUserName(email);
-    	
-    	User user1 =  userControllerService.GetUserDetails(email);
+          User user1=this.userRepository.getUserByUserName(email);
         
           if(user1==null)
            

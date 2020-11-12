@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SendResetLinkService } from './send-reset-link.service';
+import { ShareProposalService } from './share-proposal.service';
 
-describe('SendResetLinkService', () => {
-  let service: SendResetLinkService;
+describe('ShareProposalService', () => {
+  let service: ShareProposalService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SendResetLinkService);
+    service = TestBed.inject(ShareProposalService);
   });
 
   it('should be created', () => {

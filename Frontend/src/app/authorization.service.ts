@@ -9,11 +9,8 @@ export class AuthorizationService {
   authorization(){
   this.authenticatedUser=sessionStorage.getItem('authenticatedUser')
     if(!this.authenticatedUser){
-      this.router.navigate([''])
+      this.router.navigate(['/home'])
     }
     return JSON.parse(this.authenticatedUser)
-  }
-  clearSession(){
-    sessionStorage.clear()
   }
 }
