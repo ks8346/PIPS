@@ -1,3 +1,4 @@
+import { SocialAuthService } from 'angularx-social-login';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LandingPageComponent } from './landing-page.component';
@@ -31,8 +32,11 @@ describe('LandingPageComponent', () => {
   let router:Router;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[RouterTestingModule,HttpClientTestingModule,MatDialogModule,MatMenuModule,NoopAnimationsModule],
+      imports:[RouterTestingModule,
+        
+        HttpClientTestingModule,MatDialogModule,MatMenuModule,NoopAnimationsModule],
       providers:[
+        SocialAuthService,
         {provide:Overlay},
         {provide:MatDialog},
         { provide: MAT_DIALOG_DATA, useValue: {} },

@@ -1,3 +1,5 @@
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { SocialAuthService } from 'angularx-social-login';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TeamComponent } from './team.component';
@@ -25,10 +27,10 @@ describe('TeamComponent', () => {
         RouterTestingModule,
         AppRoutingModule,
         MatSelectModule,
-        NoopAnimationsModule
+        NoopAnimationsModule,MatDialogModule
       ],
       declarations: [ TeamComponent ],
-      providers: [ GetTeamService]
+      providers: [ SocialAuthService,GetTeamService]
     })
     .compileComponents();
     httpClient = TestBed.inject(HttpClient);
