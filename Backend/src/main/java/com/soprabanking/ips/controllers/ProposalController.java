@@ -2,6 +2,8 @@ package com.soprabanking.ips.controllers;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +38,8 @@ import com.soprabanking.ips.services.ProposalService;
 @CrossOrigin
 @RequestMapping("/proposal")
 public class ProposalController {
+	
+	private static final Logger LOGGER = LogManager.getLogger(ProposalController.class);
 
 	
 	@Autowired
@@ -54,15 +58,17 @@ public class ProposalController {
      * @see com.soprabanking.ips.services.ProposalService
      * @see com.soprabanking.ips.models.Proposal
      */
-	
-
 	@PostMapping(value = "/add", consumes = APPLICATION_JSON_VALUE)
 	public ResponseEntity<Proposal> addProposal(@RequestBody String body){
 		
 		try {
-			return new ResponseEntity<Proposal>(proposalService.saveProposal(body),HttpStatus.OK);
+			LOGGER.info("Inside ProposalController : addProposal() method");
+			Proposal proposal = proposalService.saveProposal(body);
+			LOGGER.info("Inside ProposalController : addProposal() SUCCESS");
+			return new ResponseEntity<Proposal>(proposal, HttpStatus.OK);
 		}
 		catch(Exception ex) {
+			LOGGER.error("Inside ProposalController : addProposal() FAILURE", ex);
 			return new ResponseEntity<Proposal>(new Proposal(), HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
@@ -85,12 +91,17 @@ public class ProposalController {
 	public ResponseEntity<Proposal> updateProposal(@RequestBody String body){
 		
 		try {
-			return new ResponseEntity<Proposal>(proposalService.updateProposal(body),HttpStatus.OK);
+			LOGGER.info("Inside ProposalController : updateProposal() method");
+			Proposal proposal = proposalService.updateProposal(body);
+			LOGGER.info("Inside ProposalController : updateProposal() SUCCESS");
+			return new ResponseEntity<Proposal>(proposal, HttpStatus.OK);
 		}
 		catch(Exception ex) {
+			LOGGER.error("Inside ProposalController : updateProposal() FAILURE", ex);
 			return new ResponseEntity<Proposal>(new Proposal(), HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
+	
 	 /**
      * This is a method used to Share proposal in a string which is sent in a Response Entity.
      * ResponseEntity represents an HTTP response, including headers, body, and status 
@@ -109,9 +120,13 @@ public class ProposalController {
 	@PostMapping(value = "/share", consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<String> shareProposal(@RequestBody String body) {
         try {
+        	LOGGER.info("Inside ProposalController : shareProposal() method");
             proposalService.shareProposal(body);
+            
+            LOGGER.info("Inside ProposalController : shareProposal() SUCCESS");
             return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
-        } catch (Exception e) {
+        } catch (Exception ex) {
+        	LOGGER.error("Inside ProposalController : shareProposal() FAILURE", ex);
             return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
         }
     }
@@ -131,7 +146,22 @@ public class ProposalController {
 
 	@PostMapping("/delete")
 	public ResponseEntity<String> deleteProposal(@RequestBody String body){
-		return proposalService.deleteProposal(body)?new ResponseEntity<String>("SUCCESS", HttpStatus.OK):new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
+		
+		try {
+			LOGGER.info("Inside ProposalController : deleteProposal() method");
+		
+			if(proposalService.deleteProposal(body)) {
+				LOGGER.info("Inside ProposalController : deleteProposal() SUCCESS");
+				return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+			}
+	
+			LOGGER.error("Inside ProposalController : deleteProposal() FAILURE");
+			return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
+		}
+		catch(Exception ex) {
+			LOGGER.error("Inside ProposalController : deleteProposal() FAILURE", ex);
+			return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
+		}
 	}
 
 }

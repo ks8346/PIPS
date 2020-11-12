@@ -388,3 +388,166 @@ java.lang.Exception: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
 	at java.lang.Thread.run(Thread.java:832) [?:?]
+2020-22-12 15:22:50.466 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103322 with PID 9108 (C:\sopra\Process-Improvement-Proposal-System\Backend\target\classes started by prasingh in C:\sopra\Process-Improvement-Proposal-System\Backend)
+2020-22-12 15:22:50.477 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-22-12 15:22:51.264 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-22-12 15:22:51.355 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 83ms. Found 6 JPA repository interfaces.
+2020-22-12 15:22:51.858 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-22-12 15:22:51.866 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-22-12 15:22:51.867 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-22-12 15:22:51.867 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-22-12 15:22:52.012 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-22-12 15:22:52.012 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1489 ms
+2020-22-12 15:22:52.187 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-22-12 15:22:52.237 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-22-12 15:22:52.287 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-22-12 15:22:52.310 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-22-12 15:22:52.416 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-22-12 15:22:52.515 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-22-12 15:22:53.074 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-22-12 15:22:53.101 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-22-12 15:22:55.671 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-22-12 15:22:55.683 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-22-12 15:22:55.842 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userController' defined in file [C:\sopra\Process-Improvement-Proposal-System\Backend\target\classes\com\soprabanking\ips\controllers\UserController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.soprabanking.ips.controllers.UserController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+
+2020-22-12 15:22:55.845 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-22-12 15:22:55.855 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-22-12 15:22:55.859 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-22-12 15:22:56.076 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-22-12 15:22:56.078 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2020-22-12 15:22:56.094 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-22-12 15:22:56.101 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userController' defined in file [C:\sopra\Process-Improvement-Proposal-System\Backend\target\classes\com\soprabanking\ips\controllers\UserController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.soprabanking.ips.controllers.UserController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1318) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1213) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) ~[spring-context-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) ~[spring-context-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758) ~[spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at com.soprabanking.ips.ImprovementProposalSystemApplication.main(ImprovementProposalSystemApplication.java:10) [classes/:?]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.soprabanking.ips.controllers.UserController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:217) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1310) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	... 18 more
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+
+	at com.soprabanking.ips.controllers.UserController.<init>(UserController.java:17) ~[classes/:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:204) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1310) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	... 18 more
+2020-23-12 15:23:45.412 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103322 with PID 13436 (C:\sopra\Process-Improvement-Proposal-System\Backend\target\classes started by prasingh in C:\sopra\Process-Improvement-Proposal-System\Backend)
+2020-23-12 15:23:45.425 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-23-12 15:23:46.207 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-23-12 15:23:46.313 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 99ms. Found 6 JPA repository interfaces.
+2020-23-12 15:23:46.806 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-23-12 15:23:46.813 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-23-12 15:23:46.814 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-23-12 15:23:46.814 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-23-12 15:23:47.117 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-23-12 15:23:47.118 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1650 ms
+2020-23-12 15:23:47.259 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-23-12 15:23:47.296 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-23-12 15:23:47.349 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-23-12 15:23:47.372 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-23-12 15:23:47.479 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-23-12 15:23:47.560 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-23-12 15:23:47.903 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-23-12 15:23:47.926 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-23-12 15:23:49.396 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-23-12 15:23:49.405 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-23-12 15:23:49.739 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a8a551e, org.springframework.security.web.context.SecurityContextPersistenceFilter@2fde9469, org.springframework.security.web.header.HeaderWriterFilter@1e56bc9b, org.springframework.security.web.authentication.logout.LogoutFilter@5403907, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@6c07ad6b, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@23121d14, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3bbb8c16, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@72c4a3aa, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3cc9632d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@19cdc217, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@458031da, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@22a4ca4a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53982523, org.springframework.security.web.session.SessionManagementFilter@403364e9, org.springframework.security.web.access.ExceptionTranslationFilter@4c4c7d6c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@39f0c343]
+2020-23-12 15:23:50.100 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-23-12 15:23:50.129 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-23-12 15:23:50.130 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-23-12 15:23:50.635 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-23-12 15:23:50.648 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Started ImprovementProposalSystemApplication in 5.642 seconds (JVM running for 7.266)
+2020-24-12 15:24:01.189 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-24-12 15:24:01.190 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-24-12 15:24:01.204 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 14 ms
+2020-24-12 15:24:01.321 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-24-12 15:24:01.321 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-24-12 15:24:01.431 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESSFULL
+2020-24-12 15:24:58.856 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-24-12 15:24:58.857 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-24-12 15:24:58.862 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESSFULL
+2020-25-12 15:25:10.224 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-25-12 15:25:10.224 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-25-12 15:25:10.230 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESSFULL
+2020-11-12 16:11:39.389 [RMI TCP Connection(52)-127.0.0.1] INFO  org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2020-11-12 16:11:39.470 [RMI TCP Connection(52)-127.0.0.1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-12 16:11:39.473 [RMI TCP Connection(52)-127.0.0.1] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-12 16:11:39.473 [RMI TCP Connection(52)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-12 16:11:39.478 [RMI TCP Connection(52)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-12 16:11:51.668 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103322 with PID 11044 (C:\sopra\Process-Improvement-Proposal-System\Backend\target\classes started by prasingh in C:\sopra\Process-Improvement-Proposal-System\Backend)
+2020-11-12 16:11:51.687 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-12 16:11:53.202 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-12 16:11:53.392 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 177ms. Found 6 JPA repository interfaces.
+2020-11-12 16:11:54.348 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-12 16:11:54.359 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-12 16:11:54.360 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-12 16:11:54.361 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-12 16:11:54.745 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-12 16:11:54.746 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2990 ms
+2020-11-12 16:11:55.040 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-12 16:11:55.110 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-12 16:11:55.197 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-12 16:11:55.221 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-12 16:11:55.459 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-12 16:11:55.622 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-12 16:11:56.184 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-12 16:11:56.212 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-12 16:11:58.175 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-12 16:11:58.189 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-12 16:11:58.597 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f8c4fae, org.springframework.security.web.context.SecurityContextPersistenceFilter@99a8de3, org.springframework.security.web.header.HeaderWriterFilter@34c62fdf, org.springframework.security.web.authentication.logout.LogoutFilter@22a4ca4a, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5f5297e3, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@9690008, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4f811029, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1e56bc9b, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4703c998, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7f0d8eff, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54495935, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7f0766ef, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@71166348, org.springframework.security.web.session.SessionManagementFilter@1eb85a47, org.springframework.security.web.access.ExceptionTranslationFilter@935493d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@76a9a009]
+2020-11-12 16:11:58.996 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-11-12 16:11:59.029 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-12 16:11:59.030 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-11-12 16:11:59.536 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-11-12 16:11:59.547 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Started ImprovementProposalSystemApplication in 8.455 seconds (JVM running for 10.896)

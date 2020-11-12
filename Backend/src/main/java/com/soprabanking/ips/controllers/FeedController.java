@@ -49,7 +49,7 @@ import com.soprabanking.ips.services.ProposalService;
 @RequestMapping("/feed")
 public class FeedController {
 	
-	private static Logger LOGGER = LogManager.getLogger(FeedController.class);
+	private static final Logger LOGGER = LogManager.getLogger(FeedController.class);
 
     @Autowired
     private FeedService feedService;
@@ -83,12 +83,12 @@ public class FeedController {
         	if(list.isEmpty())
         		throw new Exception();
         	
-        	LOGGER.info("Inside FeedController : getAllProposalFeed() SUCCESSFULL");
+        	LOGGER.info("Inside FeedController : getAllProposalFeed() SUCCESS");
             return new ResponseEntity<List<Proposal>>(list,
                     HttpStatus.OK);
         	
-        } catch (Exception e) {
-        	LOGGER.info("Inside FeedController : getAllProposalFeed() FAILED");
+        } catch (Exception ex) {
+        	LOGGER.error("Inside FeedController : getAllProposalFeed() FAILURE", ex);
             return new ResponseEntity<List<Proposal>>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);
 
         }
@@ -116,13 +116,16 @@ public class FeedController {
             @RequestBody String body) {
 
         try {
+        	LOGGER.info("Inside FeedController : getUserProposalFeed() method");
         	List<Proposal> list = feedService.fetchUserProposals(body);
         	System.out.println(list);
         	if(list.isEmpty())
         		throw new Exception();
-            return new ResponseEntity<>(list,
-                    HttpStatus.OK);
+        	
+        	LOGGER.info("Inside FeedController : getAllProposalFeed() SUCCESS");
+            return new ResponseEntity<>(list, HttpStatus.OK);
         } catch (Exception ex) {
+        	LOGGER.error("Inside FeedController : getAllProposalFeed() FAILURE", ex);
             return new ResponseEntity<List<Proposal>>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);
         }
     }
@@ -146,8 +149,14 @@ public class FeedController {
 
     @PostMapping("/team")
     public ResponseEntity<Object> getTeamProposalFeed(@RequestBody String body) {
+    	
+    	LOGGER.info("Inside FeedController : getTeamProposalFeed() method");
         Optional<List<Proposal>> optionalProposalDtoList = Optional.ofNullable(proposalService.getDefault(body));
-        return optionalProposalDtoList.<ResponseEntity<Object>>map(proposals -> new ResponseEntity<>(proposals, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE));
+        return optionalProposalDtoList.<ResponseEntity<Object>>map(proposals -> 
+        					new ResponseEntity<Object>(proposals, HttpStatus.OK))
+        					.orElseGet(() -> 
+        					new ResponseEntity<Object>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE));
+        					
     }
 
 

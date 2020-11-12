@@ -1,47 +1,24 @@
 package com.soprabanking.ips.controllers;
 
-import java.security.Principal;
-import java.util.concurrent.ThreadLocalRandom;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-<<<<<<< HEAD
 
-=======
-import com.soprabanking.ips.repositories.TeamRepository;
-import com.soprabanking.ips.repositories.UserRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.soprabanking.ips.authentication.AuthenticationBean;
->>>>>>> bb7d67d05a0071b271d9049b7f6ac2badc13c7f2
 import com.soprabanking.ips.helper.UserAuth;
 import com.soprabanking.ips.models.User;
-<<<<<<< HEAD
 import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
-=======
-
-
- 
-
- 
->>>>>>> bb7d67d05a0071b271d9049b7f6ac2badc13c7f2
 
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
-<<<<<<< HEAD
 @RequestMapping("/user")
-=======
-//@RequestMapping("/user")
 /**
  * Provides Rest-APIs for logging in through social media .
  *
@@ -49,10 +26,6 @@ import com.soprabanking.ips.repositories.UserRepository;
  * This is a User Controller Class which implements social media handler(getSocialInfo rest API) and with this handler, 
  * user can access our landing page via social media(GMAIL).
  */
-
- 
-
->>>>>>> bb7d67d05a0071b271d9049b7f6ac2badc13c7f2
 public class UserController
 {
 
