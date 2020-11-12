@@ -13,7 +13,7 @@
         <input type="hidden" formControlName="key" [(ngModel)]=this.id>
         <mat-form-field appearance="fill" class="field">
             <mat-label>Title</mat-label>
-            <input formControlName="title" matInput placeholder="Title" minlength="6" [(ngModel)]='tit'>
+            <input formControlName="title" matInput placeholder="Title" minlength="6" [(ngModel)]='tit' required>
             <mat-error *ngIf="service.form.controls['title'].errors?.required">This field is Mandatory</mat-error>
             <mat-error *ngIf="service.form.controls['title'].errors?.minlength">Minimum 5 characters needed</mat-error>
         </mat-form-field>

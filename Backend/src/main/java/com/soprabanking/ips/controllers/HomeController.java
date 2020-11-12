@@ -39,6 +39,8 @@ import com.soprabanking.ips.helper.Message;
 import com.soprabanking.ips.modelwrap.ModelWrap;
 import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
+import com.soprabanking.ips.services.HomeService;
+import com.soprabanking.ips.services.UserControllerService;
 
 @CrossOrigin
 @RestController
@@ -61,6 +63,12 @@ public class HomeController {
 
     @Autowired
     private TeamRepository teamRepository;
+    
+    @Autowired
+    private HomeService homeService;
+    
+    @Autowired
+    private UserControllerService userControllerService;
     /**
 	 * This method returns home page for our product.
 	 *
@@ -81,12 +89,13 @@ public class HomeController {
     @GetMapping("/getTeam")
     public ResponseEntity<List<Object>> findAllTeams() {
 
-        List<Object> allteam = teamRepository.getTeamIdANDName();
+        //List<Object> allteam = teamRepository.getTeamIdANDName();
+    	List<Object> allteam = homeService.GetTeam();
         allteam.forEach(e -> {
             System.out.println(e);
         });
         try {
-            return new ResponseEntity<>(teamRepository.getTeamIdANDName(), HttpStatus.OK);
+            return new ResponseEntity<>(homeService.GetTeam(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<List<Object>>(new ArrayList<>(), HttpStatus.NOT_FOUND);
         }
@@ -109,7 +118,9 @@ public class HomeController {
             user.setRole("ROLE_USER");
             System.out.println(user);
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-            Team team1 = this.teamRepository.getTeamByTeamName(team.getName());
+            String tname=team.getName();
+            //Team team1 = this.teamRepository.getTeamByTeamName(team.getName());
+            Team team1 = homeService.GetTeamname(tname);
             if (team1 == null) {
                 user.setTeam(team);
             } else {
@@ -148,7 +159,9 @@ public class HomeController {
             String userName = principal.getName();
 
 
-            User user = userRepository.getUserByUserName(userName);
+           // User user = userRepository.getUserByUserName(userName);
+            User user = userControllerService.GetUserDetails(userName);
+            
 
             ObjectMapper o = new ObjectMapper();
 

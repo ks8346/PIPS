@@ -1,8 +1,7 @@
 .text{
     text-align: justify;
     margin-top:1%;
-    font-size: large;
-
+    font-size: medium;
 }
 .commentText{
     text-align: justify;
@@ -30,11 +29,7 @@
     color:white; */
     /* width: 20px; */
     /* opacity: 70%; */
-    font-size: 20px;
     padding-top:1%;
-    color:#3F51B5;
-    font-weight: 500;
-
 }
 .post{
     margin:2em auto;
@@ -58,12 +53,7 @@
     opacity: 70%;
 }
 .title{
-    font-weight: 450;
-    font-size: 23px;
+    font-weight: 500;
+    font-size: 20px;
     padding-top: 5px;
-    color:rgb(66, 65, 65)
-}
-.buttonContainer{
-    display:inline;
-    margin-left:2%
 }
