@@ -15,7 +15,7 @@
         <button mat-icon-button [class.text-danger]="this.hasLiked" class="likeButton" (click)="postLike(post.id)">
             <mat-icon>favorite</mat-icon>
         </button>
-        <button mat-icon-button  class="likeButton" (click)="openDialogshare()">
+        <button mat-icon-button  class="share likeButton" (click)="openDialogshare()">
             <mat-icon>share</mat-icon>
         </button>
         <p style="display:inline">{{this.numberLikes}} people upvoted this</p>
@@ -23,7 +23,7 @@
             <button [class.d-none]="!this.canUpdate" mat-mini-fab style="width: 35px;height:35px;" color="primary" (click)="openDialog(post)">
                 <mat-icon style="font-size: 20px;">create</mat-icon>
             </button>
-            <button mat-mini-fab color="primary" (click)="delProposal()"  style="margin-left:1%; height:35px;width:35px;">
+            <button mat-mini-fab color="primary" class="delete" (click)="delProposal()"  style="margin-left:1%; height:35px;width:35px;">
                 <mat-icon style="font-size: 20px;">delete</mat-icon>
             </button>
         </div>        

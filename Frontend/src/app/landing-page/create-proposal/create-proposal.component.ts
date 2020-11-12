@@ -21,7 +21,6 @@ export class CreateProposalComponent implements OnInit {
   public prop
   ngOnInit(){
     this.userId=this.data.userId
-    // this.id=this.data.post.id
     if(this.data.post){
       this.teamVisibility=false
       this.id=this.data.post.id
@@ -33,17 +32,5 @@ export class CreateProposalComponent implements OnInit {
        this.prop="Create Proposal"
      }
   }
-  onClear(){
-    this.service.form.reset();
-    this.service.initialiseFormGroup();
-  }
-  onSubmit(){
-    console.log(this.service.form.value);
-    this.values=this.service.form.value
-    this.sentTeam=this.service.form.controls["teams"].value
-    
-    // this.Teams=JSON.parse(this.service.form.controls["teams"].value[0])
-    
-    return {"title":this.service.form.controls["title"].value,"description":this.service.form.controls["description"].value,"teams":this.sentTeam}
-  }
+  
 }

@@ -1,7 +1,7 @@
 package com.soprabanking.ips.models;
 
-
 import java.util.Date;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -21,6 +21,12 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+/**
+ * This is a model class for user
+ * this class implements all the basic details of user which are required for registration purpose
+ * and this class also has one to many relationship with team model.
+ * In this class, we are using annotation @Entity to create a table in database.
+ */
 
 @Entity
 @Table(name = "USERS")
