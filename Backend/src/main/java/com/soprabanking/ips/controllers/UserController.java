@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
+import com.soprabanking.ips.services.UserControllerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soprabanking.ips.authentication.AuthenticationBean;
 import com.soprabanking.ips.helper.UserAuth;
@@ -61,6 +62,9 @@ public class UserController
     
     @Autowired
     private TeamRepository teamRepository;
+    
+    @Autowired
+    private UserControllerService userControllerService;
     /**
    	 * This method verifies that the user exists in our database or not.
    	 * if the user already exists then it returns all the information of that user and redirects to landing page.
@@ -72,7 +76,7 @@ public class UserController
   
     @PostMapping("/getSocialInfo")
     @ResponseBody
-    public  ResponseEntity<String> getSocialInfo(@RequestBody UserAuth userAuth)
+    public  ResponseEntity getSocialInfo(@RequestBody UserAuth userAuth)
     {
     	System.out.println("hiii");
     	
@@ -80,7 +84,9 @@ public class UserController
     	
 
         
-          User user1=this.userRepository.getUserByUserName(email);
+         // User user1=this.userRepository.getUserByUserName(email);
+    	
+    	User user1 =  userControllerService.GetUserDetails(email);
         
           if(user1==null)
            
@@ -89,8 +95,8 @@ public class UserController
 
         	  
                
-          	String s="{"+"\n"+"email :"+userAuth.getEmail()+","+"\n"+"name :"+userAuth.getName()+","+"\n"+"team : null"+"\n"+"}";
-        	  return new ResponseEntity<String>(s,HttpStatus.NOT_FOUND);
+          	//String s="{"+"\n"+"email :"+userAuth.getEmail()+","+"\n"+"name :"+userAuth.getName()+","+"\n"+"team : null"+"\n"+"}";
+        	  return new ResponseEntity(userAuth,HttpStatus.NOT_FOUND);
              }
      
              else 
@@ -98,10 +104,14 @@ public class UserController
             	 
             	        try {
 
-            	           
+            	            ObjectMapper o = new ObjectMapper();
+
+
+            	            String s = o.writeValueAsString(user1);
+            	            return new ResponseEntity(new AuthenticationBean(s), HttpStatus.OK);
             	        	
-            	             String msg="{"+"\n"+"id :"+user1.getId()+","+"\n"+"name :"+user1.getName()+","+"\n"+"email :"+user1.getEmail()+","+"\n"+"role :"+user1.getRole()+","+"\n"+"team : {"+"\n"+"id :"+user1.getTeam().getId()+","+"\n"+"name :"+user1.getTeam().getName()+"}"+"\n"+"}";
-            	            return new ResponseEntity<String>(msg, HttpStatus.OK);
+            	             //String msg="{"+"\n"+"id :"+user1.getId()+","+"\n"+"name :"+user1.getName()+","+"\n"+"email :"+user1.getEmail()+","+"\n"+"role :"+user1.getRole()+","+"\n"+"team : {"+"\n"+"id :"+user1.getTeam().getId()+","+"\n"+"name :"+user1.getTeam().getName()+"}"+"\n"+"}";
+            	           // return new ResponseEntity<String>(msg, HttpStatus.OK);
 
             	        } catch (Exception e) {
             	            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
