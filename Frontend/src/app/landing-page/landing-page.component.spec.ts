@@ -124,22 +124,17 @@ describe('LandingPageComponent', () => {
     let spy=spyOn(component,"getYour").and.callThrough()
     component.selectApi(data)
     expect(spy).toHaveBeenCalled()
-  })
-
-  it("should select Team Post api",()=>{
-    let data="teamPost"
-    let spy=spyOn(component,"getTeam").and.callThrough()
+    data="teamPost"
+    spy=spyOn(component,"getTeam").and.callThrough()
+    component.selectApi(data)
+    expect(spy).toHaveBeenCalled()
+    data="allPost"
+    spy=spyOn(component,"getAll").and.callThrough()
     component.selectApi(data)
     expect(spy).toHaveBeenCalled()
   })
 
-  it("should select All Post api",()=>{
-    let data="allPost"
-    let spy=spyOn(component,"getAll").and.callThrough()
-    component.selectApi(data)
-    expect(spy).toHaveBeenCalled()
-  })
-
+  
   it("should show menu",()=>{
     component.showMenu()
     expect(component.menuVisibility).toEqual(false)
@@ -180,10 +175,6 @@ describe('LandingPageComponent', () => {
     expect(component.dialog.open).toHaveBeenCalled()
   })
 
-  
-
-
-
   it("should run delete proposal",()=>{
     feed=TestBed.inject(FeedComponent)
     fixtureCreate=TestBed.createComponent(FeedComponent)
@@ -206,12 +197,17 @@ describe('LandingPageComponent', () => {
     }
     component.feed=[feed.post,feed.post]
     let spyFeed=spyOn(feed,"delProposal")
-    let spy=spyOn(component,"deleteProposal")
     fixtureCreate.debugElement.query(By.css('.delete')).nativeElement.click()
     expect(spyFeed).toHaveBeenCalled()
+    
+    let spy=spyOn(component,"deleteProposal")
     fixture.detectChanges()
     fixture.debugElement.query(By.css('.feed')).triggerEventHandler("deleteProposal",feed.post.id)
     expect(spy).toHaveBeenCalled()
+    
+    component.feed=[]
+    let feedPost=fixture.debugElement.query(By.css('.feed'))
+    expect(feedPost.triggerEventHandler('deleteProposal',feed.post.id)).toBeFalsy()
   })
 
   it("window resize should run onResize",()=>{
@@ -239,7 +235,6 @@ describe('LandingPageComponent', () => {
     let location:SpyLocation
     location=TestBed.inject(SpyLocation)
     let autho:AuthorizationService;
-    // let flag=false
     autho=TestBed.inject(AuthorizationService)
     location.setBaseHref("http://localhost:4200")
     location.setInitialPath('/welcome')
@@ -251,11 +246,12 @@ describe('LandingPageComponent', () => {
     component.destroySession()
     expect(spy).toHaveBeenCalled()
   })
+
   it("should get new posts when scroll",()=>{
     let getProposals:GetProposalsService
     getProposals=TestBed.inject(GetProposalsService)
     component.type="yourPost"
-    component.newFeed=["blah","blah"]
+    component.newFeed=["this is a post","this is second post"]
     component.morePost=true
     component.page=0
     let spy=spyOn(getProposals,"getYourNextPost").and.callThrough()
