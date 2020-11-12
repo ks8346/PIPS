@@ -5,6 +5,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,6 +48,8 @@ import com.soprabanking.ips.services.CommentService;
 public class CommentController {
     @Autowired
     private CommentService commentService;
+
+    private static final Logger LOGGER = LogManager.getLogger(CommentController.class);
     /**
      * This is a method used to Display Comments in a List which is sent in a Response Entity.
      * ResponseEntity represents an HTTP response, including headers, body, and status
@@ -62,9 +67,14 @@ public class CommentController {
 
     @PostMapping(value = "/all", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Comment>> displayComments(@RequestBody String body) {
+
         try {
-            return new ResponseEntity<List<Comment>>(commentService.displayComments(body), HttpStatus.OK);
+            LOGGER.info("Inside CommentController: displayComments() method");
+            List<Comment> comments=commentService.displayComments(body);
+            LOGGER.info("Inside CommentController: displayComments() SUCCESS");
+            return new ResponseEntity<List<Comment>>(comments, HttpStatus.OK);
         } catch (Exception ex) {
+            LOGGER.error("Inside CommentController: displayComments() FAILURE");
             return new ResponseEntity<List<Comment>>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);
         }
     }
@@ -85,10 +95,13 @@ public class CommentController {
     @PostMapping(value = "/add", consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<String> addComment(@RequestBody String body) {
         try {
+            LOGGER.info("Inside CommentController: addComment() method");
             commentService.addComment(body);
+            LOGGER.info("Inside CommentController: addComment() SUCCESS");
             return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 
         } catch (Exception ex) {
+            LOGGER.error("Inside CommentController: addComment() FAILURE");
             return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
         }
     }
@@ -108,10 +121,13 @@ public class CommentController {
     public ResponseEntity<String> deleteComment(@RequestBody String body) {
 
         try {
+            LOGGER.info("Inside CommentController: deleteComment() method");
             commentService.deleteComment(body);
+            LOGGER.info("Inside CommentController: deleteComment() SUCCESS");
             return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 
         } catch (Exception ex) {
+            LOGGER.error("Inside CommentController: deleteComment() FAILURE");
             return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
         }
     }
