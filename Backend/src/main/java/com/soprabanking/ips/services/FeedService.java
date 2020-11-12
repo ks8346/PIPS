@@ -3,6 +3,9 @@ package com.soprabanking.ips.services;
 import java.util.Date;
 import java.util.List;
 
+
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +24,10 @@ public class FeedService {
     @Autowired
     private ProposalDAO proposalDAO;
 
+    Logger logger = LogManager.getLogger(FeedService.class);
+
     public List<Proposal> fetchAllProposals(String body) throws Exception {
+        logger.info("Inside FeedService: fetchAllProposals() method");
 
         try {
             JsonNode jsonObj = JsonUtil.stringToJson(body);
@@ -39,7 +45,7 @@ public class FeedService {
             Slice<Proposal> result = proposalDAO.fetchAllProposals(startDate, endDate, pageable);
             return result.getContent();
         } catch (Exception ex) {
-
+            logger.error("Error caught",ex);
 
             throw new Exception();
         }
