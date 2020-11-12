@@ -9,7 +9,8 @@ export class PostProposalService {
   public sentTeams:{}[]
   private createUrl="http://localhost:8080/proposal/add";
   private updateUrl="http://localhost:8080/proposal/update";
-  private shareUrl="http://localhost:8080/proposal/share"
+  private shareUrl="http://localhost:8080/proposal/share";
+  private deleteUrl="http://localhost:8080/proposal/delete"
   constructor(private http:HttpClient) { }
   shareProposal(data,id):Observable<any>{
     data.id=id
@@ -18,16 +19,16 @@ export class PostProposalService {
   postProposal(data,userId){
     data.userId=userId
     console.log(data.key)
-    data.value.key=data.key
-    if(!data.value.key){
-      data.value.key="null"
-      console.log(data.value)
-      data.value.userId=userId
-      return this.http.post(this.createUrl,data.value)
+    if(!data.key){
+      data.key="null"
+      data.userId=userId
+      return this.http.post(this.createUrl,data)
     }
     else{
+      data.key=data.key.toString()
       console.log("Updated")
-      return this.http.post(this.updateUrl,data.value)
+      console.log(data)
+      return this.http.post(this.updateUrl,data)
     }
     
   }

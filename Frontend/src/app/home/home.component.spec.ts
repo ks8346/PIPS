@@ -1,21 +1,19 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, inject} from '@angular/core/testing';
 import { HomeComponent } from './home.component';
+import {HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { RouterTestingModule } from "@angular/router/testing";
 
-
-describe('HomeComponent',()=>{
-  it('true should be true',()=>{
-    expect(true).toBe(true);
-  });
-});
-
-/*describe('HomeComponent', () => {
+describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      imports:[
+        RouterTestingModule,
+        HttpClientTestingModule
+      ],
+      declarations: [ HomeComponent ],
     })
     .compileComponents();
   });
@@ -36,4 +34,3 @@ describe('HomeComponent',()=>{
   })
 
 });
-});*/

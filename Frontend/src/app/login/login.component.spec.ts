@@ -10,16 +10,11 @@ import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { SocialLoginModule, SocialAuthServiceConfig } from "angularx-social-login";
 
 
-
-describe('LoginComponent',()=>{
-  it('true should be true',()=>{
-    expect(true).toBe(true);
-  });
-});
-
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let httpClient: HttpClient;
+  let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -52,12 +47,12 @@ describe('LoginComponent', () => {
       ]
     })
     .compileComponents();
-  });
-
-  beforeEach(() => {
+    
+    httpClient = TestBed.inject(HttpClient);
+    httpTestingController = TestBed.inject(HttpTestingController);
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.ngOnInit();
   });
 
   it('should create', () => {

@@ -4,18 +4,19 @@ import { GetTeamService } from './../service/get-team.service';
 import { Router } from '@angular/router';
 import { UserRegisterService } from './../service/user-register.service';
 import { PasswordSpecsComponent } from './../password-specs/password-specs.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import {ConfirmPasswordValidator} from '../confirmPassword.Validator';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
-
+import {MatDialog, MatDialogModule, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
+
+
 export class RegisterComponent implements OnInit {
 
   message: any;
