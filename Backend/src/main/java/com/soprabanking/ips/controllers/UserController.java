@@ -33,7 +33,7 @@ import com.soprabanking.ips.services.UserControllerService;
 public class UserController
 {
 
-	private static final Logger LOGGER = LogManager.getLogger(ForgotPasswordController.class);
+	private static final Logger LOGGER = LogManager.getLogger(UserController.class);
     
 
     @Autowired
@@ -89,7 +89,7 @@ public class UserController
 
 
             	            String s = o.writeValueAsString(user1);
-            	            LOGGER.info("Inside ForgotPasswordController : forgot_password() SUCCESS");
+            	            LOGGER.info("Inside UserController : getSocialInfo() SUCCESS");
             	            return new ResponseEntity(new AuthenticationBean(s), HttpStatus.OK);
             	        	
             	             //String msg="{"+"\n"+"id :"+user1.getId()+","+"\n"+"name :"+user1.getName()+","+"\n"+"email :"+user1.getEmail()+","+"\n"+"role :"+user1.getRole()+","+"\n"+"team : {"+"\n"+"id :"+user1.getTeam().getId()+","+"\n"+"name :"+user1.getTeam().getName()+"}"+"\n"+"}";
