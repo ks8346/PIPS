@@ -1,44 +1,31 @@
 package com.soprabanking.ips.controllers;
 
 import java.security.Principal;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-
-import org.hibernate.mapping.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserCache;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.soprabanking.ips.models.Proposal;
-import com.soprabanking.ips.models.Team;
-import com.soprabanking.ips.models.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soprabanking.ips.authentication.AuthenticationBean;
-import com.soprabanking.ips.helper.Message;
+import com.soprabanking.ips.models.Team;
+import com.soprabanking.ips.models.User;
 import com.soprabanking.ips.modelwrap.ModelWrap;
 import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
+import com.soprabanking.ips.services.HomeService;
+import com.soprabanking.ips.services.UserControllerService;
 
 @CrossOrigin
 @RestController
@@ -61,11 +48,17 @@ public class HomeController {
 
     @Autowired
     private TeamRepository teamRepository;
+    
+    @Autowired
+    private HomeService homeService;
+    
+    @Autowired
+    private UserControllerService userControllerService;
     /**
 	 * This method returns home page for our product.
 	 *
 	 * @return a string
-	 * */
+	 * */	
     @RequestMapping("/home")
     @ResponseBody
     public String home(Model model) {
@@ -81,12 +74,13 @@ public class HomeController {
     @GetMapping("/getTeam")
     public ResponseEntity<List<Object>> findAllTeams() {
 
-        List<Object> allteam = teamRepository.getTeamIdANDName();
+        //List<Object> allteam = teamRepository.getTeamIdANDName();
+    	List<Object> allteam = homeService.GetTeam();
         allteam.forEach(e -> {
             System.out.println(e);
         });
         try {
-            return new ResponseEntity<>(teamRepository.getTeamIdANDName(), HttpStatus.OK);
+            return new ResponseEntity<>(homeService.GetTeam(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<List<Object>>(new ArrayList<>(), HttpStatus.NOT_FOUND);
         }
@@ -109,7 +103,9 @@ public class HomeController {
             user.setRole("ROLE_USER");
             System.out.println(user);
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-            Team team1 = this.teamRepository.getTeamByTeamName(team.getName());
+            String tname=team.getName();
+            //Team team1 = this.teamRepository.getTeamByTeamName(team.getName());
+            Team team1 = homeService.GetTeamname(tname);
             if (team1 == null) {
                 user.setTeam(team);
             } else {
@@ -148,7 +144,9 @@ public class HomeController {
             String userName = principal.getName();
 
 
-            User user = userRepository.getUserByUserName(userName);
+           // User user = userRepository.getUserByUserName(userName);
+            User user = userControllerService.GetUserDetails(userName);
+            
 
             ObjectMapper o = new ObjectMapper();
 
