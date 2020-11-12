@@ -29,10 +29,8 @@ describe('HomeComponent', () => {
   });
 
   it('should go to Login Component',()=>{
-     expect(component.islogin).toEqual(true);
+    component.goToLogIn()
+    expect(component.islogin).toEqual(true);
   })
 
-  it('should go to Register Component',()=>{
-    expect(component.isregister).toEqual(true);
- })
 });
