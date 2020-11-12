@@ -3,9 +3,11 @@ package com.soprabanking.ips.services;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import com.soprabanking.ips.models.Team;
@@ -19,6 +21,8 @@ import com.soprabanking.ips.repositories.TeamRepository;
  */
 @Service
 public class HomeService {
+
+private static final Logger LOGGER = LogManager.getLogger(HomeService.class);
 	
 	/** 
 	 * This method return list of the team which are in database
@@ -30,6 +34,7 @@ public class HomeService {
 	private TeamRepository teamRepository;
 	// fetching All Team name  from database
 	public List<Object> GetTeam() {
+		LOGGER.info("Inside HomeService : GetTeam() method");
 
 		return teamRepository.getTeamIdANDName();
 
@@ -43,7 +48,7 @@ public class HomeService {
 	
 	public Team GetTeamname(String teamname)
 	{
-		
+		LOGGER.info("Inside HomeService : GetTeamname() method");
 	    Team team1 = this.teamRepository.getTeamByTeamName(teamname);
 		return team1;
 		

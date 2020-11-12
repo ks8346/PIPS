@@ -6,7 +6,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import javax.transaction.Transactional;
 
- 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 //import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 
@@ -22,6 +23,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.soprabanking.ips.controllers.ForgotPasswordController;
 /**
  * This is a configuration class of spring boot security.
  * 
@@ -43,6 +46,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 @Transactional
 public class MyConfig extends WebSecurityConfigurerAdapter {
+	private static final Logger LOGGER = LogManager.getLogger(MyConfig.class);
 
  /**
   * this method calls userDetailService class 
@@ -51,6 +55,7 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UserDetailsService getUserDetailService() {
+    	LOGGER.info("Inside  MyConfig : getUserDetailService() method");
         return new UserDetailsServiceImpl();
     }
     /**
@@ -58,7 +63,8 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
      * @return ReentrantLock object of ReentrantLock
      */
     @Bean     
-    public ReentrantLock getLock() {         
+    public ReentrantLock getLock() {     
+    	LOGGER.info("Inside  MyConfig : getLock() method");
     	return new ReentrantLock();     
     	}
     /**
@@ -68,6 +74,7 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
+    	LOGGER.info("Inside  MyConfig :  passwordEncoder() method");
         return new BCryptPasswordEncoder();
     }
 
@@ -78,6 +85,7 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
+    	LOGGER.info("Inside  MyConfig :authenticationProvider() method");
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
 
  
@@ -106,6 +114,7 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    	LOGGER.info("Inside MyConfig : configure() method");
         auth.authenticationProvider(authenticationProvider());
 
  
@@ -121,6 +130,7 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    	LOGGER.info("Inside  MyConfig: configure() method");
         http.csrf().disable().authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN")
         .antMatchers("/user/**").hasRole("USER")
         .antMatchers("/**").permitAll().anyRequest()

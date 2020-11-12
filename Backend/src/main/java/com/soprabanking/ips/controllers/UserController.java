@@ -1,5 +1,7 @@
 package com.soprabanking.ips.controllers;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ import com.soprabanking.ips.helper.UserAuth;
 import com.soprabanking.ips.models.User;
 import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
+import com.soprabanking.ips.services.UserControllerService;
 
 
 @CrossOrigin
@@ -30,13 +33,17 @@ import com.soprabanking.ips.repositories.UserRepository;
 public class UserController
 {
 
- 
+	private static final Logger LOGGER = LogManager.getLogger(ForgotPasswordController.class);
+    
 
     @Autowired
     private UserRepository userRepository;
     
     @Autowired
     private TeamRepository teamRepository;
+    
+    @Autowired
+    private UserControllerService userControllerService;
     /**
    	 * This method verifies that the user exists in our database or not.
    	 * if the user already exists then it returns all the information of that user and redirects to landing page.
@@ -49,21 +56,25 @@ public class UserController
     @PostMapping("/getSocialInfo")
     @ResponseBody
     public  ResponseEntity getSocialInfo(@RequestBody UserAuth userAuth)
+   
     {
+    	
+    	LOGGER.info("Inside  UserController : getSocialInfo() method");
     	System.out.println("hiii");
     	
-    	String email=userAuth.getEmail();
+    	String userName=userAuth.getEmail();
     	
 
         
-          User user1=this.userRepository.getUserByUserName(email);
+         // User user1=this.userRepository.getUserByUserName(email);
+    	  User user1 = userControllerService.GetUserDetails(userName);
         
           if(user1==null)
            
              {
         	  
 
-        	  
+        	  LOGGER.info("Inside UserController : getSocialInfo() SUCCESS");
                
           	//String s="{"+"\n"+"email :"+userAuth.getEmail()+","+"\n"+"name :"+userAuth.getName()+","+"\n"+"team : null"+"\n"+"}";
         	  return new ResponseEntity(userAuth,HttpStatus.NOT_FOUND);
@@ -78,12 +89,14 @@ public class UserController
 
 
             	            String s = o.writeValueAsString(user1);
+            	            LOGGER.info("Inside ForgotPasswordController : forgot_password() SUCCESS");
             	            return new ResponseEntity(new AuthenticationBean(s), HttpStatus.OK);
             	        	
             	             //String msg="{"+"\n"+"id :"+user1.getId()+","+"\n"+"name :"+user1.getName()+","+"\n"+"email :"+user1.getEmail()+","+"\n"+"role :"+user1.getRole()+","+"\n"+"team : {"+"\n"+"id :"+user1.getTeam().getId()+","+"\n"+"name :"+user1.getTeam().getName()+"}"+"\n"+"}";
             	           // return new ResponseEntity<String>(msg, HttpStatus.OK);
 
             	        } catch (Exception e) {
+            	        	LOGGER.error("Inside  UserController :getSocialInfo() FAILURE");
             	            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             	        }
             	    }

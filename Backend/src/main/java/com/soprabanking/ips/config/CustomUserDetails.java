@@ -2,10 +2,15 @@ package com.soprabanking.ips.config;
 
 import java.util.Collection;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.soprabanking.ips.controllers.ForgotPasswordController;
 import com.soprabanking.ips.models.User;
 /**
  * This class implements userDetails interface of spring boot security.
@@ -24,7 +29,8 @@ import com.soprabanking.ips.models.User;
  */
 
 public class CustomUserDetails implements UserDetails {
-
+	
+	private static final Logger LOGGER = LogManager.getLogger(CustomUserDetails.class);
     private User user;
 
     public CustomUserDetails(User user) {
@@ -40,6 +46,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+    	LOGGER.info("Inside CustomUserDetails :getAuthorities() method");
 
         SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(user.getRole());
         return List.of(simpleGrantedAuthority);
@@ -52,6 +59,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
+    	LOGGER.info("Inside CustomUserDetails : getPassword() method");
         return user.getPassword();
     }
     /**
@@ -61,6 +69,7 @@ public class CustomUserDetails implements UserDetails {
 	 */
     @Override
     public String getUsername() {
+    	LOGGER.info("Inside CustomUserDetails : getUsername() method");
 
         return user.getEmail();
     }
@@ -73,6 +82,7 @@ public class CustomUserDetails implements UserDetails {
 	 */
     @Override
     public boolean isAccountNonExpired() {
+    	LOGGER.info("Inside CustomUserDetails : isAccountNonExpired() method");
 
         return true;
     }
@@ -85,6 +95,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
+    	LOGGER.info("Inside CustomUserDetails : isAccountNonLocked() method");
 
         return true;
     }
@@ -97,6 +108,7 @@ public class CustomUserDetails implements UserDetails {
 	 */
     @Override
     public boolean isCredentialsNonExpired() {
+    	LOGGER.info("Inside CustomUserDetails :isCredentialsNonExpired() method");
 
         return true;
     }
@@ -109,6 +121,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
+    	LOGGER.info("Inside CustomUserDetails : isEnabled() method");
 
         return true;
     }

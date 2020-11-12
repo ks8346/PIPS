@@ -8,8 +8,8 @@ import java.util.TimerTask;
 import java.util.UUID;
 import java.util.concurrent.locks.ReentrantLock;
 
- 
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,6 +43,8 @@ import com.soprabanking.ips.services.DeleteTokenService;
 @CrossOrigin
 @RestController
 public class ForgotPasswordController {
+	
+	private static final Logger LOGGER = LogManager.getLogger(ForgotPasswordController.class);
     
     @Autowired
     private JavaMailSender sender;
@@ -70,9 +72,12 @@ public class ForgotPasswordController {
 	 * */
     @PostMapping("/forgot_password")
     public ResponseEntity<String> forgot_password(@RequestBody Email email) {
-        
+    	
+    	LOGGER.info("Inside ForgotPasswordController : forgot_password() method");
         //email validation
         if (user_repo.getUserByUserName(email.getMail()) == null) {
+        	
+        	LOGGER.error("Inside ForgotPasswordControllerr :forgot_password() FAILURE");
             return new ResponseEntity<String>("Email does not exist!", HttpStatus.NOT_ACCEPTABLE);
         }
         
@@ -116,19 +121,24 @@ public class ForgotPasswordController {
         timer.schedule(task, 300000L);
         
         //System.out.println(mail_content);
-        
+
+        LOGGER.info("Inside ForgotPasswordController : forgot_password() SUCCESS");
+       
         return new ResponseEntity<String>("message sent successfully", HttpStatus.OK);
     }
     
     @PostMapping("validate_token")
     public ResponseEntity<String> validate_token(@RequestBody TokenId id) {
+    
+    	LOGGER.info("Inside ForgotPasswordController : validate_token() method");
         
         //validating token
         Token token = token_repo.findById(id.getId()).orElse(null);
         if (token == null) {
+        	LOGGER.error("Inside ForgotPasswordControllerr :validate_token() FAILURE");
             return new ResponseEntity<String>("session timeout", HttpStatus.NOT_ACCEPTABLE);
         }
-        
+        LOGGER.info("Inside ForgotPasswordController : validate_token() SUCCESS");
         return new ResponseEntity<String>("Validation Successfull", HttpStatus.ACCEPTED);
     }
     /**
@@ -139,11 +149,13 @@ public class ForgotPasswordController {
 	 * */
     @PutMapping("reset_password")
     public ResponseEntity<String> reset_password(@RequestBody Password password) {
-        
+    	LOGGER.info("Inside ForgotPasswordController : reset_password() method");
         lock.lock();
         //validating token
         Token token = token_repo.findById(password.getId()).orElse(null);
         if (token == null) {
+        	
+        	LOGGER.error("Inside ForgotPasswordController :reset_password() FAILURE");
             return new ResponseEntity<String>("session timeout", HttpStatus.NOT_ACCEPTABLE);
         }
         
@@ -153,7 +165,7 @@ public class ForgotPasswordController {
         delete_token_service.deleteToken(token.getId());
         
         lock.unlock();
-        
+        LOGGER.info("Inside ForgotPasswordController : reset_password() SUCCESS");
         return new ResponseEntity<String>("password updated", HttpStatus.OK);
         
     }

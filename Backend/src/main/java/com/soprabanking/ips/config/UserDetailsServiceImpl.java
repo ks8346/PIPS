@@ -1,5 +1,7 @@
 package com.soprabanking.ips.config;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -7,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import com.soprabanking.ips.controllers.ForgotPasswordController;
 import com.soprabanking.ips.models.User;
 import com.soprabanking.ips.repositories.UserRepository;
 /**
@@ -23,6 +26,8 @@ import com.soprabanking.ips.repositories.UserRepository;
  */
 
 public class UserDetailsServiceImpl implements UserDetailsService {
+	
+	private static final Logger LOGGER = LogManager.getLogger( UserDetailsServiceImpl.class);
 
     @Autowired
     private UserRepository userRepository;
@@ -44,15 +49,17 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         // fetching user from database
-
+    	LOGGER.info("Inside  UserDetailsServiceImpl: loadUserByUsername() method");
+    
         User user = userRepository.getUserByUserName(username);
 
         if (user == null) {
+        	LOGGER.error("Inside  UserDetailsServiceImpl :loadUserByUsername() FAILURE");
             throw new UsernameNotFoundException("Could not found user !!");
         }
 
         CustomUserDetails customUserDetails = new CustomUserDetails(user);
-
+        LOGGER.info("Inside  UserDetailsServiceImpl : loadUserByUsername() SUCCESS");
         return customUserDetails;
     }
 

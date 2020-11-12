@@ -2,6 +2,9 @@ package com.soprabanking.ips.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.springframework.stereotype.Service;
 
 import com.soprabanking.ips.models.User;
@@ -15,6 +18,8 @@ import com.soprabanking.ips.repositories.UserRepository;
 @Service
 public class UserControllerService {
 	
+
+ private static final Logger LOGGER = LogManager.getLogger(UserControllerService.class);
 	@Autowired
 	private UserRepository userRepository;
     
@@ -26,6 +31,7 @@ public class UserControllerService {
 	  */
 	 
 	public  User GetUserDetails(String username) {
+		LOGGER.info("Inside UserControllerService : GetUserDetails() method");
 
 		User user = userRepository.getUserByUserName(username);
 
