@@ -9,16 +9,16 @@ export class TestServiceService {
   constructor() { }
   form: FormGroup = new FormGroup({
     key: new FormControl(null),
-    title: new FormControl(' ',[Validators.required]),
-    description: new FormControl(' ',[Validators.required,Validators.maxLength(300)]),
-    teams: new FormControl(),
+    title: new FormControl(' ',[Validators.required,Validators.minLength(5)]),
+    description: new FormControl(' ',[Validators.required,Validators.maxLength(500)]),
+    teams: new FormControl([]),
   });
   
   initialiseFormGroup(){
     this.form.setValue({
       $key: null,
-      title: ' ',
-      Proposal:' ',
-      team: 0})
+      title: '',
+      Proposal:'',
+      teams: []})
   }
 }

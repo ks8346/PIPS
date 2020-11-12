@@ -388,3 +388,32 @@ java.lang.Exception: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
 	at java.lang.Thread.run(Thread.java:832) [?:?]
+2020-02-12 14:02:44.883 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103319 with PID 6572 (C:\Users\ksachdeva\Desktop\Projects\ProcessImprovementProposalSystem\Process-Improvement-Proposal-System\Backend\target\classes started by ksachdeva in C:\Users\ksachdeva\Desktop\Projects\ProcessImprovementProposalSystem\Process-Improvement-Proposal-System\Backend)
+2020-02-12 14:02:44.902 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-02-12 14:02:46.364 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-02-12 14:02:46.539 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 158ms. Found 6 JPA repository interfaces.
+2020-02-12 14:02:47.887 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-02-12 14:02:47.925 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-02-12 14:02:47.927 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-02-12 14:02:47.929 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-02-12 14:02:48.626 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-02-12 14:02:48.627 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3648 ms
+2020-02-12 14:02:48.993 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-12 14:02:49.101 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-02-12 14:02:49.251 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-02-12 14:02:49.281 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-02-12 14:02:49.632 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-02-12 14:02:49.894 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-02-12 14:02:50.766 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-02-12 14:02:50.816 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-02-12 14:02:55.116 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-02-12 14:02:55.144 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-02-12 14:02:56.101 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@55c50f52, org.springframework.security.web.context.SecurityContextPersistenceFilter@6826b70f, org.springframework.security.web.header.HeaderWriterFilter@421ead7e, org.springframework.security.web.authentication.logout.LogoutFilter@537b3b2e, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@6735f210, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5fd8dd66, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@44641d6c, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@10131289, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1ccc1026, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5f3b84bd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@781dac73, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@50f4b83d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4044589a, org.springframework.security.web.session.SessionManagementFilter@c472300, org.springframework.security.web.access.ExceptionTranslationFilter@35ac9ebd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@61853c7e]
+2020-02-12 14:02:57.122 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-02-12 14:02:57.187 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-12 14:02:57.190 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-02-12 14:02:58.065 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-02-12 14:02:58.085 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Started ImprovementProposalSystemApplication in 13.805 seconds (JVM running for 17.39)
+2020-04-12 14:04:22.036 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-12 14:04:22.037 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-04-12 14:04:22.045 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 8 ms
