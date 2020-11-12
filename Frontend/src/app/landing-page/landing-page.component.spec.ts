@@ -1,3 +1,4 @@
+import { SocialAuthService } from 'angularx-social-login';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LandingPageComponent } from './landing-page.component';
@@ -24,13 +25,18 @@ describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
   let create:CreateProposalComponent;
   let fixture: ComponentFixture<LandingPageComponent>;
+  let feed:FeedComponent;
+  let fixtureCreate:ComponentFixture<FeedComponent>;
   let httpClient:HttpClient;
   let httpTestingController: HttpTestingController;
   let router:Router;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[RouterTestingModule,HttpClientTestingModule,MatDialogModule,MatMenuModule,NoopAnimationsModule],
+      imports:[RouterTestingModule,
+        
+        HttpClientTestingModule,MatDialogModule,MatMenuModule,NoopAnimationsModule],
       providers:[
+        SocialAuthService,
         {provide:Overlay},
         {provide:MatDialog},
         { provide: MAT_DIALOG_DATA, useValue: {} },
@@ -60,18 +66,24 @@ describe('LandingPageComponent', () => {
     fixture = TestBed.createComponent(LandingPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    
   });
 
 
   it('should create Landing Page', () => {
+    let teams:TeamsService
+    teams=TestBed.inject(TeamsService)
+    let spy=spyOn(teams,"getTeams").and.callThrough()
+    let resize=spyOn(component,"resize").and.callThrough()
+    component.ngOnInit()
     expect(component).toBeTruthy()
-  });
-
-  it('should create session', () => {
     expect(component.user).toBeTruthy()
+    expect(spy).toHaveBeenCalled()
+    expect(resize).toHaveBeenCalled()
   });
 
-  it("should flood feed array",()=>{
+
+  it("should flood feed array with all type",()=>{
     let getProposals:GetProposalsService
     getProposals=TestBed.inject(GetProposalsService)
     component.type="allPost"
@@ -80,7 +92,7 @@ describe('LandingPageComponent', () => {
     expect(spy).toHaveBeenCalled()
   })
 
-  it("should flood feed array",()=>{
+  it("should flood feed array with team type",()=>{
     let getProposals:GetProposalsService
     getProposals=TestBed.inject(GetProposalsService)
     component.type="teamPost"
@@ -89,15 +101,7 @@ describe('LandingPageComponent', () => {
     expect(spy).toHaveBeenCalled()
   })
 
-  it("should flood feed array",()=>{
-    let teams:TeamsService
-    teams=TestBed.inject(TeamsService)
-    let spy=spyOn(teams,"getTeams").and.callThrough()
-    let resize=spyOn(component,"resize").and.callThrough()
-    component.ngOnInit()
-    expect(spy).toHaveBeenCalled()
-    expect(resize).toHaveBeenCalled()
-  })
+  
 
   it("should filter the data",()=>{
     const data=[new Date("2020/10/05"),new Date("2020/10/11")]
@@ -105,56 +109,67 @@ describe('LandingPageComponent', () => {
     expect(component.data.startDate).toEqual(new Date("2020/10/05"))
   })
 
-  it("should filter the data",()=>{
-    const data="allPost"
+  it("should filter the data ",()=>{
+    let data="allPost"
     component.onFilter(data)
     expect(component.type).toEqual("allPost")
-  })
-  it("should filter the data",()=>{
-    const data="teamPost"
+    data="teamPost"
     component.onFilter(data)
     expect(component.type).toEqual("teamPost")
-  })
-
-  it("should filter the data",()=>{
-    const data="yourPost"
+    data="yourPost"
     component.onFilter(data)
     expect(component.type).toEqual("yourPost")
   })
+  
+
 
   it("should select Your Post api",()=>{
     let data="yourPost"
     let spy=spyOn(component,"getYour").and.callThrough()
     component.selectApi(data)
     expect(spy).toHaveBeenCalled()
-  })
-
-  it("should select Team Post api",()=>{
-    let data="teamPost"
-    let spy=spyOn(component,"getTeam").and.callThrough()
+    data="teamPost"
+    spy=spyOn(component,"getTeam").and.callThrough()
+    component.selectApi(data)
+    expect(spy).toHaveBeenCalled()
+    data="allPost"
+    spy=spyOn(component,"getAll").and.callThrough()
     component.selectApi(data)
     expect(spy).toHaveBeenCalled()
   })
 
-  it("should select All Post api",()=>{
-    let data="allPost"
-    let spy=spyOn(component,"getAll").and.callThrough()
-    component.selectApi(data)
-    expect(spy).toHaveBeenCalled()
-  })
-
+  
   it("should show menu",()=>{
     component.showMenu()
     expect(component.menuVisibility).toEqual(false)
   })
 
   it("should open share dialog",()=>{
-    let post=new Post("Description",1,[],"title",10,{id:1,name:"kartik",email:"ks@gmail.com",teams:{id:1,name:"devs"}})
-    let spy=spyOn(component.dialog,"open").and.callThrough()
-    component.openDialogshare(post)
-    expect(spy).toHaveBeenCalled()
-    // let dialogref=component.dialog.open
-    // dialogref.after
+    feed=TestBed.inject(FeedComponent)
+    fixtureCreate=TestBed.createComponent(FeedComponent)
+    feed = fixtureCreate.componentInstance;
+    feed.post={
+      user:{
+        id:1,
+        name:"kartik",
+        email:"ks@gmail.com",
+        teams:{
+          id:1,
+          name:"Devs"
+        }
+      },
+      description:"this is desc",
+      title:"this is title",
+      id:1,
+      teams:[],
+      upvotesCount:10
+    }
+    component.feed=[feed.post,feed.post]
+    let spyFeed=spyOn(component,"openDialogshare")
+    fixture.detectChanges()
+    fixture.debugElement.query(By.css('.feed')).triggerEventHandler("share",feed.post)
+    fixture.detectChanges()
+    expect(spyFeed).toHaveBeenCalled()
   })
 
   it("should open Dialog",()=>{
@@ -164,24 +179,40 @@ describe('LandingPageComponent', () => {
     expect(component.dialog.open).toHaveBeenCalled()
   })
 
-  
-
-
-
-  // it("should run delete proposal",()=>{
-  //   let feed:FeedComponent
-  //   let flag=false
-  //   component.feed=[{"id":5}]
-  //   feed=TestBed.inject(FeedComponent)
-  //   spyOn(component,"deleteProposal").and.callFake(
-  //     ()=>flag=true
-  //   )
-  //   feed.deleteProposal.emit(5)
+  it("should run delete proposal",()=>{
+    feed=TestBed.inject(FeedComponent)
+    fixtureCreate=TestBed.createComponent(FeedComponent)
+    feed = fixtureCreate.componentInstance;
+    feed.post={
+      user:{
+        id:1,
+        name:"kartik",
+        email:"ks@gmail.com",
+        teams:{
+          id:1,
+          name:"Devs"
+        }
+      },
+      description:"this is desc",
+      title:"this is title",
+      id:1,
+      teams:[],
+      upvotesCount:10
+    }
+    component.feed=[feed.post,feed.post]
+    let spyFeed=spyOn(feed,"delProposal")
+    fixtureCreate.debugElement.query(By.css('.delete')).nativeElement.click()
+    expect(spyFeed).toHaveBeenCalled()
     
-  //   let feedtag = fixture.debugElement.query(By.css('app-feed')).nativeElement
-  //   feedtag.share
-  //   expect(component.deleteProposal).toHaveBeenCalled()
-  // })
+    let spy=spyOn(component,"deleteProposal")
+    fixture.detectChanges()
+    fixture.debugElement.query(By.css('.feed')).triggerEventHandler("deleteProposal",feed.post.id)
+    expect(spy).toHaveBeenCalled()
+    
+    component.feed=[]
+    let feedPost=fixture.debugElement.query(By.css('.feed'))
+    expect(feedPost.triggerEventHandler('deleteProposal',feed.post.id)).toBeFalsy()
+  })
 
   it("window resize should run onResize",()=>{
     let spy=spyOn(component,"onResize")
@@ -208,7 +239,6 @@ describe('LandingPageComponent', () => {
     let location:SpyLocation
     location=TestBed.inject(SpyLocation)
     let autho:AuthorizationService;
-    // let flag=false
     autho=TestBed.inject(AuthorizationService)
     location.setBaseHref("http://localhost:4200")
     location.setInitialPath('/welcome')
@@ -220,11 +250,12 @@ describe('LandingPageComponent', () => {
     component.destroySession()
     expect(spy).toHaveBeenCalled()
   })
+
   it("should get new posts when scroll",()=>{
     let getProposals:GetProposalsService
     getProposals=TestBed.inject(GetProposalsService)
     component.type="yourPost"
-    component.newFeed=["blah","blah"]
+    component.newFeed=["this is a post","this is second post"]
     component.morePost=true
     component.page=0
     let spy=spyOn(getProposals,"getYourNextPost").and.callThrough()

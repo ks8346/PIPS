@@ -1,41 +1,26 @@
 package com.soprabanking.ips.controllers;
 
 import java.security.Principal;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-
-import org.hibernate.mapping.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserCache;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.soprabanking.ips.models.Proposal;
-import com.soprabanking.ips.models.Team;
-import com.soprabanking.ips.models.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soprabanking.ips.authentication.AuthenticationBean;
-import com.soprabanking.ips.helper.Message;
+import com.soprabanking.ips.models.Team;
+import com.soprabanking.ips.models.User;
 import com.soprabanking.ips.modelwrap.ModelWrap;
 import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
@@ -73,7 +58,7 @@ public class HomeController {
 	 * This method returns home page for our product.
 	 *
 	 * @return a string
-	 * */
+	 * */	
     @RequestMapping("/home")
     @ResponseBody
     public String home(Model model) {
