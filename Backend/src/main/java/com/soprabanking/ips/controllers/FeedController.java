@@ -122,10 +122,10 @@ public class FeedController {
         	if(list.isEmpty())
         		throw new Exception();
         	
-        	LOGGER.info("Inside FeedController : getAllProposalFeed() SUCCESS");
+        	LOGGER.info("Inside FeedController : getUserProposalFeed() SUCCESS");
             return new ResponseEntity<>(list, HttpStatus.OK);
         } catch (Exception ex) {
-        	LOGGER.error("Inside FeedController : getAllProposalFeed() FAILURE", ex);
+        	LOGGER.error("Inside FeedController : getUserProposalFeed() FAILURE", ex);
             return new ResponseEntity<List<Proposal>>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);
         }
     }
@@ -152,11 +152,14 @@ public class FeedController {
     	
     	LOGGER.info("Inside FeedController : getTeamProposalFeed() method");
         Optional<List<Proposal>> optionalProposalDtoList = Optional.ofNullable(proposalService.getDefault(body));
-        return optionalProposalDtoList.<ResponseEntity<Object>>map(proposals -> 
-        					new ResponseEntity<Object>(proposals, HttpStatus.OK))
-        					.orElseGet(() -> 
-        					new ResponseEntity<Object>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE));
-        					
+        if(optionalProposalDtoList.isPresent()){
+            LOGGER.info("Inside "+this.getClass().getSimpleName()+": getTeamProposalFeed() SUCCESS");
+            return new ResponseEntity<>(optionalProposalDtoList.get(), HttpStatus.OK);
+        }
+        else {
+            LOGGER.error("Inside "+this.getClass().getSimpleName()+": getTeamProposalFeed() FAILURE");
+            return new ResponseEntity<>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);
+        }
     }
 
 

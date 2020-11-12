@@ -3,6 +3,8 @@ package com.soprabanking.ips.controllers;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import com.soprabanking.ips.models.Upvotes;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,6 +42,8 @@ import java.util.List;
 public class UpvotesController {
     @Autowired
     private UpvotesService upvotesService;
+
+    private static final Logger LOGGER = LogManager.getLogger(UpvotesController.class);
 	
     /*GetMapping("/upvotes")
 	public void displayUpvotes(@RequestParam Long proposalId)
@@ -64,10 +68,13 @@ public class UpvotesController {
     @PostMapping(value = "/like", consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<String> upvoteProposal(@RequestBody String body) {
         try {
+            LOGGER.info("Inside UpvotesController: upvoteProposal() method");
             upvotesService.upvoteProposal(body);
+            LOGGER.info("Inside UpvotesController: upvoteProposal() SUCCESS");
             return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 
         } catch (Exception e) {
+            LOGGER.error("Inside UpvotesController: upvoteProposal() FAILURE");
             return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
         }
     }
@@ -90,10 +97,13 @@ public class UpvotesController {
     public ResponseEntity<String> reverseupvoteProposal(@RequestBody String body) {
 
         try {
+            LOGGER.info("Inside UpvotesController: reverseupvoteProposal() method");
             upvotesService.reverseUpvote(body);
+            LOGGER.info("Inside UpvotesController: reverseupvoteProposal() SUCCESS");
             return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 
         } catch (Exception e) {
+            LOGGER.error("Inside UpvotesController: reverseupvoteProposal() FAILURE");
             return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
         }
 
@@ -117,8 +127,12 @@ public class UpvotesController {
     @PostMapping(value = "/hasUpvoted", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<Boolean> hasUpvotedOrNot(@RequestBody String body) {
         try {
-            return new ResponseEntity<Boolean>(upvotesService.hasUpvoted(body), HttpStatus.OK);
+            LOGGER.info("Inside UpvotesController: hasUpvotedOrNot() method");
+            boolean upvoted=upvotesService.hasUpvoted(body);
+            LOGGER.info("Inside UpvotesController: hasUpvotedOrNot() SUCCESS");
+            return new ResponseEntity<Boolean>(upvoted, HttpStatus.OK);
         } catch (Exception e) {
+            LOGGER.error("Inside UpvotesController: hasUpvotedOrNot() FAILURE");
             return new ResponseEntity<Boolean>(false, HttpStatus.NOT_ACCEPTABLE);
         }
     }

@@ -1,5 +1,7 @@
 package com.soprabanking.ips.controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.soprabanking.ips.authentication.AuthenticationBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,9 +43,9 @@ public class UserController
    	 * This method verifies that the user exists in our database or not.
    	 * if the user already exists then it returns all the information of that user and redirects to landing page.
    	 * else user redirects to create team page for registration.
-   	 * @param  the userAuth has the information of that user who logged in via social media.
+   	 * @param   userAuth has the information of that user who logged in via social media.
    	 * @return ResponseEntity with HTTP Status .
-   	 * @exception e this exception occurs when user is unauthorized.
+   	 * @exception  this exception occurs when user is unauthorized.
    	 * */
   
     @PostMapping("/getSocialInfo")
