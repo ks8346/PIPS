@@ -5,42 +5,33 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GetTeamService } from '../service/get-team.service';
 import { AppRoutingModule } from '../app-routing.module';
-import { RouterTestingModule } from '@angular/router/testing';
-import { MatSelectModule } from '@angular/material/select';
-import { NoopAnimationPlayer } from '@angular/animations';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { compileComponentFromMetadata } from '@angular/compiler';
-
 
 describe('TeamComponent', () => {
   let component: TeamComponent;
   let fixture: ComponentFixture<TeamComponent>;
-  let httpClient: HttpClient;
-  let httpTestingController: HttpTestingController;
 
-  beforeEach(() => {
-
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    let httpClient: HttpClient;
+    let httpTestingController: HttpTestingController;
+    await TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
         ReactiveFormsModule,
         FormsModule,
-        RouterTestingModule,
-        AppRoutingModule,
-        MatSelectModule,
-        NoopAnimationsModule
+        AppRoutingModule
       ],
       declarations: [ TeamComponent ],
       providers: [ GetTeamService]
     })
     .compileComponents();
-
     httpClient = TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(TeamComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    component.ngOnInit();
   });
 
   it('should create', () => {
@@ -56,23 +47,4 @@ describe('TeamComponent', () => {
     team.setValue("Sparks");
     expect(team.hasError('required', ['required'])).toBeFalsy;
   });
-
-  it('loading status changed',()=>{
-    let x = component.teamForm.valid;
-
-    component.onSubmit();
-    if(x){
-      expect(component.loading).toBe(true);
-    }
-    else{
-      expect(component.loading).toBe(false);
-    }
-  })
-
-  it('submitted status changed',()=>{
-    component.onSubmit();
-    expect(component.submitted).toBe(true);
-  })
-
-
 });

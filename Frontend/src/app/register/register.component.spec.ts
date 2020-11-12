@@ -148,31 +148,15 @@ describe('RegisterComponent', () => {
     expect(component.submitted).toBe(true);
   })
 
+  it("should open Dialog",()=>{
+    //spyOn(component.dialog,"open")
+    component.onSubmit();
+    expect(component.dialog.open).toHaveBeenCalled()
+  })
+
   it("submit loading status changed",()=>{
     component.onSubmit();
-    expect(component.loading).toBe(false);
+    expect(component.loading).toBe(true);
   })
-
-  it("should open Dialog",()=>{
-    spyOn(component.dialog,"open")
-    component.openDialog();
-    expect(component.dialog.open).toHaveBeenCalled()
-  })
-
-  it("should open Dialog",()=>{
-    spyOn(component.dialog,"open")
-    component.responseDialog();
-    expect(component.dialog.open).toHaveBeenCalled()
-  })
-
-  it('team should be selected',()=>{
-    let team = component.registerForm.controls.team;
-
-    team.setValue("");
-    expect(team.hasError('required', ['required'])).toBeTruthy;
-
-    team.setValue("Sparks");
-    expect(team.hasError('required', ['required'])).toBeFalsy;
-  });
-
+  
 });
