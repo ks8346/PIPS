@@ -5,14 +5,14 @@
         </button>
         <span><a href="/welcome"><img src="assets/img/LogoBgR.png" alt="title logo" style="height: 55px;width:auto;"></a></span>
         <span class="space"></span>
-        <button mat-icon-button  [matMenuTriggerFor]="beforeMenu" style="border-radius:50%;width:45px;height:45px;border:2px solid white;padding-left:-50%;padding-top:-2px;padding-right:4px">
+        <button mat-icon-button class="profile"  [matMenuTriggerFor]="beforeMenu" style="border-radius:50%;width:45px;height:45px;border:2px solid white;padding-left:-50%;padding-top:-2px;padding-right:4px">
             <mat-icon style="font-size: 28px;margin:0px">person</mat-icon>
         </button>
         <mat-menu class="menu" #beforeMenu="matMenu" xPosition="before" >
             <div mat-menu-item style="width: auto;">Hello, {{this.user.name}}</div>
             <div mat-menu-item style="width: auto;">Email : {{this.user.email}}</div>
             <div mat-menu-item style="width: auto;">Team  : {{this.user.team.name}}</div>
-            <div mat-menu-item style="width: auto; margin:auto 10px;" class="btn btn-danger" (click)="destroySession()">Logout</div>
+            <div mat-menu-item style="width: auto; margin:auto 10px;" class="btn btn-danger logout" (click)="destroySession()">Logout</div>
         </mat-menu>
     </mat-toolbar>
     <div style="background-color: rgb(238, 236, 236);">

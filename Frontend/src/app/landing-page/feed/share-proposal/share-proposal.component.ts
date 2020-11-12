@@ -44,10 +44,6 @@ export class ShareProposalComponent implements OnInit {
       else
         return false
   }
-  onSubmit(){
-    console.log(this.updateForm.value);
-    this.sentTeam=this.updateForm.controls["teams"].value
-
-  }
+  
 
 }

@@ -1,6 +1,7 @@
 package com.soprabanking.ips.models;
 
 import java.util.HashSet;
+
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.soprabanking.ips.models.User;
+/**
+ * This is a model class for team
+ * this class implements  the information of team which is required to create a new team.
+ * In this class, we are using annotation @Entity to create a table in database.
+ */
+
 
 @Entity
 @Table(name = "team")
