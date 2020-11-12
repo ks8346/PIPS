@@ -206,7 +206,7 @@ export class LandingPageComponent implements OnInit {
   }
   
   destroySession(){
-    this.autho.clearSession()
+    sessionStorage.clear()
     this.authService.signOut();
     this.router.navigate(['/home']);
   }

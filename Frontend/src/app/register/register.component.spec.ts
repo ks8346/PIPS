@@ -1,38 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { UserRegisterService } from '../service/user-register.service';
+
 import { RegisterComponent } from './register.component';
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { MatDialogModule} from '@angular/material/dialog';
 
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
-  let httpClient: HttpClient;
-  let httpTestingController: HttpTestingController;
- 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports:[
-        RouterTestingModule,
-        ReactiveFormsModule,
-        FormsModule,
-        HttpClientTestingModule,
-        MatDialogModule
-      ],
-      declarations: [ RegisterComponent ],
-      providers:[ UserRegisterService]
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ RegisterComponent ]
     })
     .compileComponents();
-    
-    httpClient = TestBed.inject(HttpClient);
-    httpTestingController = TestBed.inject(HttpTestingController);
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
-    component.ngOnInit();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
