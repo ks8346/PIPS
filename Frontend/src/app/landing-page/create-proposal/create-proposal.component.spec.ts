@@ -45,5 +45,10 @@ describe('CreateProposalComponent', () => {
   it('should select message', () => {
     component.ngOnInit()
     expect(component.prop).toEqual("Update Proposal")
+    component.data={
+      userId:1
+    }
+    component.ngOnInit()
+    expect(component.prop).toEqual("Create Proposal")
   });
 });

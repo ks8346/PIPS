@@ -518,8 +518,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="174"
-                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:174</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="166"
+                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:166</a></div>
                 </td>
             </tr>
 
@@ -557,8 +557,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:92</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:83</a></div>
                 </td>
             </tr>
 
@@ -635,8 +635,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="164"
-                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:164</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="156"
+                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:156</a></div>
                 </td>
             </tr>
 
@@ -701,8 +701,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="160"
-                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:160</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:152</a></div>
                 </td>
             </tr>
 
@@ -767,8 +767,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="156"
-                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:156</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:148</a></div>
                 </td>
             </tr>
 
@@ -806,8 +806,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:92</a></div>
                 </td>
             </tr>
 
@@ -876,8 +876,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="125"
-                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:125</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="117"
+                            class="link-to-prism">src/app/landing-page/feed/feed.component.ts:117</a></div>
                 </td>
             </tr>
 
@@ -1377,15 +1377,10 @@ export class FeedComponent implements OnInit {
         this.comments&#x3D;this.comments.concat(data)
         this.commentError&#x3D;&quot;&quot;
         if(data!&#x3D;null){
-          if(data.length&lt;&#x3D;1){
+          if(data.length&#x3D;&#x3D;1){
             this.commentVisibility&#x3D;true
-            if(this.comments.length&#x3D;&#x3D;0){
-              this.commentsMessage&#x3D;&quot;No comments on this post yet&quot;
-            }
-            else{
-              this.commentsMessage&#x3D;&quot;Comments&quot;
-              this.height&#x3D;95
-            }
+            this.commentsMessage&#x3D;&quot;Comments&quot;
+            this.height&#x3D;95
           }
           else{
             this.commentsMessage&#x3D;&quot;Comments&quot;
@@ -1403,10 +1398,6 @@ export class FeedComponent implements OnInit {
         if(error.status!&#x3D;200){
           alert(&quot;Some error has occured retrieving the comments please reload&quot;)
           this.commentError&#x3D;&quot;Some error has occured retrieving the comments please reload&quot;
-        }
-        else if(error.status&#x3D;&#x3D;200) {
-          this.commentVisibility&#x3D;true
-          this.commentsMessage&#x3D;&quot;No comments on this post yet&quot;
         }
       }
     )
@@ -1431,6 +1422,7 @@ export class FeedComponent implements OnInit {
           this.commentsSetup()
       },(error)&#x3D;&gt;{
         if(error.status&#x3D;&#x3D;200){
+          console.log(&quot;in error&quot;)
           this.new_comment&#x3D;&quot;&quot;
           this.commentVisibility&#x3D;true
           this.noComments&#x3D;true
@@ -1463,7 +1455,7 @@ export class FeedComponent implements OnInit {
     else{
       this.proposalWork.postLike(id,this.userId).subscribe((data)&#x3D;&gt;{
         this.hasLiked&#x3D;true
-        this.numberLikes-&#x3D;1;
+        this.numberLikes+&#x3D;1;
       },(error)&#x3D;&gt;{
         if(error.status&#x3D;&#x3D;200){
           this.hasLiked&#x3D;true
@@ -1556,7 +1548,7 @@ export class FeedComponent implements OnInit {
         &lt;button type&#x3D;&quot;submit&quot; mat-raised-button color&#x3D;&quot;primary&quot; style&#x3D;&quot;height:35px;float:right&quot; (click)&#x3D;&quot;postComment(post.id)&quot;&gt;Comment&lt;/button&gt;
     &lt;/form&gt;
     &lt;!-- &lt;div style&#x3D;&quot;margin:2px auto; border-top: 1px lightgray solid;padding-top: 1%;&quot;&gt;{{this.commentsMessage}}&lt;/div&gt; --&gt;
-    &lt;button mat-stroked-button color&#x3D;primary  (click)&#x3D;&quot;this.commentVisibility&#x3D;true&quot; *ngIf&#x3D;&quot;!this.commentVisibility&quot; &gt;
+    &lt;button mat-stroked-button color&#x3D;primary  (click)&#x3D;&quot;this.commentVisibility?this.commentVisibility&#x3D;false:this.commentVisibility&#x3D;true&quot;  &gt;
         &lt;mat-icon&gt;chat_bubble_outline&lt;/mat-icon&gt;
         View Comments
     &lt;/button&gt;
@@ -1671,7 +1663,7 @@ export class FeedComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div style="padding-left: 1%;padding-right: 1%;">    <mat-expansion-panel class="post" hideToggle>        <mat-expansion-panel-header class="header">            <mat-panel-title class="userBlock">                {{post.user.name}}            </mat-panel-title>            <mat-panel-description class="title">                {{post.title}}            </mat-panel-description>        </mat-expansion-panel-header>        <mat-divider></mat-divider>        <div class="text">{{post.description}}</div>    </mat-expansion-panel>    <section>        <button mat-icon-button [class.text-danger]="this.hasLiked" class="likeButton" (click)="postLike(post.id)">            <mat-icon>favorite</mat-icon>        </button>        <button mat-icon-button  class="share likeButton" (click)="openDialogshare()">            <mat-icon>share</mat-icon>        </button>        <p style="display:inline">{{this.numberLikes}} people upvoted this</p>        <div class="buttonContainer" [class.d-none]="!this.canUpdate">            <button [class.d-none]="!this.canUpdate" mat-mini-fab style="width: 35px;height:35px;" color="primary" (click)="openDialog(post)">                <mat-icon style="font-size: 20px;">create</mat-icon>            </button>            <button class="delete" mat-mini-fab color="primary" (click)="delProposal()"  style="margin-left:1%; height:35px;width:35px;">                <mat-icon style="font-size: 20px;">delete</mat-icon>            </button>        </div>            </section>        <form >        <mat-form-field class="commentBoxLength">            <mat-label>Write a comment...</mat-label>            <input type="text" matInput name="comment" [(ngModel)]="new_comment" >        </mat-form-field>        <button type="submit" mat-raised-button color="primary" style="height:35px;float:right" (click)="postComment(post.id)">Comment</button>    </form>    <!-- <div style="margin:2px auto; border-top: 1px lightgray solid;padding-top: 1%;">{{this.commentsMessage}}</div> -->    <button mat-stroked-button color=primary  (click)="this.commentVisibility=true" *ngIf="!this.commentVisibility" >        <mat-icon>chat_bubble_outline</mat-icon>        View Comments    </button>    <div class="comments" [class.d-none]="!this.commentVisibility" *ngIf="this.noComments" [style.height.px]="height" >        <div class="commentText row"  *ngFor="let comment of this.comments" >            <div class="col-md-12">                <app-comment class="com" *ngIf="this.commentVisibility" [comment]="comment" [userId]="userId" (parentFunction)="onDelete($event)"></app-comment>            </div>        </div>    </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div style="padding-left: 1%;padding-right: 1%;">    <mat-expansion-panel class="post" hideToggle>        <mat-expansion-panel-header class="header">            <mat-panel-title class="userBlock">                {{post.user.name}}            </mat-panel-title>            <mat-panel-description class="title">                {{post.title}}            </mat-panel-description>        </mat-expansion-panel-header>        <mat-divider></mat-divider>        <div class="text">{{post.description}}</div>    </mat-expansion-panel>    <section>        <button mat-icon-button [class.text-danger]="this.hasLiked" class="likeButton" (click)="postLike(post.id)">            <mat-icon>favorite</mat-icon>        </button>        <button mat-icon-button  class="share likeButton" (click)="openDialogshare()">            <mat-icon>share</mat-icon>        </button>        <p style="display:inline">{{this.numberLikes}} people upvoted this</p>        <div class="buttonContainer" [class.d-none]="!this.canUpdate">            <button [class.d-none]="!this.canUpdate" mat-mini-fab style="width: 35px;height:35px;" color="primary" (click)="openDialog(post)">                <mat-icon style="font-size: 20px;">create</mat-icon>            </button>            <button class="delete" mat-mini-fab color="primary" (click)="delProposal()"  style="margin-left:1%; height:35px;width:35px;">                <mat-icon style="font-size: 20px;">delete</mat-icon>            </button>        </div>            </section>        <form >        <mat-form-field class="commentBoxLength">            <mat-label>Write a comment...</mat-label>            <input type="text" matInput name="comment" [(ngModel)]="new_comment" >        </mat-form-field>        <button type="submit" mat-raised-button color="primary" style="height:35px;float:right" (click)="postComment(post.id)">Comment</button>    </form>    <!-- <div style="margin:2px auto; border-top: 1px lightgray solid;padding-top: 1%;">{{this.commentsMessage}}</div> -->    <button mat-stroked-button color=primary  (click)="this.commentVisibility?this.commentVisibility=false:this.commentVisibility=true"  >        <mat-icon>chat_bubble_outline</mat-icon>        View Comments    </button>    <div class="comments" [class.d-none]="!this.commentVisibility" *ngIf="this.noComments" [style.height.px]="height" >        <div class="commentText row"  *ngFor="let comment of this.comments" >            <div class="col-md-12">                <app-comment class="com" *ngIf="this.commentVisibility" [comment]="comment" [userId]="userId" (parentFunction)="onDelete($event)"></app-comment>            </div>        </div>    </div></div></div>'
     var COMPONENTS = [{'name': 'ApiResponseComponent', 'selector': 'app-api-response'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommentComponent', 'selector': 'app-comment'},{'name': 'CreateProposalComponent', 'selector': 'app-create-proposal'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FeedComponent', 'selector': 'app-feed'},{'name': 'FilterComponent', 'selector': 'app-filter'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PasswordSpecsComponent', 'selector': 'app-password-specs'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ResetLinkComponent', 'selector': 'app-reset-link'},{'name': 'ShareProposalComponent', 'selector': 'app-share-proposal'},{'name': 'TeamComponent', 'selector': 'app-team'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FeedComponent'};

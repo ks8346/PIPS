@@ -35,11 +35,13 @@ import com.soprabanking.ips.services.UserControllerService;
 @CrossOrigin
 @RestController
 /**
+ * Home Controller
  * Provides Rest-APIs for user registration and login.
  *
  * <p>
  * This is a Home Controller Class which implements registration handler(registration rest-API), handler for fetching all teams 
  * from database(getTeam rest-API) and login handler (login rest-API)
+ * @author kavsharma
  * 
  */
 
@@ -63,7 +65,7 @@ public class HomeController {
     private UserControllerService userControllerService;
     /**
 	 * This method returns home page for our product.
-	 *
+	 * @param model object of Model class
 	 * @return a string
 	 * */	
     @RequestMapping("/home")
@@ -96,9 +98,9 @@ public class HomeController {
     }
     /**
    	 * This method returns the response message which shows whether the user has successfully registered or not.
-   	 * @param modelwrap the modelwrap has both user object and team object.
+   	 * @param modelWrap the modelwrap has both user object and team object.
    	 * @return ResponseEntity with HTTP Status .
-   	 * @exception e this exception occurs when user enters email which already exists in our database.
+   	 * 
    	 * */
 
     @PostMapping("/userRegister")
@@ -144,7 +146,6 @@ public class HomeController {
    	 * This method returns all details of user when the user logins into the system and shows that details on the landing page.
    	 * @param principal the principal has the object of that user who logins into the system.
    	 * @return ResponseEntity with HTTP Status .
-   	 * @exception e this exception occurs when user enters wrong credentials
    	 * */
     
 

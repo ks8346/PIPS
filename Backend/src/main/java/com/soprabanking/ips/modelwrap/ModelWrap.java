@@ -4,7 +4,9 @@ import com.soprabanking.ips.models.Team;
 
 import com.soprabanking.ips.models.User;
 /**
+ * Model Wrap Class
  * This class wraps the object of user model and team models
+ * @author kavsharma
  */
 
 public class ModelWrap {

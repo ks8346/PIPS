@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 import com.soprabanking.ips.models.User;
 import com.soprabanking.ips.repositories.UserRepository;
 /** 
+ * User Controller Service
  * This is service class
  * this class is used for calling userRepository class to fetch the data from database
+ * @author kavsharma
  * 
  */
 
@@ -25,7 +27,7 @@ public class UserControllerService {
     
 	/** 
 	  * This method fetching user object from database to check user exist in database or not
-	  * @param string  user name 
+	  * @param username of string type that conatins the name of the user 
 	  * @return user , object of user
 	  * 
 	  */

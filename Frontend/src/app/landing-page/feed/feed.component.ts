@@ -54,15 +54,10 @@ export class FeedComponent implements OnInit {
         this.comments=this.comments.concat(data)
         this.commentError=""
         if(data!=null){
-          if(data.length<=1){
+          if(data.length==1){
             this.commentVisibility=true
-            if(this.comments.length==0){
-              this.commentsMessage="No comments on this post yet"
-            }
-            else{
-              this.commentsMessage="Comments"
-              this.height=95
-            }
+            this.commentsMessage="Comments"
+            this.height=95
           }
           else{
             this.commentsMessage="Comments"
@@ -80,10 +75,6 @@ export class FeedComponent implements OnInit {
         if(error.status!=200){
           alert("Some error has occured retrieving the comments please reload")
           this.commentError="Some error has occured retrieving the comments please reload"
-        }
-        else if(error.status==200) {
-          this.commentVisibility=true
-          this.commentsMessage="No comments on this post yet"
         }
       }
     )
@@ -108,6 +99,7 @@ export class FeedComponent implements OnInit {
           this.commentsSetup()
       },(error)=>{
         if(error.status==200){
+          console.log("in error")
           this.new_comment=""
           this.commentVisibility=true
           this.noComments=true
@@ -140,7 +132,7 @@ export class FeedComponent implements OnInit {
     else{
       this.proposalWork.postLike(id,this.userId).subscribe((data)=>{
         this.hasLiked=true
-        this.numberLikes-=1;
+        this.numberLikes+=1;
       },(error)=>{
         if(error.status==200){
           this.hasLiked=true
