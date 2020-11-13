@@ -212,8 +212,10 @@ export class LandingPageComponent implements OnInit {
   }
   
  /**
- * @param {string} target  The target to process
- * @returns The processed target number
+ * @example
+ * This Destroys a session when called
+ * destroySession()
+ * @returns To Home page
  */
   destroySession(){
    
@@ -223,11 +225,11 @@ export class LandingPageComponent implements OnInit {
   }
 /**
  * @example
- * This deletes the proposal
- * processTarget('yo')
+ * This deletes a proposal in real time
+ * deleteProposal(1)
  *
- * @param {string} target  The target to process see {@link Todo}
- * @returns The processed target number
+ * @param {number} 
+ * 
  */
   deleteProposal(id){
     this.feed=this.feed.filter(item => item.id != id);

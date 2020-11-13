@@ -467,8 +467,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="232"
-                            class="link-to-prism">src/app/landing-page/landing-page.component.ts:232</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="234"
+                            class="link-to-prism">src/app/landing-page/landing-page.component.ts:234</a></div>
                 </td>
             </tr>
 
@@ -501,8 +501,8 @@
                     <div>
                         <b>Example :</b>
                         <div>
-                            <pre class="line-numbers"><code class="language-html">This deletes the proposal
-processTarget(&amp;#39;yo&amp;#39;)</code></pre>
+                            <pre class="line-numbers"><code class="language-html">This deletes a proposal in real time
+deleteProposal(1)</code></pre>
                         </div>
                     </div>
                     <div class="io-description">
@@ -510,8 +510,7 @@ processTarget(&amp;#39;yo&amp;#39;)</code></pre>
 
                     </div>
                     <div class="io-description">
-                        <p>The processed target number</p>
-
+                        
                     </div>
                 </td>
             </tr>
@@ -539,8 +538,8 @@ processTarget(&amp;#39;yo&amp;#39;)</code></pre>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="218"
-                            class="link-to-prism">src/app/landing-page/landing-page.component.ts:218</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="220"
+                            class="link-to-prism">src/app/landing-page/landing-page.component.ts:220</a></div>
                 </td>
             </tr>
 
@@ -549,13 +548,18 @@ processTarget(&amp;#39;yo&amp;#39;)</code></pre>
                 <td class="col-md-4">
 
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">This Destroys a session when called
+destroySession()</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
-                        <p>The processed target number</p>
+                        <p>To Home page</p>
 
                     </div>
                 </td>
@@ -2020,8 +2024,10 @@ export class LandingPageComponent implements OnInit {
   }
   
  /**
- * @param {string} target  The target to process
- * @returns The processed target number
+ * @example
+ * This Destroys a session when called
+ * destroySession()
+ * @returns To Home page
  */
   destroySession(){
    
@@ -2031,11 +2037,11 @@ export class LandingPageComponent implements OnInit {
   }
 /**
  * @example
- * This deletes the proposal
- * processTarget(&#x27;yo&#x27;)
+ * This deletes a proposal in real time
+ * deleteProposal(1)
  *
- * @param {string} target  The target to process see {@link Todo}
- * @returns The processed target number
+ * @param {number} 
+ * 
  */
   deleteProposal(id){
     this.feed&#x3D;this.feed.filter(item &#x3D;&gt; item.id !&#x3D; id);

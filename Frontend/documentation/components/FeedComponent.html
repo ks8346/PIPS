@@ -1455,7 +1455,7 @@ export class FeedComponent implements OnInit {
     else{
       this.proposalWork.postLike(id,this.userId).subscribe((data)&#x3D;&gt;{
         this.hasLiked&#x3D;true
-        this.numberLikes-&#x3D;1;
+        this.numberLikes+&#x3D;1;
       },(error)&#x3D;&gt;{
         if(error.status&#x3D;&#x3D;200){
           this.hasLiked&#x3D;true
