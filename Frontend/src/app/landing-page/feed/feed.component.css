@@ -1,7 +1,8 @@
 .text{
     text-align: justify;
     margin-top:1%;
-    font-size: medium;
+    font-size: large;
+
 }
 .commentText{
     text-align: justify;
@@ -11,7 +12,10 @@
     border-bottom: lightgray 1px solid;
     background-color:#e9ebee;
     border-radius: 10px;
-    padding:5px
+    padding:5px;
+}
+.comments{
+    overflow-y: auto;
 }
 .userComment{
     border-right: white 1px solid;
@@ -26,7 +30,11 @@
     color:white; */
     /* width: 20px; */
     /* opacity: 70%; */
+    font-size: 20px;
     padding-top:1%;
+    color:#3F51B5;
+    font-weight: 500;
+
 }
 .post{
     margin:2em auto;
@@ -50,7 +58,12 @@
     opacity: 70%;
 }
 .title{
-    font-weight: 500;
-    font-size: 20px;
+    font-weight: 450;
+    font-size: 23px;
     padding-top: 5px;
+    color:rgb(66, 65, 65)
+}
+.buttonContainer{
+    display:inline;
+    margin-left:2%
 }

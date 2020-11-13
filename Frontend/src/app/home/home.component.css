@@ -67,3 +67,43 @@ body {
     color : black;
     margin-right: 10px;
   }
+
+  /* .description{
+   
+   
+    font-size: 50px;
+    line-height: 60px;
+  background: -webkit-linear-gradient(#f3ec78, #af4261);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;	
+  } */
+
+  .description{
+    /* background-image:linear-gradient(to right, gray, rgb(238, 236, 236)); */
+    font-family: 'calibri';
+    font-size: 5vw;
+    line-height: 60px;
+    font-weight: bold;
+    width: 70%;
+    -webkit-text-stroke: 1px black;
+  
+    background: -webkit-linear-gradient(50deg,#d4c15f , #936da5,#58482e) ;
+    -webkit-background-clip: text;
+    -ms-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -ms-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    
+    /* animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: shine;
+    -webkit-tap-highlight-color: rgba(0,0,0,0); */
+    
+  }

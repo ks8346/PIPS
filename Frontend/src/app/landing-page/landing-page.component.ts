@@ -1,13 +1,16 @@
+import { SocialAuthService } from 'angularx-social-login';
 import { Component, OnInit ,HostListener} from '@angular/core';
 import { GetProposalsService } from '../get-proposals.service';
 import {MatDialog} from '@angular/material/dialog';
 import { CreateProposalComponent } from './create-proposal/create-proposal.component';
+import { ShareProposalComponent } from './feed/share-proposal/share-proposal.component';
 import {PostProposalService} from 'src/app/post-proposal.service'
 import { FeedParams } from '../feed-params';
 import {TeamsService} from '../teams.service'
 import {Teams} from '../teams'
 import {Router} from '@angular/router'
-import { Proposal } from '../proposal';
+import {User} from '../user';
+import {AuthorizationService} from '../authorization.service';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -21,22 +24,9 @@ export class LandingPageComponent implements OnInit {
   _teams:Teams[];
   feed=[];
   newFeed=[];
-  authenticatedUser:string;
   proposalError:string;
-  User:{
-    id:number;
-    name:string;
-    email:string,
-    team:{
-      id:number,
-      name:string
-    }
-  };
-  name:string;
-  email:string;
-  userId=-1;
+  user:User;
   type="teamPost";
-  teamId:number;
   page=0;
   width:number;
   padding:number;
@@ -44,38 +34,21 @@ export class LandingPageComponent implements OnInit {
   morePost=true;
   startDate=new Date()
   data=new FeedParams(new Date(this.startDate.setDate(this.startDate.getDate()-30)),new Date(),"0","3")
-  constructor(public router:Router,public post:PostProposalService,public dialog:MatDialog,private getProposals:GetProposalsService,private teams:TeamsService) { }
+  constructor(private authService: SocialAuthService,public autho:AuthorizationService,public router:Router,public post:PostProposalService,public dialog:MatDialog,private getProposals:GetProposalsService,private teams:TeamsService) { }
 
   ngOnInit(): void {
-    this.authenticatedUser=sessionStorage.getItem('authenticatedUser')
-    if(!sessionStorage.getItem('authenticatedUser')){
-      this.router.navigate(['/home'])
-    }
-    this.User=JSON.parse(this.authenticatedUser)
-    this.userId=this.User.id
-    this.name=this.User.name
-    this.email=this.User.email
-    this.teamId=this.User.team.id
-    console.log( "data",localStorage.getItem('data'))
+    this.user=this.autho.authorization()
     this.selectApi(this.type)
-    this.teams.getTeams().subscribe((data)=>{
+    this.getTeams()
+    this.resize()
+  }
+
+  getTeams(){
+    this.teams.getTeams().subscribe(
+      (data)=>{
         this._teams=data
-        console.log("teams"+data[0].name)
       }
     );
-    if(window.innerWidth<916){
-      this.menuButton=true
-      this.width=100
-      this.padding=10
-    }
-    else{
-      this.menuButton=false
-      this.menuVisibility=true
-      this.width=23.5
-      this.padding=2
-    }    
-    
-    console.log("user data",JSON.parse(this.authenticatedUser))
   }
 
   getAll(){
@@ -83,11 +56,11 @@ export class LandingPageComponent implements OnInit {
   }
 
   getTeam(){
-    this.getProposals.getTeamPosts(this.data,this.teamId).subscribe((data)=>this.feed=data,(error)=>this.errorHandling(error));
+    this.getProposals.getTeamPosts(this.data,this.user.team.id).subscribe((data)=>this.feed=data,(error)=>this.errorHandling(error));
   }
   
   getYour(){
-    this.getProposals.getYourPosts(this.data,this.userId).subscribe((data)=>this.feed=data,(error)=>this.errorHandling(error));
+    this.getProposals.getYourPosts(this.data,this.user.id).subscribe((data)=>this.feed=data,(error)=>this.errorHandling(error));
   }
   
   selectApi(data){
@@ -100,7 +73,6 @@ export class LandingPageComponent implements OnInit {
     else if(data==="yourPost"){
       this.getYour()
     }
-    this.page=0
   }
   
   onFilter(data){
@@ -117,6 +89,7 @@ export class LandingPageComponent implements OnInit {
     this.data.page=this.page.toString()
     this.selectApi(this.type)
     this.morePost=true
+    this.endMessage=""
   }
   
   onScroll(){
@@ -128,28 +101,46 @@ export class LandingPageComponent implements OnInit {
         this.getProposals.getAllNextPost(this.data).subscribe((data)=>this.newFeed=data,(error)=>this.errorHandling(error))
       }
       else if(this.type.includes("teamPost")){
-        this.getProposals.getTeamNextPost(this.data,this.teamId).subscribe((data)=>this.newFeed=data,(error)=>this.errorHandling(error))
+        this.getProposals.getTeamNextPost(this.data,this.user.team.id).subscribe((data)=>this.newFeed=data,(error)=>this.errorHandling(error))
       }
       else if(this.type.includes("yourPost")){
-        this.getProposals.getYourNextPost(this.data,this.userId).subscribe((data)=>this.newFeed=data,(error)=>this.errorHandling(error))
+        this.getProposals.getYourNextPost(this.data,this.user.id).subscribe((data)=>this.newFeed=data,(error)=>this.errorHandling(error))
       }      
       this.feed=this.feed.concat(this.newFeed)
       console.log(this.newFeed)
       this.newFeed=[]
     }
   }
+
+  openDialogshare(post){
+    let dialogRef = this.dialog.open(ShareProposalComponent, {
+      height: '250px',
+      width: '400px',
+      data:{prop:post.teams,teams:this._teams}
+    });
+    dialogRef.afterClosed().subscribe(result =>{
+      if(result){
+        this.post.shareProposal(result,post.id).subscribe(
+          (data)=>console.log(data),
+          (error)=>{
+            if(error.status==200){
+              window.location.reload()
+            }
+          })
+      }
+    })
+
+  }
   
-  openDialog(id?:number){
+  openDialog(post?){
     let dialogRef = this.dialog.open(CreateProposalComponent, {
       height: '400px',
       width: '600px',
-      data:{name:this.userId,id,teams:this._teams}
+      data:{name:this.user.id,post:post,teams:this._teams}
     });
     dialogRef.afterClosed().subscribe(result => {
       if(result){
-        console.log(`Dialog result: ${result.teams.length} `);
-
-        this.post.postProposal(result,this.userId).subscribe(
+        this.post.postProposal(result,this.user.id).subscribe(
           (data)=>{
             this.selectApi(this.type)
             this.page=0
@@ -166,11 +157,10 @@ export class LandingPageComponent implements OnInit {
               this.proposalError=""
             }
             else{
-              this.proposalError="Some error has occured! please try again later."
+              alert("Some error has occured! please try again later.")
             }
           }
-        )
-        
+        ) 
       }
     });
   }
@@ -184,9 +174,7 @@ export class LandingPageComponent implements OnInit {
     }
   }
   
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    this.innerWidth = event.target.innerWidth;
+  resize(){
     if(this.innerWidth<916){
       this.menuButton=true
       this.width=100
@@ -196,19 +184,33 @@ export class LandingPageComponent implements OnInit {
       this.menuButton=false
       this.menuVisibility=true
       this.width=23.5
-      this.padding=2
+      this.padding=4
     }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = event.target.innerWidth;
+    this.resize()
   }
   
   errorHandling(error){
     if(error.status==406){
       this.morePost=false;
-      this.endMessage="There aren't any proposals to show"
+      this.endMessage="There aren't any more proposals to show"
+    }
+    else{
+      this.endMessage=""
     }
   }
   
   destroySession(){
-    sessionStorage.clear()
     this.router.navigate(['/home']);
+    this.autho.clearSession()
+    this.authService.signOut();
+  }
+
+  deleteProposal(id){
+    this.feed=this.feed.filter(item => item.id != id);
   }
 }

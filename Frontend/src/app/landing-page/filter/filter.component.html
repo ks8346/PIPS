@@ -36,8 +36,8 @@
 
   <mat-form-field appearance="fill" class="selectp">
     <mat-label>Select End Date</mat-label>
-    <input matInput [matDatepicker]="endDate" [(ngModel)]="eDate">
-    <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+    <input matInput [matDatepicker]="endDate" (dateChange)="datePlusOne()"  [(ngModel)]="eDate">
+    <mat-datepicker-toggle matSuffix [for]="endDate" ></mat-datepicker-toggle>
     <mat-datepicker #endDate></mat-datepicker>
   </mat-form-field>
   
