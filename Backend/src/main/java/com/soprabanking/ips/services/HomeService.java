@@ -15,8 +15,10 @@ import com.soprabanking.ips.repositories.TeamRepository;
 
 
 /** 
+ * Home Service
  * This is service class
  * this class is used to fetched the data of team from team database
+ * @author kavsharma
  * 
  */
 @Service
@@ -42,8 +44,8 @@ private static final Logger LOGGER = LogManager.getLogger(HomeService.class);
 	}
 	/** 
 	 * This method fetch Team object by team_name  from database to check team exist in database or not
-	 * @param string  team name 
-	 * @return team , object of team
+	 * @param teamname of string type that contains the name of the team 
+	 * @return team1 , object of team
 	 */
 	
 	public Team GetTeamname(String teamname)

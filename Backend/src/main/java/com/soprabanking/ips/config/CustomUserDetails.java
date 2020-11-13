@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.soprabanking.ips.controllers.ForgotPasswordController;
 import com.soprabanking.ips.models.User;
 /**
+ * Custom User Details
  * This class implements userDetails interface of spring boot security.
  * Provides core user information.
  *
@@ -26,6 +27,7 @@ import com.soprabanking.ips.models.User;
  * detailed for each method is enforced. See
  * {@link org.springframework.security.core.userdetails.User} for a reference
  * implementation (which you might like to extend or use in your code).
+ * 
  */
 
 public class CustomUserDetails implements UserDetails {
