@@ -183,6 +183,19 @@ it('should post comment',fakeAsync(()=>{
   let proposalServe: ProposalService
   proposalServe = TestBed.inject(ProposalService)
   let error={status:200}
+  let spy = spyOn(proposalServe,'postComment').and.returnValue(throwError(error))
+  let spySetup = spyOn(component,'commentsSetup')
+  component.postComment(7)
+  expect(spySetup).toHaveBeenCalled()
+  expect(component.commentVisibility).toEqual(true)
+  expect(component.noComments).toEqual(true)
+  expect(component.commentsMessage).toEqual("Comments")
+}));
+
+it('should post comment',fakeAsync(()=>{
+  let proposalServe: ProposalService
+  proposalServe = TestBed.inject(ProposalService)
+  let error={status:200}
   let spy = spyOn(proposalServe,'postComment').and.returnValue(of(throwError(error)))
   let spySetup = spyOn(component,'commentsSetup')
   component.postComment(7)
@@ -203,12 +216,34 @@ it("should post a like",fakeAsync(()=>{
   expect(component.hasLiked).toBeTrue()
 }));
 
+it("should post a like",fakeAsync(()=>{
+  let proposalServe: ProposalService
+  proposalServe = TestBed.inject(ProposalService)
+  let error={status:200}
+  component.hasLiked=false
+  let spy = spyOn(proposalServe,'postLike').and.returnValue(throwError(error))
+  component.postLike(7)
+  expect(spy).toHaveBeenCalled()
+  expect(component.hasLiked).toBeTrue()
+}));
+
 it("should post a dislike",fakeAsync(()=>{
   let proposalServe: ProposalService
   proposalServe = TestBed.inject(ProposalService)
   let error={status:200}
   component.hasLiked=true
   let spy = spyOn(proposalServe,'postDislike').and.returnValue(of(throwError(error)))
+  component.postLike(7)
+  expect(spy).toHaveBeenCalled()
+  expect(component.hasLiked).toBeFalse()
+}));
+
+it("should post a dislike",fakeAsync(()=>{
+  let proposalServe: ProposalService
+  proposalServe = TestBed.inject(ProposalService)
+  let error={status:200}
+  component.hasLiked=true
+  let spy = spyOn(proposalServe,'postDislike').and.returnValue(throwError(error))
   component.postLike(7)
   expect(spy).toHaveBeenCalled()
   expect(component.hasLiked).toBeFalse()
