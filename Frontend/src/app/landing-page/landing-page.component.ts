@@ -17,6 +17,7 @@ import {AuthorizationService} from '../authorization.service';
   styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent implements OnInit {
+
   message=null;
   menuVisibility=true;
   menuButton=false;

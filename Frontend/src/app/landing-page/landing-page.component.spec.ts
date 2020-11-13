@@ -152,6 +152,23 @@ describe('LandingPageComponent', () => {
   it("should show menu",()=>{
     component.showMenu()
     expect(component.menuVisibility).toEqual(false)
+    component.menuVisibility=false
+    component.showMenu()
+    expect(component.menuVisibility).toEqual(true)
+  })
+
+  it("should handle error",()=>{
+    let error={
+      status:406
+    }
+    component.errorHandling(error)
+    expect(component.morePost).toBeFalse()
+    expect(component.endMessage).toEqual("There aren't any more proposals to show")
+    error={
+      status:200
+    }
+    component.errorHandling(error)
+    expect(component.endMessage).toEqual("")
   })
 
   it("should open share dialog",()=>{
@@ -188,6 +205,13 @@ describe('LandingPageComponent', () => {
     button.click();
     expect(component.dialog.open).toHaveBeenCalled()
   })
+
+  // it("should open Dialog",()=>{
+  //   spyOn(component.dialog,"open")
+  //   spyOn(component.dialog,"open")
+  //   component.openDialogshare(feed.post)
+  //   expect(component.dialog.open).toHaveBeenCalled()
+  // })
 
   it("should run delete proposal",()=>{
     feed=TestBed.inject(FeedComponent)
@@ -234,6 +258,10 @@ describe('LandingPageComponent', () => {
     let resize=spyOn(component,"resize")
     window.dispatchEvent(new Event('resize'));
     expect(resize).toHaveBeenCalled()
+    // fixture.debugElement.nativeElement.dispatchEvent(new Event('resize'),{event:{target:{innerWidth:900}}})
+    // fixture.detectChanges()
+    // expect(resize).toHaveBeenCalled()
+    // expect(component.menuButton).toBeTrue()
   })
 
   it("should destroy session ",()=>{
@@ -276,6 +304,18 @@ describe('LandingPageComponent', () => {
     let spy=spyOn(getProposals,"getYourNextPost").and.callThrough()
     component.onScroll()
     expect(spy).toHaveBeenCalled()
+    component.type="teamPost"
+    component.newFeed=["this is a post","this is second post"]
+    component.morePost=true
+    component.page=0
+    component.onScroll()
+    spy=spyOn(getProposals,"getTeamNextPost").and.callThrough()
+    component.type="allPost"
+    component.newFeed=["this is a post","this is second post"]
+    component.morePost=true
+    component.page=0
+    component.onScroll()
+    spy=spyOn(getProposals,"getAllNextPost").and.callThrough()
   })
   
 

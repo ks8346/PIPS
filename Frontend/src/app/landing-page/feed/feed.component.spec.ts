@@ -1,11 +1,13 @@
-import { ComponentFixture, ComponentFixtureAutoDetect, TestBed } from '@angular/core/testing';
+import { ComponentFixture, ComponentFixtureAutoDetect, fakeAsync, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import {HttpClientModule} from '@angular/common/http';
 import { FeedComponent } from './feed.component';
 import {ProposalService} from '../proposal.service';
 import { Proposal } from 'src/app/proposal';
 import { emit } from 'process';
-
+import {of, throwError} from 'rxjs'
+import {Comment} from '../comment'
+import { error } from 'protractor';
 
 describe('FeedComponent', () => {
   let component: FeedComponent;
@@ -87,16 +89,60 @@ describe('FeedComponent', () => {
 
   });
 
-  it('should get all comments',()=>{
+  it('should get 2 comments',fakeAsync(()=>{
     let proposalServe: ProposalService
     proposalServe = TestBed.inject(ProposalService)
-    let spy = spyOn(proposalServe,'getComment').and.callThrough()
+    let data:Comment[]=[{id:1,comment:"this is comment",creationDate:new Date("2020/10/12"),user:{id:1,name:"kartik"}},
+    
+      {id:2,comment:"this is second comment",creationDate:new Date("2020/10/12"),user:{id:1,name:"kartik"}},
+    ]
+    let spy = spyOn(proposalServe,'getComment').and.returnValue(of(data))
     component.commentsSetup()
     expect(spy).toHaveBeenCalled()
+    expect(component.comments.length).toEqual(2)
+    expect(component.commentError).toEqual("")
     expect(component.commentVisibility).toEqual(false)
     expect(component.noComments).toEqual(true)
     expect(component.commentsMessage).toEqual("Comments")
- });
+ }));
+
+ it('should get 1 comment',fakeAsync(()=>{
+  let proposalServe: ProposalService
+  proposalServe = TestBed.inject(ProposalService)
+  let data:Comment[]=[{id:1,comment:"this is comment",creationDate:new Date("2020/10/12"),user:{id:1,name:"kartik"}}]
+  let spy = spyOn(proposalServe,'getComment').and.returnValue(of(data))
+  component.commentsSetup()
+  expect(spy).toHaveBeenCalled()
+  expect(component.comments.length).toEqual(1)
+  expect(component.commentError).toEqual("")
+  expect(component.commentVisibility).toEqual(true)
+  expect(component.noComments).toEqual(true)
+  expect(component.commentsMessage).toEqual("Comments")
+}));
+
+it('should get 0 comment',fakeAsync(()=>{
+  let proposalServe: ProposalService
+  proposalServe = TestBed.inject(ProposalService)
+  let data=null
+  let spy = spyOn(proposalServe,'getComment').and.returnValue(of(data))
+  component.commentsSetup()
+  expect(spy).toHaveBeenCalled()
+  expect(component.commentError).toEqual("")
+  expect(component.commentVisibility).toEqual(true)
+  expect(component.noComments).toEqual(false)
+  expect(component.commentsMessage).toEqual("No comments on this post yet")
+}));
+
+it('should get error',fakeAsync(()=>{
+  let proposalServe: ProposalService
+  proposalServe = TestBed.inject(ProposalService)
+  let error={status:406}
+  let spy = spyOn(proposalServe,'getComment').and.returnValue(throwError(error))
+  component.commentsSetup()
+  expect(spy).toHaveBeenCalled()
+  expect(component.commentError).toEqual("Some error has occured retrieving the comments please reload")
+}));
+
 
  it('Should delete proposal',()=>{
   let proposalServe: ProposalService
@@ -108,21 +154,28 @@ describe('FeedComponent', () => {
 
 });
 
-it('for the likesetup() method',()=>{
+it('for the likesetup() method',fakeAsync(()=>{
   let proposalServe: ProposalService
   proposalServe = TestBed.inject(ProposalService)
-  let spy = spyOn(proposalServe,'getLike').and.callThrough()
+  let like=true
+  let spy = spyOn(proposalServe,'getLike').and.returnValue(of(like))
   component.likeSetup()
   expect(spy).toHaveBeenCalled()
-});
+  expect(component.hasLiked).toBeTrue()
+}));
 
 
-it('should post comment',()=>{
+it('should post comment',fakeAsync(()=>{
   let proposalServe: ProposalService
   proposalServe = TestBed.inject(ProposalService)
-  let spy = spyOn(proposalServe,'postComment').and.callThrough()
+  let error={status:200}
+  let spy = spyOn(proposalServe,'postComment').and.returnValue(of(throwError(error)))
+  let spySetup = spyOn(component,'commentsSetup')
   component.postComment(7)
-  expect(component.commentsSetup()).toHaveBeenCalled
-});
+  expect(spySetup).toHaveBeenCalled()
+  expect(component.commentVisibility).toEqual(true)
+  expect(component.noComments).toEqual(true)
+  expect(component.commentsMessage).toEqual("Comments")
+}));
 
 });
