@@ -3498,3 +3498,126 @@ java.lang.Exception: null
 2020-14-13 16:14:20.646 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
 2020-14-13 16:14:20.647 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
 2020-14-13 16:14:20.647 [http-nio-8080-exec-9] ERROR com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() FAILURE
+2020-16-13 16:16:22.816 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-16-13 16:16:22.816 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-16-13 16:16:22.817 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-16-13 16:16:22.819 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() method
+2020-16-13 16:16:22.819 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
+2020-16-13 16:16:22.819 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
+2020-16-13 16:16:22.821 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-16-13 16:16:22.823 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() SUCCESS
+2020-16-13 16:16:22.823 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() SUCCESS
+2020-16-13 16:16:22.825 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-16-13 16:16:22.825 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() SUCCESS
+2020-16-13 16:16:23.271 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-16-13 16:16:23.271 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-16-13 16:16:23.271 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-16-13 16:16:23.271 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-16-13 16:16:23.272 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-16-13 16:16:23.272 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-16-13 16:16:23.275 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-16-13 16:16:23.275 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-16-13 16:16:23.276 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-16-13 16:16:23.276 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-16-13 16:16:23.301 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-16-13 16:16:23.301 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-16-13 16:16:23.301 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-16-13 16:16:23.302 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-16-13 16:16:23.302 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-16-13 16:16:23.303 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-16-13 16:16:23.305 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-16-13 16:16:23.305 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-16-13 16:16:23.306 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-16-13 16:16:23.306 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-16-13 16:16:23.328 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-16-13 16:16:23.328 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-16-13 16:16:23.328 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-16-13 16:16:23.329 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-16-13 16:16:23.329 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-16-13 16:16:23.329 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-16-13 16:16:23.331 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-16-13 16:16:23.331 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-16-13 16:16:23.334 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-16-13 16:16:23.334 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-16-13 16:16:39.824 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-16-13 16:16:39.824 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-16-13 16:16:39.825 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-16-13 16:16:39.827 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() method
+2020-16-13 16:16:39.827 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
+2020-16-13 16:16:39.827 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
+2020-16-13 16:16:39.828 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-16-13 16:16:39.831 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() SUCCESS
+2020-16-13 16:16:39.831 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() SUCCESS
+2020-16-13 16:16:39.832 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-16-13 16:16:39.832 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() SUCCESS
+2020-16-13 16:16:40.082 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-16-13 16:16:40.082 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-16-13 16:16:40.083 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-16-13 16:16:40.084 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-16-13 16:16:40.085 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-16-13 16:16:40.085 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-16-13 16:16:40.086 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-16-13 16:16:40.086 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-16-13 16:16:40.090 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-16-13 16:16:40.090 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-16-13 16:16:40.110 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-16-13 16:16:40.110 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-16-13 16:16:40.110 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-16-13 16:16:40.110 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-16-13 16:16:40.110 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-16-13 16:16:40.110 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-16-13 16:16:40.113 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-16-13 16:16:40.113 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-16-13 16:16:40.113 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-16-13 16:16:40.113 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-16-13 16:16:40.136 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-16-13 16:16:40.136 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-16-13 16:16:40.137 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-16-13 16:16:40.137 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-16-13 16:16:40.138 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-16-13 16:16:40.138 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-16-13 16:16:40.140 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-16-13 16:16:40.140 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-16-13 16:16:40.141 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-16-13 16:16:40.142 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-16-13 16:16:51.091 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-16-13 16:16:51.091 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-16-13 16:16:51.092 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() method
+2020-16-13 16:16:51.092 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-16-13 16:16:51.092 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
+2020-16-13 16:16:51.092 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
+2020-16-13 16:16:51.095 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-16-13 16:16:51.095 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() SUCCESS
+2020-16-13 16:16:51.095 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() SUCCESS
+2020-16-13 16:16:51.098 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-16-13 16:16:51.098 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() SUCCESS
+2020-16-13 16:16:51.272 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-16-13 16:16:51.273 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-16-13 16:16:51.273 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-16-13 16:16:51.274 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-16-13 16:16:51.274 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-16-13 16:16:51.274 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-16-13 16:16:51.275 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-16-13 16:16:51.275 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-16-13 16:16:51.277 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-16-13 16:16:51.277 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-16-13 16:16:51.307 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-16-13 16:16:51.307 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-16-13 16:16:51.307 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-16-13 16:16:51.307 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-16-13 16:16:51.307 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-16-13 16:16:51.307 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-16-13 16:16:51.309 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-16-13 16:16:51.309 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-16-13 16:16:51.309 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-16-13 16:16:51.309 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-16-13 16:16:51.325 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-16-13 16:16:51.325 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-16-13 16:16:51.326 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-16-13 16:16:51.326 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-16-13 16:16:51.326 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-16-13 16:16:51.326 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-16-13 16:16:51.328 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-16-13 16:16:51.328 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-16-13 16:16:51.328 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-16-13 16:16:51.328 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
