@@ -146,22 +146,22 @@ public class ProposalController {
 
 	@PostMapping("/delete")
 	public ResponseEntity<String> deleteProposal(@RequestBody String body){
-		
 		try {
 			LOGGER.info("Inside ProposalController : deleteProposal() method");
-		
+
 			if(proposalService.deleteProposal(body)) {
 				LOGGER.info("Inside ProposalController : deleteProposal() SUCCESS");
 				return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 			}
-	
+
 			LOGGER.error("Inside ProposalController : deleteProposal() FAILURE");
 			return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
 		}
-		catch(Exception ex) {
-			LOGGER.error("Inside ProposalController : deleteProposal() FAILURE", ex);
+		catch (Exception e){
+			LOGGER.error("Inside ProposalController : deleteProposal() FAILURE", e);
 			return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
 		}
+
 	}
 
 }

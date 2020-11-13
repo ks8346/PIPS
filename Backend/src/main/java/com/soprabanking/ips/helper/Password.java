@@ -6,6 +6,7 @@ package com.soprabanking.ips.helper;
 import java.util.UUID;
 
 public class Password {
+	
 	private UUID id;
 	private String password;
 	

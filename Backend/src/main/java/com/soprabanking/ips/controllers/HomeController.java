@@ -1,9 +1,14 @@
 package com.soprabanking.ips.controllers;
 
 import java.security.Principal;
+
+
+
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +44,8 @@ import com.soprabanking.ips.services.UserControllerService;
  */
 
 public class HomeController {
+	
+	private static final Logger LOGGER = LogManager.getLogger(HomeController.class);
     @Autowired
     private UserRepository userRepository;
 
@@ -73,15 +80,17 @@ public class HomeController {
 
     @GetMapping("/getTeam")
     public ResponseEntity<List<Object>> findAllTeams() {
-
+    	 try {
         //List<Object> allteam = teamRepository.getTeamIdANDName();
+    	LOGGER.info("Inside HomeController : finaALlTeam() method");
     	List<Object> allteam = homeService.GetTeam();
         allteam.forEach(e -> {
             System.out.println(e);
         });
-        try {
+        LOGGER.info("Inside HomeController : finaAllTeam() SUCCESS");
             return new ResponseEntity<>(homeService.GetTeam(), HttpStatus.OK);
         } catch (Exception e) {
+        LOGGER.error("Inside HomeController : findAllTeam() FAILURE", e);
             return new ResponseEntity<List<Object>>(new ArrayList<>(), HttpStatus.NOT_FOUND);
         }
     }
@@ -97,6 +106,7 @@ public class HomeController {
 
 
         try {
+        	LOGGER.info("Inside HomeController : registerUser() method");
             User user = modelWrap.getUser();
             Team team = modelWrap.getTeam();
             System.out.println(team);
@@ -115,13 +125,14 @@ public class HomeController {
             System.out.println(user);
             userRepository.save(user);
             System.out.println(user);
-           
+            LOGGER.info("Inside HomeController : registerUser() SUCCESS");
             return new ResponseEntity<>(HttpStatus.OK);
 
            
 
 
         } catch (Exception e) {
+        	LOGGER.error("Inside HomeController :registerUser() FAILURE", e);
             e.printStackTrace();
             
             return new ResponseEntity<String>(HttpStatus.FOUND);
@@ -140,7 +151,7 @@ public class HomeController {
     @GetMapping(path = "/signIn") // /signIn
     public ResponseEntity<AuthenticationBean> basicauth(Principal principal) {
         try {
-
+        	LOGGER.info("Inside HomeController : basicauth() method");
             String userName = principal.getName();
 
 
@@ -152,9 +163,11 @@ public class HomeController {
 
 
             String s = o.writeValueAsString(user);
+            LOGGER.info("Inside HomeController : basicauth() SUCCESS");
             return new ResponseEntity<AuthenticationBean>(new AuthenticationBean(s), HttpStatus.OK);
 
         } catch (Exception e) {
+        	LOGGER.error("Inside HomeController : basicauth() FAILURE", e);
             return new ResponseEntity<AuthenticationBean>(HttpStatus.UNAUTHORIZED);
         }
     }

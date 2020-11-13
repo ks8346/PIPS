@@ -2195,3 +2195,16 @@ java.text.ParseException: Unparseable date: "null"
 2020-46-13 11:46:23.286 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
 2020-46-13 11:46:23.288 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
 2020-46-13 11:46:23.292 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-48-13 11:48:26.471 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-48-13 11:48:26.471 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-48-13 11:48:26.471 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-48-13 11:48:26.472 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
+2020-48-13 11:48:26.472 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
+2020-48-13 11:48:26.474 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-48-13 11:48:26.474 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() SUCCESS
+2020-48-13 11:48:26.477 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-48-13 11:48:53.653 [RMI TCP Connection(75)-127.0.0.1] INFO  org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2020-48-13 11:48:53.739 [RMI TCP Connection(75)-127.0.0.1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-48-13 11:48:53.742 [RMI TCP Connection(75)-127.0.0.1] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-48-13 11:48:53.743 [RMI TCP Connection(75)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-48-13 11:48:53.749 [RMI TCP Connection(75)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
