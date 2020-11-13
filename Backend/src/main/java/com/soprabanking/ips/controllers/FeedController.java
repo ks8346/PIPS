@@ -149,17 +149,24 @@ public class FeedController {
 
     @PostMapping("/team")
     public ResponseEntity<Object> getTeamProposalFeed(@RequestBody String body) {
-    	
-    	LOGGER.info("Inside FeedController : getTeamProposalFeed() method");
-        Optional<List<Proposal>> optionalProposalDtoList = Optional.ofNullable(proposalService.getDefault(body));
-        if(optionalProposalDtoList.isPresent()){
-            LOGGER.info("Inside "+this.getClass().getSimpleName()+": getTeamProposalFeed() SUCCESS");
-            return new ResponseEntity<>(optionalProposalDtoList.get(), HttpStatus.OK);
+        try {
+            LOGGER.info("Inside FeedController : getTeamProposalFeed() method");
+            Optional<List<Proposal>> optionalProposalDtoList = Optional.ofNullable(proposalService.getDefault(body));
+            if(optionalProposalDtoList.isPresent()){
+                LOGGER.info("Inside "+this.getClass().getSimpleName()+": getTeamProposalFeed() SUCCESS");
+                return new ResponseEntity<>(optionalProposalDtoList.get(), HttpStatus.OK);
+            }
+            else {
+                LOGGER.error("Inside "+this.getClass().getSimpleName()+": getTeamProposalFeed() FAILURE");
+                return new ResponseEntity<>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);
+            }
         }
-        else {
-            LOGGER.error("Inside "+this.getClass().getSimpleName()+": getTeamProposalFeed() FAILURE");
+        catch (Exception e){
+            LOGGER.error("Inside "+this.getClass().getSimpleName()+": getTeamProposalFeed() FAILURE",e);
             return new ResponseEntity<>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);
         }
+    	
+
     }
 
 

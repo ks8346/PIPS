@@ -74,7 +74,7 @@ public class UpvotesController {
             return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 
         } catch (Exception e) {
-            LOGGER.error("Inside UpvotesController: upvoteProposal() FAILURE");
+            LOGGER.error("Inside UpvotesController: upvoteProposal() FAILURE",e);
             return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
         }
     }
@@ -103,7 +103,7 @@ public class UpvotesController {
             return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 
         } catch (Exception e) {
-            LOGGER.error("Inside UpvotesController: reverseupvoteProposal() FAILURE");
+            LOGGER.error("Inside UpvotesController: reverseupvoteProposal() FAILURE",e);
             return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
         }
 
@@ -132,7 +132,7 @@ public class UpvotesController {
             LOGGER.info("Inside UpvotesController: hasUpvotedOrNot() SUCCESS");
             return new ResponseEntity<Boolean>(upvoted, HttpStatus.OK);
         } catch (Exception e) {
-            LOGGER.error("Inside UpvotesController: hasUpvotedOrNot() FAILURE");
+            LOGGER.error("Inside UpvotesController: hasUpvotedOrNot() FAILURE",e);
             return new ResponseEntity<Boolean>(false, HttpStatus.NOT_ACCEPTABLE);
         }
     }
