@@ -74,7 +74,7 @@ public class CommentController {
             LOGGER.info("Inside CommentController: displayComments() SUCCESS");
             return new ResponseEntity<List<Comment>>(comments, HttpStatus.OK);
         } catch (Exception ex) {
-            LOGGER.error("Inside CommentController: displayComments() FAILURE");
+            LOGGER.error("Inside CommentController: displayComments() FAILURE",ex);
             return new ResponseEntity<List<Comment>>(new ArrayList<>(), HttpStatus.NOT_ACCEPTABLE);
         }
     }
@@ -101,7 +101,7 @@ public class CommentController {
             return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 
         } catch (Exception ex) {
-            LOGGER.error("Inside CommentController: addComment() FAILURE");
+            LOGGER.error("Inside CommentController: addComment() FAILURE",ex);
             return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
         }
     }
@@ -127,7 +127,7 @@ public class CommentController {
             return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 
         } catch (Exception ex) {
-            LOGGER.error("Inside CommentController: deleteComment() FAILURE");
+            LOGGER.error("Inside CommentController: deleteComment() FAILURE",ex);
             return new ResponseEntity<String>("FAILURE", HttpStatus.NOT_ACCEPTABLE);
         }
     }
