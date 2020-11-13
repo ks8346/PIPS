@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit {
     
     this.registerForm = this.formBuilder.group({
       userName: ['',[ Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
-      email: ['', [Validators.required,  Validators.email,, Validators.minLength(2), Validators.maxLength(30)]],
+      email: ['', [Validators.required,  Validators.email,, Validators.minLength(2), Validators.maxLength(30), Validators.pattern('[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$')]],
       team: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       password: ['', [Validators.required, , Validators.minLength(2), Validators.maxLength(20), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]], 
       confirmPass: ['', Validators.required],
@@ -89,8 +89,8 @@ export class RegisterComponent implements OnInit {
       return 'Please enter a value';
     }
 
-    if(this.registerForm.controls.email.hasError('email')){
-      return 'Not a valid email';
+    if(this.registerForm.controls.email.hasError('email') || this.registerForm.controls.email.hasError('pattern') ){
+      return 'Please enter a valid email';
     }
   }
 
