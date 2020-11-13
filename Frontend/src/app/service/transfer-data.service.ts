@@ -11,7 +11,6 @@ userData: any;
   emitData(data) {
     console.log("inside service-------",data);
     this.userData = data;
-
    // this.observer.next(data);
   }
 }

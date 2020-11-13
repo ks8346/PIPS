@@ -1,5 +1,5 @@
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { SocialAuthService } from 'angularx-social-login';
+import { SocialAuthServiceConfig,SocialAuthService, GoogleLoginProvider } from 'angularx-social-login';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TeamComponent } from './team.component';
@@ -18,6 +18,7 @@ describe('TeamComponent', () => {
   let fixture: ComponentFixture<TeamComponent>;
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
+  let social:SocialAuthService;
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -27,18 +28,35 @@ describe('TeamComponent', () => {
         RouterTestingModule,
         AppRoutingModule,
         MatSelectModule,
-        NoopAnimationsModule,MatDialogModule
+        NoopAnimationsModule,MatDialogModule,
+        
       ],
       declarations: [ TeamComponent ],
-      providers: [ SocialAuthService,GetTeamService]
+      providers: [{ provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              'clientId'
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig,},GetTeamService,SocialAuthService]
     })
     .compileComponents();
     httpClient = TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
+    social=TestBed.inject(SocialAuthService)
     fixture = TestBed.createComponent(TeamComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
     component.ngOnInit();
+    component.userData={
+      name:"Kartik",
+      email:"ks@gmail.com"
+    }
   });
   it('should create', () => {
     expect(component).toBeTruthy();
