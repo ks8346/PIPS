@@ -1,4 +1,6 @@
-import { Component, OnInit ,Input, Output, EventEmitter} from '@angular/core';
+import { ShareProposalComponent } from './share-proposal/share-proposal.component';
+import { CommentComponent } from './comment/comment.component';
+import { Component, OnInit ,Input, Output, EventEmitter, NgModule} from '@angular/core';
 import { Post } from 'src/app/post';
 import {ProposalService} from '../proposal.service';
 import {Comment} from '../comment'
@@ -9,6 +11,7 @@ import { JsonPipe } from '@angular/common';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.css']
 })
+
 export class FeedComponent implements OnInit {
   @Input() post:Post;
   public new_comment:string;
