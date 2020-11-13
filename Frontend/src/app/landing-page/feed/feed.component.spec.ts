@@ -147,10 +147,24 @@ it('should get error',fakeAsync(()=>{
  it('Should delete proposal',()=>{
   let proposalServe: ProposalService
   proposalServe = TestBed.inject(ProposalService)
-  let spy = spyOn(proposalServe,'deletePost').and.callThrough()
-  
+  let error={status:200}
+  let spy = spyOn(proposalServe,'deletePost').and.returnValue(throwError(error))
+  let spyEvent=spyOn(component.deleteProposal,"emit")
   component.delProposal()
-   expect(spy).toHaveBeenCalled()
+  expect(spy).toHaveBeenCalled()
+  expect(spyEvent).toHaveBeenCalled()
+
+});
+
+it('Should not delete proposal',()=>{
+  let proposalServe: ProposalService
+  proposalServe = TestBed.inject(ProposalService)
+  let error={status:406}
+  let spy = spyOn(proposalServe,'deletePost').and.returnValue(throwError(error))
+  let spyEvent=spyOn(component.deleteProposal,"emit")
+  component.delProposal()
+  expect(spy).toHaveBeenCalled()
+  expect(spyEvent).not.toHaveBeenCalled()
 
 });
 
@@ -176,6 +190,28 @@ it('should post comment',fakeAsync(()=>{
   expect(component.commentVisibility).toEqual(true)
   expect(component.noComments).toEqual(true)
   expect(component.commentsMessage).toEqual("Comments")
+}));
+
+it("should post a like",fakeAsync(()=>{
+  let proposalServe: ProposalService
+  proposalServe = TestBed.inject(ProposalService)
+  let error={status:200}
+  component.hasLiked=false
+  let spy = spyOn(proposalServe,'postLike').and.returnValue(of(throwError(error)))
+  component.postLike(7)
+  expect(spy).toHaveBeenCalled()
+  expect(component.hasLiked).toBeTrue()
+}));
+
+it("should post a dislike",fakeAsync(()=>{
+  let proposalServe: ProposalService
+  proposalServe = TestBed.inject(ProposalService)
+  let error={status:200}
+  component.hasLiked=true
+  let spy = spyOn(proposalServe,'postDislike').and.returnValue(of(throwError(error)))
+  component.postLike(7)
+  expect(spy).toHaveBeenCalled()
+  expect(component.hasLiked).toBeFalse()
 }));
 
 });

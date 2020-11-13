@@ -162,6 +162,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#datePlusOne">datePlusOne</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
                             <li>
@@ -285,6 +288,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="datePlusOne"></a>
+                    <span class="name">
+                        <b>
+                            datePlusOne
+                        </b>
+                        <a href="#datePlusOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>datePlusOne()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/app/landing-page/filter/filter.component.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
                         <b>
@@ -342,8 +384,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app/landing-page/filter/filter.component.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/landing-page/filter/filter.component.ts:41</a></div>
                 </td>
             </tr>
 
@@ -381,8 +423,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">src/app/landing-page/filter/filter.component.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/app/landing-page/filter/filter.component.ts:65</a></div>
                 </td>
             </tr>
 
@@ -420,8 +462,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">src/app/landing-page/filter/filter.component.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/landing-page/filter/filter.component.ts:71</a></div>
                 </td>
             </tr>
 
@@ -638,14 +680,18 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void {
   
   }
+  datePlusOne(){
+    console.log(&quot;date&quot;,this.eDate)
+    this.newEdate &#x3D; this.eDate;
+    this.newEdate &#x3D; this.newEdate.setDate(this.newEdate.getDate()+1);
+  }
   processFilter()
   { 
     //  eeDate:Date &#x3D; this.eDate;
     //  eeDate
 
     //  yourDate.setDate(yourDate.getDate() + 1);
-    this.newEdate &#x3D; this.eDate;
-    this.newEdate &#x3D; this.newEdate.setDate(this.newEdate.getDate()+1);
+    
     this.data &#x3D; [this.sDate,this.newEdate];
     
     if(this.sDate&#x3D;&#x3D;null || this.eDate&#x3D;&#x3D;null)
@@ -717,8 +763,8 @@ export class FilterComponent implements OnInit {
 
   &lt;mat-form-field appearance&#x3D;&quot;fill&quot; class&#x3D;&quot;selectp&quot;&gt;
     &lt;mat-label&gt;Select End Date&lt;/mat-label&gt;
-    &lt;input matInput [matDatepicker]&#x3D;&quot;endDate&quot; [(ngModel)]&#x3D;&quot;eDate&quot;&gt;
-    &lt;mat-datepicker-toggle matSuffix [for]&#x3D;&quot;endDate&quot;&gt;&lt;/mat-datepicker-toggle&gt;
+    &lt;input matInput [matDatepicker]&#x3D;&quot;endDate&quot; (dateChange)&#x3D;&quot;datePlusOne()&quot;  [(ngModel)]&#x3D;&quot;eDate&quot;&gt;
+    &lt;mat-datepicker-toggle matSuffix [for]&#x3D;&quot;endDate&quot; &gt;&lt;/mat-datepicker-toggle&gt;
     &lt;mat-datepicker #endDate&gt;&lt;/mat-datepicker&gt;
   &lt;/mat-form-field&gt;
   
@@ -811,7 +857,7 @@ padding-left: 5%;
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>  <mat-toolbar class="tools">    <span> Filter Your Feed</span>  </mat-toolbar>  <br>  <mat-form-field class="selectp">    <mat-label>Select posts</mat-label>    <mat-select name = "selection"   [(value)]="typePost" role="mat-option" (ngModelChange)=\'selectionChanged()\' #selection [(ngModel)] = "typePost">        <mat-option value="yourPost">            Your Post        </mat-option>        <mat-option value="teamPost">            Team Post        </mat-option>        <mat-option value="allPost">          All Post      </mat-option>    </mat-select>  </mat-form-field>  <hr>  <mat-toolbar class="tools" >    <span>Advanced Filter</span>  </mat-toolbar>      <br>  &nbsp;<span class="textMessage">{{message}}</span>        <br><mat-form-field appearance="fill" class="selectp">  <mat-label>Select Start Date</mat-label>  <input matInput [matDatepicker]="startDate" [(ngModel)]="sDate" >  <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>  <mat-datepicker #startDate></mat-datepicker></mat-form-field>  <mat-form-field appearance="fill" class="selectp">    <mat-label>Select End Date</mat-label>    <input matInput [matDatepicker]="endDate" [(ngModel)]="eDate">    <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>    <mat-datepicker #endDate></mat-datepicker>  </mat-form-field>    <button mat-raised-button color="primary" class="bton" (click)="processFilter()"  >Filter Feed</button><br><br>                                </div>'
+        var COMPONENT_TEMPLATE = '<div>  <mat-toolbar class="tools">    <span> Filter Your Feed</span>  </mat-toolbar>  <br>  <mat-form-field class="selectp">    <mat-label>Select posts</mat-label>    <mat-select name = "selection"   [(value)]="typePost" role="mat-option" (ngModelChange)=\'selectionChanged()\' #selection [(ngModel)] = "typePost">        <mat-option value="yourPost">            Your Post        </mat-option>        <mat-option value="teamPost">            Team Post        </mat-option>        <mat-option value="allPost">          All Post      </mat-option>    </mat-select>  </mat-form-field>  <hr>  <mat-toolbar class="tools" >    <span>Advanced Filter</span>  </mat-toolbar>      <br>  &nbsp;<span class="textMessage">{{message}}</span>        <br><mat-form-field appearance="fill" class="selectp">  <mat-label>Select Start Date</mat-label>  <input matInput [matDatepicker]="startDate" [(ngModel)]="sDate" >  <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>  <mat-datepicker #startDate></mat-datepicker></mat-form-field>  <mat-form-field appearance="fill" class="selectp">    <mat-label>Select End Date</mat-label>    <input matInput [matDatepicker]="endDate" (dateChange)="datePlusOne()"  [(ngModel)]="eDate">    <mat-datepicker-toggle matSuffix [for]="endDate" ></mat-datepicker-toggle>    <mat-datepicker #endDate></mat-datepicker>  </mat-form-field>    <button mat-raised-button color="primary" class="bton" (click)="processFilter()"  >Filter Feed</button><br><br>                                </div>'
     var COMPONENTS = [{'name': 'ApiResponseComponent', 'selector': 'app-api-response'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommentComponent', 'selector': 'app-comment'},{'name': 'CreateProposalComponent', 'selector': 'app-create-proposal'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FeedComponent', 'selector': 'app-feed'},{'name': 'FilterComponent', 'selector': 'app-filter'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PasswordSpecsComponent', 'selector': 'app-password-specs'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ResetLinkComponent', 'selector': 'app-reset-link'},{'name': 'ShareProposalComponent', 'selector': 'app-share-proposal'},{'name': 'TeamComponent', 'selector': 'app-team'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FilterComponent'};
