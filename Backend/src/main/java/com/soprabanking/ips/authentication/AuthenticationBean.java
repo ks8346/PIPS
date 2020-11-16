@@ -7,7 +7,9 @@ import org.apache.logging.log4j.Logger;
 import com.soprabanking.ips.controllers.ForgotPasswordController;
 
 /**
+ * Authentication Bean
  * Returns the details of that user who attempting to login.
+ * @author kavsharma
  *
  * 
  * 

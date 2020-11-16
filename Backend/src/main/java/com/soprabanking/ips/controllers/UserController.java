@@ -24,11 +24,13 @@ import com.soprabanking.ips.services.UserControllerService;
 @CrossOrigin
 @RestController
 /**
+ * User Controller
  * Provides Rest-APIs for logging in through social media .
  *
  * <p>
  * This is a User Controller Class which implements social media handler(getSocialInfo rest API) and with this handler, 
  * user can access our landing page via social media(GMAIL).
+ * @author kavsharma
  */
 public class UserController
 {
@@ -48,9 +50,9 @@ public class UserController
    	 * This method verifies that the user exists in our database or not.
    	 * if the user already exists then it returns all the information of that user and redirects to landing page.
    	 * else user redirects to create team page for registration.
-   	 * @param  the userAuth has the information of that user who logged in via social media.
+   	 * @param  userAuth the userAuth has the information of that user who logged in via social media.
    	 * @return ResponseEntity with HTTP Status .
-   	 * @exception e this exception occurs when user is unauthorized.
+   	 * 
    	 * */
   
     @PostMapping("/getSocialInfo")

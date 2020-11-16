@@ -1,5 +1,8 @@
+import { FilterComponent } from './filter/filter.component';
+import { FeedComponent } from './feed/feed.component';
+
 import { SocialAuthService } from 'angularx-social-login';
-import { Component, OnInit ,HostListener} from '@angular/core';
+import { Component, OnInit ,HostListener, NgModule} from '@angular/core';
 import { GetProposalsService } from '../get-proposals.service';
 import {MatDialog} from '@angular/material/dialog';
 import { CreateProposalComponent } from './create-proposal/create-proposal.component';
@@ -11,12 +14,16 @@ import {Teams} from '../teams'
 import {Router} from '@angular/router'
 import {User} from '../user';
 import {AuthorizationService} from '../authorization.service';
+
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css'],
+ 
 })
+
 export class LandingPageComponent implements OnInit {
+
   message=null;
   menuVisibility=true;
   menuButton=false;
@@ -204,12 +211,26 @@ export class LandingPageComponent implements OnInit {
     }
   }
   
+ /**
+ * @example
+ * This Destroys a session when called
+ * destroySession()
+ * @returns To Home page
+ */
   destroySession(){
+   
     this.router.navigate(['/home']);
     this.autho.clearSession()
     this.authService.signOut();
   }
-
+/**
+ * @example
+ * This deletes a proposal in real time
+ * deleteProposal(1)
+ *
+ * @param {number} 
+ * 
+ */
   deleteProposal(id){
     this.feed=this.feed.filter(item => item.id != id);
   }

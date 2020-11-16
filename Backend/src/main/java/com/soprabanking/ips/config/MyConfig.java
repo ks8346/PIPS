@@ -26,6 +26,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.soprabanking.ips.controllers.ForgotPasswordController;
 /**
+ * MyConFig Class
  * This is a configuration class of spring boot security.
  * 
  *

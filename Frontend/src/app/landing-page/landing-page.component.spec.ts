@@ -1,5 +1,6 @@
-import { SocialAuthService } from 'angularx-social-login';
+import { GoogleLoginProvider, SocialAuthService,SocialAuthServiceConfig } from 'angularx-social-login/';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {SocialLoginModule} from 'angularx-social-login'
 
 import { LandingPageComponent } from './landing-page.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
@@ -15,12 +16,9 @@ import {CreateProposalComponent} from './create-proposal/create-proposal.compone
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {By} from '@angular/platform-browser'
 import { Router } from '@angular/router';
-import {TeamsService} from '../teams.service'
-import { DebugElement } from '@angular/core';
+import {TeamsService} from '../teams.service';
 import { FeedComponent } from './feed/feed.component';
-import {SpyLocation} from '@angular/common/testing'
-import { Post } from '../post';
-import { ShareProposalComponent } from './feed/share-proposal/share-proposal.component';
+import {SpyLocation} from '@angular/common/testing';
 describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
   let create:CreateProposalComponent;
@@ -34,9 +32,20 @@ describe('LandingPageComponent', () => {
     await TestBed.configureTestingModule({
       imports:[RouterTestingModule,
         
-        HttpClientTestingModule,MatDialogModule,MatMenuModule,NoopAnimationsModule],
+        HttpClientTestingModule,MatDialogModule,MatMenuModule,NoopAnimationsModule,SocialLoginModule],
       providers:[
-        SocialAuthService,
+        { provide: 'SocialAuthServiceConfig',
+        useValue: {
+          autoLogin: false,
+          providers: [
+            {
+              id: GoogleLoginProvider.PROVIDER_ID,
+              provider: new GoogleLoginProvider(
+                'clientId'
+              )
+            }
+          ]
+        } as SocialAuthServiceConfig,},
         {provide:Overlay},
         {provide:MatDialog},
         { provide: MAT_DIALOG_DATA, useValue: {} },
@@ -44,7 +53,8 @@ describe('LandingPageComponent', () => {
         AuthorizationService,
         GetProposalsService,
         {provide:FeedComponent},
-        {provide:SpyLocation}
+        {provide:SpyLocation},
+        SocialLoginModule
 
       ],
       declarations: [ LandingPageComponent,CreateProposalComponent,FeedComponent ]
@@ -142,6 +152,23 @@ describe('LandingPageComponent', () => {
   it("should show menu",()=>{
     component.showMenu()
     expect(component.menuVisibility).toEqual(false)
+    component.menuVisibility=false
+    component.showMenu()
+    expect(component.menuVisibility).toEqual(true)
+  })
+
+  it("should handle error",()=>{
+    let error={
+      status:406
+    }
+    component.errorHandling(error)
+    expect(component.morePost).toBeFalse()
+    expect(component.endMessage).toEqual("There aren't any more proposals to show")
+    error={
+      status:200
+    }
+    component.errorHandling(error)
+    expect(component.endMessage).toEqual("")
   })
 
   it("should open share dialog",()=>{
@@ -178,6 +205,13 @@ describe('LandingPageComponent', () => {
     button.click();
     expect(component.dialog.open).toHaveBeenCalled()
   })
+
+  // it("should open Dialog",()=>{
+  //   spyOn(component.dialog,"open")
+  //   spyOn(component.dialog,"open")
+  //   component.openDialogshare(feed.post)
+  //   expect(component.dialog.open).toHaveBeenCalled()
+  // })
 
   it("should run delete proposal",()=>{
     feed=TestBed.inject(FeedComponent)
@@ -224,15 +258,24 @@ describe('LandingPageComponent', () => {
     let resize=spyOn(component,"resize")
     window.dispatchEvent(new Event('resize'));
     expect(resize).toHaveBeenCalled()
+    // fixture.debugElement.nativeElement.dispatchEvent(new Event('resize'),{event:{target:{innerWidth:900}}})
+    // fixture.detectChanges()
+    // expect(resize).toHaveBeenCalled()
+    // expect(component.menuButton).toBeTrue()
   })
 
   it("should destroy session ",()=>{
     let autho:AuthorizationService;
+    let authorization:SocialAuthService
     let flag=false
     autho=TestBed.inject(AuthorizationService)
+    authorization=TestBed.inject(SocialAuthService)
     let spy=spyOn(autho,"clearSession").and.callThrough()
+    let authSpy=spyOn(authorization,"signOut").and.callThrough()
     component.destroySession()
+
     expect(spy).toHaveBeenCalled()
+    expect(authSpy).toHaveBeenCalled()
   })
 
   it("should destroy session on click",()=>{
@@ -261,6 +304,18 @@ describe('LandingPageComponent', () => {
     let spy=spyOn(getProposals,"getYourNextPost").and.callThrough()
     component.onScroll()
     expect(spy).toHaveBeenCalled()
+    component.type="teamPost"
+    component.newFeed=["this is a post","this is second post"]
+    component.morePost=true
+    component.page=0
+    component.onScroll()
+    spy=spyOn(getProposals,"getTeamNextPost").and.callThrough()
+    component.type="allPost"
+    component.newFeed=["this is a post","this is second post"]
+    component.morePost=true
+    component.page=0
+    component.onScroll()
+    spy=spyOn(getProposals,"getAllNextPost").and.callThrough()
   })
   
 

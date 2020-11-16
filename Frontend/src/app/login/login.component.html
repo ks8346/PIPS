@@ -2,7 +2,7 @@
 <div class="container">
   <b><h1 class="text-center">Welcome! </h1></b>
 	<form [formGroup]="loginForm" (ngSubmit)="handleLogin()" novalidate>
-	    <div class="form-group">
+	    <div >
 
             <mat-form-field style="width:65%;">
                 <mat-label>Email</mat-label>
@@ -18,7 +18,7 @@
               </mat-form-field>
         </div>
     
-        <div class="form-group" >
+        <div  >
             <mat-form-field style="width:65%;">
                 <mat-label>Password</mat-label>
                 <input type="password" matInput name="password" [formControl]="loginForm.controls.password" [errorStateMatcher]="matcher"
@@ -30,17 +30,34 @@
                 <mat-error *ngIf="loginForm.controls.password.hasError('required')">
                   Password is <strong>required</strong>
                 </mat-error>
+                
               </mat-form-field>
+              
+              <!-- <div style="position: fixed; right: 0;"> -->
+                
         </div>
-        <button mat-raised-button color="primary" class="btn btn-primary" [disabled]="!loginForm.valid" style="margin-right: 15px;">Log In</button>
+        <div>
+        <button mat-raised-button color="primary" class="btn btn-primary" [disabled]="!loginForm.valid" style="margin-right: 15px; ">Log In</button>
+        </div>
         
-        <br>
+        
         <small *ngIf = 'invalidLogin' style="color:red;">{{errorMessage}}</small>
+        <div style = "vertical-align: baseline;">
+          <button mat-button color="primary" (click)="openDialog()">Reset Password?</button>
+       
+        </div>
   </form>
-  <button mat-raised-button color="primary" class="btn btn-primary"(click)="googleSignIn()" >Log In With Google</button>
-  <div>
-    <button mat-button color="primary" (click)="openDialog()">Forgot Password?</button>
-  </div>
+  <mat-divider style="width: 40%; display: inline-block;"></mat-divider>
+<span style="padding: 10px; font-weight: 50;font-size: 10px;">Or</span>
+<mat-divider style="width: 40%; display: inline-block;"></mat-divider>
+<br>
+<br>
+<div>
+  <button mat-raised-button  (click)="googleSignIn()"  style="border-radius: 30px;">
+    <img src="assets/img/GoogleLogo.png" alt="title logo" style="height: 15px;width:auto; padding-right: 5px;">
+    Sign In With Google</button>
+    </div>
+  <br>
 </div>
 
 

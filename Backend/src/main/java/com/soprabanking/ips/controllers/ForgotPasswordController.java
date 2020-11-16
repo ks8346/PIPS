@@ -33,12 +33,13 @@ import com.soprabanking.ips.repositories.UserRepository;
 import com.soprabanking.ips.services.DeleteTokenService;
 
 /**
+ * ForgotPassword Controller
  * Provides Rest-APIs for forgot password and reset password.
  *
  * <p>
  * This is a ForgotPassword Controller Class which implements forget password handler(forgot_password rest-API), 
  * reset password handler (reset_password rest-API)
- * 
+ * @author kavsharma
  */
 @CrossOrigin
 @RestController
@@ -126,6 +127,11 @@ public class ForgotPasswordController {
        
         return new ResponseEntity<String>("message sent successfully", HttpStatus.OK);
     }
+    /**
+   	 * This method helps in validating the token whether the session is in continuation or expired 
+   	 * @param id Id of the token
+   	 * @return responseEntity which holds the response messages with their respective status codes.
+   	 * */
     
     @PostMapping("validate_token")
     public ResponseEntity<String> validate_token(@RequestBody TokenId id) {
@@ -142,7 +148,7 @@ public class ForgotPasswordController {
         return new ResponseEntity<String>("Validation Successfull", HttpStatus.ACCEPTED);
     }
     /**
-	 * This method helps in validating the token whether the session is in continuation or expired 
+	 * This method helps in fetching the token from the database and sends an error if token is not present in the database.
 	 * stores the updated password in the database
 	 * @param password new password entered by the user
 	 * @return responseEntity which holds the response messages with their respective status codes.

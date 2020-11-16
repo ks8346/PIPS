@@ -13,6 +13,7 @@ import com.soprabanking.ips.controllers.ForgotPasswordController;
 import com.soprabanking.ips.models.User;
 import com.soprabanking.ips.repositories.UserRepository;
 /**
+ * User Details Service Impl
  * This class implements UserDetailsService interface of spring boot security.
  * Core interface which loads user-specific data.
  * <p>
