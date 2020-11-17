@@ -109,14 +109,14 @@
         
         <mat-grid-tile colspan="7">
         <div class=" x">
-            <mat-checkbox class="example-margin"  formControlName="acceptTerms" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }">Accept terms and conditions</mat-checkbox>
+            <mat-checkbox class="example-margin"  formControlName="acceptTerms" [ngClass]="{ 'is-invalid': submitted && this.registerForm.controls.acceptTerms.errors }">Accept terms and conditions</mat-checkbox>
             <div *ngIf="submitted && registerForm.controls.acceptTerms.errors" class="invalid-feedback">This field is required</div>
         </div>
         </mat-grid-tile>
         
         <mat-grid-tile colspan="7">
         <div class=" x">
-            <button [disabled]="!registerForm.valid" class="btn btn-primary" style="margin-right: 20px;">
+            <button mat-raised-button [disabled]="!registerForm.valid"  style="margin-right: 20px;">
                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                 Submit
             </button>

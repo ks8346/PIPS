@@ -4,8 +4,14 @@ import {Router} from '@angular/router'
   providedIn: 'root'
 })
 export class AuthorizationService {
+  /**user object as a string*/
   authenticatedUser:string
-  constructor(private router:Router) { }
+  constructor(
+    /**@ignore */
+    private router:Router) { }
+  /**
+   * function returns the session data as object and if there is no session takes user to login page
+  */
   authorization(){
   this.authenticatedUser=sessionStorage.getItem('authenticatedUser')
     if(!this.authenticatedUser){
@@ -13,6 +19,9 @@ export class AuthorizationService {
     }
     return JSON.parse(this.authenticatedUser)
   }
+  /**
+   * this function destroys the session
+  */
   clearSession(){
     sessionStorage.clear()
   }

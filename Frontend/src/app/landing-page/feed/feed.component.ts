@@ -161,7 +161,7 @@ export class FeedComponent implements OnInit {
           this.commentsSetup()
         }
         if(error.status!=200){
-          this.postCommentError="Some error has occured sending the comment please try again."
+          alert("Some error has occured sending the comment please try again.")
         }
       } 
     );

@@ -64,35 +64,27 @@ export class LoginComponent implements OnInit {
   }
   matcher = new MyErrorStateMatcher()
   ngOnInit(): void {
-    // this.authService.authState.subscribe((user) => {
-    //   this.user = user;
-    //   this.loggedIn = (user != null);
-    //   });
     
   }
-
+  /**
+ * You are notified when user logs in or logs out. You receive a SocialUser object when the user logs in and a null when the user logs out. SocialUser object contains basic user information such as name, email, photo URL, etc. along with the auth_token. You can communicate the auth_token to your server to authenticate the user in server and make API calls from server.
+ */
   googleSignIn(){
-      
-      console.log("after1____",this.user)
       this.authService.authState.subscribe((user) => {
         if(user!=null)
-        // if
         {this.user = user;
-        
-        console.log("BEFORE____",this.user)
         this.loggedIn = (user != null);
         this.socialMedia()
         }});
         if(!this.loggedIn){
           this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)}
-      // return true
   }
 
+
+  /**
+ * This methods calls the Social Media Authentication service to log the user into a session to acces the Proposal Improvement System Application. The credentials are checked in the Database to either Sign Up or Sign In the user.
+ */
   socialMedia(){
-   
-
-
-    //buffer
     this.socialData={"name":this.user["name"],"email":this.user["email"]}
       console.log("after2____",this.user)
     this.socialMediaAuth.socialMedia(this.socialData).subscribe(
@@ -101,9 +93,6 @@ export class LoginComponent implements OnInit {
       console.log("Response----",this.res);
      this.invalidLogin = false;
           this.loginSuccess = true;
-          ///
-          // this.sessionCreation.fetchSessionDetails(JSON.stringify(data1))
-          // sessionStorage.setItem('data', JSON.stringify(data1));
           console.log("data", data1)
           this.successMessage = 'Login Successful.';
           this.router.navigate(['/welcome']);
@@ -111,27 +100,23 @@ export class LoginComponent implements OnInit {
     ,
     (error)=>{
       console.log("error------",error['error']);
-      //team page
       this.transferDataService.emitData(error['error'])
       this.router.navigate(['/team']);
-
     }
   );
   }
-
+    /**
+ * This method calls the Log In Service which checks the Submitted credentials to the database to Sign the user into the Application.
+ */
   handleLogin() {
     if(this.loginForm.valid) {
 
       this.loginForm.get('email').value;
-
          this.loginService.doLogin(this.loginForm.get('email').value,this.loginForm.get('password').value).subscribe((result)=> {
-        
           this.userData=sessionStorage.getItem('authenticatedUser')
           console.log("results",this.userData, this.userData)
-          
           this.invalidLogin = false;
           this.loginSuccess = true;
-          // sessionStorage.setItem('data', JSON.stringify(result));
           console.log("data", result)
           this.successMessage = 'Login Successful.';
           this.router.navigate(['/welcome']);
@@ -143,17 +128,13 @@ export class LoginComponent implements OnInit {
 
     }
   }
-
+/**
+ * This method opens the Reset Password component as Dialog Box allowing the user to Reset their Password.
+ */
   openDialog(): void{
     const dialogRef = this.dialog.open(ForgetPasswordComponent, {
       width: '500px',
      
     });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     this.email = result;
-  //   });
-  // }
   }
 }

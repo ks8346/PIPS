@@ -2,6 +2,7 @@ package com.soprabanking.ips.config;
 
  
 
+import java.util.Timer;
 import java.util.concurrent.locks.ReentrantLock;
 
 import javax.transaction.Transactional;
@@ -24,6 +25,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soprabanking.ips.controllers.ForgotPasswordController;
 /**
  * MyConFig Class
@@ -67,6 +69,26 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
     public ReentrantLock getLock() {     
     	LOGGER.info("Inside  MyConfig : getLock() method");
     	return new ReentrantLock();     
+    	}
+    
+    /**
+     * this method calls ObjectMapper class 
+     * @return ObjectMapper object of ObjectMapper
+     */
+    @Bean     
+    public ObjectMapper getMapper() {     
+    	LOGGER.info("Inside  MyConfig : getMapper() method");
+    	return new ObjectMapper();     
+    	}
+
+    /**
+     * this method calls Timer class 
+     * @return Timer object of Timer
+     */
+    @Bean     
+    public Timer getTimer() {     
+    	LOGGER.info("Inside  MyConfig : getTimer() method");
+    	return new Timer();     
     	}
     /**
      * this method calls BCryptPasswordEncoder class to encrypt the password of user.
