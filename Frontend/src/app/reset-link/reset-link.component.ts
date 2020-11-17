@@ -55,7 +55,9 @@ export class ResetLinkComponent implements OnInit {
      );
     
   }
-
+/**
+ * This Method opens a Dialog Box, after you submit the new password details, showing the response saying if the password reset was successful or not.
+ */
   responseDialog() {
     const dialogRef = this.dialog.open(ApiResponseComponent, {
       height: '180px',
@@ -63,14 +65,16 @@ export class ResetLinkComponent implements OnInit {
       data:{data:this.msg}
     });
   }
-
+/** ask Priyanka*/
   openDialog() {
     const dialogRef = this.dialog.open(PasswordSpecsComponent, {
       height: '380px',
       width: '400px',
     });
   }
-
+/** 
+ * This method calls the Reset Link API that makes a PUT request to update the existing credentials saved by the user.
+*/
   onSubmit(){
     this.responseDialog()
     var data ={"data1":{
