@@ -99,7 +99,7 @@ export class LandingPageComponent implements OnInit {
   getAll(){
     this.getProposals.getAllPosts(this.data).subscribe((data)=>this.feed=data,(error)=>{
       this.errorHandling(error)
-      if(error.status!=200){
+      if(error.status!=200 && error.status!=406){
         alert("There was some error at server please try later")
       }
     });
@@ -111,7 +111,7 @@ export class LandingPageComponent implements OnInit {
   getTeam(){
     this.getProposals.getTeamPosts(this.data,this.user.team.id).subscribe((data)=>this.feed=data,(error)=>{
       this.errorHandling(error)
-      if(error.status!=200){
+      if(error.status!=200 && error.status!=406){
         alert("There was some error at server please try later")
       }
     });
@@ -123,7 +123,7 @@ export class LandingPageComponent implements OnInit {
   getYour(){
     this.getProposals.getYourPosts(this.data,this.user.id).subscribe((data)=>this.feed=data,(error)=>{
       this.errorHandling(error)
-      if(error.status!=200){
+      if(error.status!=200 && error.status!=406){
         alert("There was some error at server please try later")
       }
     });
