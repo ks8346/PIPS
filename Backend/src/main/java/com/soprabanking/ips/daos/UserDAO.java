@@ -31,10 +31,12 @@ public class UserDAO {
     }
     
     public User getUser(String username) {
+        LOGGER.info("Inside UserDAO : getUser() method");
     	return userRepository.getUserByUserName(username);
     }
 
     public void updatePassword(String username, String password) {
+        LOGGER.info("Inside UserDAO : updatePassword() method");
     	
     	if (userRepository.updatePassword(username, password) == 0) {
     		throw new IllegalArgumentException();
