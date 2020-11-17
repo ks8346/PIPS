@@ -3,9 +3,8 @@ package com.soprabanking.ips.services;
 import java.util.Date;
 import java.util.List;
 
-
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -13,12 +12,11 @@ import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.soprabanking.ips.daos.CommentDAO;
 import com.soprabanking.ips.daos.ProposalDAO;
-import com.soprabanking.ips.models.Comment;
 import com.soprabanking.ips.models.Proposal;
 import com.soprabanking.ips.utilities.DateUtil;
 import com.soprabanking.ips.utilities.JsonUtil;
+
 /**
  * Class representing Feed Service that is responsible for providing the business logic for servicing the requests for retrieval of view based list of {@link Proposal} objects from the database ,received from the {@link com.soprabanking.ips.controllers.FeedController}
  * <p>Feed Service provides a range of service methods each of which is responsible for processing various request for performing the following operations:</p>
@@ -35,6 +33,8 @@ import com.soprabanking.ips.utilities.JsonUtil;
  */
 @Service
 public class FeedService {
+	
+	private static final Logger LOGGER = LogManager.getLogger(FeedService.class);
 
 	/**
 	 * {@link ProposalDAO} object responsible for performing Creation ,Retrieval and Deletion of {@link Proposal} objects by interacting with the persistence layer.
@@ -42,8 +42,6 @@ public class FeedService {
     @Autowired
     private ProposalDAO proposalDAO;
 
-    Logger logger = LogManager.getLogger(FeedService.class);
-    
     /**
      * Returns a List of all the {@link Proposal} objects stored in database in response to the specified Request Body String containing the following:
      * <ol>
@@ -59,9 +57,9 @@ public class FeedService {
      *@see com.soprabanking.ips.daos.ProposalDAO#fetchAllProposals(Date, Date, Pageable)
      */
     public List<Proposal> fetchAllProposals(String body) throws Exception {
-        logger.info("Inside FeedService: fetchAllProposals() method");
 
         try {
+        	LOGGER.info("Inside FeedService: fetchAllProposals() method");
             JsonNode jsonObj = JsonUtil.stringToJson(body);
 
             
@@ -75,14 +73,15 @@ public class FeedService {
 
             Pageable pageable = PageRequest.of(page, size);
             Slice<Proposal> result = proposalDAO.fetchAllProposals(startDate, endDate, pageable);
+            
+            LOGGER.info("Inside FeedService : fetchAllProposals() SUCCESS");
             return result.getContent();
         } catch (Exception ex) {
-            logger.error("Error caught",ex);
-
+        	LOGGER.error("Inside FeedService : fetchAllProposals() FAILURE", ex);
             throw new Exception();
         }
     }
-   
+
     /**
      * Returns a List of all the {@link Proposal} objects created by a particular {@link com.soprabanking.ips.models.User} in response to the specified Request Body String containing the following:
      * <ol>
@@ -98,10 +97,10 @@ public class FeedService {
      * @throws Exception if the Request Body is not in the correct format or if the request parameter values are invalid or not acceptable
      *@see com.soprabanking.ips.daos.ProposalDAO#fetchUserProposals(Long, Date, Date, Pageable)
      */
-
     public List<Proposal> fetchUserProposals(String body) throws Exception {
 
         try {
+        	LOGGER.info("Inside FeedService : fetchUserProposals() method");
             JsonNode jsonObj = JsonUtil.stringToJson(body);
             Date startDate = DateUtil.stringToISTDate(jsonObj.get("startDate").asText());
             Date endDate = DateUtil.stringToISTDate(jsonObj.get("endDate").asText());
@@ -115,11 +114,12 @@ public class FeedService {
             Pageable pageable = PageRequest.of(page, size);
             Slice<Proposal> result = proposalDAO.fetchUserProposals(userId, startDate, endDate, pageable);
 
+            LOGGER.info("Inside FeedService : fetchUserProposals() SUCCESS");
             return result.getContent();
 
 
         } catch (Exception ex) {
-        	ex.printStackTrace();
+        	LOGGER.error("Inside FeedService : fetchUserProposals() FAILURE", ex);
             throw new Exception();
 
         }

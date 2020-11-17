@@ -35,13 +35,14 @@ import com.soprabanking.ips.utilities.JsonUtil;
  */
 @Service
 public class CommentService {
-   /**
-    * {@link CommentDAO} object responsible for performing Creation ,Retrieval and Deletion of {@link Comment} objects by interacting with the persistence layer 
-    */
-	@Autowired
+	
+	/**
+	* {@link CommentDAO} object responsible for performing Creation ,Retrieval and Deletion of {@link Comment} objects by interacting with the persistence layer 
+	*/
+    @Autowired
     private CommentDAO commentDao;
 
-	/**
+    /**
 	* {@link UserDAO} object responsible for performing Creation ,Retrieval and Deletion of {@link User} objects by interacting with the persistence layer. 
     */
     @Autowired
@@ -57,7 +58,6 @@ public class CommentService {
 
 
     /**
- 
      * Returns a List of {@link Comment} objects of a given {@link Proposal} in response to the specified Request Body String containing the id value of the {@link Proposal}  
      * <p>This method converts the String argument representing the Request Body to a JSON request,retrieves request parameters and values from request body(in this case, id value of the {@link Proposal},the comments of which have to be fetched from the database)
      *  and then retrieves the list of comments for the given {@link Proposal} having the given id value with the help of {@link CommentDAO#fetchAllComments(Long)} method of {@link CommentDAO}. </p>

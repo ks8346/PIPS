@@ -33,7 +33,7 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     /**
      *  Text String of the Comment object.
      */
@@ -44,6 +44,7 @@ public class Comment {
      */
     private Date creationDate;
 
+    
     /**
      * {@link User} who has made the Comment object.Corresponds to the user_Id value of a comment record in the database.
      */
@@ -61,14 +62,14 @@ public class Comment {
     @Cascade(CascadeType.PERSIST)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Proposal proposal;
-     
+
     /**
      * Initializes a newly created Comment object so that it represents an empty comment.
      */
     public Comment() {
         // TODO Auto-generated constructor stub
     }
-    
+
     /**
      * Returns the value of the {@link #id} field of this Comment
      * @return the id value of this Comment
@@ -76,6 +77,7 @@ public class Comment {
     public Long getId() {
         return id;
     }
+
     /**
      * Sets the value of the {@link #id} field of this Comment object using the specified id value.
      * @param id value containing the id of this Comment
@@ -83,7 +85,7 @@ public class Comment {
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     /**
      * Returns the value of the {@link #comment} field of this Comment
      * @return String representing the title of this Comment object.
@@ -91,7 +93,6 @@ public class Comment {
     public String getComment() {
         return comment;
     }
-    
     /**
      * Sets the value of {@link #comment} field of this Comment object using the specified String value. 
      * @param comment String containing the text to be commented 
@@ -99,7 +100,7 @@ public class Comment {
     public void setComment(String comment) {
         this.comment = comment;
     }
-    
+
     /**
      * Returns the value of the {@link #creationDate} field of this Comment
      * @return The Creation Date and time of this Comment 
@@ -107,7 +108,7 @@ public class Comment {
     public Date getCreationDate() {
         return creationDate;
     }
-    
+
     /**
      * Sets the value of the {@link #creationDate} field of this Comment using the specified Date object
      * @param creationDate Date object representing date and time of creation of this Comment 
@@ -115,6 +116,7 @@ public class Comment {
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
+
     /**
      * Returns {@link User} object that represents the user that has created this Comment
      * @return {@link User}  who has created this Comment
@@ -123,7 +125,7 @@ public class Comment {
     public User getUser() {
         return user;
     }
-    
+
     /**
      * Sets the value of {@link #user} field of this Comment using the specified {@link User} object
      * @param user {@link User} object that represents the user who is creating this comment
@@ -131,7 +133,7 @@ public class Comment {
     public void setUser(User user) {
         this.user = user;
     }
-    
+
     /**
      * Returns {@link Proposal} object that represents the proposal for which this Comment has been created
      * @return {@link Proposal} for which this comment is created
@@ -140,7 +142,7 @@ public class Comment {
     public Proposal getProposal() {
         return proposal;
     }
-    
+
     /**
      * Sets the value of {@link #proposal} field of this Comment using the specified {@link Proposal} object
      * @param proposal {@link Proposal} object that represents the proposal for which this comment is being created

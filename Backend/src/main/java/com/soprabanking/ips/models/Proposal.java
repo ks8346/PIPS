@@ -44,11 +44,11 @@ public class Proposal {
      *  Title String of the Proposal object.
      */
     private String title;
+    @Column(columnDefinition = "varchar(1024)")
     
     /**
      *  Detailed description of the Proposal object.It should not be more than 1024 characters in length.
      */
-    @Column(columnDefinition = "varchar(1024)")
     private String description;
 
     /**
@@ -63,7 +63,7 @@ public class Proposal {
      */
     @Column(name = "creation_date")
     private Date creationDate;
-    
+
     /**
      * User who has created the Proposal object.Corresponds to the user_Id value of a proposal record in the database.
      */
@@ -81,6 +81,7 @@ public class Proposal {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Set<Team> teams;
 
+
     /**
      * Initializes a newly created Proposal object so that it represents an empty proposal.
      */
@@ -96,6 +97,7 @@ public class Proposal {
     public Long getId() {
         return id;
     }
+
     /**
      * Sets the value of the {@link #id} field of this Proposal using the specified id value
      * @param id value containing the id of this Proposal
@@ -111,7 +113,7 @@ public class Proposal {
     public String getTitle() {
         return title;
     }
- 
+
     /**
      * Sets the value of {@link #title} field of this Proposal using the specified String value
      * @param title String containing the title which is to be given to this proposal
@@ -135,7 +137,7 @@ public class Proposal {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
     /**
      * Returns the value of {@link #upvotesCount} field of this Proposal
      * @return Number of upvotes for this proposal
@@ -187,7 +189,7 @@ public class Proposal {
 
     /**
      * Returns the value of {@link #teams} field of this Proposal
-     * @return A {@link Set} object that represents the teams to which this Proposal is forwarded 
+     * @return A {@link Set} object that represents the list of teams to which this Proposal is forwarded 
      */
     public Set<Team> getTeams() {
         return teams;

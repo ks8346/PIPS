@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -33,7 +31,7 @@ public class Upvotes {
     private Long id;
 
     /**
-     * {@link User} who has made the Upvotes object.Corresponds to the user_Id value of an upvote record in the database.
+     * {@link User} who has made the Upvote on a {@link Proposal}.Corresponds to the user_Id value of an upvote record in the database.
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -41,7 +39,7 @@ public class Upvotes {
     private User user;
 
     /**
-     * {@link Proposal} for which the Upvotes object is created.Corresponds to the proposal_Id value of an upvote record in the database.
+     * {@link Proposal} for which the Upvote has been made by a {@link User} .Corresponds to the proposal_Id value of an upvote record in the database.
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "proposal_id", nullable = false)
@@ -63,6 +61,7 @@ public class Upvotes {
     public Long getId() {
         return id;
     }
+
 
     /**
      * Sets the value of {@link #id} field of this Upvotes object using the specified id value
@@ -89,6 +88,7 @@ public class Upvotes {
         this.user = user;
     }
 
+
     /**
      * Returns {@link Proposal } object that represents the proposal for which this Upvotes object has been created
      * @return Proposal for which this upvote is created
@@ -98,6 +98,7 @@ public class Upvotes {
         return proposal;
     }
 
+
     /**
      * Sets the value of {@link #proposal} field of this Upvotes object using the specified {@link Proposal} object
      * @param proposal {@link Proposal} object that represents the proposal for which this upvote
@@ -106,7 +107,6 @@ public class Upvotes {
     public void setProposal(Proposal proposal) {
         this.proposal = proposal;
     }
-
 
     /**
      * Returns a String representation of this Upvotes object.
