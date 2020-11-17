@@ -1,4 +1,4 @@
-import { GetTeamService } from './service/get-team.service';
+
 import { UserRegisterService } from './service/user-register.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -18,7 +18,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RegisterComponent } from './register/register.component';
-import { from } from 'rxjs';
+
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -101,7 +101,6 @@ import { GoogleLoginProvider} from "angularx-social-login";
   ],
   providers: [
     UserRegisterService,
-    GetTeamService,
     ProposalService,
     PostProposalService,
     GetProposalsService,

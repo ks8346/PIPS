@@ -1,12 +1,11 @@
+import { UserRegisterService } from './../service/user-register.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { SocialAuthServiceConfig,SocialAuthService, GoogleLoginProvider } from 'angularx-social-login';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TeamComponent } from './team.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GetTeamService } from '../service/get-team.service';
 import { AppRoutingModule } from '../app-routing.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatSelectModule } from '@angular/material/select';
@@ -43,7 +42,7 @@ describe('TeamComponent', () => {
             )
           }
         ]
-      } as SocialAuthServiceConfig,},GetTeamService,SocialAuthService]
+      } as SocialAuthServiceConfig,},UserRegisterService,SocialAuthService]
     })
     .compileComponents();
     httpClient = TestBed.inject(HttpClient);

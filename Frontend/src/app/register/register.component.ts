@@ -1,6 +1,5 @@
 import { teamList } from './../teamList';
 import { ApiResponseComponent } from './../api-response/api-response.component';
-import { GetTeamService } from './../service/get-team.service';
 import { Router } from '@angular/router';
 import { UserRegisterService } from './../service/user-register.service';
 import { PasswordSpecsComponent } from './../password-specs/password-specs.component';
@@ -31,7 +30,7 @@ export class RegisterComponent implements OnInit {
 
  
   constructor(
-    private getTeam : GetTeamService,
+    
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
     private userService: UserRegisterService,
@@ -77,13 +76,25 @@ export class RegisterComponent implements OnInit {
     validator: ConfirmPasswordValidator("password", "confirmPass")
   });
 
-  this.getTeam.getTeam().subscribe(
-    data=> {this.teams=data
-      this.filteredTeams=this.teams.slice();
-    }); 
+  this.getTeams();
   }
 
 
+  getTeams(){
+    this.userService.getTeam().subscribe(
+      (data)=> {this.teams=data
+        this.filteredTeams=this.teams.slice();
+      },
+      (error)=>{
+       if(error.status==404){
+        this.filteredTeams=this.teams.slice();
+        }
+        else{
+          alert("Some error has occured! please try again later.")
+        }
+      }); 
+  }
+  
   /**
    * returns error message based on email field validations.
    */
@@ -111,41 +122,37 @@ export class RegisterComponent implements OnInit {
     var data={"data1":
       {"team":{
           "name":this.registerForm.value.team}
-      , "user":
-{
-    "name": this.registerForm.value.userName,
-    "email": this.registerForm.value.email,
-    "password" :this.registerForm.value.password
-
-}
-    }
+      ,"user":{
+        "name": this.registerForm.value.userName,
+        "email": this.registerForm.value.email,
+        "password" :this.registerForm.value.password}
+      }
 
     }
+
     this.userService.doRegister(data).subscribe(
        (data1) => {
-          console.log(data1);
-          if(data1=="Email Id already exists !!"){
-            this.message="Email Id already exists!"
+          this.message="You have been signed up! Now please login again to continue."
+            this.responseDialog()
             this.loading=false;
-            this.responseDialog()
-          }
-          else{
-            this.message="You have been signed up!"
-            this.responseDialog()
             this.router.navigate(['/home']) ;
-            this.loading=false;
-          }
         },
         (error)=>{
           if(error.status==200){
-            this.message="You have been signed up!"
+            console.log(error.status)
+            this.message="You have been signed up! Now please login again to continue."
             this.responseDialog()
+            this.loading=false;
             this.router.navigate(['/home']) ;
+         
+          }
+          else if(error.status==302){
+            this.message="This email Id already exists, Please try again!"
+            this.responseDialog()
             this.loading=false;
           }
           else{
-            this.message="Email Id already exists!"
-            this.loading=false;
+            alert("Some error has occured! please try again later.")
           }
         });
 }
