@@ -7,9 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+
     "e2e": "ng e2e",
     "compodoc": "compodoc",
-    "generate-docs": "compodoc -p src/tsconfig.app.json",
+    "generate-docs": "compodoc -p src/tsconfig.app.json -s",
     "serve-docs": "compodoc -s src/tsconfig.app.json"
   },
   "private": true,

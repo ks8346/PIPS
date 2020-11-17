@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.soprabanking.ips.models.Team;
 import com.soprabanking.ips.repositories.TeamRepository;
+import com.soprabanking.ips.repositories.UserRepository;
 
 
 /** 
@@ -55,7 +56,6 @@ private static final Logger LOGGER = LogManager.getLogger(HomeService.class);
 		return team1;
 		
 	}
-	
 	
 
 }

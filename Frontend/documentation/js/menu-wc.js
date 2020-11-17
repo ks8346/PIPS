@@ -177,9 +177,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Comment.html" data-type="entity-link">Comment</a>
                             </li>
                             <li class="link">
-                                <a href="classes/Feed.html" data-type="entity-link">Feed</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/FeedParams.html" data-type="entity-link">FeedParams</a>
                             </li>
                             <li class="link">

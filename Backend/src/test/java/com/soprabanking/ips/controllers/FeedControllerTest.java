@@ -239,4 +239,36 @@ public class FeedControllerTest {
         assertTrue(proposals.isEmpty());
 
     }
+    
+    @Test
+    void getTeamProposalError() throws Exception {
+        LocalDate localDate = ZonedDateTime.now(ZoneId.of("UTC")).toLocalDate();
+        Date startDate = Date.from(localDate.with(TemporalAdjusters.firstDayOfMonth()).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Date endDate = Date.from(localDate.with(TemporalAdjusters.lastDayOfMonth()).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        int page = 0, size = 5;
+        Long teamId = 4L;
+
+        String dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+        SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+        sdf.setTimeZone(TimeZone.getTimeZone("Asia/kolkata"));
+        JSONObject body=new JSONObject();
+        body.put("startDate",sdf.format(startDate));
+        body.put("endDate",sdf.format(endDate));
+        body.put("page",page);
+        body.put("size",size);
+        body.put("teamId",teamId);
+
+        Mockito.when(proposalService.getDefault(anyString()))
+                .thenThrow(new RuntimeException());
+
+        MvcResult mvcResult = mockMvc.perform(post("/feed/team")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body.toString()))
+                .andExpect(status().is4xxClientError())
+                .andReturn();
+
+        List<Proposal> proposals= Arrays.asList(objectMapper.readValue(mvcResult.getResponse().getContentAsString(),Proposal[].class));
+        assertTrue(proposals.isEmpty());
+
+    }
 }
