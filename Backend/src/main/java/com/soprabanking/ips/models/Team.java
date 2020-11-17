@@ -1,6 +1,7 @@
 package com.soprabanking.ips.models;
 
 import java.util.HashSet;
+
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -13,45 +14,51 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.soprabanking.ips.models.User;
+/**
+ * This is a model class for team
+ * this class implements  the information of team which is required to create a new team.
+ * In this class, we are using annotation @Entity to create a table in database.
+ */
+
 
 @Entity
-@Table(name	= "team")
+@Table(name = "team")
 public class Team {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	private String name;
-	
-	//@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY , mappedBy="team")
-	//private Set<User> users=new Set<user>();
-	//private Set<User> user = new HashSet<User>();
-	
-	public Team() {
-		// TODO Auto-generated constructor stub
-	}
 
-	public Long getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    //@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY , mappedBy="team")
+    //private Set<User> users=new Set<user>();
+    //private Set<User> user = new HashSet<User>();
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Team() {
+        // TODO Auto-generated constructor stub
+    }
 
-	@Override
-	public String toString() {
-		return "Team [id=" + id + ", name=" + name + "]";
-	}
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Team [id=" + id + ", name=" + name + "]";
+    }
 
 	
 	
@@ -64,9 +71,5 @@ public class Team {
 		this.user = user;
 	}*/
 
-	
-
-    
-	
 
 }

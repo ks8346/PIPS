@@ -1,24 +1,18 @@
+import { teamList } from './../teamList';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-export class ResponseAPI{
-  constructor(public message:string[]){}
-}
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetTeamService {
 
-  constructor(private http:HttpClient) {
-    
-   }
+  constructor(private http:HttpClient) {}
 
-   getTeam(){
+   getTeam():Observable<teamList[]>{
     console.log("inside GetTeam")
-    let arr =this.http.get<ResponseAPI>("http://localhost:8080/getTeam")
-    console.log(arr)
-    return arr
-    
+    return this.http.get<teamList[]>("http://localhost:8080/getTeam")
     
     // return resp
 }

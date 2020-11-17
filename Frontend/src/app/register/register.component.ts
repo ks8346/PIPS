@@ -1,20 +1,22 @@
+import { teamList } from './../teamList';
 import { ApiResponseComponent } from './../api-response/api-response.component';
 import { GetTeamService } from './../service/get-team.service';
 import { Router } from '@angular/router';
 import { UserRegisterService } from './../service/user-register.service';
 import { PasswordSpecsComponent } from './../password-specs/password-specs.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import {ConfirmPasswordValidator} from '../confirmPassword.Validator';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
-
+import {MatDialog, MatDialogModule, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
+
+
 export class RegisterComponent implements OnInit {
 
   message: any;
@@ -23,15 +25,19 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   error: string;
   selectedTeam: string='';
-  teams:any
+  teams:teamList[]
   hide=true
+  hide1=true
+  
+  public filteredTeams;
 
+ 
   constructor(
     private getTeam : GetTeamService,
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
     private userService: UserRegisterService,
-    public router: Router
+    public router: Router,
   ) { }
 
 
@@ -42,7 +48,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  responseDialog(msg) {
+  responseDialog() {
     const dialogRef = this.dialog.open(ApiResponseComponent, {
       height: '180px',
       width: '400px',
@@ -52,9 +58,11 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit(): void {
+   
+    
     this.registerForm = this.formBuilder.group({
       userName: ['',[ Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
-      email: ['', [Validators.required,  Validators.email,, Validators.minLength(2), Validators.maxLength(30)]],
+      email: ['', [Validators.required,  Validators.email,, Validators.minLength(2), Validators.maxLength(30), Validators.pattern('[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$')]],
       team: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       password: ['', [Validators.required, , Validators.minLength(2), Validators.maxLength(20), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]], 
       confirmPass: ['', Validators.required],
@@ -64,9 +72,15 @@ export class RegisterComponent implements OnInit {
     validator: ConfirmPasswordValidator("password", "confirmPass")
   });
   this.getTeam.getTeam().subscribe(
-    data=> this.teams=data
-  );
+    data=> {this.teams=data
+      this.filteredTeams=this.teams.slice();
+    }
+    
+    );
+    
   }
+
+ 
 
   get f() { return this.registerForm.controls; }
 
@@ -75,10 +89,19 @@ export class RegisterComponent implements OnInit {
       return 'Please enter a value';
     }
 
-    if(this.registerForm.controls.email.hasError('email')){
-      return 'Not a valid email';
+    if(this.registerForm.controls.email.hasError('email') || this.registerForm.controls.email.hasError('pattern') ){
+      return 'Please enter a valid email';
     }
   }
+
+//   filteredOptions=[];
+// selectedUser: any;
+//   filterUsers() {
+//     this.filteredOptions = this.teams.filter(
+//       item => item.value.toLowerCase().includes(this.selectedTeam.toLowerCase())
+//     );
+//     console.log(this.filteredOptions);
+//   }
 
   onSubmit() {
     this.submitted = true;
@@ -112,11 +135,11 @@ export class RegisterComponent implements OnInit {
           if(data1=="Email Id already exists !!"){
             this.message="Email Id already exists!"
             this.loading=false;
-            this.responseDialog(this.message)
+            this.responseDialog()
           }
           else{
             this.message="You have been signed up!"
-            this.responseDialog(this.message)
+            this.responseDialog()
             this.router.navigate(['/home']) ;
             this.loading=false;
           }
@@ -124,7 +147,7 @@ export class RegisterComponent implements OnInit {
         (error)=>{
           if(error.status==200){
             this.message="You have been signed up!"
-            this.responseDialog(this.message)
+            this.responseDialog()
             this.router.navigate(['/home']) ;
             this.loading=false;
           }
@@ -137,11 +160,11 @@ export class RegisterComponent implements OnInit {
 
 
 }
-handle(responce){
-  console.log(responce)
-  console.log(responce.mesaage)
-  this.message=responce.message
-}
+// handle(responce){
+//   console.log(responce)
+//   console.log(responce.mesaage)
+//   this.message=responce.message
+// }
 
 
 

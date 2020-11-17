@@ -5,9 +5,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule} from '@angular/material/toolbar';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import {CreateProposalComponent} from './landing-page/create-proposal/create-proposal.component'
@@ -40,24 +39,38 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { CommentComponent } from './landing-page/feed/comment/comment.component';
 import { ShareProposalComponent } from './landing-page/feed/share-proposal/share-proposal.component';
+import { TeamComponent } from './team/team.component';
+import { ForgetPasswordComponent} from './forget-password/forget-password.component';
+import { MatSelectFilterModule } from 'mat-select-filter';
+import { ResetLinkComponent } from './reset-link/reset-link.component';
+import { SocialLoginModule, SocialAuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider} from "angularx-social-login";
 
+// let config = new SocialAuthServiceConfig ([
+//   {
+//   id: GoogleLoginProvider.PROVIDER_ID,
+//   provider: new GoogleLoginProvider("1091774612794-pi3m6cm0fbpqm3c3trpgp715bgbuc1rp.apps.googleusercontent.com")
+//   }
+//   ]);
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent,
     HomeComponent,
     ErrorComponent,
     RegisterComponent,
     PasswordSpecsComponent,
     ApiResponseComponent,
     LandingPageComponent,
-    FilterComponent,
-    FeedComponent,
-    CreateProposalComponent,
+   FeedComponent,
+   ShareProposalComponent,
+   CreateProposalComponent,
+   FilterComponent,
+    TeamComponent,
     CommentComponent,
-    ShareProposalComponent
+    ForgetPasswordComponent,
+    ResetLinkComponent
   ],
   imports: [
     BrowserModule,
@@ -82,14 +95,30 @@ import { ShareProposalComponent } from './landing-page/feed/share-proposal/share
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectFilterModule,
+    SocialLoginModule
   ],
   providers: [
     UserRegisterService,
     GetTeamService,
     ProposalService,
     PostProposalService,
-    GetProposalsService
+    GetProposalsService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '1091774612794-ck1f5rcf8j2fov97b6b85ar9ougd0k5j.apps.googleusercontent.com'
+            ),
+          }
+        ],
+      } as SocialAuthServiceConfig,
+    }
   ],
   bootstrap: [AppComponent]
 })

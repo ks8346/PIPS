@@ -13,26 +13,24 @@ export class CreateProposalComponent implements OnInit {
   Teams:{}[]=[]
   userId:string
   teamVisibility=true
-  id="null"
+  dialogTitle:string="Create Proposal"
+  id:number=null
   values:TestServiceService;
+  public tit 
+  public descrip
+  public prop
   ngOnInit(){
     this.userId=this.data.userId
-    this.id=this.data.id
-    if(this.data.id){
+    if(this.data.post){
       this.teamVisibility=false
-    }
+      this.id=this.data.post.id
+      this.tit = this.data.post.title
+      this.descrip = this.data.post.description
+      this.prop= "Update Proposal"
+     }
+     else{
+       this.prop="Create Proposal"
+     }
   }
-  onClear(){
-    this.service.form.reset();
-    this.service.initialiseFormGroup();
-  }
-  onSubmit(){
-    console.log(this.service.form.value);
-    this.values=this.service.form.value
-    this.sentTeam=this.service.form.controls["teams"].value
-    
-    // this.Teams=JSON.parse(this.service.form.controls["teams"].value[0])
-    
-    return {"title":this.service.form.controls["title"].value,"description":this.service.form.controls["description"].value,"teams":this.sentTeam}
-  }
+  
 }

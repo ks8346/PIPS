@@ -1,15 +1,18 @@
-<div style="background-color: rgb(238, 236, 236); height:100%">
+<div style="background-color: rgb(238, 236, 236); height:100%;">
     <mat-toolbar  color="primary" class="header">
         <button mat-icon-button (click)="showMenu()" [class.d-none]="!this.menuButton">
             <mat-icon>menu</mat-icon>
         </button>
-        <span><a href="/welcome"><img src="assets/img/LOGO.png" alt="title logo" style="height: 40px;width:auto;"></a></span>
+        <span><a href="/welcome"><img src="assets/img/LogoBgR.png" alt="title logo" style="height: 55px;width:auto;"></a></span>
         <span class="space"></span>
-        <button mat-button [matMenuTriggerFor]="beforeMenu">Hello, {{this.name}}</button>
+        <button mat-icon-button class="profile"  [matMenuTriggerFor]="beforeMenu" style="border-radius:50%;width:45px;height:45px;border:2px solid white;padding-left:-50%;padding-top:-2px;padding-right:4px">
+            <mat-icon style="font-size: 28px;margin:0px">person</mat-icon>
+        </button>
         <mat-menu class="menu" #beforeMenu="matMenu" xPosition="before" >
-            <div mat-menu-item style="width: auto;">{{this.email}}</div>
-            <div mat-menu-item style="width: auto;">{{this.User.team.name}}</div>
-            <div mat-menu-item style="width: auto; margin:auto 10px;" class="btn btn-danger" (click)="destroySession()">Logout</div>
+            <div mat-menu-item style="width: auto;">Hello, {{this.user.name}}</div>
+            <div mat-menu-item style="width: auto;">Email : {{this.user.email}}</div>
+            <div mat-menu-item style="width: auto;">Team  : {{this.user.team.name}}</div>
+            <div mat-menu-item style="width: auto; margin:auto 10px;" class="btn btn-danger logout" (click)="destroySession()">Logout</div>
         </mat-menu>
     </mat-toolbar>
     <div style="background-color: rgb(238, 236, 236);">
@@ -22,17 +25,24 @@
             [infiniteScrollDistance]="3"
             [infiniteScrollThrottle]="50"
             (scrolled)="onScroll()"
-            [style.padding-left.%]="padding">
-                <button mat-raised-button class="postButton"  color="primary" (click)="openDialog()"> New Proposal</button>
+            [style.padding-left.%]="padding"
+            style="padding-right: 3%;">
+                <div class="container" style="background-color: white;padding:1%;border-radius: 10px;margin-bottom: 1%;">
+                    <button mat-stroked-button class="postButton"   (click)="openDialog()">
+                        <mat-icon style="font-size: 25px;" > how_to_vote</mat-icon>&nbsp;
+                        Propose an improvement...
+                    </button>
+                </div>
                 <mat-divider></mat-divider>
                 <div>
                     <div *ngFor="let post of feed;index as i">
                         <div style="background-color: white;margin: 2% auto;border-radius: 10px;">
-                            <app-feed class="feed" [post]="post" [userId]="userId" [type]="type" (update)="openDialog($event)"></app-feed>
+                            <app-feed class="feed" [post]="post" [userId]="this.user.id" [type]="type" (update)="openDialog($event)" (share)="openDialogshare($event)" (deleteProposal)="deleteProposal($event)"></app-feed>
                         </div>
                     </div>
+                    <div class="endMessage">{{this.endMessage}}</div>
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
 </div>

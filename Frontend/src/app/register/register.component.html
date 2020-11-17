@@ -6,7 +6,7 @@
         <div>
             <h2 style="text-align: center;"> Register Here </h2>
         </div>
-        <mat-grid-list cols="7"  >
+        <mat-grid-list cols="7" rowHeight="90px" >
             <mat-grid-tile colspan="3" >
         <!-- <div class=" x"> -->
             <label for="userName" >User Name :</label>
@@ -44,9 +44,10 @@
             <mat-grid-tile colspan="3">
             <mat-form-field appearance ="fill" style="width:100%">
                 
-            <mat-select formControlName="team"  [(ngModel)]="selectedTeam" required >
+            <mat-select formControlName="team"  [(ngModel)]="selectedTeam"  required >
+                <mat-select-filter  [array]="teams" (filteredReturn)="filteredTeams =$event"></mat-select-filter>
                 <mat-option value = "others" selected>Create a new team</mat-option>
-                <mat-option *ngFor="let team of teams" [value]="team">{{team}} </mat-option>    
+                <mat-option *ngFor="let team of filteredTeams" [value]="team">{{team}} </mat-option>    
             </mat-select>
             <mat-error *ngIf="registerForm.controls.team.hasError('required')">Please make a selection</mat-error>
         </mat-form-field>
@@ -96,7 +97,8 @@
             </mat-grid-tile>
             <mat-grid-tile colspan="3">
             <mat-form-field appearance ="fill" style="width:100%">
-                <input type="password" matInput formControlName="confirmPass"  />
+                <input type="password" matInput [type]="hide1 ? 'password' : 'text'" formControlName="confirmPass"  />
+                <mat-icon matSuffix (click)="hide1 = !hide1" style="position:relative">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                 <mat-error *ngIf="registerForm.controls.confirmPass.hasError('required')">Please enter a value</mat-error>
                 <!-- <mat-error  *ngIf="f.confirmPass.errors.ConfirmPasswordValidator">Password doesnot match</mat-error> -->
             </mat-form-field>
@@ -114,7 +116,7 @@
         
         <mat-grid-tile colspan="7">
         <div class=" x">
-            <button [disabled]="loading" class="btn btn-primary" >
+            <button [disabled]="!registerForm.valid" class="btn btn-primary" style="margin-right: 20px;">
                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                 Submit
             </button>

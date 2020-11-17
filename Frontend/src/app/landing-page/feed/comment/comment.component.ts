@@ -1,5 +1,7 @@
 import { Component, OnInit ,Input,Output,EventEmitter } from '@angular/core';
 
+import {Comment} from 'src/app/landing-page/comment'
+
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
@@ -19,19 +21,18 @@ export class CommentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // console.log(this.comment)
+
+     console.log(this.comment)
+
     this.commentData = this.comment.comment;
     this.commentId = this.comment.id;
     this.userName = this.comment.user.name;
     this.commentedUserId = this.comment.user.id;
 
-    
   }
 
   deleteComment()
   {
-      //  console.log(this.commentId)
-
        this.parentFunction.emit(this.commentId) 
   }
 

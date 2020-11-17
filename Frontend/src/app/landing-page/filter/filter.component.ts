@@ -33,14 +33,18 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void {
   
   }
+  datePlusOne(){
+    console.log("date",this.eDate)
+    this.newEdate = this.eDate;
+    this.newEdate = this.newEdate.setDate(this.newEdate.getDate()+1);
+  }
   processFilter()
   { 
     //  eeDate:Date = this.eDate;
     //  eeDate
 
     //  yourDate.setDate(yourDate.getDate() + 1);
-    this.newEdate = this.eDate;
-    this.newEdate = this.newEdate.setDate(this.newEdate.getDate()+1);
+    
     this.data = [this.sDate,this.newEdate];
     
     if(this.sDate==null || this.eDate==null)

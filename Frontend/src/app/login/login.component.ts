@@ -1,3 +1,7 @@
+
+import { TransferDataService } from './../service/transfer-data.service';
+import { SocialMediaAuthService } from './../service/social-media-auth.service';
+import { ForgetPasswordComponent } from './../forget-password/forget-password.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Component, OnInit ,Inject} from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, FormArray, FormGroupDirective, NgForm } from '@angular/forms';
@@ -9,6 +13,10 @@ import {MatDialog} from '@angular/material/dialog';
 import { MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatDialogRef} from '@angular/material/dialog';
 import { UserLoginService } from '../service/user-login.service';
+import { SocialAuthService } from "angularx-social-login";
+import { GoogleLoginProvider } from "angularx-social-login";
+import { SocialUser } from "angularx-social-login";
+
 
 export interface DialogData {
   email: string;
@@ -28,6 +36,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  check:boolean=false
   email:string;
   loginForm: FormGroup;
   invalidLogin = false
@@ -35,9 +44,19 @@ export class LoginComponent implements OnInit {
   successMessage: string;
   errorMessage = "Invalid Credentials"
   userData;
+  socialData;
+  uData
+  private user: SocialUser;
+  private loggedIn: boolean;
+  public res
+
   constructor(private router: Router,
+    private transferDataService:TransferDataService,
+   private socialMediaAuth:SocialMediaAuthService,
     public dialog: MatDialog,
-    public loginService:UserLoginService) {
+    public loginService:UserLoginService,
+    private authService: SocialAuthService,
+) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
@@ -45,22 +64,65 @@ export class LoginComponent implements OnInit {
   }
   matcher = new MyErrorStateMatcher()
   ngOnInit(): void {
+    // this.authService.authState.subscribe((user) => {
+    //   this.user = user;
+    //   this.loggedIn = (user != null);
+    //   });
+    
+  }
+
+  googleSignIn(){
+      
+      console.log("after1____",this.user)
+      this.authService.authState.subscribe((user) => {
+        if(user!=null)
+        // if
+        {this.user = user;
+        
+        console.log("BEFORE____",this.user)
+        this.loggedIn = (user != null);
+        this.socialMedia()
+        }});
+        if(!this.loggedIn){
+          this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)}
+      // return true
+  }
+
+  socialMedia(){
+   
+
+
+    //buffer
+    this.socialData={"name":this.user["name"],"email":this.user["email"]}
+      console.log("after2____",this.user)
+    this.socialMediaAuth.socialMedia(this.socialData).subscribe(
+      (data1:any) => {
+        this.res=data1
+      console.log("Response----",this.res);
+     this.invalidLogin = false;
+          this.loginSuccess = true;
+          ///
+          // this.sessionCreation.fetchSessionDetails(JSON.stringify(data1))
+          // sessionStorage.setItem('data', JSON.stringify(data1));
+          console.log("data", data1)
+          this.successMessage = 'Login Successful.';
+          this.router.navigate(['/welcome']);
+    }
+    ,
+    (error)=>{
+      console.log("error------",error['error']);
+      //team page
+      this.transferDataService.emitData(error['error'])
+      this.router.navigate(['/team']);
+
+    }
+  );
   }
 
   handleLogin() {
     if(this.loginForm.valid) {
 
       this.loginForm.get('email').value;
-
-        //Redirect
-        // this.loginService.doLogin(this.loginForm.get('email').value,this.loginForm.get('password').value;).subscribe(
-        //   data1 => {
-        //     console.log(data1);
-        //    this.message=data1
-        //    this.responseDialog(this.message)
-        //    this.router.navigate("/welcome") ;
-        //    this.loading=false;
-        //  });
 
          this.loginService.doLogin(this.loginForm.get('email').value,this.loginForm.get('password').value).subscribe((result)=> {
         
@@ -69,7 +131,7 @@ export class LoginComponent implements OnInit {
           
           this.invalidLogin = false;
           this.loginSuccess = true;
-          sessionStorage.setItem('data', JSON.stringify(result));
+          // sessionStorage.setItem('data', JSON.stringify(result));
           console.log("data", result)
           this.successMessage = 'Login Successful.';
           this.router.navigate(['/welcome']);
@@ -82,33 +144,16 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // openDialog(): void{
-  //   const dialogRef = this.dialog.open(ForgotPasswordDialog, {
-  //     width: '500px',
-  //     data: {email: this.email}
-  //   });
+  openDialog(): void{
+    const dialogRef = this.dialog.open(ForgetPasswordComponent, {
+      width: '500px',
+     
+    });
 
   //   dialogRef.afterClosed().subscribe(result => {
   //     console.log('The dialog was closed');
   //     this.email = result;
   //   });
   // }
+  }
 }
-
-// @Component({
-//   selector: 'forgot-password',
-//   templateUrl: 'forgotPassword.component.html',
-// })
-// export class ForgotPasswordDialog {
-
-//   constructor(
-//     public dialogRef: MatDialogRef<ForgotPasswordDialog>,
-//     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-//    // matcher = new MyErrorStateMatcher()
-
-//   onNoClick(): void {
-//     this.dialogRef.close();
-//   }
-
-// }
-
