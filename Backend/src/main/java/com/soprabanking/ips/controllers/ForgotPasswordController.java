@@ -1,21 +1,14 @@
 package com.soprabanking.ips.controllers;
 
- 
-
-import java.util.Timer;
 
 import java.util.TimerTask;
 import java.util.UUID;
-import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -28,9 +21,10 @@ import com.soprabanking.ips.helper.Email;
 import com.soprabanking.ips.helper.Password;
 import com.soprabanking.ips.helper.TokenId;
 import com.soprabanking.ips.models.Token;
-import com.soprabanking.ips.repositories.TokenRepository;
-import com.soprabanking.ips.repositories.UserRepository;
-import com.soprabanking.ips.services.DeleteTokenService;
+import com.soprabanking.ips.services.EmailService;
+import com.soprabanking.ips.services.TimerService;
+import com.soprabanking.ips.services.TokenService;
+import com.soprabanking.ips.services.UserService;
 
 /**
  * ForgotPassword Controller
@@ -47,23 +41,17 @@ public class ForgotPasswordController {
 	
 	private static final Logger LOGGER = LogManager.getLogger(ForgotPasswordController.class);
     
-    @Autowired
-    private JavaMailSender sender;
+	@Autowired
+    private TokenService tokenService;
     
     @Autowired
-    private TokenRepository token_repo;
+    private TimerService timerService;
     
     @Autowired
-    private UserRepository user_repo;
+    private EmailService emailService;
     
     @Autowired
-    private DeleteTokenService delete_token_service;
-    
-    @Autowired
-    private ReentrantLock lock;
-    
-    @Autowired
-    private BCryptPasswordEncoder encoder;
+    private UserService userService;
     
     /**
 	 * This method is used for verification of valid email id entered by the user, 
@@ -71,61 +59,34 @@ public class ForgotPasswordController {
 	 * @param email registered email of the user who wants to reset the password.
 	 * @return responseEntity which holds the response messages with their respective status codes.
 	 * */
-    @PostMapping("/forgot_password")
-    public ResponseEntity<String> forgot_password(@RequestBody Email email) {
+    @PostMapping("/forgotPassword")
+    public ResponseEntity<String> forgotPassword(@RequestBody Email email) {
     	
-    	LOGGER.info("Inside ForgotPasswordController : forgot_password() method");
-        //email validation
-        if (user_repo.getUserByUserName(email.getMail()) == null) {
-        	
-        	LOGGER.error("Inside ForgotPasswordControllerr :forgot_password() FAILURE");
-            return new ResponseEntity<String>("Email does not exist!", HttpStatus.NOT_ACCEPTABLE);
-        }
-        
-        //token creation
-        Token token = new Token();
-        token.setId(UUID.randomUUID());
-        token.setEmail(email.getMail());
-        
-        //deleting token if existed
-        Token old_token = token_repo.getTokenByEmail(email.getMail());
-        if (old_token != null) {
-            lock.lock();
-            delete_token_service.deleteToken(old_token.getId());
-            lock.unlock();
-        }
-        
-        //saving token in database
-        token_repo.save(token);
-        
-        String mail_content = "Password reset link " + "http://localhost:4200/resetLink/" + token.getId();
-        
-        //message creation
-        SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo(email.getMail());
-        msg.setText(mail_content);
-        msg.setSubject("Forgot Password");
-        
-        //sending reset password link through mail
-        sender.send(msg);
-        
-        //creating and setting timer
-        TimerTask task = new TimerTask() {
-            public void run() {
-                lock.lock();
-                delete_token_service.deleteToken(token.getId());
-                lock.unlock();
-            }
-        };
-        
-        Timer timer = new Timer("timer");
-        timer.schedule(task, 300000L);
-        
-        //System.out.println(mail_content);
+    	LOGGER.info("Inside ForgotPasswordController : forgotPassword() method");
 
-        LOGGER.info("Inside ForgotPasswordController : forgot_password() SUCCESS");
-       
-        return new ResponseEntity<String>("message sent successfully", HttpStatus.OK);
+    	try {
+    		if (userService.getUserByUsername(email.getMail()) == null) {
+    			return new ResponseEntity<String>("Email does not exist!", HttpStatus.NOT_ACCEPTABLE);
+    		}
+    		try {
+    			tokenService.deleteTokenByUsername(email.getMail());
+    		}catch(Exception e) {}
+    		Token token = tokenService.createToken(UUID.randomUUID(), email.getMail());
+    		tokenService.saveToken(token);
+    		String mail_content = emailService.mailContent(token.getId());
+    		emailService.sendResetLink(email.getMail(), mail_content, "Forgot Password");
+    		TimerTask task = timerService.createTimer(token.getId());
+    		timerService.scheduleTimer(task, 60000L);
+    		LOGGER.info("Inside ForgotPasswordController : forgotPassword() SUCCESS");
+    		return new ResponseEntity<String>("message sent successfully", HttpStatus.OK);
+    	}catch(Exception e) {
+    		LOGGER.error("Inside ForgotPasswordControllerr :forgotPassword() FAILURE",e);
+    		try {
+    			tokenService.deleteTokenByUsername(email.getMail());
+    		}catch(Exception e1) {}
+    		return new ResponseEntity<String>("Failed to process the forgot password request", HttpStatus.NOT_ACCEPTABLE);
+    	}
+    	
     }
     /**
    	 * This method helps in validating the token whether the session is in continuation or expired 
@@ -133,19 +94,19 @@ public class ForgotPasswordController {
    	 * @return responseEntity which holds the response messages with their respective status codes.
    	 * */
     
-    @PostMapping("validate_token")
-    public ResponseEntity<String> validate_token(@RequestBody TokenId id) {
-    
-    	LOGGER.info("Inside ForgotPasswordController : validate_token() method");
-        
-        //validating token
-        Token token = token_repo.findById(id.getId()).orElse(null);
-        if (token == null) {
-        	LOGGER.error("Inside ForgotPasswordControllerr :validate_token() FAILURE");
-            return new ResponseEntity<String>("session timeout", HttpStatus.NOT_ACCEPTABLE);
-        }
-        LOGGER.info("Inside ForgotPasswordController : validate_token() SUCCESS");
-        return new ResponseEntity<String>("Validation Successfull", HttpStatus.ACCEPTED);
+    @PostMapping("validateToken")
+    public ResponseEntity<String> validateToken(@RequestBody TokenId id) {
+
+    	LOGGER.info("Inside ForgotPasswordController : validateToken() method");
+    	try {
+    		tokenService.findTokenById(id.getId()); 
+    		LOGGER.info("Inside ForgotPasswordController : validateToken() SUCCESS");
+    		return new ResponseEntity<String>("Validation Successfull", HttpStatus.ACCEPTED);
+    	}catch(Exception e) {
+    		LOGGER.error("Inside ForgotPasswordControllerr :validateToken() FAILURE",e);
+    		return new ResponseEntity<String>("Validation Unsuccessfull", HttpStatus.NOT_ACCEPTABLE);
+    	}
+    	
     }
     /**
 	 * This method helps in fetching the token from the database and sends an error if token is not present in the database.
@@ -153,29 +114,20 @@ public class ForgotPasswordController {
 	 * @param password new password entered by the user
 	 * @return responseEntity which holds the response messages with their respective status codes.
 	 * */
-    @PutMapping("reset_password")
-    public ResponseEntity<String> reset_password(@RequestBody Password password) {
-    	LOGGER.info("Inside ForgotPasswordController : reset_password() method");
-        lock.lock();
-        //validating token
-        Token token = token_repo.findById(password.getId()).orElse(null);
-        if (token == null) {
-        	
-        	LOGGER.error("Inside ForgotPasswordController :reset_password() FAILURE");
-            return new ResponseEntity<String>("session timeout", HttpStatus.NOT_ACCEPTABLE);
-        }
-        
-        //updating password
-        user_repo.updatePassword(token.getEmail(), encoder.encode(password.getPassword()));
-        
-        delete_token_service.deleteToken(token.getId());
-        
-        lock.unlock();
-        LOGGER.info("Inside ForgotPasswordController : reset_password() SUCCESS");
-        return new ResponseEntity<String>("password updated", HttpStatus.OK);
-        
+    @PutMapping("resetPassword")
+    public ResponseEntity<String> resetPassword(@RequestBody Password password) {
+    	LOGGER.info("Inside ForgotPasswordController : resetPassword() method");
+    	try {
+    		Token token = tokenService.findTokenById(password.getId());
+    		userService.updatePassword(token.getEmail(), password.getPassword());
+    		try {
+    			tokenService.deleteTokenById(token.getId());
+    		}catch(Exception e) {}
+    		LOGGER.info("Inside ForgotPasswordController : resetPassword() SUCCESS");
+    		return new ResponseEntity<String>("password updated", HttpStatus.OK);
+    	}catch(Exception e) {
+    		LOGGER.error("Inside ForgotPasswordController :resetPassword() FAILURE");
+    		return new ResponseEntity<String>("password updation failed", HttpStatus.FAILED_DEPENDENCY);
+    	}
     }
-
- 
-
 }
