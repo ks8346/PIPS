@@ -17,9 +17,10 @@ export class ApiResponseComponent {
       this.msg=data.data
       
     }
- 
+ /**
+  * This method closes the Dialog Box
+  */
   onNoClick(): void {
-    
     this.dialogRef.close();
   }
 }

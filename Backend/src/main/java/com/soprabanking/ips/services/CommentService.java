@@ -105,7 +105,7 @@ public class CommentService {
             Comment addedComment;
             if (user != null) {
                 Proposal proposal = proposalDao.getById(pid);
-                if (proposal != null) {
+             if (proposal != null) {
                     comment.setComment(text);
                     comment.setUser(user);
                     comment.setProposal(proposal);
@@ -131,9 +131,9 @@ public class CommentService {
     /**
      * Deletes an existing {@link Comment} object in response to the specified Request Body String containing the id value of the {@link Comment} object to be deleted. 
      * <p>This method converts the String argument representing the Request Body to a JSON request,retrieves request parameters and values from request body(in this case, id value of the {@link Comment} which has to be deleted.)
-     *  and then deletes the {@link Comment} object having the given id value with the help of {@link CommentDAO#deleteComment(Long)} method of {@link CommentDAO}. </p>
+     *and then deletes the {@link Comment} object having the given id value with the help of {@link CommentDAO#deleteComment(Long)} method of {@link CommentDAO}. </p>
      * @param body String object representing the Request Body for deleting an existing comment for a given Proposal.
-     * @throws Exception if the Request Body is not in the correct format or if the id value of {@link Comment} is invalid or not acceptable
+     * @throws Exception if the Request Body is not in the correct format or if the id value of {@link Comment} is invalid or not acceptable  
      * @see com.soprabanking.ips.daos.CommentDAO#deleteComment(Long)
      */
     public void deleteComment(String body) throws Exception {

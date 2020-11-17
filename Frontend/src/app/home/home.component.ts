@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit {
     }
     
   }
-
+  /**
+   * This method makes the islogin flag true to make the Log In Component visible
+   */
   goToLogIn(){
     this.islogin=true
   }

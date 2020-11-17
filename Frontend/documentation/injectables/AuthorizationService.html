@@ -59,8 +59,23 @@
             <code>src/app/authorization.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>AuthorizationService deals with the session </p>
+
+            </p>
 
 
+            <p class="comment">
+                <h3>Example</h3>
+            </p>
+            <div class="io-description">
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">like getting data from session and deleting session</code></pre>
+                        </div>
+            </div>
 
             <section>
     <h3 id="index">Index</h3>
@@ -118,7 +133,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/authorization.service.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/authorization.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -183,14 +198,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">src/app/authorization.service.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/authorization.service.ts:19</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>function returns the session data as object and if there is no session takes user to login page</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -222,14 +239,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/app/authorization.service.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/authorization.service.ts:29</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>this function destroys the session</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -265,10 +284,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/authorization.service.ts:7</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/authorization.service.ts:12</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>user object as a string</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -280,12 +305,22 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import {Router} from &#x27;@angular/router&#x27;
+/** AuthorizationService deals with the session 
+ * @example
+ * like getting data from session and deleting session
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class AuthorizationService {
+  /**user object as a string*/
   authenticatedUser:string
-  constructor(private router:Router) { }
+  constructor(
+    /**@ignore */
+    private router:Router) { }
+  /**
+   * function returns the session data as object and if there is no session takes user to login page
+  */
   authorization(){
   this.authenticatedUser&#x3D;sessionStorage.getItem(&#x27;authenticatedUser&#x27;)
     if(!this.authenticatedUser){
@@ -293,6 +328,9 @@ export class AuthorizationService {
     }
     return JSON.parse(this.authenticatedUser)
   }
+  /**
+   * this function destroys the session
+  */
   clearSession(){
     sessionStorage.clear()
   }

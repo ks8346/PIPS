@@ -227,8 +227,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/app/service/social-media-auth.service.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/service/social-media-auth.service.ts:35</a></div>
                 </td>
             </tr>
 
@@ -297,8 +297,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">src/app/service/social-media-auth.service.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/service/social-media-auth.service.ts:54</a></div>
                 </td>
             </tr>
 
@@ -336,8 +336,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">src/app/service/social-media-auth.service.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/service/social-media-auth.service.ts:48</a></div>
                 </td>
             </tr>
 
@@ -375,8 +375,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/app/service/social-media-auth.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/service/social-media-auth.service.ts:43</a></div>
                 </td>
             </tr>
 
@@ -414,8 +414,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/app/service/social-media-auth.service.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/service/social-media-auth.service.ts:39</a></div>
                 </td>
             </tr>
 
@@ -453,14 +453,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/service/social-media-auth.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/service/social-media-auth.service.ts:25</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This method verifies that the user exists in our database or not.
+ if the user already exists then it returns all the information of that user and redirects to landing page.
+ else user redirects to create team page for registration.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -609,27 +613,19 @@ export class SocialMediaAuthService {
     private router: Router,
     private transferDataService:TransferDataService) { }
 
-  // socialMedia(data){
-  //   console.log(&quot;inside socialMedia(Frontend)&quot;)
-  //   return this.http.post(&quot;http://localhost:8080/getSocialInfo&quot;,data[&quot;data1&quot;],{responseType:&#x27;text&#x27; as &#x27;json&#x27;})
-  // }
-
+  /**
+   * This method verifies that the user exists in our database or not.
+   	 * if the user already exists then it returns all the information of that user and redirects to landing page.
+   	 * else user redirects to create team page for registration.
+   * @param data 
+   */
   socialMedia(data) {
     console.log(&quot;inside Social Media&quot;)
     return this.http.post(&#x60;http://localhost:8080/getSocialInfo&#x60;,data).pipe(map((res) &#x3D;&gt; {
         this.res&#x3D;res;
         console.log(res)
-        // this.username &#x3D; res[&quot;name&quot;];
         this.registerSuccessfulLogin();
       }
-      // ,
-      // (error)&#x3D;&gt;{
-      //   console.log(&quot;error------&quot;,error[&#x27;error&#x27;]);
-      //   //team page
-      //   this.transferDataService.emitData(error[&#x27;error&#x27;])
-      //   this.router.navigate([&#x27;/team&#x27;]);
-  
-      // }
       ));
   }
 

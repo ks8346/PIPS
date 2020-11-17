@@ -63,6 +63,13 @@
             <code>src/app/user.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>defines the user data type</p>
+
+            </p>
 
 
 
@@ -119,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="1" class="link-to-prism">src/app/user.ts:1</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/user.ts:4</a></div>
                             </td>
                         </tr>
 
@@ -219,10 +226,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/user.ts:5</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/user.ts:11</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>define email of the user (string) </p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -247,10 +260,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/app/user.ts:3</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/user.ts:7</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>define id of the user (unique) </p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -275,10 +294,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/user.ts:4</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/user.ts:9</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>define name of the user (string) </p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -303,10 +328,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/user.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/user.ts:13</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>define team the user is in </p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -324,11 +355,17 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class User {
     constructor(
+        /**define id of the user (unique) */
         public id:number,
+        /**define name of the user (string) */
         public name:string,
+        /**define email of the user (string) */
         public email:string,
+        /**define team the user is in */
         public team:{
+            /**define id of the team (unique) */
             id:number,
+            /**define name of the team (string) */
             name:string
         }
     ){}
