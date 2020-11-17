@@ -125,7 +125,7 @@ public class HomeController {
             }
 
             System.out.println(user);
-            userRepository.save(user);
+            userControllerService.saveUser(user);
             System.out.println(user);
             LOGGER.info("Inside HomeController : registerUser() SUCCESS");
             return new ResponseEntity<>(HttpStatus.OK);
