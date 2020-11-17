@@ -11,16 +11,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forget-password.component.css']
 })
 
-// export class MyErrorStateMatcher implements ErrorStateMatcher {
-//   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-//     const isSubmitted = form && form.submitted;
-//     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-//   }
-// }
-
 export class ForgetPasswordComponent implements OnInit {
 forgetPasswordForm:FormGroup;
-// matcher=new MyErrorStateMatcher
 
 data: string;
 error: string;
@@ -37,7 +29,9 @@ isSubmit : boolean=true;
     });
     
   }
-
+/**
+ * This method calls the Reset Link Service, which sends a link to the submitted registered Email ID from which the user can reset their password incase forgotten.
+ */
   onSubmit(){
     var data={"data1":{"mail":this.forgetPasswordForm.value.email}}
     console.log(data)

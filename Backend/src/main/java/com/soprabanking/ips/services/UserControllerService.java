@@ -41,5 +41,11 @@ public class UserControllerService {
 
 		return user;
 
-}
+	}
+	
+	public void saveUser(User user) {
+		
+		LOGGER.info("Inside UserControllerService : saveUser() method");
+		userRepository.save(user);
+	}
 }

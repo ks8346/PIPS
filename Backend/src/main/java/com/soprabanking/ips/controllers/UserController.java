@@ -20,9 +20,6 @@ import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
 import com.soprabanking.ips.services.UserControllerService;
 
-
-@CrossOrigin
-@RestController
 /**
  * User Controller
  * Provides Rest-APIs for logging in through social media .
@@ -32,6 +29,9 @@ import com.soprabanking.ips.services.UserControllerService;
  * user can access our landing page via social media(GMAIL).
  * @author kavsharma
  */
+@CrossOrigin
+@RestController
+
 public class UserController
 {
 
@@ -40,6 +40,9 @@ public class UserController
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private ObjectMapper objectMapper;
     
     @Autowired
     private TeamRepository teamRepository;
@@ -87,10 +90,10 @@ public class UserController
             	 
             	        try {
 
-            	            ObjectMapper o = new ObjectMapper();
+            	            //ObjectMapper o = new ObjectMapper();
 
 
-            	            String s = o.writeValueAsString(user1);
+            	            String s = objectMapper.writeValueAsString(user1);
             	            LOGGER.info("Inside UserController : getSocialInfo() SUCCESS");
             	            return new ResponseEntity(new AuthenticationBean(s), HttpStatus.OK);
             	        	

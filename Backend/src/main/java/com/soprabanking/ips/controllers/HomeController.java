@@ -31,9 +31,6 @@ import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
 import com.soprabanking.ips.services.HomeService;
 import com.soprabanking.ips.services.UserControllerService;
-
-@CrossOrigin
-@RestController
 /**
  * Home Controller
  * Provides Rest-APIs for user registration and login.
@@ -44,6 +41,9 @@ import com.soprabanking.ips.services.UserControllerService;
  * @author kavsharma
  * 
  */
+@CrossOrigin
+@RestController
+
 
 public class HomeController {
 	
@@ -125,7 +125,7 @@ public class HomeController {
             }
 
             System.out.println(user);
-            userRepository.save(user);
+            userControllerService.saveUser(user);
             System.out.println(user);
             LOGGER.info("Inside HomeController : registerUser() SUCCESS");
             return new ResponseEntity<>(HttpStatus.OK);

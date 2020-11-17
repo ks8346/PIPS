@@ -3621,6 +3621,7 @@ java.lang.Exception: null
 2020-16-13 16:16:51.328 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
 2020-16-13 16:16:51.328 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
 2020-16-13 16:16:51.328 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+<<<<<<< HEAD
 2020-56-13 16:56:03.317 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() method
 2020-56-13 16:56:03.318 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
 2020-56-13 16:56:03.318 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
@@ -4999,3 +5000,202 @@ java.lang.Exception: null
 2020-11-17 12:36:25.070 [RMI TCP Connection(47)-127.0.0.1] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
 2020-11-17 12:36:25.072 [RMI TCP Connection(47)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2020-11-17 12:36:25.089 [RMI TCP Connection(47)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+
+2020-11-17 10:45:37.578 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-103165 with PID 17640 (C:\project\Improvement Proposal system\Process-Improvement-Proposal-System\Backend\target\classes started by mojha in C:\project\Improvement Proposal system\Process-Improvement-Proposal-System\Backend)
+2020-11-17 10:45:37.601 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-17 10:45:39.422 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-17 10:45:39.652 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 213ms. Found 6 JPA repository interfaces.
+2020-11-17 10:45:40.868 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-17 10:45:40.887 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-17 10:45:40.888 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-17 10:45:40.890 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-17 10:45:41.613 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-17 10:45:41.613 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3936 ms
+2020-11-17 10:45:41.858 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-17 10:45:41.950 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-17 10:45:42.073 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-17 10:45:42.089 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-17 10:45:42.379 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-17 10:45:42.577 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-17 10:45:43.185 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-17 10:45:43.223 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-17 10:45:45.973 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-17 10:45:46.015 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-17 10:45:46.131 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getLock() method
+2020-11-17 10:45:46.139 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :  passwordEncoder() method
+2020-11-17 10:45:46.299 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside MyConfig : configure() method
+2020-11-17 10:45:46.299 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :authenticationProvider() method
+2020-11-17 10:45:46.317 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getUserDetailService() method
+2020-11-17 10:45:46.378 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig: configure() method
+2020-11-17 10:45:46.547 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7ac5b4c, org.springframework.security.web.context.SecurityContextPersistenceFilter@463045fb, org.springframework.security.web.header.HeaderWriterFilter@1ecf0ac6, org.springframework.security.web.authentication.logout.LogoutFilter@7911cc15, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@aa1bb14, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@4245bf68, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ea71fc2, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@30508066, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@150fc7a7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@42cf6349, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3344d163, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@646d810b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@55d8c2c4, org.springframework.security.web.session.SessionManagementFilter@7be94cd6, org.springframework.security.web.access.ExceptionTranslationFilter@447521e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3bbb8c16]
+2020-11-17 10:45:47.110 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-11-17 10:45:47.141 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-11-17 10:45:47.144 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-17 10:45:47.147 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-17 10:45:47.149 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-17 10:45:47.157 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-17 10:45:47.162 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2020-11-17 10:45:47.163 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2020-11-17 10:45:47.181 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2020-11-17 10:45:47.183 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2020-11-17 10:45:47.201 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-11-17 10:45:47.208 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-11-17 10:49:38.869 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-103165 with PID 19328 (C:\project\Improvement Proposal system\Process-Improvement-Proposal-System\Backend\target\classes started by mojha in C:\project\Improvement Proposal system\Process-Improvement-Proposal-System\Backend)
+2020-11-17 10:49:38.889 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-17 10:49:40.707 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-17 10:49:40.887 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 170ms. Found 6 JPA repository interfaces.
+2020-11-17 10:49:42.041 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-17 10:49:42.058 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-17 10:49:42.060 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-17 10:49:42.061 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-17 10:49:42.581 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-17 10:49:42.582 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3595 ms
+2020-11-17 10:49:42.857 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-17 10:49:42.944 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-17 10:49:43.042 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-17 10:49:43.062 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-17 10:49:43.268 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-17 10:49:43.419 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-17 10:49:43.980 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-17 10:49:44.012 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-17 10:49:46.564 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-17 10:49:46.579 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-17 10:49:46.707 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getLock() method
+2020-11-17 10:49:46.715 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :  passwordEncoder() method
+2020-11-17 10:49:46.879 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside MyConfig : configure() method
+2020-11-17 10:49:46.880 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :authenticationProvider() method
+2020-11-17 10:49:46.900 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getUserDetailService() method
+2020-11-17 10:49:46.999 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig: configure() method
+2020-11-17 10:49:47.214 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@150fc7a7, org.springframework.security.web.context.SecurityContextPersistenceFilter@27ab206, org.springframework.security.web.header.HeaderWriterFilter@458031da, org.springframework.security.web.authentication.logout.LogoutFilter@4409cae6, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@7faa0680, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@45bbc52f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@19ad75e5, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@9408857, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@55d8c2c4, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@79cb8ffa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6cc48a17, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@30508066, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@798cf6d2, org.springframework.security.web.session.SessionManagementFilter@20cff21e, org.springframework.security.web.access.ExceptionTranslationFilter@2fde9469, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@73e1ecd0]
+2020-11-17 10:49:47.881 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-11-17 10:49:47.955 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-17 10:49:47.957 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-11-17 10:49:48.899 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-11-17 10:49:48.944 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Started ImprovementProposalSystemApplication in 10.791 seconds (JVM running for 14.232)
+2020-11-17 10:50:57.098 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-17 10:50:57.098 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-11-17 10:50:57.113 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 14 ms
+2020-11-17 10:50:57.176 [http-nio-8080-exec-2] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.176 [http-nio-8080-exec-1] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.359 [http-nio-8080-exec-3] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.361 [http-nio-8080-exec-4] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.408 [http-nio-8080-exec-5] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.410 [http-nio-8080-exec-6] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.459 [http-nio-8080-exec-8] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.459 [http-nio-8080-exec-7] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.577 [http-nio-8080-exec-2] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.589 [http-nio-8080-exec-1] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.631 [http-nio-8080-exec-3] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.642 [http-nio-8080-exec-3] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.687 [http-nio-8080-exec-5] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.688 [http-nio-8080-exec-6] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.734 [http-nio-8080-exec-8] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.751 [http-nio-8080-exec-7] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.790 [http-nio-8080-exec-9] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.805 [http-nio-8080-exec-10] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 10:50:57.871 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.HomeController - Inside HomeController : finaALlTeam() method
+2020-11-17 10:50:57.872 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.HomeService - Inside HomeService : GetTeam() method
+2020-11-17 10:50:57.891 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() method
+2020-11-17 10:50:57.892 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
+2020-11-17 10:50:57.892 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
+2020-11-17 10:50:57.922 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.HomeController - Inside HomeController : finaAllTeam() SUCCESS
+2020-11-17 10:50:57.922 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.HomeService - Inside HomeService : GetTeam() method
+2020-11-17 10:50:57.967 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() SUCCESS
+2020-11-17 10:50:57.968 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() SUCCESS
+2020-11-17 11:05:03.355 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-103165 with PID 7204 (C:\project\Improvement Proposal system\Process-Improvement-Proposal-System\Backend\target\classes started by mojha in C:\project\Improvement Proposal system\Process-Improvement-Proposal-System\Backend)
+2020-11-17 11:05:03.380 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-17 11:05:05.603 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-17 11:05:05.834 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 213ms. Found 6 JPA repository interfaces.
+2020-11-17 11:05:07.046 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-17 11:05:07.060 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-17 11:05:07.062 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-17 11:05:07.063 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-17 11:05:07.539 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-17 11:05:07.539 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4059 ms
+2020-11-17 11:05:07.794 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-17 11:05:07.861 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-17 11:05:07.983 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-17 11:05:08.045 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-17 11:05:08.351 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-17 11:05:08.520 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-17 11:05:09.049 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-17 11:05:09.083 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-17 11:05:12.258 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-17 11:05:12.275 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-17 11:05:12.416 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getLock() method
+2020-11-17 11:05:12.425 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :  passwordEncoder() method
+2020-11-17 11:05:12.568 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside MyConfig : configure() method
+2020-11-17 11:05:12.569 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :authenticationProvider() method
+2020-11-17 11:05:12.592 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getUserDetailService() method
+2020-11-17 11:05:12.657 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig: configure() method
+2020-11-17 11:05:12.865 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72af90e8, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c4c7d6c, org.springframework.security.web.header.HeaderWriterFilter@6cdee57, org.springframework.security.web.authentication.logout.LogoutFilter@16e1219f, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@4703c998, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@20bb85b4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2a99ca99, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3344d163, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@aa1bb14, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@11eec06b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e56bc9b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27ab206, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7faa0680, org.springframework.security.web.session.SessionManagementFilter@1edfedf1, org.springframework.security.web.access.ExceptionTranslationFilter@4863c8ac, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@222acad]
+2020-11-17 11:05:13.434 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-11-17 11:05:13.459 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-11-17 11:05:13.463 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-17 11:05:13.465 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-17 11:05:13.467 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-17 11:05:13.471 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-17 11:05:13.475 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2020-11-17 11:05:13.477 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2020-11-17 11:05:13.485 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2020-11-17 11:05:13.486 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2020-11-17 11:05:13.508 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-11-17 11:05:13.519 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-11-17 11:05:57.733 [http-nio-8080-exec-2] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.771 [http-nio-8080-exec-1] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.789 [http-nio-8080-exec-4] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.811 [http-nio-8080-exec-5] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.818 [http-nio-8080-exec-3] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.837 [http-nio-8080-exec-6] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.848 [http-nio-8080-exec-8] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.866 [http-nio-8080-exec-7] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.902 [http-nio-8080-exec-2] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.921 [http-nio-8080-exec-1] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.928 [http-nio-8080-exec-4] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.949 [http-nio-8080-exec-5] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.958 [http-nio-8080-exec-3] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.975 [http-nio-8080-exec-6] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:57.986 [http-nio-8080-exec-8] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:58.001 [http-nio-8080-exec-7] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:58.012 [http-nio-8080-exec-9] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:58.032 [http-nio-8080-exec-10] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-11-17 11:05:58.065 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.HomeController - Inside HomeController : finaALlTeam() method
+2020-11-17 11:05:58.065 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.HomeService - Inside HomeService : GetTeam() method
+2020-11-17 11:05:58.069 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.HomeController - Inside HomeController : finaAllTeam() SUCCESS
+2020-11-17 11:05:58.069 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.HomeService - Inside HomeService : GetTeam() method
+2020-11-17 11:05:58.072 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() method
+2020-11-17 11:05:58.072 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
+2020-11-17 11:05:58.073 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
+2020-11-17 11:05:58.077 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() SUCCESS
+2020-11-17 11:05:58.077 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() SUCCESS
+
