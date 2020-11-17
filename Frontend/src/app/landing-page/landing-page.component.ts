@@ -81,7 +81,12 @@ export class LandingPageComponent implements OnInit {
       this.getYour()
     }
   }
-  
+  /**
+ * this function is resposible for filtering the feed on the basis of
+ * team Post and
+ * the dates selectes in the advanced filter
+ * @param data can be array of dates and can be a string.
+ */
   onFilter(data){
     this.feed=[]
     if(Array.isArray(data)){
@@ -98,7 +103,10 @@ export class LandingPageComponent implements OnInit {
     this.morePost=true
     this.endMessage=""
   }
-  
+   /**
+ * this function is resposible for adding more proposals to the page as user scroll down.
+ * here we uses infine-Scroll feature of angular
+ */
   onScroll(){
     if((this.newFeed.length>0 || this.page==0)&&this.morePost){
       this.page++
@@ -119,6 +127,9 @@ export class LandingPageComponent implements OnInit {
     }
   }
 
+  /**
+ * opens a dialog for the sharing of proposal
+ */
   openDialogshare(post){
     let dialogRef = this.dialog.open(ShareProposalComponent, {
       height: '250px',
@@ -139,6 +150,9 @@ export class LandingPageComponent implements OnInit {
 
   }
   
+  /**
+ * opens a dialog for the creating a Proposal.
+ */
   openDialog(post?){
     let dialogRef = this.dialog.open(CreateProposalComponent, {
       height: '400px',
