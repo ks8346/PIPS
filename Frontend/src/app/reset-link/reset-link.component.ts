@@ -7,7 +7,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ConfirmPasswordValidator } from '../confirmPassword.Validator';
 
-
+/**This component enables user to reset password */
 @Component({
   selector: 'app-reset-link',
   templateUrl: './reset-link.component.html',
@@ -15,19 +15,36 @@ import { ConfirmPasswordValidator } from '../confirmPassword.Validator';
 })
 export class ResetLinkComponent implements OnInit {
 
+  /**This variable stores instance of reset password form */
   resetLinkForm: FormGroup
+
+  /**@ignore */
   validToken:boolean;
+
+  /**Message to be displayed on successful password reset */
   msg:string="reset sucessfull!"
+
+  /**@ignore */
   token
+
+  /**@ignore */
   hide=true;
+
+  /**@ignore */
   hide1=true;
   
-
-  constructor(public dialog: MatDialog,
+/**@ignore */
+  constructor(
+    /**@ignore */
+    public dialog: MatDialog,
+    /**@ignore */
     private activatedRoute:ActivatedRoute,
+    /**@ignore */
     private resetPassword: ResetPasswordService,
+    /**@ignore */
     private formBuilder: FormBuilder,) { }
 
+  /**This method creates a form for password reset */
   ngOnInit(): void {
     this.resetLinkForm = this.formBuilder.group({
       password: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]], 
@@ -72,7 +89,7 @@ export class ResetLinkComponent implements OnInit {
       data:{data:this.msg}
     });
   }
-/** ask Priyanka*/
+/** This method opens a dialog box displaying required specifications for the password field.*/
   openDialog() {
     const dialogRef = this.dialog.open(PasswordSpecsComponent, {
       height: '380px',

@@ -25,9 +25,4 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should go to Login Component',()=>{
-    component.goToLogIn()
-    expect(component.islogin).toEqual(true);
-  })
 });

@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
 
+    /**@constructor
+   * @param authenticationService This is the instance of object UserLoginService
+  */
     constructor(private authenticationService: UserLoginService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

@@ -1,12 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+/**This service is responsible for reset password */
 @Injectable({
   providedIn: 'root'
 })
 export class ResetPasswordService {
 
+  /**@constructor
+   * @param http This is the instance of object HttpClient
+  */
   constructor(public http: HttpClient) { }
+
   /**
    * This method helps in fetching the token from the database and sends an error if token is not present in the database.
 	 * stores the updated password in the database
