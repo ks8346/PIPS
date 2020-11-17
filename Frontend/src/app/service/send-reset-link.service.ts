@@ -11,7 +11,7 @@ export class SendResetLinkService {
 
   resetLink(data){
     console.log("inside forgetPassword")
-    return this.http.post("http://localhost:8080/forgot_password",
+    return this.http.post("http://localhost:8080/forgotPassword",
     data["data1"],{responseType:'text' as 'json'})
 }
 }
