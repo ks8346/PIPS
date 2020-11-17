@@ -10,7 +10,7 @@ export class ResetPasswordService {
   
   resetPassword(data){
     console.log("inside resetPassword")
-    return this.http.put("http://localhost:8080/reset_password",
+    return this.http.put("http://localhost:8080/resetPassword",
     data["data1"],{responseType:'text' as 'json'})
 }
 
@@ -22,7 +22,7 @@ resetLink(data){
 
 tokenVerification(data){
   console.log("inside tokenVerification")
-  return this.http.post("http://localhost:8080/validate_token",
+  return this.http.post("http://localhost:8080/validateToken",
   data["data1"],{responseType:'text' as 'json'})
 }
 }
