@@ -9,7 +9,6 @@ userData: any;
 //  public subscriber = this.observer.asObservable();
 
   emitData(data) {
-    console.log("inside service-------",data);
     this.userData = data;
    // this.observer.next(data);
   }
