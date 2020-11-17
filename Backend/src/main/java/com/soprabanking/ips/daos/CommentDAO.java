@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import com.soprabanking.ips.models.Comment;
 import com.soprabanking.ips.repositories.CommentRepository;
 /**
- * This class is a Data Access Object Class for Comments shown on proposals.It has the following methods
+ * This class is a Data Access Object Class for <a href="Comment.html">{@link com.soprabanking.ips.models.Comment}</a> shown on proposals.It has the following methods
  * <ul>
  * 	<li>fetchAllComments method to fetch all the comments of a given proposal</li>
  * 	<li>createComment method to save the comment </li>

@@ -105,6 +105,22 @@ class ProposalControllerTest {
 
         assertEquals("FAILURE",mvcResult.getResponse().getContentAsString());
     }
+    
+    @Test
+    void deleteProposalError() throws Exception {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id",1L);
+
+        Mockito.when(proposalService.deleteProposal(ArgumentMatchers.anyString())).thenThrow(new RuntimeException());
+
+        MvcResult mvcResult = mockMvc.perform(post("/proposal/delete")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(jsonObject.toString()))
+                .andExpect(status().is4xxClientError())
+                .andReturn();
+
+        assertEquals("FAILURE",mvcResult.getResponse().getContentAsString());
+    }
 
     //Correct Values
     @Test

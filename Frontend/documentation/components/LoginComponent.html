@@ -361,14 +361,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">src/app/login/login.component.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">src/app/login/login.component.ts:72</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>You are notified when user logs in or logs out. You receive a SocialUser object when the user logs in and a null when the user logs out. SocialUser object contains basic user information such as name, email, photo URL, etc. along with the auth_token. You can communicate the auth_token to your server to authenticate the user in server and make API calls from server.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -400,14 +402,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="122"
-                            class="link-to-prism">src/app/login/login.component.ts:122</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">src/app/login/login.component.ts:111</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This method calls the Log In Service which checks the Submitted credentials to the database to Sign the user into the Application.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -478,14 +482,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="147"
-                            class="link-to-prism">src/app/login/login.component.ts:147</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">src/app/login/login.component.ts:134</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This method opens the Reset Password component as Dialog Box allowing the user to Reset their Password.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -517,14 +523,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="91"
-                            class="link-to-prism">src/app/login/login.component.ts:91</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/login/login.component.ts:87</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This methods calls the Social Media Authentication service to log the user into a session to acces the Proposal Improvement System Application. The credentials are checked in the Database to either Sign Up or Sign In the user.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1031,35 +1039,27 @@ export class LoginComponent implements OnInit {
   }
   matcher &#x3D; new MyErrorStateMatcher()
   ngOnInit(): void {
-    // this.authService.authState.subscribe((user) &#x3D;&gt; {
-    //   this.user &#x3D; user;
-    //   this.loggedIn &#x3D; (user !&#x3D; null);
-    //   });
     
   }
-
+  /**
+ * You are notified when user logs in or logs out. You receive a SocialUser object when the user logs in and a null when the user logs out. SocialUser object contains basic user information such as name, email, photo URL, etc. along with the auth_token. You can communicate the auth_token to your server to authenticate the user in server and make API calls from server.
+ */
   googleSignIn(){
-      
-      console.log(&quot;after1____&quot;,this.user)
       this.authService.authState.subscribe((user) &#x3D;&gt; {
         if(user!&#x3D;null)
-        // if
         {this.user &#x3D; user;
-        
-        console.log(&quot;BEFORE____&quot;,this.user)
         this.loggedIn &#x3D; (user !&#x3D; null);
         this.socialMedia()
         }});
         if(!this.loggedIn){
           this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)}
-      // return true
   }
 
+
+  /**
+ * This methods calls the Social Media Authentication service to log the user into a session to acces the Proposal Improvement System Application. The credentials are checked in the Database to either Sign Up or Sign In the user.
+ */
   socialMedia(){
-   
-
-
-    //buffer
     this.socialData&#x3D;{&quot;name&quot;:this.user[&quot;name&quot;],&quot;email&quot;:this.user[&quot;email&quot;]}
       console.log(&quot;after2____&quot;,this.user)
     this.socialMediaAuth.socialMedia(this.socialData).subscribe(
@@ -1068,9 +1068,6 @@ export class LoginComponent implements OnInit {
       console.log(&quot;Response----&quot;,this.res);
      this.invalidLogin &#x3D; false;
           this.loginSuccess &#x3D; true;
-          ///
-          // this.sessionCreation.fetchSessionDetails(JSON.stringify(data1))
-          // sessionStorage.setItem(&#x27;data&#x27;, JSON.stringify(data1));
           console.log(&quot;data&quot;, data1)
           this.successMessage &#x3D; &#x27;Login Successful.&#x27;;
           this.router.navigate([&#x27;/welcome&#x27;]);
@@ -1078,27 +1075,23 @@ export class LoginComponent implements OnInit {
     ,
     (error)&#x3D;&gt;{
       console.log(&quot;error------&quot;,error[&#x27;error&#x27;]);
-      //team page
       this.transferDataService.emitData(error[&#x27;error&#x27;])
       this.router.navigate([&#x27;/team&#x27;]);
-
     }
   );
   }
-
+    /**
+ * This method calls the Log In Service which checks the Submitted credentials to the database to Sign the user into the Application.
+ */
   handleLogin() {
     if(this.loginForm.valid) {
 
       this.loginForm.get(&#x27;email&#x27;).value;
-
          this.loginService.doLogin(this.loginForm.get(&#x27;email&#x27;).value,this.loginForm.get(&#x27;password&#x27;).value).subscribe((result)&#x3D;&gt; {
-        
           this.userData&#x3D;sessionStorage.getItem(&#x27;authenticatedUser&#x27;)
           console.log(&quot;results&quot;,this.userData, this.userData)
-          
           this.invalidLogin &#x3D; false;
           this.loginSuccess &#x3D; true;
-          // sessionStorage.setItem(&#x27;data&#x27;, JSON.stringify(result));
           console.log(&quot;data&quot;, result)
           this.successMessage &#x3D; &#x27;Login Successful.&#x27;;
           this.router.navigate([&#x27;/welcome&#x27;]);
@@ -1110,18 +1103,14 @@ export class LoginComponent implements OnInit {
 
     }
   }
-
+/**
+ * This method opens the Reset Password component as Dialog Box allowing the user to Reset their Password.
+ */
   openDialog(): void{
     const dialogRef &#x3D; this.dialog.open(ForgetPasswordComponent, {
       width: &#x27;500px&#x27;,
      
     });
-
-  //   dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
-  //     console.log(&#x27;The dialog was closed&#x27;);
-  //     this.email &#x3D; result;
-  //   });
-  // }
   }
 }
 </code></pre>
@@ -1132,7 +1121,7 @@ export class LoginComponent implements OnInit {
 &lt;div class&#x3D;&quot;container&quot;&gt;
   &lt;b&gt;&lt;h1 class&#x3D;&quot;text-center&quot;&gt;Welcome! &lt;/h1&gt;&lt;/b&gt;
 	&lt;form [formGroup]&#x3D;&quot;loginForm&quot; (ngSubmit)&#x3D;&quot;handleLogin()&quot; novalidate&gt;
-	    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+	    &lt;div &gt;
 
             &lt;mat-form-field style&#x3D;&quot;width:65%;&quot;&gt;
                 &lt;mat-label&gt;Email&lt;/mat-label&gt;
@@ -1148,7 +1137,7 @@ export class LoginComponent implements OnInit {
               &lt;/mat-form-field&gt;
         &lt;/div&gt;
     
-        &lt;div class&#x3D;&quot;form-group&quot; &gt;
+        &lt;div  &gt;
             &lt;mat-form-field style&#x3D;&quot;width:65%;&quot;&gt;
                 &lt;mat-label&gt;Password&lt;/mat-label&gt;
                 &lt;input type&#x3D;&quot;password&quot; matInput name&#x3D;&quot;password&quot; [formControl]&#x3D;&quot;loginForm.controls.password&quot; [errorStateMatcher]&#x3D;&quot;matcher&quot;
@@ -1160,19 +1149,34 @@ export class LoginComponent implements OnInit {
                 &lt;mat-error *ngIf&#x3D;&quot;loginForm.controls.password.hasError(&#x27;required&#x27;)&quot;&gt;
                   Password is &lt;strong&gt;required&lt;/strong&gt;
                 &lt;/mat-error&gt;
+                
               &lt;/mat-form-field&gt;
+              
+              &lt;!-- &lt;div style&#x3D;&quot;position: fixed; right: 0;&quot;&gt; --&gt;
+                
         &lt;/div&gt;
-        &lt;button mat-raised-button color&#x3D;&quot;primary&quot; class&#x3D;&quot;btn btn-primary&quot; [disabled]&#x3D;&quot;!loginForm.valid&quot; style&#x3D;&quot;margin-right: 15px;&quot;&gt;Log In&lt;/button&gt;
+        &lt;div&gt;
+        &lt;button mat-raised-button color&#x3D;&quot;primary&quot; class&#x3D;&quot;btn btn-primary&quot; [disabled]&#x3D;&quot;!loginForm.valid&quot; style&#x3D;&quot;margin-right: 15px; &quot;&gt;Log In&lt;/button&gt;
+        &lt;/div&gt;
         
-        &lt;br&gt;
+        
         &lt;small *ngIf &#x3D; &#x27;invalidLogin&#x27; style&#x3D;&quot;color:red;&quot;&gt;{{errorMessage}}&lt;/small&gt;
+        &lt;div style &#x3D; &quot;vertical-align: baseline;&quot;&gt;
+          &lt;button mat-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;openDialog()&quot;&gt;Reset Password?&lt;/button&gt;
+       
+        &lt;/div&gt;
   &lt;/form&gt;
-  &lt;button mat-raised-button color&#x3D;&quot;primary&quot; class&#x3D;&quot;btn btn-primary&quot;(click)&#x3D;&quot;googleSignIn()&quot; &gt;
-    &lt;i class&#x3D;&quot;fa fa-google&quot;&gt;&lt;/i&gt;
-    Log In With Google&lt;/button&gt;
-  &lt;div&gt;
-    &lt;button mat-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;openDialog()&quot;&gt;Forgot Password?&lt;/button&gt;
-  &lt;/div&gt;
+  &lt;mat-divider style&#x3D;&quot;width: 40%; display: inline-block;&quot;&gt;&lt;/mat-divider&gt;
+&lt;span style&#x3D;&quot;padding: 10px; font-weight: 50;font-size: 10px;&quot;&gt;Or&lt;/span&gt;
+&lt;mat-divider style&#x3D;&quot;width: 40%; display: inline-block;&quot;&gt;&lt;/mat-divider&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;div&gt;
+  &lt;button mat-raised-button  (click)&#x3D;&quot;googleSignIn()&quot;  style&#x3D;&quot;border-radius: 30px;&quot;&gt;
+    &lt;img src&#x3D;&quot;assets/img/GoogleLogo.png&quot; alt&#x3D;&quot;title logo&quot; style&#x3D;&quot;height: 15px;width:auto; padding-right: 5px;&quot;&gt;
+    Sign In With Google&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;br&gt;
 &lt;/div&gt;
 
 
@@ -1188,7 +1192,8 @@ export class LoginComponent implements OnInit {
   }
 
 .container {
-  padding-top: 10px;
+  padding: 10px;
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1227,7 +1232,7 @@ export class LoginComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">  <b><h1 class="text-center">Welcome! </h1></b>	<form [formGroup]="loginForm" (ngSubmit)="handleLogin()" novalidate>	    <div class="form-group">            <mat-form-field style="width:65%;">                <mat-label>Email</mat-label>                <input matInput name= "username" [formControl]="loginForm.controls.email" [errorStateMatcher]="matcher"                       placeholder="Ex. pat@example.com">                               <mat-error *ngIf="loginForm.controls.email.hasError(\'email\') && !loginForm.controls.email.hasError(\'required\')">                  Please enter a valid email address                </mat-error>                <mat-error *ngIf="loginForm.controls.email.hasError(\'required\')">                  Email is <strong>required</strong>                </mat-error>              </mat-form-field>        </div>            <div class="form-group" >            <mat-form-field style="width:65%;">                <mat-label>Password</mat-label>                <input type="password" matInput name="password" [formControl]="loginForm.controls.password" [errorStateMatcher]="matcher"                       placeholder="">                               <!-- <mat-error *ngIf="loginForm.controls.password.hasError(\'password\') && !loginForm.controls.email.hasError(\'required\')">                  Please enter a valid email address                </mat-error> -->                <mat-error *ngIf="loginForm.controls.password.hasError(\'required\')">                  Password is <strong>required</strong>                </mat-error>              </mat-form-field>        </div>        <button mat-raised-button color="primary" class="btn btn-primary" [disabled]="!loginForm.valid" style="margin-right: 15px;">Log In</button>                <br>        <small *ngIf = \'invalidLogin\' style="color:red;">{{errorMessage}}</small>  </form>  <button mat-raised-button color="primary" class="btn btn-primary"(click)="googleSignIn()" >    <i class="fa fa-google"></i>    Log In With Google</button>  <div>    <button mat-button color="primary" (click)="openDialog()">Forgot Password?</button>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <b><h1 class="text-center">Welcome! </h1></b>	<form [formGroup]="loginForm" (ngSubmit)="handleLogin()" novalidate>	    <div >            <mat-form-field style="width:65%;">                <mat-label>Email</mat-label>                <input matInput name= "username" [formControl]="loginForm.controls.email" [errorStateMatcher]="matcher"                       placeholder="Ex. pat@example.com">                               <mat-error *ngIf="loginForm.controls.email.hasError(\'email\') && !loginForm.controls.email.hasError(\'required\')">                  Please enter a valid email address                </mat-error>                <mat-error *ngIf="loginForm.controls.email.hasError(\'required\')">                  Email is <strong>required</strong>                </mat-error>              </mat-form-field>        </div>            <div  >            <mat-form-field style="width:65%;">                <mat-label>Password</mat-label>                <input type="password" matInput name="password" [formControl]="loginForm.controls.password" [errorStateMatcher]="matcher"                       placeholder="">                               <!-- <mat-error *ngIf="loginForm.controls.password.hasError(\'password\') && !loginForm.controls.email.hasError(\'required\')">                  Please enter a valid email address                </mat-error> -->                <mat-error *ngIf="loginForm.controls.password.hasError(\'required\')">                  Password is <strong>required</strong>                </mat-error>                              </mat-form-field>                            <!-- <div style="position: fixed; right: 0;"> -->                        </div>        <div>        <button mat-raised-button color="primary" class="btn btn-primary" [disabled]="!loginForm.valid" style="margin-right: 15px; ">Log In</button>        </div>                        <small *ngIf = \'invalidLogin\' style="color:red;">{{errorMessage}}</small>        <div style = "vertical-align: baseline;">          <button mat-button color="primary" (click)="openDialog()">Reset Password?</button>               </div>  </form>  <mat-divider style="width: 40%; display: inline-block;"></mat-divider><span style="padding: 10px; font-weight: 50;font-size: 10px;">Or</span><mat-divider style="width: 40%; display: inline-block;"></mat-divider><br><br><div>  <button mat-raised-button  (click)="googleSignIn()"  style="border-radius: 30px;">    <img src="assets/img/GoogleLogo.png" alt="title logo" style="height: 15px;width:auto; padding-right: 5px;">    Sign In With Google</button>    </div>  <br></div></div>'
     var COMPONENTS = [{'name': 'ApiResponseComponent', 'selector': 'app-api-response'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommentComponent', 'selector': 'app-comment'},{'name': 'CreateProposalComponent', 'selector': 'app-create-proposal'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FeedComponent', 'selector': 'app-feed'},{'name': 'FilterComponent', 'selector': 'app-filter'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PasswordSpecsComponent', 'selector': 'app-password-specs'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ResetLinkComponent', 'selector': 'app-reset-link'},{'name': 'ShareProposalComponent', 'selector': 'app-share-proposal'},{'name': 'TeamComponent', 'selector': 'app-team'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};

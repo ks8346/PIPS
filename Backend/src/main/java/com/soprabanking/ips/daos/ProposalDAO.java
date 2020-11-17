@@ -16,7 +16,7 @@ import com.soprabanking.ips.models.Proposal;
 import com.soprabanking.ips.repositories.ProposalRepository;
 import com.soprabanking.ips.services.TeamService;
 /**
- * This class is a Data Access Object Class for Proposals made.It has the following methods
+ * This class is a Data Access Object Class for <a href="Proposal.html">{@link com.soprabanking.ips.models.Proposal}</a> made.It has the following methods
  * <ul>
  * 	<li>fetchAllProposals</li>
  * <li>getDefault</li>
