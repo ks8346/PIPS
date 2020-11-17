@@ -7625,3 +7625,11 @@ java.lang.NullPointerException: Cannot invoke "org.springframework.mail.javamail
 2020-11-17 17:01:43.548 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
 2020-11-17 17:01:43.550 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
 2020-11-17 17:01:43.551 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 17:05:51.232 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-17 17:05:51.235 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-17 17:05:51.273 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-17 17:05:51.275 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-17 17:05:51.806 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-17 17:05:51.810 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-17 17:05:51.881 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-17 17:05:51.883 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS

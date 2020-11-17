@@ -73,6 +73,7 @@ export class LandingPageComponent implements OnInit {
     private getProposals:GetProposalsService,
     /**teams objects api call*/
     private teams:TeamsService) { }
+    
 /**gets the session data and calls functions to setup the initial view*/
   ngOnInit(): void {
     this.user=this.autho.authorization()
@@ -80,6 +81,7 @@ export class LandingPageComponent implements OnInit {
     this.getTeams()
     this.resize()
   }
+
 /**
   * This method calls a service method that is an api call to Team posts
   */ 
@@ -90,6 +92,7 @@ export class LandingPageComponent implements OnInit {
       }
     );
   }
+
   /**
   * This method calls a service method that is an api call to all posts
   */ 
@@ -101,6 +104,7 @@ export class LandingPageComponent implements OnInit {
       }
     });
   }
+
 /**
  * This method calls a service method that is an api call to all created posts
  */ 
@@ -112,6 +116,7 @@ export class LandingPageComponent implements OnInit {
       }
     });
   }
+
   /**
  * This method calls a service method that is an api call to all created posts
  */ 
@@ -123,6 +128,7 @@ export class LandingPageComponent implements OnInit {
       }
     });
   }
+
   /**
  * This method filters the api calls on the basis of which type is selected
  * @param {string}
@@ -139,6 +145,7 @@ export class LandingPageComponent implements OnInit {
       this.getYour()
     }
   }
+
   /**
  * This method is called when filter components sends a data to filter feed
  * @param {string?,array?}
@@ -160,6 +167,7 @@ export class LandingPageComponent implements OnInit {
     this.morePost=true
     this.endMessage=""
   }
+
   /**
  * This method runs when a scroll event is emitted
  * @returns returns new 3 proposals every time scroll event is emitted
@@ -183,6 +191,7 @@ export class LandingPageComponent implements OnInit {
       this.newFeed=[]
     }
   }
+
 /**
  * This method opens a Share proposal dialog
  * @returns After closing calls an api to update teams of a proposal
@@ -206,6 +215,7 @@ export class LandingPageComponent implements OnInit {
     })
 
   }
+
 /**
  * This method opens a Create proposal dialog
  * @returns After closing calls an api to store proposal and refreshs the page
@@ -271,8 +281,10 @@ export class LandingPageComponent implements OnInit {
       this.padding=4
     }
   }
+
 /**window resize evenr handled*/
   @HostListener('window:resize', ['$event'])
+
 /**
  * This method listens to the window resize event
  * @returns it calls a resize funtion for making the application responsive
@@ -282,6 +294,10 @@ export class LandingPageComponent implements OnInit {
     this.resize()
   }
   
+  /**
+ * This method handles the error that is recieved during scrolling api calls
+ * 
+*/
   errorHandling(error){
     if(error.status==406){
       this.morePost=false;
@@ -304,6 +320,7 @@ export class LandingPageComponent implements OnInit {
     this.autho.clearSession()
     this.authService.signOut();
   }
+
 /**
  * 
  * This method deletes a proposal in real time by removing it from the array stored on frontend and also sending an api call to backend at the same time

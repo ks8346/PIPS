@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {Proposal} from './proposal'
+/** This is the post-proposal service */
 @Injectable({
   providedIn: 'root'
 })
