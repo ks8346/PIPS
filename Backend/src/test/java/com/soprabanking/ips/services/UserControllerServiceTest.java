@@ -46,7 +46,7 @@ class UserControllerServiceTest {
 		
 		when(userRepository.getUserByUserName("nk@gmail.com")).thenReturn(user);
 		
-		assertEquals(user.getEmail(), userControllerService.GetUserDetails("nk@gmail.com").getEmail());
+		assertEquals(user.getEmail(), userControllerService.getUserDetails("nk@gmail.com").getEmail());
 	}
 	
 	@Test

@@ -169,14 +169,24 @@
 
             <tr>
                 <td class="col-md-4">
+<<<<<<< HEAD
                     <div class="io-line">Defined in <a href="" data-line="15"
                             class="link-to-prism">src/app/service/user-register.service.ts:15</a></div>
+=======
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/service/user-register.service.ts:18</a></div>
+>>>>>>> d7698aff73ecadff92f31b77b76237f04edcaa02
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+<<<<<<< HEAD
+=======
+                    <div class="io-description"><p>This method returns the response message which shows whether the user has successfully registered or not.</p>
+</div>
+>>>>>>> d7698aff73ecadff92f31b77b76237f04edcaa02
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -235,14 +245,24 @@
 
             <tr>
                 <td class="col-md-4">
+<<<<<<< HEAD
                     <div class="io-line">Defined in <a href="" data-line="22"
                             class="link-to-prism">src/app/service/user-register.service.ts:22</a></div>
+=======
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/service/user-register.service.ts:27</a></div>
+>>>>>>> d7698aff73ecadff92f31b77b76237f04edcaa02
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+<<<<<<< HEAD
+=======
+                    <div class="io-description"><p>This method returns list of the team which are already exist in our database.</p>
+</div>
+>>>>>>> d7698aff73ecadff92f31b77b76237f04edcaa02
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/teamList.html" target="_self" >Observable&lt;teamList[]&gt;</a></code>
@@ -271,14 +291,27 @@ export class UserRegisterService {
   constructor(private http:HttpClient) {
     
    }
+<<<<<<< HEAD
 
+=======
+/**
+ * This method returns the response message which shows whether the user has successfully registered or not.
+ * @param data 
+ */
+>>>>>>> d7698aff73ecadff92f31b77b76237f04edcaa02
    doRegister(data){
     console.log(&quot;inside do_register&quot;)
     return this.http.post(&quot;http://localhost:8080/userRegister&quot;,
     data[&quot;data1&quot;],{responseType:&#x27;text&#x27; as &#x27;json&#x27;})
  // return resp
 }
+<<<<<<< HEAD
 
+=======
+/**
+ * This method returns list of the team which are already exist in our database.
+ */
+>>>>>>> d7698aff73ecadff92f31b77b76237f04edcaa02
 getTeam():Observable&lt;teamList[]&gt;{
   console.log(&quot;inside GetTeam&quot;)
   return this.http.get&lt;teamList[]&gt;(&quot;http://localhost:8080/getTeam&quot;)

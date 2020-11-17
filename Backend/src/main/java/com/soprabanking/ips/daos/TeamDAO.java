@@ -32,7 +32,7 @@ public class TeamDAO {
 
     /**
      * This method is used to fetch all the team information by the team id
-     * @param id
+     * @param id: id of long type
      * @return A team which Matches the id passed
      */
     public Team getTeam(long id) {
@@ -48,4 +48,32 @@ public class TeamDAO {
     	LOGGER.info("Inside TeamDAO : fetchAllTeams() method");
         return teamRepository.findAll();
     }
+    /**
+     * This method is used to get team id and name.<br>
+     * Variables used
+     * <br>1)teamRepository : an Object of the <a href="TeamRepository.html">{@link com.soprabanking.ips.repositories.TeamRepository}</a>
+     * @return Team
+     */
+    public List<Object> getTeamdao() {
+        LOGGER.info("Inside HomeService : GetTeam() method");
+
+        return teamRepository.getTeamIdANDName();
+
+    }
+    /**
+     * This method is used to get team name.<br>
+     * Variables used
+     * <br>1)teamRepository : an Object of the <a href="TeamRepository.html">{@link com.soprabanking.ips.repositories.TeamRepository}</a>
+     *@param teamname: team name of string type 
+     * @return Team
+     */
+    
+    public Team getTeamnamedao(String teamname)
+    {
+        LOGGER.info("Inside HomeService : GetTeamname() method");
+        Team team1 = this.teamRepository.getTeamByTeamName(teamname);
+        return team1;
+        
+    }
 }
+

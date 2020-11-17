@@ -34,7 +34,9 @@ export class TeamComponent implements OnInit {
     public router: Router,
     private authService: SocialAuthService
   ) { }
-
+/**
+ * This Method opens a Dialog Box, after you submit the team name, showing the response saying if the team was updated or not.
+ */
   responseDialog() {
     const dialogRef = this.dialog.open(ApiResponseComponent, {
       height: '180px',
@@ -54,7 +56,9 @@ export class TeamComponent implements OnInit {
     data=> this.teams=data
   );
   }
-
+/**
+ * This method calls the User Register Service to send data to register a user into the system.
+ */
   onSubmit(){
     this.submitted = true;
     console.log(this.userData["name"],this.userData.email)

@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
   }
 
 /**
- * Opens dialog box displaying success or error message after submission of registration form.
+ * This Method opens a Dialog Box, after you submit the details, showing the response saying if the registraion was successful or not.
  */
   responseDialog() {
     const dialogRef = this.dialog.open(ApiResponseComponent, {
@@ -79,7 +79,9 @@ export class RegisterComponent implements OnInit {
   this.getTeams();
   }
 
-
+/**
+ * This Method calls the Get Team Service to fetch the list of teams currently in the database.
+ */
   getTeams(){
     this.userService.getTeam().subscribe(
       (data)=> {this.teams=data
@@ -96,7 +98,7 @@ export class RegisterComponent implements OnInit {
   }
   
   /**
-   * returns error message based on email field validations.
+   * This method returns error message based on email field validations.
    */
   getEmailError() {
     if (this.registerForm.controls.email.hasError('required')) {
@@ -107,7 +109,9 @@ export class RegisterComponent implements OnInit {
       return 'Please enter a valid email';
     }
   }
-
+/**
+ * This method calls the User Register Service to send data to register a user into the system.
+ */
   onSubmit() {
     this.submitted = true;
     

@@ -46,7 +46,7 @@ class HomeServiceTest {
 		
 		when(teamRepository.getTeamIdANDName()).thenReturn(teams);
 		
-		assertEquals(teams.get(0).toString(), homeService.GetTeam().get(0).toString());
+		assertEquals(teams.get(0).toString(), homeService.getTeam().get(0).toString());
 	}
 	
 	@Test
@@ -58,7 +58,7 @@ class HomeServiceTest {
 		
 		when(teamRepository.getTeamByTeamName("sparks")).thenReturn(team);
 		
-		assertEquals(team.getName(), homeService.GetTeamname("sparks").getName());
+		assertEquals(team.getName(), homeService.getTeamname("sparks").getName());
 	}
 
 }

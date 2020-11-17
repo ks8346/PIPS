@@ -72,7 +72,7 @@ public class UserController
 
         
          // User user1=this.userRepository.getUserByUserName(email);
-    	  User user1 = userControllerService.GetUserDetails(userName);
+    	User user1 = userControllerService.getUserDetails(userName);
         
           if(user1==null)
            

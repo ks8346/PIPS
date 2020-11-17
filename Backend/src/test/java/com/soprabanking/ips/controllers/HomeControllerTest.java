@@ -91,7 +91,7 @@ class HomeControllerTest {
 		teams.add(team1);
 		teams.add(team2);
 		
-		when(homeService.GetTeam()).thenReturn(teams);
+		when(homeService.getTeam()).thenReturn(teams);
 		
 		assertEquals(teams.get(0).toString(), homeController.findAllTeams().getBody().get(0).toString());
 	}
@@ -99,7 +99,7 @@ class HomeControllerTest {
 	@Test
 	void findAllTeamstest2() {
 		
-		when(homeService.GetTeam()).thenThrow(IllegalStateException.class);
+		when(homeService.getTeam()).thenThrow(IllegalStateException.class);
 		
 		assertTrue(homeController.findAllTeams().getBody().isEmpty());
 	}
@@ -108,7 +108,7 @@ class HomeControllerTest {
 	void registerUsertest1() {
 		
 		when(encoder.encode(anyString())).thenReturn("password");
-		when(homeService.GetTeamname(team.getName())).thenReturn(team);
+		when(homeService.getTeamname(team.getName())).thenReturn(team);
 		Mockito.doNothing().when(userControllerService).saveUser(any(User.class));
 		
 		assertNull(homeController.registerUser(modelWrap).getBody());
@@ -119,7 +119,7 @@ class HomeControllerTest {
 	void registerUsertest2() {
 		
 		when(encoder.encode(anyString())).thenReturn("password");
-		when(homeService.GetTeamname(team.getName())).thenReturn(null);
+		when(homeService.getTeamname(team.getName())).thenReturn(null);
 		Mockito.doNothing().when(userControllerService).saveUser(any(User.class));
 		
 		assertNull(homeController.registerUser(modelWrap).getBody());
@@ -130,7 +130,7 @@ class HomeControllerTest {
 	void registerUsertest3() {
 		
 		when(encoder.encode(anyString())).thenReturn("password");
-		when(homeService.GetTeamname(team.getName())).thenReturn(null);
+		when(homeService.getTeamname(team.getName())).thenReturn(null);
 		Mockito.doThrow(new IllegalArgumentException()).when(userControllerService).saveUser(any(User.class));
 		
 		assertNull(homeController.registerUser(modelWrap).getBody());
@@ -146,7 +146,7 @@ class HomeControllerTest {
 			}
 		};
 		ObjectMapper mapper = new ObjectMapper();
-		when(userControllerService.GetUserDetails("nk@gmail.com")).thenReturn(user);
+		when(userControllerService.getUserDetails("nk@gmail.com")).thenReturn(user);
 		
 		assertEquals(mapper.writeValueAsString(user), homeController.basicauth(principal).getBody().getMessage());
 		
@@ -160,7 +160,7 @@ class HomeControllerTest {
 				return "nk@gmail.com";
 			}
 		};
-		when(userControllerService.GetUserDetails("nk@gmail.com")).thenThrow(EntityNotFoundException.class);
+		when(userControllerService.getUserDetails("nk@gmail.com")).thenThrow(EntityNotFoundException.class);
 		
 		assertNull(homeController.basicauth(principal).getBody());
 		
