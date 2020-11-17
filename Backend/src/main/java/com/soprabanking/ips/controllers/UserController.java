@@ -42,6 +42,9 @@ public class UserController
     private UserRepository userRepository;
     
     @Autowired
+    private ObjectMapper objectMapper;
+    
+    @Autowired
     private TeamRepository teamRepository;
     
     @Autowired
@@ -87,10 +90,10 @@ public class UserController
             	 
             	        try {
 
-            	            ObjectMapper o = new ObjectMapper();
+            	            //ObjectMapper o = new ObjectMapper();
 
 
-            	            String s = o.writeValueAsString(user1);
+            	            String s = objectMapper.writeValueAsString(user1);
             	            LOGGER.info("Inside UserController : getSocialInfo() SUCCESS");
             	            return new ResponseEntity(new AuthenticationBean(s), HttpStatus.OK);
             	        	

@@ -14,5 +14,15 @@ public class UserDAO {
     public User getById(Long id) {
         return userRepository.getOne(id);
     }
+    
+    public User getUser(String username) {
+    	return userRepository.getUserByUserName(username);
+    }
 
+    public void updatePassword(String username, String password) {
+    	
+    	if (userRepository.updatePassword(username, password) == 0) {
+    		throw new IllegalArgumentException();
+    	}
+    }
 }
