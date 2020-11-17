@@ -50,7 +50,7 @@ class UserControllerTest {
 	@Test
 	void getSocialInfoUserIsNulltest() {
 		
-		when(userControllerService.GetUserDetails("nk@gmail.com")).thenReturn(null);
+		when(userControllerService.getUserDetails("nk@gmail.com")).thenReturn(null);
 		
 		assertTrue(userController.getSocialInfo(userAuth).getBody().equals(userAuth));
 		
@@ -59,7 +59,7 @@ class UserControllerTest {
 	@Test
 	void getSocialInfoSuccessfulltest() {
 		
-		when(userControllerService.GetUserDetails("nk@gmail.com")).thenReturn(user);
+		when(userControllerService.getUserDetails("nk@gmail.com")).thenReturn(user);
 		
 		assertEquals(HttpStatus.OK, userController.getSocialInfo(userAuth).getStatusCode());
 		
@@ -68,7 +68,7 @@ class UserControllerTest {
 	@Test
 	void getSocialInfoUnsuccessfulltest() throws JsonProcessingException {
 		
-		when(userControllerService.GetUserDetails("nk@gmail.com")).thenReturn(user);
+		when(userControllerService.getUserDetails("nk@gmail.com")).thenReturn(user);
 		when(mapper.writeValueAsString(any(User.class))).thenThrow(JsonProcessingException.class);
 		assertEquals(HttpStatus.UNAUTHORIZED, userController.getSocialInfo(userAuth).getStatusCode());
 		

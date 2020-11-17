@@ -85,12 +85,12 @@ public class HomeController {
     	 try {
         //List<Object> allteam = teamRepository.getTeamIdANDName();
     	LOGGER.info("Inside HomeController : finaALlTeam() method");
-    	List<Object> allteam = homeService.GetTeam();
+    	List<Object> allteam = homeService.getTeam();
         allteam.forEach(e -> {
             System.out.println(e);
         });
         LOGGER.info("Inside HomeController : finaAllTeam() SUCCESS");
-            return new ResponseEntity<>(homeService.GetTeam(), HttpStatus.OK);
+            return new ResponseEntity<>(homeService.getTeam(), HttpStatus.OK);
         } catch (Exception e) {
         LOGGER.error("Inside HomeController : findAllTeam() FAILURE", e);
             return new ResponseEntity<List<Object>>(new ArrayList<>(), HttpStatus.NOT_FOUND);
@@ -117,7 +117,7 @@ public class HomeController {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             String tname=team.getName();
             //Team team1 = this.teamRepository.getTeamByTeamName(team.getName());
-            Team team1 = homeService.GetTeamname(tname);
+            Team team1 = homeService.getTeamname(tname);
             if (team1 == null) {
                 user.setTeam(team);
             } else {
@@ -157,7 +157,7 @@ public class HomeController {
 
 
            // User user = userRepository.getUserByUserName(userName);
-            User user = userControllerService.GetUserDetails(userName);
+            User user = userControllerService.getUserDetails(userName);
             
 
             ObjectMapper o = new ObjectMapper();
