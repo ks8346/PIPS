@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
 import {TeamsService} from '../teams.service';
 import { FeedComponent } from './feed/feed.component';
 import {SpyLocation} from '@angular/common/testing';
+import {of, throwError} from 'rxjs';
 describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
   let create:CreateProposalComponent;
@@ -95,22 +96,121 @@ describe('LandingPageComponent', () => {
 
   it("should flood feed array with all type",()=>{
     let getProposals:GetProposalsService
+    fixtureCreate=TestBed.createComponent(FeedComponent)
+    feed = fixtureCreate.componentInstance;
+    feed.post={
+      user:{
+        id:1,
+        name:"kartik",
+        email:"ks@gmail.com",
+        teams:{
+          id:1,
+          name:"Devs"
+        }
+      },
+      description:"this is desc",
+      title:"this is title",
+      id:1,
+      teams:[],
+      upvotesCount:10
+    }
+    component.feed=[feed.post,feed.post]
     getProposals=TestBed.inject(GetProposalsService)
     component.type="allPost"
-    let spy=spyOn(getProposals,"getAllPosts").and.callThrough()
+    let spy=spyOn(getProposals,"getAllPosts").and.returnValue(of(component.feed))
     component.ngOnInit()
     expect(spy).toHaveBeenCalled()
+    expect(component.feed).toEqual([feed.post,feed.post])
   })
 
   it("should flood feed array with team type",()=>{
     let getProposals:GetProposalsService
+    fixtureCreate=TestBed.createComponent(FeedComponent)
+    feed = fixtureCreate.componentInstance;
+    feed.post={
+      user:{
+        id:1,
+        name:"kartik",
+        email:"ks@gmail.com",
+        teams:{
+          id:1,
+          name:"Devs"
+        }
+      },
+      description:"this is desc",
+      title:"this is title",
+      id:1,
+      teams:[],
+      upvotesCount:10
+    }
+    component.feed=[feed.post,feed.post]
     getProposals=TestBed.inject(GetProposalsService)
     component.type="teamPost"
-    let spy=spyOn(getProposals,"getTeamPosts").and.callThrough()
+    let spy=spyOn(getProposals,"getTeamPosts").and.returnValue(of(component.feed))
+    component.ngOnInit()
+    expect(spy).toHaveBeenCalled()
+    expect(component.feed).toEqual([feed.post,feed.post])
+  })
+
+  it("should not flood feed array with team type",()=>{
+    let getProposals:GetProposalsService
+    let error={status:406}
+    getProposals=TestBed.inject(GetProposalsService)
+    component.type="teamPost"
+    let spy=spyOn(getProposals,"getTeamPosts").and.returnValue(throwError(error))
     component.ngOnInit()
     expect(spy).toHaveBeenCalled()
   })
 
+  it("should not flood feed array with all type",()=>{
+    let getProposals:GetProposalsService
+    let error={status:406}
+    getProposals=TestBed.inject(GetProposalsService)
+    component.type="allPost"
+    let spy=spyOn(getProposals,"getAllPosts").and.returnValue(throwError(error))
+    component.ngOnInit()
+    expect(spy).toHaveBeenCalled()
+  })
+
+
+  it("should flood feed array with your type",()=>{
+    let getProposals:GetProposalsService
+    fixtureCreate=TestBed.createComponent(FeedComponent)
+    feed = fixtureCreate.componentInstance;
+    feed.post={
+      user:{
+        id:1,
+        name:"kartik",
+        email:"ks@gmail.com",
+        teams:{
+          id:1,
+          name:"Devs"
+        }
+      },
+      description:"this is desc",
+      title:"this is title",
+      id:1,
+      teams:[],
+      upvotesCount:10
+    }
+    component.feed=[feed.post,feed.post]
+    getProposals=TestBed.inject(GetProposalsService)
+    component.type="yourPost"
+    let spy=spyOn(getProposals,"getYourPosts").and.returnValue(of(component.feed))
+    component.ngOnInit()
+    expect(spy).toHaveBeenCalled()
+    expect(component.feed).toEqual([feed.post,feed.post])
+  })
+
+  it("should not flood feed array with your type",()=>{
+    let getProposals:GetProposalsService
+    let error={status:406}
+    getProposals=TestBed.inject(GetProposalsService)
+    component.type="yourPost"
+    let spy=spyOn(getProposals,"getYourPosts").and.returnValue(throwError(error))
+    component.ngOnInit()
+    expect(spy).toHaveBeenCalled()
+  })
   
 
   it("should filter the data",()=>{
