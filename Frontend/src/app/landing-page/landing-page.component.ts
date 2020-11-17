@@ -49,7 +49,9 @@ export class LandingPageComponent implements OnInit {
     this.getTeams()
     this.resize()
   }
-
+/**
+  * This method calls a service method that is an api call to Team posts
+  */ 
   getTeams(){
     this.teams.getTeams().subscribe(
       (data)=>{
@@ -57,19 +59,44 @@ export class LandingPageComponent implements OnInit {
       }
     );
   }
-
+  /**
+  * This method calls a service method that is an api call to all posts
+  */ 
   getAll(){
-    this.getProposals.getAllPosts(this.data).subscribe((data)=>this.feed=data,(error)=>this.errorHandling(error));
+    this.getProposals.getAllPosts(this.data).subscribe((data)=>this.feed=data,(error)=>{
+      this.errorHandling(error)
+      if(error.status!=200){
+        alert("There was some error at server please try later")
+      }
+    });
   }
-
+/**
+ * This method calls a service method that is an api call to all created posts
+ */ 
   getTeam(){
-    this.getProposals.getTeamPosts(this.data,this.user.team.id).subscribe((data)=>this.feed=data,(error)=>this.errorHandling(error));
+    this.getProposals.getTeamPosts(this.data,this.user.team.id).subscribe((data)=>this.feed=data,(error)=>{
+      this.errorHandling(error)
+      if(error.status!=200){
+        alert("There was some error at server please try later")
+      }
+    });
   }
-  
+  /**
+ * This method calls a service method that is an api call to all created posts
+ */ 
   getYour(){
-    this.getProposals.getYourPosts(this.data,this.user.id).subscribe((data)=>this.feed=data,(error)=>this.errorHandling(error));
+    this.getProposals.getYourPosts(this.data,this.user.id).subscribe((data)=>this.feed=data,(error)=>{
+      this.errorHandling(error)
+      if(error.status!=200){
+        alert("There was some error at server please try later")
+      }
+    });
   }
-  
+  /**
+ * This method filters the api calls on the basis of which type is selected
+ * @param {string}
+ * @returns Calls different service methods to call different post api's
+ */ 
   selectApi(data){
     if(data==="allPost"){
       this.getAll()
@@ -81,7 +108,11 @@ export class LandingPageComponent implements OnInit {
       this.getYour()
     }
   }
-  
+  /**
+ * This method is called when filter components sends a data to filter feed
+ * @param {string?,array?}
+ * @returns Calls select api function to select which feed api to call or changes the date to filter api feed
+ */ 
   onFilter(data){
     this.feed=[]
     if(Array.isArray(data)){
@@ -98,7 +129,10 @@ export class LandingPageComponent implements OnInit {
     this.morePost=true
     this.endMessage=""
   }
-  
+  /**
+ * This method runs when a scroll event is emitted
+ * @returns returns new 3 proposals every time scroll event is emitted
+ */ 
   onScroll(){
     if((this.newFeed.length>0 || this.page==0)&&this.morePost){
       this.page++
@@ -118,7 +152,10 @@ export class LandingPageComponent implements OnInit {
       this.newFeed=[]
     }
   }
-
+/**
+ * This method opens a Share proposal dialog
+ * @returns After closing calls an api to update teams of a proposal
+ */ 
   openDialogshare(post){
     let dialogRef = this.dialog.open(ShareProposalComponent, {
       height: '250px',
@@ -138,7 +175,10 @@ export class LandingPageComponent implements OnInit {
     })
 
   }
-  
+/**
+ * This method opens a Create proposal dialog
+ * @returns After closing calls an api to store proposal and refreshs the page
+ */ 
   openDialog(post?){
     let dialogRef = this.dialog.open(CreateProposalComponent, {
       height: '400px',
@@ -172,6 +212,9 @@ export class LandingPageComponent implements OnInit {
     });
   }
   
+/**
+ * This method checks the responsive filter menu is open or not
+ */
   showMenu(){
     if(this.menuVisibility){
       this.menuVisibility=false
@@ -181,6 +224,9 @@ export class LandingPageComponent implements OnInit {
     }
   }
   
+  /**
+ * This method is called by OnResize() and sets values of different variables that controls the padding and width
+ */
   resize(){
     if(this.innerWidth<916){
       this.menuButton=true
@@ -196,6 +242,10 @@ export class LandingPageComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
+/**
+ * This method listens to the window resize event
+ * @returns it calls a resize funtion for making the application responsive
+*/
   onResize(event) {
     this.innerWidth = event.target.innerWidth;
     this.resize()
@@ -212,10 +262,10 @@ export class LandingPageComponent implements OnInit {
   }
   
  /**
+ * This method destroys a session when called
  * @example
- * This Destroys a session when called
  * destroySession()
- * @returns To Home page
+ * @returns Returns to Home page of the application after destroying session
  */
   destroySession(){
    
@@ -224,8 +274,9 @@ export class LandingPageComponent implements OnInit {
     this.authService.signOut();
   }
 /**
+ * 
+ * This method deletes a proposal in real time by removing it from the array stored on frontend and also sending an api call to backend at the same time
  * @example
- * This deletes a proposal in real time
  * deleteProposal(1)
  *
  * @param {number} 
