@@ -5746,3 +5746,1050 @@ Action:
 
 Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
 
+2020-11-17 16:45:14.983 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103319 with PID 13636 (C:\Users\ksachdeva\Desktop\Projects\ProcessImprovementProposalSystem\Process-Improvement-Proposal-System\Backend\target\classes started by ksachdeva in C:\Users\ksachdeva\Desktop\Projects\ProcessImprovementProposalSystem\Process-Improvement-Proposal-System\Backend)
+2020-11-17 16:45:14.998 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-17 16:45:16.182 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-17 16:45:16.332 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 141ms. Found 6 JPA repository interfaces.
+2020-11-17 16:45:17.093 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-17 16:45:17.106 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-17 16:45:17.107 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-17 16:45:17.108 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-17 16:45:17.564 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-17 16:45:17.564 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2472 ms
+2020-11-17 16:45:17.756 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-17 16:45:17.807 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-17 16:45:17.895 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-17 16:45:17.912 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-17 16:45:18.091 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-17 16:45:18.224 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-17 16:45:18.727 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-17 16:45:18.745 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-17 16:45:20.940 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-17 16:45:20.948 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-17 16:45:21.045 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getLock() method
+2020-11-17 16:45:21.059 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getTimer() method
+2020-11-17 16:45:21.071 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :  passwordEncoder() method
+2020-11-17 16:45:21.126 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getMapper() method
+2020-11-17 16:45:21.231 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside MyConfig : configure() method
+2020-11-17 16:45:21.231 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :authenticationProvider() method
+2020-11-17 16:45:21.247 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getUserDetailService() method
+2020-11-17 16:45:21.297 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig: configure() method
+2020-11-17 16:45:21.505 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3a0896b3, org.springframework.security.web.context.SecurityContextPersistenceFilter@48dff674, org.springframework.security.web.header.HeaderWriterFilter@edb83f8, org.springframework.security.web.authentication.logout.LogoutFilter@41f964f9, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@27358a19, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@563317c1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3e74fd84, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@389a5022, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@50a7c72b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3ef3f661, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2ccc9681, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2e45a357, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@54c11750, org.springframework.security.web.session.SessionManagementFilter@541d4d9f, org.springframework.security.web.access.ExceptionTranslationFilter@79f5a6ed, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6a96d639]
+2020-11-17 16:45:21.947 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-11-17 16:45:21.973 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-11-17 16:45:21.976 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-17 16:45:21.980 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-17 16:45:21.981 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-17 16:45:21.996 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-17 16:45:22.000 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2020-11-17 16:45:22.001 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2020-11-17 16:45:22.012 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2020-11-17 16:45:22.014 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2020-11-17 16:45:22.031 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-11-17 16:45:22.039 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-11-17 16:45:45.952 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103319 with PID 19256 (C:\Users\ksachdeva\Desktop\Projects\ProcessImprovementProposalSystem\Process-Improvement-Proposal-System\Backend\target\classes started by ksachdeva in C:\Users\ksachdeva\Desktop\Projects\ProcessImprovementProposalSystem\Process-Improvement-Proposal-System\Backend)
+2020-11-17 16:45:45.969 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-17 16:45:47.288 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-17 16:45:47.450 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 154ms. Found 6 JPA repository interfaces.
+2020-11-17 16:45:48.209 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-17 16:45:48.224 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-17 16:45:48.225 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-17 16:45:48.226 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-17 16:45:48.698 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-17 16:45:48.698 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2655 ms
+2020-11-17 16:45:48.916 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-17 16:45:48.983 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-17 16:45:49.086 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-17 16:45:49.135 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-17 16:45:49.313 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-17 16:45:49.455 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-17 16:45:49.961 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-17 16:45:49.982 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-17 16:45:52.021 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-17 16:45:52.031 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-17 16:45:52.122 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getLock() method
+2020-11-17 16:45:52.131 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getTimer() method
+2020-11-17 16:45:52.142 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :  passwordEncoder() method
+2020-11-17 16:45:52.219 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getMapper() method
+2020-11-17 16:45:52.334 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside MyConfig : configure() method
+2020-11-17 16:45:52.335 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :authenticationProvider() method
+2020-11-17 16:45:52.353 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getUserDetailService() method
+2020-11-17 16:45:52.406 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig: configure() method
+2020-11-17 16:45:52.602 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4601047, org.springframework.security.web.context.SecurityContextPersistenceFilter@541d4d9f, org.springframework.security.web.header.HeaderWriterFilter@79f5a6ed, org.springframework.security.web.authentication.logout.LogoutFilter@684372d0, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@4e5c8ef3, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@8077c97, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@14d1737a, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3c16528d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@25e8e59, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2d4fb0d8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@48dff674, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2bb31455, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3a0896b3, org.springframework.security.web.session.SessionManagementFilter@edb83f8, org.springframework.security.web.access.ExceptionTranslationFilter@7c901203, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3bd08435]
+2020-11-17 16:45:53.100 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-11-17 16:45:53.199 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-17 16:45:53.201 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-11-17 16:45:53.879 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-11-17 16:45:53.893 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Started ImprovementProposalSystemApplication in 8.559 seconds (JVM running for 11.103)
+2020-11-17 16:46:08.078 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-17 16:46:08.078 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-11-17 16:46:08.088 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2020-11-17 16:46:08.285 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UserController - Inside  UserController : getSocialInfo() method
+2020-11-17 16:46:08.286 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UserControllerService - Inside UserControllerService : GetUserDetails() method
+2020-11-17 16:46:08.422 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UserController - Inside UserController : getSocialInfo() SUCCESS
+2020-11-17 16:46:08.425 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.authentication.AuthenticationBean - Inside AuthenticationBean : AuthenticationBean() method
+2020-11-17 16:46:08.447 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.authentication.AuthenticationBean - Inside AuthenticationBean : getMessage() method
+2020-11-17 16:46:08.570 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() method
+2020-11-17 16:46:08.571 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
+2020-11-17 16:46:08.571 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
+2020-11-17 16:46:08.576 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-11-17 16:46:08.576 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-11-17 16:46:08.618 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-11-17 16:46:08.635 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() SUCCESS
+2020-11-17 16:46:08.635 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() SUCCESS
+2020-11-17 16:46:08.636 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-11-17 16:46:08.734 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-11-17 16:46:08.736 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() SUCCESS
+2020-11-17 16:46:08.860 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:08.861 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:08.861 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:08.862 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:08.862 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:08.863 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:08.879 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:08.880 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:08.880 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:08.881 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:08.882 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:08.883 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:08.903 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:08.903 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:08.904 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:08.914 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:08.915 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:08.922 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:08.922 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:08.922 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:08.923 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:08.929 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:08.929 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:08.930 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:08.940 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:08.940 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:08.953 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:08.953 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:08.972 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:08.972 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:36.893 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ProposalController - Inside ProposalController : addProposal() method
+2020-11-17 16:46:36.893 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : saveProposal() method
+2020-11-17 16:46:36.897 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-11-17 16:46:36.912 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-11-17 16:46:36.926 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.UserDAO - Inside UserDAO : getById() method
+2020-11-17 16:46:36.936 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : saveProposal() method
+2020-11-17 16:46:37.252 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : saveProposal() SUCCESS
+2020-11-17 16:46:37.252 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ProposalController - Inside ProposalController : addProposal() SUCCESS
+2020-11-17 16:46:37.276 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-11-17 16:46:37.276 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-11-17 16:46:37.278 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-11-17 16:46:37.284 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-11-17 16:46:37.305 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-11-17 16:46:37.305 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() SUCCESS
+2020-11-17 16:46:38.463 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() method
+2020-11-17 16:46:38.463 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
+2020-11-17 16:46:38.463 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
+2020-11-17 16:46:38.463 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-11-17 16:46:38.464 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-11-17 16:46:38.465 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-11-17 16:46:38.468 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() SUCCESS
+2020-11-17 16:46:38.468 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() SUCCESS
+2020-11-17 16:46:38.469 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-11-17 16:46:38.476 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-11-17 16:46:38.476 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() SUCCESS
+2020-11-17 16:46:38.649 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:38.649 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:38.650 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:38.650 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:38.650 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:38.651 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:38.655 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:38.655 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:38.659 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:38.659 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:38.682 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:38.682 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:38.683 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:38.683 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:38.683 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:38.684 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:38.687 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:38.688 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:38.690 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:38.690 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:38.723 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:38.723 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:38.723 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:38.723 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:38.723 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:38.724 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:38.726 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:38.726 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:38.727 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:38.728 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:40.485 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getUserProposalFeed() method
+2020-11-17 16:46:40.486 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchUserProposals() method
+2020-11-17 16:46:40.490 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchUserProposals() method
+2020-11-17 16:46:40.523 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchUserProposals() SUCCESS
+2020-11-17 16:46:40.535 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getUserProposalFeed() SUCCESS
+2020-11-17 16:46:40.580 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:40.581 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:40.581 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:40.581 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:40.581 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:40.581 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:40.584 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:40.584 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:40.584 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:40.584 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:40.593 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:40.593 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:40.593 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:40.593 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:40.594 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:40.594 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:40.597 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:40.597 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:40.597 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:40.597 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:40.612 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:40.613 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:40.613 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:40.614 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:40.614 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:40.616 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:40.619 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:40.619 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:40.619 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:40.619 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:41.641 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getUserProposalFeed() method
+2020-11-17 16:46:41.642 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchUserProposals() method
+2020-11-17 16:46:41.644 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchUserProposals() method
+2020-11-17 16:46:41.653 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchUserProposals() SUCCESS
+2020-11-17 16:46:41.660 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getUserProposalFeed() SUCCESS
+2020-11-17 16:46:41.690 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getUserProposalFeed() method
+2020-11-17 16:46:41.690 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchUserProposals() method
+2020-11-17 16:46:41.692 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchUserProposals() method
+2020-11-17 16:46:41.703 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchUserProposals() SUCCESS
+2020-11-17 16:46:41.716 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:41.716 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:41.716 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:41.716 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:41.716 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:41.717 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:41.719 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:41.720 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:41.703 [http-nio-8080-exec-7] ERROR com.soprabanking.ips.controllers.FeedController - Inside FeedController : getUserProposalFeed() FAILURE
+java.lang.Exception: null
+	at com.soprabanking.ips.controllers.FeedController.getUserProposalFeed(FeedController.java:123) [classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) [tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) [tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:155) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:52) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:216) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:160) [spring-security-oauth2-client-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+2020-11-17 16:46:41.729 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:41.729 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:45.750 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: upvoteProposal() method
+2020-11-17 16:46:45.750 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: upvoteProposal() method
+2020-11-17 16:46:45.751 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:45.755 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.UserDAO - Inside UserDAO : getById() method
+2020-11-17 16:46:45.756 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getById() method
+2020-11-17 16:46:45.760 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : saveProposal() method
+2020-11-17 16:46:45.774 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: createUpvote() method
+2020-11-17 16:46:45.787 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: upvoteProposal() SUCCESS
+2020-11-17 16:46:45.788 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: upvoteProposal() SUCCESS
+2020-11-17 16:46:51.332 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-11-17 16:46:51.333 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-11-17 16:46:51.337 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchAllProposals() method
+2020-11-17 16:46:51.371 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchAllProposals() SUCCESS
+2020-11-17 16:46:51.371 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESS
+2020-11-17 16:46:51.466 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:51.466 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:51.467 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:51.469 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:51.469 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:51.470 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:51.473 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:51.473 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:51.475 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:51.476 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:51.485 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:51.485 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:51.485 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:51.485 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:51.485 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:51.485 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:51.491 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:51.491 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:51.496 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:51.496 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:51.499 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:51.499 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:51.499 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:51.503 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:51.503 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:51.503 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:51.503 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:51.504 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:51.507 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:51.507 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:52.399 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-11-17 16:46:52.399 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-11-17 16:46:52.401 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchAllProposals() method
+2020-11-17 16:46:52.418 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchAllProposals() SUCCESS
+2020-11-17 16:46:52.419 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESS
+2020-11-17 16:46:52.489 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-11-17 16:46:52.489 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-11-17 16:46:52.492 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchAllProposals() method
+2020-11-17 16:46:52.503 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchAllProposals() SUCCESS
+2020-11-17 16:46:52.504 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESS
+2020-11-17 16:46:52.546 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:52.546 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:52.546 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:52.546 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:52.546 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:52.547 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:52.549 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:52.549 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:52.551 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:52.551 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:52.572 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:52.572 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:52.572 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:52.572 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:52.572 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:52.572 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:52.575 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:52.575 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:52.576 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:52.576 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:52.592 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:52.592 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:52.592 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:52.592 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:52.593 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:52.593 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:52.596 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:52.596 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:52.603 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:52.603 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:53.063 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-11-17 16:46:53.064 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-11-17 16:46:53.067 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchAllProposals() method
+2020-11-17 16:46:53.079 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchAllProposals() SUCCESS
+2020-11-17 16:46:53.080 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESS
+2020-11-17 16:46:53.254 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:53.254 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:53.254 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:53.255 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:53.255 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:53.257 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:53.270 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:53.270 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:53.270 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:53.270 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:53.337 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:53.338 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:53.340 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:53.344 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:53.346 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:53.346 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:53.355 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:53.356 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:53.356 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:53.356 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:53.394 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:53.394 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:53.395 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:53.397 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:53.397 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:53.398 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:53.399 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:53.399 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:53.409 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:53.409 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:53.753 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-11-17 16:46:53.754 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-11-17 16:46:53.759 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchAllProposals() method
+2020-11-17 16:46:53.775 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchAllProposals() SUCCESS
+2020-11-17 16:46:53.777 [http-nio-8080-exec-9] ERROR com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() FAILURE
+java.lang.Exception: null
+	at com.soprabanking.ips.controllers.FeedController.getAllProposalFeed(FeedController.java:84) [classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) [tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) [tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:155) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:52) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:216) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:160) [spring-security-oauth2-client-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+2020-11-17 16:46:53.866 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:46:53.866 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:46:53.867 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:53.873 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:46:53.874 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:46:53.877 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:46:53.879 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:46:53.881 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:46:53.913 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:46:53.913 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:46:58.922 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: reverseupvoteProposal() method
+2020-11-17 16:46:58.923 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: reverseUpvote() method
+2020-11-17 16:46:58.923 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:46:58.927 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getById() method
+2020-11-17 16:46:58.930 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : saveProposal() method
+2020-11-17 16:46:58.953 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: deleteUpvote() method
+2020-11-17 16:46:58.963 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: reverseUpvote() SUCCESS
+2020-11-17 16:46:58.963 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: reverseupvoteProposal() SUCCESS
+2020-11-17 16:47:01.186 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-11-17 16:47:01.186 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() method
+2020-11-17 16:47:01.186 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-11-17 16:47:01.186 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
+2020-11-17 16:47:01.186 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
+2020-11-17 16:47:01.187 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-11-17 16:47:01.189 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() SUCCESS
+2020-11-17 16:47:01.189 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-11-17 16:47:01.189 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() SUCCESS
+2020-11-17 16:47:01.194 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-11-17 16:47:01.194 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() SUCCESS
+2020-11-17 16:47:01.303 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:01.303 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:01.303 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:01.304 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:01.304 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:01.305 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:01.307 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:01.307 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:01.307 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:01.308 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:01.323 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:01.323 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:01.324 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:01.325 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:01.325 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:01.325 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:01.326 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:01.326 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:01.329 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:01.329 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:01.335 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:01.335 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:01.336 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:01.336 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:01.336 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:01.336 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:01.339 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:01.339 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:01.339 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:01.339 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:01.527 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-11-17 16:47:01.527 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-11-17 16:47:01.529 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-11-17 16:47:01.534 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-11-17 16:47:01.547 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-11-17 16:47:01.547 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() SUCCESS
+2020-11-17 16:47:09.669 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-11-17 16:47:09.671 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-11-17 16:47:09.673 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchAllProposals() method
+2020-11-17 16:47:09.683 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchAllProposals() SUCCESS
+2020-11-17 16:47:09.683 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESS
+2020-11-17 16:47:09.847 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:09.848 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:09.848 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:09.852 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:09.852 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:09.852 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:09.852 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:09.852 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:09.858 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:09.858 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:09.884 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:09.884 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:09.884 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:09.885 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:09.886 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:09.886 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:09.889 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:09.890 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:09.890 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:09.890 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:09.919 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:09.919 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:09.919 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:09.920 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:09.921 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:09.921 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:09.922 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:09.922 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:09.925 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:09.925 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:13.619 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-11-17 16:47:13.620 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-11-17 16:47:13.621 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchAllProposals() method
+2020-11-17 16:47:13.637 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchAllProposals() SUCCESS
+2020-11-17 16:47:13.637 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESS
+2020-11-17 16:47:13.836 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:13.836 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:13.836 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:13.838 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:13.838 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:13.838 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:13.840 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:13.840 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:13.842 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:13.842 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:13.867 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:13.867 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:13.867 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:13.867 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:13.867 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:13.868 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:13.871 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:13.871 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:13.872 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:13.872 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:13.887 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:13.887 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:13.888 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:13.888 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:13.888 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:13.889 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:13.891 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:13.891 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:13.891 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:13.891 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:15.088 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-11-17 16:47:15.088 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-11-17 16:47:15.090 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchAllProposals() method
+2020-11-17 16:47:15.101 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchAllProposals() SUCCESS
+2020-11-17 16:47:15.101 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESS
+2020-11-17 16:47:15.197 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:15.198 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:15.198 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:15.198 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:15.200 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:15.200 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:15.203 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:15.203 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:15.203 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:15.203 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:15.246 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:15.246 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:15.247 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:15.256 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:15.256 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:15.258 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:15.258 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:15.258 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:15.260 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:15.261 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:15.284 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:15.284 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:15.285 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:15.288 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:15.289 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:15.290 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:15.291 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:15.291 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:15.291 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:15.291 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:23.495 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: reverseupvoteProposal() method
+2020-11-17 16:47:23.495 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: reverseUpvote() method
+2020-11-17 16:47:23.496 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:23.499 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getById() method
+2020-11-17 16:47:23.501 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : saveProposal() method
+2020-11-17 16:47:23.537 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: deleteUpvote() method
+2020-11-17 16:47:23.547 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: reverseUpvote() SUCCESS
+2020-11-17 16:47:23.547 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: reverseupvoteProposal() SUCCESS
+2020-11-17 16:47:25.752 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-11-17 16:47:25.752 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() method
+2020-11-17 16:47:25.752 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-11-17 16:47:25.752 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
+2020-11-17 16:47:25.752 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
+2020-11-17 16:47:25.753 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-11-17 16:47:25.755 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() SUCCESS
+2020-11-17 16:47:25.755 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() SUCCESS
+2020-11-17 16:47:25.756 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-11-17 16:47:25.760 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-11-17 16:47:25.760 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() SUCCESS
+2020-11-17 16:47:25.863 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:25.863 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:25.863 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:25.863 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:25.863 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:25.863 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:25.865 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:25.865 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:25.865 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:25.865 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:25.878 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:25.878 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:25.878 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:25.879 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:25.879 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:25.879 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:25.881 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:25.881 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:25.886 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:25.886 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:25.891 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:25.892 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:25.892 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:25.893 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:25.894 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:25.894 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:25.894 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:25.894 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:25.896 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:25.897 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:26.009 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-11-17 16:47:26.009 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-11-17 16:47:26.010 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-11-17 16:47:26.013 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-11-17 16:47:26.019 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-11-17 16:47:26.019 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() SUCCESS
+2020-11-17 16:47:27.897 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-11-17 16:47:27.897 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-11-17 16:47:27.900 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchAllProposals() method
+2020-11-17 16:47:27.909 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchAllProposals() SUCCESS
+2020-11-17 16:47:27.909 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESS
+2020-11-17 16:47:27.993 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:27.993 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:27.994 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:27.994 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:27.994 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:27.996 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:27.996 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:27.996 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:27.997 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:27.998 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:28.008 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:28.008 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:28.008 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:28.009 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:28.009 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:28.011 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:28.011 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:28.011 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:28.012 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:28.012 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:28.026 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:28.026 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:28.027 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:28.027 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:28.027 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:28.027 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:28.030 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:28.030 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:28.031 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:28.031 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:28.814 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-11-17 16:47:28.814 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-11-17 16:47:28.818 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchAllProposals() method
+2020-11-17 16:47:28.829 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchAllProposals() SUCCESS
+2020-11-17 16:47:28.829 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESS
+2020-11-17 16:47:28.965 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:28.966 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:28.966 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:28.967 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:28.967 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:28.967 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:28.969 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:28.970 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:28.982 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:28.982 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:28.995 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:28.996 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:28.996 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:28.996 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:28.996 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:28.996 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:28.998 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:28.998 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:28.999 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:28.999 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:29.016 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:29.016 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:29.018 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:29.021 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:29.021 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:29.023 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:29.023 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:29.024 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:29.025 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:29.026 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:30.111 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-11-17 16:47:30.111 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-11-17 16:47:30.114 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchAllProposals() method
+2020-11-17 16:47:30.125 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchAllProposals() SUCCESS
+2020-11-17 16:47:30.125 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESS
+2020-11-17 16:47:30.253 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:30.253 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:30.254 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:30.255 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:30.255 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:30.256 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:30.258 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:30.258 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:30.261 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:30.262 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:30.284 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:30.284 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:30.284 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:30.286 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:30.286 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:30.286 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:30.286 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:30.287 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:30.290 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:30.290 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:30.312 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:30.313 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:30.313 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:30.315 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:30.315 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:30.315 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:30.315 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:30.316 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:30.318 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:30.318 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:31.088 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-11-17 16:47:31.088 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-11-17 16:47:31.092 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchAllProposals() method
+2020-11-17 16:47:31.102 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchAllProposals() SUCCESS
+2020-11-17 16:47:31.102 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() SUCCESS
+2020-11-17 16:47:31.215 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:31.215 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:31.216 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:31.223 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:31.223 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:31.223 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:31.223 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:31.224 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:31.228 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:31.229 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:31.249 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:31.249 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:31.249 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:31.249 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:31.249 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:31.249 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:31.252 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:31.252 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:31.254 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:31.254 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:31.266 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:31.266 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:31.266 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:31.266 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:31.267 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:31.267 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:31.270 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:31.270 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:31.270 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:31.270 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS
+2020-11-17 16:47:31.717 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() method
+2020-11-17 16:47:31.717 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService: fetchAllProposals() method
+2020-11-17 16:47:31.721 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : fetchAllProposals() method
+2020-11-17 16:47:31.743 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.FeedService - Inside FeedService : fetchAllProposals() SUCCESS
+2020-11-17 16:47:31.743 [http-nio-8080-exec-6] ERROR com.soprabanking.ips.controllers.FeedController - Inside FeedController : getAllProposalFeed() FAILURE
+java.lang.Exception: null
+	at com.soprabanking.ips.controllers.FeedController.getAllProposalFeed(FeedController.java:84) [classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) [tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) [tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:155) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:52) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:216) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:160) [spring-security-oauth2-client-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+2020-11-17 16:47:31.801 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() method
+2020-11-17 16:47:31.802 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() method
+2020-11-17 16:47:31.801 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() method
+2020-11-17 16:47:31.802 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() method
+2020-11-17 16:47:31.802 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.CommentDAO - Inside CommentDAO: fetchAllComments() method
+2020-11-17 16:47:31.802 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.UpvotesDAO - Inside UpvotesDAO: getUpvoteforUserIdAndProposalId() method
+2020-11-17 16:47:31.804 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.CommentService - Inside CommentService: displayComments() SUCCESS
+2020-11-17 16:47:31.805 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UpvotesService - Inside UpvotesService: hasUpvoted() SUCCESS
+2020-11-17 16:47:31.805 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.CommentController - Inside CommentController: displayComments() SUCCESS
+2020-11-17 16:47:31.805 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.UpvotesController - Inside UpvotesController: hasUpvotedOrNot() SUCCESS

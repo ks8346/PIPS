@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router'
+/** AuthorizationService deals with the session 
+ * @example
+ * like getting data from session and deleting session
+ */
 @Injectable({
   providedIn: 'root'
 })
