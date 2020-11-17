@@ -55,13 +55,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AppModule-08019713eb20d6465f0da0e9cd1360a9"' : 'data-target="#xs-components-links-module-AppModule-08019713eb20d6465f0da0e9cd1360a9"' }>
+                                            'data-target="#components-links-module-AppModule-c9f85f9d34f1ef9c50c5487640e93b0e"' : 'data-target="#xs-components-links-module-AppModule-c9f85f9d34f1ef9c50c5487640e93b0e"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-08019713eb20d6465f0da0e9cd1360a9"' :
-                                            'id="xs-components-links-module-AppModule-08019713eb20d6465f0da0e9cd1360a9"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-c9f85f9d34f1ef9c50c5487640e93b0e"' :
+                                            'id="xs-components-links-module-AppModule-c9f85f9d34f1ef9c50c5487640e93b0e"' }>
                                             <li class="link">
                                                 <a href="components/ApiResponseComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ApiResponseComponent</a>
@@ -130,20 +130,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AppModule-08019713eb20d6465f0da0e9cd1360a9"' : 'data-target="#xs-injectables-links-module-AppModule-08019713eb20d6465f0da0e9cd1360a9"' }>
+                                        'data-target="#injectables-links-module-AppModule-c9f85f9d34f1ef9c50c5487640e93b0e"' : 'data-target="#xs-injectables-links-module-AppModule-c9f85f9d34f1ef9c50c5487640e93b0e"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AppModule-08019713eb20d6465f0da0e9cd1360a9"' :
-                                        'id="xs-injectables-links-module-AppModule-08019713eb20d6465f0da0e9cd1360a9"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AppModule-c9f85f9d34f1ef9c50c5487640e93b0e"' :
+                                        'id="xs-injectables-links-module-AppModule-c9f85f9d34f1ef9c50c5487640e93b0e"' }>
                                         <li class="link">
                                             <a href="injectables/GetProposalsService.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>GetProposalsService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/GetTeamService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>GetTeamService</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/PostProposalService.html"
@@ -214,9 +210,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/GetProposalsService.html" data-type="entity-link">GetProposalsService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/GetTeamService.html" data-type="entity-link">GetTeamService</a>
-                                </li>
-                                <li class="link">
                                     <a href="injectables/PostProposalService.html" data-type="entity-link">PostProposalService</a>
                                 </li>
                                 <li class="link">
@@ -224,9 +217,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/ResetPasswordService.html" data-type="entity-link">ResetPasswordService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/SendResetLinkService.html" data-type="entity-link">SendResetLinkService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/SocialMediaAuthService.html" data-type="entity-link">SocialMediaAuthService</a>
@@ -245,12 +235,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/UserRegisterService.html" data-type="entity-link">UserRegisterService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/UserService.html" data-type="entity-link">UserService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/ValidateTokenService.html" data-type="entity-link">ValidateTokenService</a>
                                 </li>
                             </ul>
                         </li>

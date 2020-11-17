@@ -5690,3 +5690,59 @@ Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violate
 2020-11-17 16:07:27.138 [http-nio-8080-exec-9] ERROR com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordControllerr :validate_token() FAILURE
 2020-11-17 16:07:27.207 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validate_token() method
 2020-11-17 16:07:27.219 [http-nio-8080-exec-10] ERROR com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordControllerr :validate_token() FAILURE
+2020-11-17 16:43:58.514 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103319 with PID 17184 (C:\Users\ksachdeva\Desktop\Projects\ProcessImprovementProposalSystem\Process-Improvement-Proposal-System\Backend\target\classes started by ksachdeva in C:\Users\ksachdeva\Desktop\Projects\ProcessImprovementProposalSystem\Process-Improvement-Proposal-System\Backend)
+2020-11-17 16:43:58.562 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-17 16:44:00.351 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-17 16:44:00.606 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 236ms. Found 6 JPA repository interfaces.
+2020-11-17 16:44:01.572 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-17 16:44:01.608 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-17 16:44:01.609 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-17 16:44:01.610 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-17 16:44:02.103 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-17 16:44:02.106 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3422 ms
+2020-11-17 16:44:02.326 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-17 16:44:02.404 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-17 16:44:02.521 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-17 16:44:02.550 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-17 16:44:02.785 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-17 16:44:02.948 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-17 16:44:05.386 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-17 16:44:05.415 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-17 16:44:08.678 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-17 16:44:08.696 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-17 16:44:08.836 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getLock() method
+2020-11-17 16:44:08.880 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getTimer() method
+2020-11-17 16:44:08.897 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :  passwordEncoder() method
+2020-11-17 16:44:09.074 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getMapper() method
+2020-11-17 16:44:09.325 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside MyConfig : configure() method
+2020-11-17 16:44:09.329 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :authenticationProvider() method
+2020-11-17 16:44:09.379 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getUserDetailService() method
+2020-11-17 16:44:09.495 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig: configure() method
+2020-11-17 16:44:09.714 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41f964f9, org.springframework.security.web.context.SecurityContextPersistenceFilter@5f56424d, org.springframework.security.web.header.HeaderWriterFilter@41fc0084, org.springframework.security.web.authentication.logout.LogoutFilter@71567f33, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@730bea0, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@1b1252c8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1e721583, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@852ef8d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@652e345, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@120350eb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@448cdb47, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@721bf7ad, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7574d4ad, org.springframework.security.web.session.SessionManagementFilter@3ec9f8d, org.springframework.security.web.access.ExceptionTranslationFilter@7d47dfed, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1ccc1026]
+2020-11-17 16:44:10.310 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-11-17 16:44:10.342 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-11-17 16:44:10.346 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-17 16:44:10.351 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-17 16:44:10.352 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-17 16:44:10.362 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-17 16:44:10.370 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2020-11-17 16:44:10.371 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2020-11-17 16:44:10.398 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2020-11-17 16:44:10.400 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2020-11-17 16:44:10.420 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-11-17 16:44:10.436 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
