@@ -1,11 +1,21 @@
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router'
+/** AuthorizationService deals with the session 
+ * @example
+ * like getting data from session and deleting session
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorizationService {
+  /**user object as a string*/
   authenticatedUser:string
-  constructor(private router:Router) { }
+  constructor(
+    /**@ignore */
+    private router:Router) { }
+  /**
+   * function returns the session data as object and if there is no session takes user to login page
+  */
   authorization(){
   this.authenticatedUser=sessionStorage.getItem('authenticatedUser')
     if(!this.authenticatedUser){
@@ -13,6 +23,9 @@ export class AuthorizationService {
     }
     return JSON.parse(this.authenticatedUser)
   }
+  /**
+   * this function destroys the session
+  */
   clearSession(){
     sessionStorage.clear()
   }

@@ -36,6 +36,7 @@
         </mat-form-field>
         <button type="submit" mat-raised-button color="primary" style="height:35px;float:right" (click)="postComment(post.id)">Comment</button>
     </form>
+
     <!-- <div style="margin:2px auto; border-top: 1px lightgray solid;padding-top: 1%;">{{this.commentsMessage}}</div> -->
     <button mat-stroked-button color=primary  (click)="this.commentVisibility?this.commentVisibility=false:this.commentVisibility=true"  >
         <mat-icon>chat_bubble_outline</mat-icon>
@@ -47,5 +48,6 @@
                 <app-comment class="com" *ngIf="this.commentVisibility" [comment]="comment" [userId]="userId" (parentFunction)="onDelete($event)"></app-comment>
             </div>
         </div>
+
     </div>
 </div>

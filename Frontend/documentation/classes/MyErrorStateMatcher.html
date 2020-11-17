@@ -130,8 +130,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/app/login/login.component.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/login/login.component.ts:22</a></div>
                 </td>
             </tr>
 
@@ -203,16 +203,11 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TransferDataService } from &#x27;./../service/transfer-data.service&#x27;;
 import { SocialMediaAuthService } from &#x27;./../service/social-media-auth.service&#x27;;
 import { ForgetPasswordComponent } from &#x27;./../forget-password/forget-password.component&#x27;;
-import { MatFormFieldModule } from &#x27;@angular/material/form-field&#x27;;
 import { Component, OnInit ,Inject} from &#x27;@angular/core&#x27;;
-import { FormBuilder, FormGroup, FormControl, Validators, FormArray, FormGroupDirective, NgForm } from &#x27;@angular/forms&#x27;;
-import { Router, RouterModule } from &#x27;@angular/router&#x27;;
+import { FormGroup, FormControl, Validators, FormArray, FormGroupDirective, NgForm } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 import {ErrorStateMatcher} from &#x27;@angular/material/core&#x27;;
-import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
-import {MatInputModule} from &#x27;@angular/material/input&#x27;;
 import {MatDialog} from &#x27;@angular/material/dialog&#x27;;
-import { MAT_DIALOG_DATA} from &#x27;@angular/material/dialog&#x27;;
-import { MatDialogRef} from &#x27;@angular/material/dialog&#x27;;
 import { UserLoginService } from &#x27;../service/user-login.service&#x27;;
 import { SocialAuthService } from &quot;angularx-social-login&quot;;
 import { GoogleLoginProvider } from &quot;angularx-social-login&quot;;
@@ -311,20 +306,28 @@ export class LoginComponent implements OnInit {
  */
   handleLogin() {
     if(this.loginForm.valid) {
-
-      this.loginForm.get(&#x27;email&#x27;).value;
-         this.loginService.doLogin(this.loginForm.get(&#x27;email&#x27;).value,this.loginForm.get(&#x27;password&#x27;).value).subscribe((result)&#x3D;&gt; {
+         this.loginService.doLogin(this.loginForm.get(&#x27;email&#x27;).value,this.loginForm.get(&#x27;password&#x27;).value).subscribe(
+           (result)&#x3D;&gt; {
           this.userData&#x3D;sessionStorage.getItem(&#x27;authenticatedUser&#x27;)
-          console.log(&quot;results&quot;,this.userData, this.userData)
           this.invalidLogin &#x3D; false;
           this.loginSuccess &#x3D; true;
-          console.log(&quot;data&quot;, result)
           this.successMessage &#x3D; &#x27;Login Successful.&#x27;;
           this.router.navigate([&#x27;/welcome&#x27;]);
         }, (error) &#x3D;&gt; {
-          console.log(error)
-          this.invalidLogin &#x3D; true;
-          this.loginSuccess &#x3D; false;
+          if(error.status&#x3D;&#x3D;200){
+              this.userData&#x3D;sessionStorage.getItem(&#x27;authenticatedUser&#x27;)
+              this.invalidLogin &#x3D; false;
+              this.loginSuccess &#x3D; true;
+              this.successMessage &#x3D; &#x27;Login Successful.&#x27;;
+              this.router.navigate([&#x27;/welcome&#x27;]);
+          }
+          else if(error.status!&#x3D;200){
+            this.invalidLogin &#x3D; true;
+            this.loginSuccess &#x3D; false;
+          }
+          else{
+            alert(&quot;Some error has occured! please try again later.&quot;)
+          }
         });
 
     }
