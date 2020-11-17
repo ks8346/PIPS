@@ -1,10 +1,9 @@
 import { PasswordSpecsComponent } from './../password-specs/password-specs.component';
 import { ResetPasswordService } from './../service/reset-password.service';
-import { ValidateTokenService } from './../service/validate-token.service';
 import { ApiResponseComponent } from './../api-response/api-response.component';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ConfirmPasswordValidator } from '../confirmPassword.Validator';
 
@@ -26,7 +25,6 @@ export class ResetLinkComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
     private activatedRoute:ActivatedRoute,
-    private validateToken: ValidateTokenService,
     private resetPassword: ResetPasswordService,
     private formBuilder: FormBuilder,) { }
 
@@ -43,14 +41,23 @@ export class ResetLinkComponent implements OnInit {
     this.token=this.activatedRoute.snapshot.paramMap.get('token')
     var data={"data1":{"id":this.token}}
 
-    this.validateToken.tokenVerification(data).subscribe(
+    this.resetPassword.tokenVerification(data).subscribe(
       (data1) => {
         this.validToken=true
          console.log(data1);
         
        },
        (error)=>{
-      this.validToken=false;
+        if(error.status==202){
+          this.validToken=true;
+        }
+        else if(error.status==406){
+          this.validToken=false;
+        }
+        else{
+          alert("Some error has occured! please try again later.")
+        }
+      
        }
      );
     

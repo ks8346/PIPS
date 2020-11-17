@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { UserRegisterService } from '../service/user-register.service';
 import { RegisterComponent } from './register.component';
@@ -7,6 +7,12 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MatDialogModule} from '@angular/material/dialog';
 import {By} from '@angular/platform-browser';
+import { ComponentRef } from '@angular/core';
+
+
+import { teamList } from '../teamList';
+import {of} from 'rxjs';
+import { Teams } from '../teams';
  
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -24,7 +30,9 @@ describe('RegisterComponent', () => {
         MatDialogModule
       ],
       declarations: [ RegisterComponent ],
-      providers:[ UserRegisterService]
+      providers:[ 
+        UserRegisterService
+      ]
     })
     .compileComponents();
     
@@ -38,9 +46,11 @@ describe('RegisterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
   it('invalid form when blank', () => {
     expect(component.registerForm.valid).toBeFalsy();
   });
+
   it('Every field Required',()=>{
     let userName = component.registerForm.controls.userName;
     let email = component.registerForm.controls.email;
@@ -63,6 +73,7 @@ describe('RegisterComponent', () => {
     expect(password.hasError('required', ['required'])).toBeFalsy;
     expect(confirmpassword.hasError('required', ['required'])).toBeFalsy;
   })
+
   it('length of Username should be >=2 && <=20',()=>{
     let userName = component.registerForm.controls.userName;
     userName.setValue("");
@@ -79,19 +90,28 @@ describe('RegisterComponent', () => {
     expect(userName.hasError('minlength', ['minlength'])).toBeFalsy;
     expect(userName.hasError('maxlength', ['maxlength'])).toBeFalsy;
   })
+
   it('email pattern validity', () => {
     let errors = {};
     let email = component.registerForm.controls.email;
     expect(email.valid).toBeFalsy()
+
     errors = email.errors || {};
     expect(errors['required']).toBeTruthy();
+    let response = component.getEmailError();
+    expect(response).toEqual('Please enter a value')
+
     email.setValue("test");
     errors = email.errors||{};
+    response = component.getEmailError();
+    expect(response).toEqual('Please enter a valid email')
     expect(errors['email']).toBeTruthy();
+
     email.setValue("test@example.com");
     errors = email.errors || {};
     expect(errors['email']).toBeFalsy();
   });
+
   it('password specifications check', () => {
     let password = component.registerForm.controls.password;
     password.setValue("");
@@ -101,6 +121,7 @@ describe('RegisterComponent', () => {
     password.setValue("Qwerty@123");
     expect(password.hasError('pattern', ['pattern'])).toBeFalsy;
   });
+
   it('password not equal to confirmpassword is invalid',()=>{
     let password = component.registerForm.controls['password'];
     let confirmpassword = component.registerForm.controls['confirmPass'];
@@ -108,6 +129,7 @@ describe('RegisterComponent', () => {
     confirmpassword.setValue("Abcdef@123");
     expect(password.valid).not.toEqual(confirmpassword.valid);
   })
+
   it('password should be equal to confirmpassword',()=>{
     let password = component.registerForm.controls['password'];
     let confirmpassword = component.registerForm.controls['confirmPass'];
@@ -115,30 +137,62 @@ describe('RegisterComponent', () => {
     confirmpassword.setValue("Qwerty@123");
     expect(password.valid).toEqual(confirmpassword.valid);
   })
+
   it("Form submitted on click submit",()=>{
     component.onSubmit();
     expect(component.submitted).toBe(true);
   })
+
   it("submit loading status changed",()=>{
     component.onSubmit();
     expect(component.loading).toBe(false);
   })
+
   it("should open Dialog",()=>{
     spyOn(component.dialog,"open")
     component.openDialog();
     expect(component.dialog.open).toHaveBeenCalled()
   })
+
   it("should open Dialog",()=>{
     spyOn(component.dialog,"open")
     component.responseDialog();
     expect(component.dialog.open).toHaveBeenCalled()
   })
+
   it('team should be selected',()=>{
     let team = component.registerForm.controls.team;
     team.setValue("");
     expect(team.hasError('required', ['required'])).toBeTruthy;
     team.setValue("Sparks");
     expect(team.hasError('required', ['required'])).toBeFalsy;
-  });
+  })
+
+  it("should call getTeams and return list of teams",fakeAsync(() => {
+    let team = TestBed.inject(UserRegisterService);
+    const response: teamList[] = [{teamName:"Devs"},{teamName:"Sparks"}];
+
+    spyOn(team, 'getTeam').and.returnValue(of(response))
+  
+    component.getTeams();
+  
+    fixture.detectChanges();
+  
+    expect(component.teams).toEqual(response);
+  }));
+
+  it("should check data with existing data",fakeAsync(() => {
+    let userservice = TestBed.inject(UserRegisterService);
+    const response = 'Email Id already exists !!'
+    spyOn(userservice, 'doRegister').and.returnValue(of(response))
+  
+    component.onSubmit();
+  
+    fixture.detectChanges();
+  
+    expect(component.message).toEqual('Email Id already exists!');
+  }));
+  
+
 
 }); 

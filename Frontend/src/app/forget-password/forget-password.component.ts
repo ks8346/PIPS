@@ -1,7 +1,5 @@
-import { SendResetLinkService } from './../service/send-reset-link.service';
-import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { ErrorStateMatcher } from '@angular/material/core';
-import { FormGroup, FormControl, Validators, FormGroupDirective, NgForm } from '@angular/forms';
+import { ResetPasswordService } from './../service/reset-password.service';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -18,7 +16,7 @@ data: string;
 error: string;
 isSubmit : boolean=true;
 
-  constructor(private sendResetLink: SendResetLinkService ) {
+  constructor(private resetLinkService: ResetPasswordService) {
    
    }
 
@@ -35,7 +33,7 @@ isSubmit : boolean=true;
   onSubmit(){
     var data={"data1":{"mail":this.forgetPasswordForm.value.email}}
     console.log(data)
-    this.sendResetLink.resetLink(data).subscribe(
+    this.resetLinkService.resetLink(data).subscribe(
       (data1) => {
          console.log(data1);
          this.isSubmit = false;
@@ -43,8 +41,16 @@ isSubmit : boolean=true;
         
        },
        (error)=>{
-         this.error="Email id doesnot exists. Please try again!"
-      
+        if(error.status==200){
+          this.error="Reset link has been send to your email."
+          
+        }
+        else if(error.status==406){
+          this.error="Email id doesnot exists. Please try again!"
+        }
+        else{
+          alert("Some error has occured! please try again later.")
+        }
        }
      );
 
