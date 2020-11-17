@@ -14,7 +14,7 @@ import {Teams} from '../teams'
 import {Router} from '@angular/router'
 import {User} from '../user';
 import {AuthorizationService} from '../authorization.service';
-
+/**Landing page parent to feed, and filter components*/
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -23,26 +23,57 @@ import {AuthorizationService} from '../authorization.service';
 })
 
 export class LandingPageComponent implements OnInit {
-
+/**@ignore */
   message=null;
+  /**@ignore */
   menuVisibility=true;
+  /**@ignore */
   menuButton=false;
+  /**@ignore */
   innerWidth;
+  /**teams array */
   _teams:Teams[];
+  /**feed array */
   feed=[];
+  /**@ignore */
   newFeed=[];
+  /**@ignore */
   proposalError:string;
+  /**User session */
   user:User;
+  /**type of feed */
   type="teamPost";
+  /**@ignore */
   page=0;
+  /**@ignore */
   width:number;
+  /**@ignore */
   padding:number;
+  /**@ignore */
   endMessage="";
+  /**@ignore */
   morePost=true;
+  /**@ignore */
   startDate=new Date()
+  /**@ignore */
   data=new FeedParams(new Date(this.startDate.setDate(this.startDate.getDate()-30)),new Date(),"0","3")
-  constructor(private authService: SocialAuthService,public autho:AuthorizationService,public router:Router,public post:PostProposalService,public dialog:MatDialog,private getProposals:GetProposalsService,private teams:TeamsService) { }
-
+  
+  constructor(
+    /**@ignore */
+    private authService: SocialAuthService,
+    /**session generation and deletion*/
+    public autho:AuthorizationService,
+    /**@ignore */
+    public router:Router,
+    /**posts proposal and update proposal*/
+    public post:PostProposalService,
+    /**@ignore */
+    public dialog:MatDialog,
+    /**gets all the posts from the backend*/
+    private getProposals:GetProposalsService,
+    /**teams objects api call*/
+    private teams:TeamsService) { }
+/**gets the session data and calls functions to setup the initial view*/
   ngOnInit(): void {
     this.user=this.autho.authorization()
     this.selectApi(this.type)
@@ -240,7 +271,7 @@ export class LandingPageComponent implements OnInit {
       this.padding=4
     }
   }
-
+/**window resize evenr handled*/
   @HostListener('window:resize', ['$event'])
 /**
  * This method listens to the window resize event
