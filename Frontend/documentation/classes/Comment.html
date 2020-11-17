@@ -63,6 +63,13 @@
             <code>src/app/landing-page/comment.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>defines the comment object </p>
+
+            </p>
 
 
 
@@ -119,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="1" class="link-to-prism">src/app/landing-page/comment.ts:1</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/landing-page/comment.ts:4</a></div>
                             </td>
                         </tr>
 
@@ -219,10 +226,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/landing-page/comment.ts:4</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/landing-page/comment.ts:9</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>define string type comment</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -247,10 +260,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/landing-page/comment.ts:5</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/landing-page/comment.ts:11</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>define the date of creation</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -275,10 +294,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/app/landing-page/comment.ts:3</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/landing-page/comment.ts:7</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>define id of the comment (unique) </p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -303,10 +328,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/landing-page/comment.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/landing-page/comment.ts:13</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>define user data that posted the comment</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -324,11 +355,17 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class Comment {
     constructor(
+        /**define id of the comment (unique) */
         public id:number,
+        /**define string type comment*/
         public comment:string,
+        /**define the date of creation*/
         public creationDate:Date,
+        /**define user data that posted the comment*/
         public user:{
+            /**define id of the user*/
             id:number,
+            /**define name of the user */
             name:string
         }
         
