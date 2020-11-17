@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import com.soprabanking.ips.models.Upvotes;
 import com.soprabanking.ips.repositories.UpvotesRepository;
 /**
- * This class is a Data Access Object Class for Upvotes made on proposals.It has the following methods
+ * This class is a Data Access Object Class for <a href="Upvotes.html">{@link com.soprabanking.ips.models.Upvotes}</a> made on proposals.It has the following methods
  * <ul>
  * 	<li>createUpvote</li>
  * 	<li>fetchAllUpvotes</li>
