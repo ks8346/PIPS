@@ -354,14 +354,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">src/app/reset-link/reset-link.component.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/reset-link/reset-link.component.ts:78</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This method calls the Reset Link API that makes a PUT request to update the existing credentials saved by the user.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -393,14 +395,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">src/app/reset-link/reset-link.component.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/reset-link/reset-link.component.ts:69</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>ask Priyanka</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -432,14 +436,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/app/reset-link/reset-link.component.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/app/reset-link/reset-link.component.ts:61</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This Method opens a Dialog Box, after you submit the new password details, showing the response saying if the password reset was successful or not.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -705,7 +711,9 @@ export class ResetLinkComponent implements OnInit {
      );
     
   }
-
+/**
+ * This Method opens a Dialog Box, after you submit the new password details, showing the response saying if the password reset was successful or not.
+ */
   responseDialog() {
     const dialogRef &#x3D; this.dialog.open(ApiResponseComponent, {
       height: &#x27;180px&#x27;,
@@ -713,14 +721,16 @@ export class ResetLinkComponent implements OnInit {
       data:{data:this.msg}
     });
   }
-
+/** ask Priyanka*/
   openDialog() {
     const dialogRef &#x3D; this.dialog.open(PasswordSpecsComponent, {
       height: &#x27;380px&#x27;,
       width: &#x27;400px&#x27;,
     });
   }
-
+/** 
+ * This method calls the Reset Link API that makes a PUT request to update the existing credentials saved by the user.
+*/
   onSubmit(){
     this.responseDialog()
     var data &#x3D;{&quot;data1&quot;:{

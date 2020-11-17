@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.soprabanking.ips.models.Upvotes;
 /**
- * This is the Upvote Repository interface which extends the JpaRepository.It accesses the <a href="Upvote.html">{@link com.soprabanking.ips.models.Upvote}</a> model
+ * This is the Upvote Repository interface which extends the JpaRepository.It accesses the <a href="Upvotes.html">{@link com.soprabanking.ips.models.Upvotes}</a> model
  * @author mojha
  * @see com.soprabanking.ips.models.Upvotes
  */
