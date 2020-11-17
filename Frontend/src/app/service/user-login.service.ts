@@ -17,7 +17,11 @@ export class UserLoginService {
   constructor(private http: HttpClient) {
 
   }
-
+/**
+ * * This method returns all details of user when the user logins into the system and shows that details on the landing page.
+ * @param username 
+ * @param password 
+ */
   doLogin(username: String, password: String) {
     return this.http.get(`http://localhost:8080/signIn`,
       { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {

@@ -5,11 +5,12 @@ import { Subject } from 'rxjs';
 @Injectable({providedIn: 'root'})
 export class TransferDataService {
 userData: any;
-  //observer = new Subject();
-//  public subscriber = this.observer.asObservable();
 
+/**
+ * This method stores data to transfer data between components.
+ * @param data 
+ */
   emitData(data) {
     this.userData = data;
-   // this.observer.next(data);
   }
 }

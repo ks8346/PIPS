@@ -1,3 +1,6 @@
+import { SocialMediaAuthService } from './service/social-media-auth.service';
+import { TransferDataService } from './service/transfer-data.service';
+import { UserLoginService } from './service/user-login.service';
 
 import { UserRegisterService } from './service/user-register.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -45,6 +48,7 @@ import { MatSelectFilterModule } from 'mat-select-filter';
 import { ResetLinkComponent } from './reset-link/reset-link.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider} from "angularx-social-login";
+import { ResetPasswordService } from './service/reset-password.service';
 
 // let config = new SocialAuthServiceConfig ([
 //   {
@@ -104,6 +108,10 @@ import { GoogleLoginProvider} from "angularx-social-login";
     ProposalService,
     PostProposalService,
     GetProposalsService,
+    UserLoginService,
+    TransferDataService,
+    ResetPasswordService,
+    SocialMediaAuthService,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
