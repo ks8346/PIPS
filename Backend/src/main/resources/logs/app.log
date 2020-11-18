@@ -9914,3 +9914,695 @@ javax.persistence.EntityNotFoundException: null
 2020-11-18 17:59:57.861 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.TeamDAO - Inside HomeService : getTeamdao() method
 2020-11-18 18:01:25.484 [Timer-0] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : deleteTokenById() method SUCCESS
 2020-11-18 18:01:25.484 [Timer-0] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : deleteToken(id) method
+2020-11-18 18:17:04.119 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : forgotPassword() method
+2020-11-18 18:17:04.120 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.UserService - Inside UserService : getUserByUsername(username) method
+2020-11-18 18:17:04.120 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.UserDAO - Inside UserDAO : getUser() method
+2020-11-18 18:17:04.157 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : deleteTokenByUsername() method SUCCESS
+2020-11-18 18:17:04.158 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getToken(username) method
+2020-11-18 18:17:04.173 [http-nio-8080-exec-9] ERROR com.soprabanking.ips.services.TokenService - Inside TokenService : deleteTokenByUsername() method FAILURE
+javax.persistence.EntityNotFoundException: null
+	at com.soprabanking.ips.daos.TokenDAO.getToken(TokenDAO.java:44) ~[classes/:?]
+	at com.soprabanking.ips.services.TokenService.deleteTokenByUsername(TokenService.java:68) [classes/:?]
+	at com.soprabanking.ips.controllers.ForgotPasswordController.forgotPassword(ForgotPasswordController.java:72) [classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) [tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) [tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:155) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:52) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:216) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:160) [spring-security-oauth2-client-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+2020-11-18 18:17:04.181 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : createToken(id,username) method
+2020-11-18 18:17:04.182 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : saveToken(token) method
+2020-11-18 18:17:04.182 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : saveToken(token) method
+2020-11-18 18:17:04.199 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.EmailService - Inside EmailService : mailContent() method
+2020-11-18 18:17:04.199 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.EmailService - Inside EmailService : sendResetLink() method
+2020-11-18 18:17:04.199 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.EmailService - Inside EmailService class : sendResetLink() method
+2020-11-18 18:17:09.376 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.TimerService - Inside TimerService : scheduleTimer() method
+2020-11-18 18:17:09.376 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : forgotPassword() SUCCESS
+2020-11-18 18:17:28.526 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:17:28.526 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:17:28.526 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:17:28.531 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:17:35.247 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:17:35.247 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:17:35.248 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:17:35.249 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:17:43.417 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:17:43.417 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:17:43.417 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:17:43.419 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:17:57.400 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:17:57.400 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:17:57.400 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:17:57.401 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:17:57.431 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:17:57.431 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:17:57.431 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:17:57.432 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:17:57.456 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:17:57.456 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:17:57.456 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:17:57.457 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:18:06.815 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:18:06.816 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:18:06.816 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:18:06.818 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:18:06.880 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:18:06.881 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:18:06.881 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:18:06.882 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:18:06.915 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:18:06.916 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:18:06.916 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:18:06.917 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:18:11.638 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:18:11.638 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:18:11.638 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:18:11.640 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:18:11.906 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:18:11.906 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:18:11.906 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:18:11.907 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:18:11.910 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:18:11.911 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:18:11.911 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:18:11.911 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:18:59.887 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:18:59.887 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:18:59.887 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:18:59.888 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:19:04.049 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:19:04.049 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:19:04.049 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:19:04.050 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:19:17.375 [RMI TCP Connection(405)-127.0.0.1] INFO  org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2020-11-18 18:19:17.463 [RMI TCP Connection(405)-127.0.0.1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 18:19:17.471 [RMI TCP Connection(405)-127.0.0.1] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-18 18:19:17.471 [RMI TCP Connection(405)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-18 18:19:17.482 [RMI TCP Connection(405)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-18 18:19:49.223 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103321 with PID 20120 (C:\Users\praggarwal\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes started by praggarwal in C:\Users\praggarwal\Documents\GitHub\Process-Improvement-Proposal-System\Backend)
+2020-11-18 18:19:49.245 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-18 18:19:50.994 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-18 18:19:51.182 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 171ms. Found 6 JPA repository interfaces.
+2020-11-18 18:19:52.222 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-18 18:19:52.242 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-18 18:19:52.243 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-18 18:19:52.244 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-18 18:19:52.690 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-18 18:19:52.690 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3351 ms
+2020-11-18 18:19:52.978 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-18 18:19:53.071 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-18 18:19:53.179 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-18 18:19:53.190 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-18 18:19:53.543 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-18 18:19:53.748 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-18 18:19:55.234 [task-1] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:613) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:161) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:225) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.Driver.makeConnection(Driver.java:465) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.Driver.connect(Driver.java:264) ~[postgresql-42.2.16.jar:42.2.16]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-3.4.5.jar:?]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1224) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1255) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+2020-11-18 18:19:55.256 [task-1] WARN  org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata : FATAL: password authentication failed for user "postgres"
+2020-11-18 18:19:55.290 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-18 18:19:56.649 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-18 18:19:57.910 [task-1] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:613) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:161) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:225) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.Driver.makeConnection(Driver.java:465) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.Driver.connect(Driver.java:264) ~[postgresql-42.2.16.jar:42.2.16]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-3.4.5.jar:?]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:43) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:60) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:40) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:65) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:59) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:155) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:316) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+2020-11-18 18:19:57.913 [task-1] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 28P01
+2020-11-18 18:19:57.914 [task-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - FATAL: password authentication failed for user "postgres"
+2020-11-18 18:19:57.932 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'forgotPasswordController': Unsatisfied dependency expressed through field 'tokenService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tokenService': Unsatisfied dependency expressed through field 'lock'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'getLock' defined in class path resource [com/soprabanking/ips/config/MyConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [java.util.concurrent.locks.ReentrantLock]: Factory method 'getLock' threw exception; nested exception is org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+2020-11-18 18:19:57.934 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 18:19:57.935 [main] WARN  org.springframework.beans.factory.support.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'entityManagerFactory': javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+2020-11-18 18:19:57.936 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-18 18:19:57.940 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2020-11-18 18:19:57.962 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-11-18 18:19:57.964 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'forgotPasswordController': Unsatisfied dependency expressed through field 'tokenService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tokenService': Unsatisfied dependency expressed through field 'lock'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'getLock' defined in class path resource [com/soprabanking/ips/config/MyConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [java.util.concurrent.locks.ReentrantLock]: Factory method 'getLock' threw exception; nested exception is org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) ~[spring-context-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) ~[spring-context-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758) ~[spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at com.soprabanking.ips.ImprovementProposalSystemApplication.main(ImprovementProposalSystemApplication.java:10) [classes/:?]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tokenService': Unsatisfied dependency expressed through field 'lock'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'getLock' defined in class path resource [com/soprabanking/ips/config/MyConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [java.util.concurrent.locks.ReentrantLock]: Factory method 'getLock' threw exception; nested exception is org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	... 20 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'getLock' defined in class path resource [com/soprabanking/ips/config/MyConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [java.util.concurrent.locks.ReentrantLock]: Factory method 'getLock' threw exception; nested exception is org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:655) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:483) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1336) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1176) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	... 20 more
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [java.util.concurrent.locks.ReentrantLock]: Factory method 'getLock' threw exception; nested exception is org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:650) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:483) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1336) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1176) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	... 20 more
+Caused by: org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:448) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:400) ~[spring-tx-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:373) ~[spring-tx-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:574) ~[spring-tx-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:361) ~[spring-tx-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118) ~[spring-tx-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691) ~[spring-aop-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at com.soprabanking.ips.config.MyConfig$$EnhancerBySpringCGLIB$$903b40a9.getLock(<generated>) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:650) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:483) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1336) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1176) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	... 20 more
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:403) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[?:?]
+	at java.lang.Thread.run(Thread.java:832) ~[?:?]
+Caused by: org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:47) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:69) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:60) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:40) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:65) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:59) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:155) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:316) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[?:?]
+	at java.lang.Thread.run(Thread.java:832) ~[?:?]
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:613) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:161) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:225) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.Driver.makeConnection(Driver.java:465) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.Driver.connect(Driver.java:264) ~[postgresql-42.2.16.jar:42.2.16]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-3.4.5.jar:?]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:43) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:60) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:40) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:65) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:59) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:155) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:316) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[?:?]
+	at java.lang.Thread.run(Thread.java:832) ~[?:?]
+2020-11-18 18:21:24.585 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103321 with PID 18576 (C:\Users\praggarwal\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes started by praggarwal in C:\Users\praggarwal\Documents\GitHub\Process-Improvement-Proposal-System\Backend)
+2020-11-18 18:21:24.607 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-18 18:21:26.308 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-18 18:21:26.517 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 191ms. Found 6 JPA repository interfaces.
+2020-11-18 18:21:27.742 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-18 18:21:27.782 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-18 18:21:27.783 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-18 18:21:27.784 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-18 18:21:28.286 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-18 18:21:28.287 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3598 ms
+2020-11-18 18:21:28.607 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-18 18:21:28.698 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-18 18:21:28.810 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-18 18:21:28.816 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-18 18:21:29.132 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-18 18:21:29.441 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-18 18:21:30.106 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-18 18:21:30.162 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-18 18:21:33.538 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-18 18:21:33.549 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 18:21:33.696 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getLock() method
+2020-11-18 18:21:33.705 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getTimer() method
+2020-11-18 18:21:33.798 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :  passwordEncoder() method
+2020-11-18 18:21:33.990 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getMapper() method
+2020-11-18 18:21:34.219 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside MyConfig : configure() method
+2020-11-18 18:21:34.221 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :authenticationProvider() method
+2020-11-18 18:21:34.243 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getUserDetailService() method
+2020-11-18 18:21:34.322 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig: configure() method
+2020-11-18 18:21:34.535 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2fc7fa6e, org.springframework.security.web.context.SecurityContextPersistenceFilter@322b09da, org.springframework.security.web.header.HeaderWriterFilter@6aad919c, org.springframework.security.web.authentication.logout.LogoutFilter@27afbf14, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@1f45db49, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5e24592e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6133e20b, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5112b7, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@7f8c48f3, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2a7ebe07, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@308e87a1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7bb4ed71, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@273dec10, org.springframework.security.web.session.SessionManagementFilter@211a9647, org.springframework.security.web.access.ExceptionTranslationFilter@68e24e7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@74c7522c]
+2020-11-18 18:21:35.258 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-11-18 18:21:35.312 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-18 18:21:35.314 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-11-18 18:21:36.276 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-11-18 18:21:36.295 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Started ImprovementProposalSystemApplication in 12.494 seconds (JVM running for 15.178)
+2020-11-18 18:22:14.016 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-18 18:22:14.016 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-11-18 18:22:14.028 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+2020-11-18 18:22:14.263 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:22:14.263 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:22:14.263 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:22:14.291 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:22:23.505 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:22:23.506 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:22:23.506 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:22:23.510 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:22:28.418 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:22:28.418 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:22:28.418 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:22:28.420 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:22:41.431 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:22:41.431 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:22:41.432 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:22:41.434 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:22:41.450 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:22:41.450 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:22:41.450 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:22:41.452 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:22:41.503 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:22:41.504 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:22:41.504 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:22:41.506 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:22:45.470 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:22:45.471 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:22:45.472 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:22:45.476 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:22:45.642 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:22:45.643 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:22:45.643 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:22:45.650 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:22:47.038 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:22:47.041 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:22:47.043 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:22:47.049 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:22:50.978 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:22:50.978 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:22:50.978 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:22:50.981 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:22:55.832 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:22:55.832 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:22:55.833 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:22:55.835 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:23:01.327 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:23:01.327 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:23:01.327 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:23:01.329 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:27:13.479 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:27:13.480 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:27:13.481 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:27:13.483 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:27:13.576 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:27:13.577 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:27:13.577 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:27:13.578 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:27:13.598 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:27:13.598 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:27:13.599 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:27:13.599 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:27:31.919 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:27:31.920 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:27:31.920 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:27:31.922 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:28:57.419 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:28:57.419 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:28:57.419 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:28:57.421 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:30:54.848 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:30:54.849 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:30:54.849 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:30:54.850 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:32:49.968 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:32:49.968 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:32:49.968 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:32:49.970 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:36:01.924 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:36:01.925 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:36:01.925 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:36:01.927 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:36:07.941 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:36:07.941 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:36:07.941 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:36:07.943 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:36:08.524 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:36:08.525 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:36:08.525 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:36:08.526 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:36:31.478 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:36:31.479 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:36:31.479 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:36:31.481 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:36:32.073 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:36:32.073 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:36:32.075 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:36:32.075 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:36:34.742 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:36:34.742 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:36:34.742 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:36:34.743 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:36:41.156 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:36:41.157 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:36:41.157 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:36:41.159 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:36:41.190 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:36:41.190 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:36:41.190 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:36:41.191 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:37:07.009 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:37:07.009 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:37:07.009 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:37:07.012 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:37:07.498 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:37:07.498 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:37:07.499 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:37:07.504 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:37:43.201 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:37:43.202 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:37:43.202 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:37:43.203 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:37:43.403 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:37:43.403 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:37:43.403 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:37:43.405 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:37:47.411 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:37:47.411 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:37:47.411 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:37:47.414 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:37:47.419 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:37:47.419 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:37:47.419 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:37:47.420 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:37:52.143 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:37:52.143 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:37:52.143 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:37:52.145 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:37:52.612 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:37:52.612 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:37:52.612 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:37:52.616 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:37:57.082 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:37:57.082 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:37:57.082 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:37:57.085 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:38:05.127 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:38:05.128 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:38:05.128 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:38:05.129 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:38:05.274 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:38:05.275 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:38:05.276 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:38:05.278 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:38:21.232 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:38:21.232 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:38:21.232 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:38:21.234 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:38:21.235 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:38:21.235 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:38:21.235 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:38:21.236 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:38:43.391 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:38:43.391 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:38:43.392 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:38:43.393 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:38:44.312 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:38:44.313 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:38:44.313 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:38:44.315 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
