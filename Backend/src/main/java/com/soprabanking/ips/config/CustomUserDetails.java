@@ -1,6 +1,7 @@
 package com.soprabanking.ips.config;
 
 import java.util.Collection;
+
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -9,8 +10,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import com.soprabanking.ips.controllers.ForgotPasswordController;
 import com.soprabanking.ips.models.User;
 /**
  * Custom User Details

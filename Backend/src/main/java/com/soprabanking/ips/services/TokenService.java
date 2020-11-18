@@ -1,16 +1,11 @@
 package com.soprabanking.ips.services;
-
 import java.util.UUID;
 import java.util.concurrent.locks.ReentrantLock;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.soprabanking.ips.daos.TeamDAO;
 import com.soprabanking.ips.daos.TokenDAO;
-import com.soprabanking.ips.models.Team;
 import com.soprabanking.ips.models.Token;
 /** 
  * Token Service
