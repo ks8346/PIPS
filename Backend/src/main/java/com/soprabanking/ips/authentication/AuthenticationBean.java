@@ -24,12 +24,21 @@ public class AuthenticationBean {
     	LOGGER.info("Inside AuthenticationBean : AuthenticationBean() method");
         this.message = message;
     }
-
+    
+    /**
+     * Getter method for retrieving the message containing user info.
+     * @return a String text message
+     */
     public String getMessage() {
     	LOGGER.info("Inside AuthenticationBean : getMessage() method");
         return message;
     }
-
+    
+    /**
+     * This method sets the message containing user info.
+     * @param message: A String text of user info
+     */
+    
     public void setMessage(String message) {
     	LOGGER.info("Inside AuthenticationBean : setMessage() method");
         this.message = message;

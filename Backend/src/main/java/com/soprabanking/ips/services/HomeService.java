@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
+import com.soprabanking.ips.daos.CommentDAO;
+import com.soprabanking.ips.daos.TeamDAO;
+import com.soprabanking.ips.models.Comment;
 import com.soprabanking.ips.models.Team;
 import com.soprabanking.ips.repositories.TeamRepository;
 import com.soprabanking.ips.repositories.UserRepository;
@@ -20,6 +22,11 @@ import com.soprabanking.ips.repositories.UserRepository;
  * This is service class
  * this class is used to fetched the data of team from team database
  * @author kavsharma
+ * @see com.soprabanking.ips.models.User
+ * @see com.soprabanking.ips.models.Team
+ * @see com.soprabanking.ips.daos.UserDAO
+ * @see com.soprabanking.ips.daos.TeamDAO
+ * @see com.soprabanking.ips.controllers.HomeController 
  * 
  */
 @Service
@@ -27,38 +34,45 @@ public class HomeService {
 
 private static final Logger LOGGER = LogManager.getLogger(HomeService.class);
 	
-	/** 
-	 * This method return list of the team which are in database
-	 * @return list<team> , list of teamname
-	 * 
-	 */
 	
-    @Autowired
-	private TeamRepository teamRepository;
-	// fetching All Team name  from database
-	public List<Object> GetTeam() {
-		LOGGER.info("Inside HomeService : GetTeam() method");
 
-		return teamRepository.getTeamIdANDName();
+/**
+* {@link TeamDAO} object responsible for fetching teams and fetching the list of team names {@link Team} objects by interacting with the persistence layer 
+*/
+	
+@Autowired
+private TeamDAO teamDao;
+/** 
+ * This method returns list of the team which are in database
+ * @return list<team> , list of teamname
+ * 
+ */
 
-		
-	}
-	/** 
-	 * This method fetch Team object by team_name  from database to check team exist in database or not
-	 * @param teamname of string type that contains the name of the team 
-	 * @return team1 , object of team
-	 */
-	
-	public Team GetTeamname(String teamname)
-	{
-		LOGGER.info("Inside HomeService : GetTeamname() method");
-	    Team team1 = this.teamRepository.getTeamByTeamName(teamname);
-		return team1;
-		
-	}
-	
+
+// fetching All Team name  from database
+public List<Object> getTeam() {
+    LOGGER.info("Inside HomeService : getTeam() method");
+
+
+
+    //return teamRepository.getTeamIdANDName();
+    return teamDao.getTeamdao();
+
 
 }
+/** 
+ * This method fetches Team object by teamname  from database to check if team exists in database or not
+ * @param teamname: teamname of string type that contains the name of the team 
+ * @return team1 , object of team
+ */
 
+public Team getTeamname(String teamname)
+{
+    LOGGER.info("Inside HomeService : getTeamname() method");
+    Team team1 =this.teamDao.getTeamnamedao(teamname);
+    return team1;
+    
+}
+}
 
 

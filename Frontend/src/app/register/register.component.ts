@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ConfirmPasswordValidator} from '../confirmPassword.Validator';
 import {MatDialog} from '@angular/material/dialog';
 
+/**This component enables user to register to the application */
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,24 +17,42 @@ import {MatDialog} from '@angular/material/dialog';
 
 export class RegisterComponent implements OnInit {
 
+  /**@ignore */
   message: any;
+
+  /**This variable stores instance of registration form */
   registerForm: FormGroup;
+
+  /**@ignore */
   loading = false;
+
+  /**This variable is set true on successful submission of registration form */
   submitted = false;
-  error: string;
+
+  /**This variable stores the team selected by user */
   selectedTeam: string='';
+
+  /**Array of all existing teams in database */
   teams:teamList[]
+
+  /**@ignore */
   hide=true
+
+  /**@ignore */
   hide1=true
   
+  /**List of filtered teams while searching */
   public filteredTeams;
 
- 
+ /**@ignore */
   constructor(
-    
+    /**@ignore */
     private formBuilder: FormBuilder,
+    /**@ignore */
     public dialog: MatDialog,
+    /**@ignore */
     private userService: UserRegisterService,
+    /**@ignore */
     public router: Router,
   ) { }
 
@@ -48,7 +67,7 @@ export class RegisterComponent implements OnInit {
   }
 
 /**
- * Opens dialog box displaying success or error message after submission of registration form.
+ * This Method opens a Dialog Box, after you submit the details, showing the response saying if the registraion was successful or not.
  */
   responseDialog() {
     const dialogRef = this.dialog.open(ApiResponseComponent, {
@@ -79,7 +98,9 @@ export class RegisterComponent implements OnInit {
   this.getTeams();
   }
 
-
+/**
+ * This Method calls the Get Team Service to fetch the list of teams currently in the database.
+ */
   getTeams(){
     this.userService.getTeam().subscribe(
       (data)=> {this.teams=data
@@ -96,7 +117,7 @@ export class RegisterComponent implements OnInit {
   }
   
   /**
-   * returns error message based on email field validations.
+   * This method returns error message based on email field validations.
    */
   getEmailError() {
     if (this.registerForm.controls.email.hasError('required')) {
@@ -107,7 +128,9 @@ export class RegisterComponent implements OnInit {
       return 'Please enter a valid email';
     }
   }
-
+/**
+ * This method calls the User Register Service to send data to register a user into the system.
+ */
   onSubmit() {
     this.submitted = true;
     

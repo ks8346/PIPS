@@ -24,6 +24,7 @@ import com.soprabanking.ips.repositories.UserRepository;
  * <p>
  * The interface requires only one read-only method, which simplifies support for new
  * data-access strategies.
+ * @author kavsharma
  */
 
 public class UserDetailsServiceImpl implements UserDetailsService {
