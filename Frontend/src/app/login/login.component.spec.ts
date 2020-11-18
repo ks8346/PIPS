@@ -78,21 +78,30 @@ describe('LoginComponent', () => {
     expect(component.dialog.open).toHaveBeenCalled()
   })
 
-  it('should go to landing page',()=>{
+  // it('should go to landing page',()=>{
+  //   component.handleLogin();
+  //   const location: Location = TestBed.inject(Location);
+  //   if(component.loginForm.valid){
+  //     expect(location.path()).toBe('/welcome');
+  //   }
+  // })
+
+  it('login should be successful', () => {
+    let email = component.loginForm.controls.email;
+    let password = component.loginForm.controls.password;
+    email.setValue("ankit@gmail.com")
+    password.setValue("Qwerty@123")
+    let loginservice = TestBed.inject(UserLoginService)
+    let response = void{email:'ankit@gmail.com',password:'Qwerty@123'}
+    
+    spyOn(loginservice,'doLogin').and.returnValue(of(response));
     component.handleLogin();
-    const location: Location = TestBed.inject(Location);
-    if(component.loginForm.valid){
-      expect(location.path()).toBe('/welcome');
-    }
-  })
 
-  it('should call functions',()=>{
-    component.googleSignIn();
-    expect(component.socialMedia()).toHaveBeenCalled()
-  })
+    expect(component.invalidLogin).toBe(false);
+    expect(component.loginSuccess).toBe(true);
+  });
 
-
-  it('login should not be successful', () => {
+  it('login should be successful using error code', () => {
     let email = component.loginForm.controls.email;
     let password = component.loginForm.controls.password;
     email.setValue("ankit@gmail.com")
@@ -107,31 +116,40 @@ describe('LoginComponent', () => {
     expect(component.loginSuccess).toBe(true);
   });
 
-  it('login should be successful', () => {
+  it('login should not be successful', () => {
     let email = component.loginForm.controls.email;
     let password = component.loginForm.controls.password;
     email.setValue("ankit@gmail.com")
     password.setValue("Qwerty@123")
     let loginservice = TestBed.inject(UserLoginService)
-    let response: void;
+    let error = { status : 406 };
     
-    spyOn(loginservice,'doLogin').and.returnValue(of(response));
+    
+    spyOn(loginservice,'doLogin').and.returnValue(throwError(error))
     component.handleLogin();
 
-    expect(component.invalidLogin).toBe(false);
-    expect(component.loginSuccess).toBe(true);
+    expect(component.invalidLogin).toBe(true);
+    expect(component.loginSuccess).toBe(false);
   });
 
-  // it('social login should redirect to team', () => {
-  //   let loginservice = TestBed.inject(SocialMediaAuthService)
-  //   let error = {status : 406}
-  //   component.user = new SocialUser{name: 'ankit',email:'ankit@gmail.com'}
+  // it('should call functions',()=>{
+  //   component.googleSignIn();
+  //   expect(component.socialMedia()).toHaveBeenCalled()
+  // })
+
+  it('social login should redirect to team', () => {
+    let socialmediaservice = TestBed.inject(SocialMediaAuthService)
+    //let response = void{name: 'ankit',email:'ankit@gmail.com'}
+    let response = void{team:{ name : 'Sparks'},user: {name: 'Ankit',email:'ankit',password:'Qwerty@123'}}
+
+    spyOn(socialmediaservice,'socialMedia').and.returnValue(of(response));
+    component.socialMedia();
+    const location: Location = TestBed.inject(Location);
+    expect(location.path()).toBe('/welcome');
+    expect(component.invalidLogin).toBe(false);
+    expect(component.loginSuccess).toBe(true);
     
-  //   spyOn(loginservice,'socialMedia').and.returnValue(throwError(error));
-  //   component.socialMedia();
-  //   const location: Location = TestBed.inject(Location);
-  //   expect(location.path()).toBe('/team');
-  // });
+  });
 
   // it('social login should directly go to landing page', () => {
   //   let loginservice = TestBed.inject(SocialMediaAuthService)

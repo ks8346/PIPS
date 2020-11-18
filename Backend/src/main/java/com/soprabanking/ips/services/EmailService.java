@@ -25,6 +25,7 @@ import com.soprabanking.ips.models.Team;
 @Service
 public class EmailService {
 	
+
 	/**
 	* {@link JavaMailSender} object responsible for sending the mail to the registered email id.
 	*/

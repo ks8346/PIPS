@@ -23,6 +23,9 @@ error: string;
 /**@ignore */
 isSubmit : boolean=true;
 
+/**@ignore */
+disable:boolean =false
+
   /**@ignore */
   constructor(
     /**@ignore */
@@ -43,22 +46,27 @@ isSubmit : boolean=true;
   onSubmit(){
     var data={"data1":{"mail":this.forgetPasswordForm.value.email}}
     console.log(data)
+    this.disable=true
     this.resetLinkService.resetLink(data).subscribe(
       (data1) => {
          console.log(data1);
          this.isSubmit = false;
          this.error="Reset link has been send to your email."
+         
         
        },
        (error)=>{
         if(error.status==200){
           this.error="Reset link has been send to your email."
           
+          
         }
         else if(error.status==406){
+          this.disable=false
           this.error="Email id doesnot exists. Please try again!"
         }
         else{
+          this.disable=false
           alert("Some error has occured! please try again later.")
         }
        }
