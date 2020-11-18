@@ -103,7 +103,7 @@ describe('FeedComponent', () => {
     expect(component.commentError).toEqual("")
     expect(component.commentVisibility).toEqual(false)
     expect(component.noComments).toEqual(true)
-    expect(component.commentsMessage).toEqual("Comments")
+    expect(component.commentsMessage).toEqual("")
  }));
 
  it('should get 1 comment',fakeAsync(()=>{
@@ -117,7 +117,7 @@ describe('FeedComponent', () => {
   expect(component.commentError).toEqual("")
   expect(component.commentVisibility).toEqual(true)
   expect(component.noComments).toEqual(true)
-  expect(component.commentsMessage).toEqual("Comments")
+  expect(component.commentsMessage).toEqual("")
 }));
 
 it('should get 0 comment',fakeAsync(()=>{
@@ -189,7 +189,7 @@ it('should post comment',fakeAsync(()=>{
   expect(spySetup).toHaveBeenCalled()
   expect(component.commentVisibility).toEqual(true)
   expect(component.noComments).toEqual(true)
-  expect(component.commentsMessage).toEqual("Comments")
+  expect(component.commentsMessage).toEqual("")
 }));
 
 it('should post comment',fakeAsync(()=>{
@@ -202,7 +202,7 @@ it('should post comment',fakeAsync(()=>{
   expect(spySetup).toHaveBeenCalled()
   expect(component.commentVisibility).toEqual(true)
   expect(component.noComments).toEqual(true)
-  expect(component.commentsMessage).toEqual("Comments")
+  expect(component.commentsMessage).toEqual("")
 }));
 
 it("should post a like",fakeAsync(()=>{
