@@ -55,7 +55,7 @@ public class TeamDAO {
      * @return Team
      */
     public List<Object> getTeamdao() {
-        LOGGER.info("Inside HomeService : GetTeam() method");
+        LOGGER.info("Inside HomeService : getTeamdao() method");
 
         return teamRepository.getTeamIdANDName();
 
@@ -70,7 +70,7 @@ public class TeamDAO {
     
     public Team getTeamnamedao(String teamname)
     {
-        LOGGER.info("Inside HomeService : GetTeamname() method");
+        LOGGER.info("Inside HomeService : getTeamnamedao() method");
         Team team1 = this.teamRepository.getTeamByTeamName(teamname);
         return team1;
         
