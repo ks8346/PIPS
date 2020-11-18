@@ -61,7 +61,7 @@ export class ProposalService {
    * @returns Object of Observable
   */
   postDislike(id:number,userId:number):Observable<any>{
-    console.log({'id':id,'userId':userId})
+    // console.log({'id':id,'userId':userId})
     return this.http.post(this.postDislikeUrl,{"userId":userId,"id":id})
   }
 

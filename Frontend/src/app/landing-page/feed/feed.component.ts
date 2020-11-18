@@ -134,7 +134,7 @@ export class FeedComponent implements OnInit {
     this.numberLikes=this.post.upvotesCount;
     this.proposalWork.getLike(this.post.id,this.userId).subscribe(
       (data)=>{
-        this.hasLiked=data,console.log(this.hasLiked)
+        this.hasLiked=data
       }
     )
   }
