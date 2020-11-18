@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 
+/**This service handles http requests when user login via social media */
 @Injectable({
   providedIn: 'root'
 })

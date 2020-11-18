@@ -2,7 +2,7 @@ import { ResetPasswordService } from './../service/reset-password.service';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
-
+/**This component enables user to reset password via valid email id */
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
@@ -10,20 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ForgetPasswordComponent implements OnInit {
+
+/**@ignore */
 forgetPasswordForm:FormGroup;
 
+/**@ignore */
 data: string;
+
+/**@ignore */
 error: string;
+
+/**@ignore */
 isSubmit : boolean=true;
 
-  constructor(private resetLinkService: ResetPasswordService) {
+  /**@ignore */
+  constructor(
+    /**@ignore */
+    private resetLinkService: ResetPasswordService) {
    
    }
 
+   /**This method creates a form with a input field to enter email of user */
   ngOnInit(): void {
     this.forgetPasswordForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      
     });
     
   }
@@ -53,10 +63,6 @@ isSubmit : boolean=true;
         }
        }
      );
-
-  }
-
-  onOk(){
 
   }
 

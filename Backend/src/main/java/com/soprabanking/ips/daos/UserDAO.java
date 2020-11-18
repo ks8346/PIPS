@@ -65,6 +65,7 @@ public class UserDAO {
      * @return User
      */
     public  User getUserDetailsdao(String username) {
+    	 LOGGER.info("Inside UserDAO : getUserDetailsdao() method");
         
         User user = userRepository.getUserByUserName(username);
 
@@ -79,6 +80,7 @@ public class UserDAO {
      * @param user: an object of the user
      */
     public void saveUserdao(User user) {
+    	 LOGGER.info("Inside UserDAO :  saveUserdao() method");
     
         userRepository.save(user);
     }

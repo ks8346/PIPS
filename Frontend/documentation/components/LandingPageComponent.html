@@ -1600,7 +1600,7 @@ export class LandingPageComponent implements OnInit {
   getAll(){
     this.getProposals.getAllPosts(this.data).subscribe((data)&#x3D;&gt;this.feed&#x3D;data,(error)&#x3D;&gt;{
       this.errorHandling(error)
-      if(error.status!&#x3D;200){
+      if(error.status!&#x3D;200 &amp;&amp; error.status!&#x3D;406){
         alert(&quot;There was some error at server please try later&quot;)
       }
     });
@@ -1612,7 +1612,7 @@ export class LandingPageComponent implements OnInit {
   getTeam(){
     this.getProposals.getTeamPosts(this.data,this.user.team.id).subscribe((data)&#x3D;&gt;this.feed&#x3D;data,(error)&#x3D;&gt;{
       this.errorHandling(error)
-      if(error.status!&#x3D;200){
+      if(error.status!&#x3D;200 &amp;&amp; error.status!&#x3D;406){
         alert(&quot;There was some error at server please try later&quot;)
       }
     });
@@ -1624,7 +1624,7 @@ export class LandingPageComponent implements OnInit {
   getYour(){
     this.getProposals.getYourPosts(this.data,this.user.id).subscribe((data)&#x3D;&gt;this.feed&#x3D;data,(error)&#x3D;&gt;{
       this.errorHandling(error)
-      if(error.status!&#x3D;200){
+      if(error.status!&#x3D;200 &amp;&amp; error.status!&#x3D;406){
         alert(&quot;There was some error at server please try later&quot;)
       }
     });

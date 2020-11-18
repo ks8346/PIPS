@@ -23,17 +23,12 @@
                 <mat-label>Password</mat-label>
                 <input type="password" matInput name="password" [formControl]="loginForm.controls.password" [errorStateMatcher]="matcher"
                        placeholder="">
-               
-                <!-- <mat-error *ngIf="loginForm.controls.password.hasError('password') && !loginForm.controls.email.hasError('required')">
-                  Please enter a valid email address
-                </mat-error> -->
                 <mat-error *ngIf="loginForm.controls.password.hasError('required')">
                   Password is <strong>required</strong>
                 </mat-error>
                 
               </mat-form-field>
               
-              <!-- <div style="position: fixed; right: 0;"> -->
                 
         </div>
         <div>
