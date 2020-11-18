@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ConfirmPasswordValidator} from '../confirmPassword.Validator';
 import {MatDialog} from '@angular/material/dialog';
 
+/**This component enables user to register to the application */
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,24 +17,42 @@ import {MatDialog} from '@angular/material/dialog';
 
 export class RegisterComponent implements OnInit {
 
+  /**@ignore */
   message: any;
+
+  /**This variable stores instance of registration form */
   registerForm: FormGroup;
+
+  /**@ignore */
   loading = false;
+
+  /**This variable is set true on successful submission of registration form */
   submitted = false;
-  error: string;
+
+  /**This variable stores the team selected by user */
   selectedTeam: string='';
+
+  /**Array of all existing teams in database */
   teams:teamList[]
+
+  /**@ignore */
   hide=true
+
+  /**@ignore */
   hide1=true
   
+  /**List of filtered teams while searching */
   public filteredTeams;
 
- 
+ /**@ignore */
   constructor(
-    
+    /**@ignore */
     private formBuilder: FormBuilder,
+    /**@ignore */
     public dialog: MatDialog,
+    /**@ignore */
     private userService: UserRegisterService,
+    /**@ignore */
     public router: Router,
   ) { }
 

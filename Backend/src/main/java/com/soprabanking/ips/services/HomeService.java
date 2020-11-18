@@ -51,7 +51,7 @@ private TeamDAO teamDao;
 
 // fetching All Team name  from database
 public List<Object> getTeam() {
-    LOGGER.info("Inside HomeService : GetTeam() method");
+    LOGGER.info("Inside HomeService : getTeam() method");
 
 
 
@@ -68,7 +68,7 @@ public List<Object> getTeam() {
 
 public Team getTeamname(String teamname)
 {
-    LOGGER.info("Inside HomeService : GetTeamname() method");
+    LOGGER.info("Inside HomeService : getTeamname() method");
     Team team1 =this.teamDao.getTeamnamedao(teamname);
     return team1;
     
