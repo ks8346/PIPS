@@ -45,7 +45,7 @@ public class User {
 
     private String name;
     /**
-     *  Emaid id of the User object.
+     *  Emaid id of the User object which should be unique.
      */
     @Column(unique = true)
    
