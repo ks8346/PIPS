@@ -4,6 +4,8 @@ import java.util.UUID;
 
 import javax.persistence.EntityNotFoundException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +27,8 @@ import com.soprabanking.ips.repositories.TokenRepository;
 @Component
 public class TokenDAO {
 	
+	private static final Logger LOGGER = LogManager.getLogger(TokenDAO.class);
+	
 	@Autowired
 	private TokenRepository tokenRepository;
 	/**
@@ -34,6 +38,7 @@ public class TokenDAO {
 	 */
 	
 	public Token getToken(String username) {
+		LOGGER.info("Inside TokenDAO : getToken(username) method");
 		Token token = tokenRepository.getTokenByEmail(username);
 		if (token == null) {
 			throw new EntityNotFoundException();
@@ -50,6 +55,7 @@ public class TokenDAO {
 	
 	
 	public void deleteToken(UUID id) {
+		LOGGER.info("Inside TokenDAO : deleteToken(id) method");
 		tokenRepository.deleteById(id);
 	}
 	/**
@@ -59,6 +65,7 @@ public class TokenDAO {
 	 */
 	
 	public boolean exitsById(UUID id) {
+		LOGGER.info("Inside TeamDAO : existsById(id) method");
 		return tokenRepository.existsById(id);
 	}
 	/**
@@ -66,6 +73,7 @@ public class TokenDAO {
 	 * @param token :An object of <a href="Token.html">{@link com.soprabanking.ips.models.Token}</a>
 	 */
 	public void saveToken(Token token) {
+		LOGGER.info("Inside TokenDAO : saveToken(token) method");
 		tokenRepository.save(token);
 	}
 	/**
@@ -74,6 +82,7 @@ public class TokenDAO {
 	 * @return id of the token
 	 */
 	public Token getById(UUID id) {
+		LOGGER.info("Inside TokenDAO : getById(id) method");
 		return tokenRepository.getOne(id);
 	}
 }

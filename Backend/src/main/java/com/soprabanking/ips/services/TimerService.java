@@ -4,6 +4,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.UUID;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,9 @@ public class TimerService {
 	/**
 	* {@link tokenService} object responsible for creating and deleting tokens {@link Token} objects by interacting with the persistence layer 
 	*/
+	
+	private static final Logger LOGGER = LogManager.getLogger(TimerService.class);
+	
 	@Autowired
 	private TokenService tokenService;
 	/**
@@ -55,6 +60,7 @@ public class TimerService {
 	
 	public void scheduleTimer(TimerTask task, Long delay) {
 		
+		LOGGER.info("Inside TimerService : scheduleTimer() method");
 		timer.schedule(task, delay);
 	}
 

@@ -3,6 +3,8 @@ package com.soprabanking.ips.services;
 import java.util.UUID;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,9 @@ public class TokenService {
 	/**
 	* {@link TokenDAO} object responsible for creating token, getting token, saving the token, getting the id of the token {@link Token} objects by interacting with the persistence layer 
 	*/
+	
+	private static final Logger LOGGER = LogManager.getLogger(TokenService.class);
+	
 	@Autowired
 	private TokenDAO tokenDao;
 	/**
@@ -41,7 +46,7 @@ public class TokenService {
 
 	
 	public Token createToken(UUID id, String username) {
-		
+		LOGGER.info("Inside TokenService " + ": createToken(id,username) method");
 		Token token = new Token();
 		token.setId(id);
 		token.setEmail(username);
@@ -58,11 +63,13 @@ public class TokenService {
 	public boolean deleteTokenByUsername(String username) {
 	       
         try {
+        	LOGGER.info("Inside TokenService " + ": deleteTokenByUsername() method SUCCESS");
             lock.lock();
             Token token = tokenDao.getToken(username);
             tokenDao.deleteToken(token.getId());
             return true;
         }catch(Exception e) {
+        	LOGGER.error("Inside TokenService : deleteTokenByUsername() method FAILURE", e);
             return false;
         }finally {
             lock.unlock();
@@ -79,10 +86,12 @@ public class TokenService {
 	public boolean deleteTokenById(UUID id) {
 	       
         try {
+        	LOGGER.info("Inside TokenService " + ": deleteTokenById() method SUCCESS");
             lock.lock();
             tokenDao.deleteToken(id);
             return true;
         }catch(Exception e) {
+        	LOGGER.error("Inside TokenService " + ": deleteTokenById() method FAILURE", e);
             return false;
         }finally{
             lock.unlock();
@@ -97,7 +106,7 @@ public class TokenService {
 
 	
 	public void saveToken(Token token) {
-		
+		LOGGER.info("Inside TokenService " + ": saveToken(token) method");
 		tokenDao.saveToken(token);
 	}
 	/** 
@@ -109,6 +118,7 @@ public class TokenService {
 
 	
 	public Token findTokenById(UUID id) {
+		LOGGER.info("Inside TokenService " + ": findTokenById()");
 		return tokenDao.getById(id);
 	}
 

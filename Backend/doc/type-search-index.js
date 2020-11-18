@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.soprabanking.ips.modelwrap","l":"ModelWrap"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.soprabanking.ips.helper","l":"UserAuth"}]
