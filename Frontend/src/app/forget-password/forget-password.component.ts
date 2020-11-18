@@ -49,7 +49,6 @@ loading:boolean =false
     this.loading=true
     this.resetLinkService.resetLink(data).subscribe(
       (data1) => {
-         console.log(data1);
          this.isSubmit = false;
          this.error="Reset link has been send to your email."
          this.loading=false
