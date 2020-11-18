@@ -83,7 +83,7 @@ export class LandingPageComponent implements OnInit {
   }
 
 /**
-  * This method calls a service method that is an api call to Team posts
+  * This method calls a service method that is an api call to Teams array 
   */ 
   getTeams(){
     this.teams.getTeams().subscribe(
@@ -282,7 +282,7 @@ export class LandingPageComponent implements OnInit {
     }
   }
 
-/**window resize evenr handled*/
+/**window resize event handled*/
   @HostListener('window:resize', ['$event'])
 
 /**
