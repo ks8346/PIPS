@@ -8863,3 +8863,541 @@ java.lang.Exception: null
 2020-11-17 17:05:51.881 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
 2020-11-17 17:05:51.883 [http-nio-8080-exec-9] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
 
+2020-11-18 10:28:04.320 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103176 with PID 14128 (C:\Users\prsaini\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes started by prsaini in C:\Users\prsaini\Documents\GitHub\Process-Improvement-Proposal-System\Backend)
+2020-11-18 10:28:04.352 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-18 10:28:05.587 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-18 10:28:05.707 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 108ms. Found 6 JPA repository interfaces.
+2020-11-18 10:28:06.362 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-18 10:28:06.376 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-18 10:28:06.377 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-18 10:28:06.378 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-18 10:28:06.576 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-18 10:28:06.577 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2097 ms
+2020-11-18 10:28:06.755 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-18 10:28:06.815 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-18 10:28:06.952 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-18 10:28:06.968 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-18 10:28:07.075 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forgotPasswordController' defined in file [C:\Users\prsaini\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes\com\soprabanking\ips\controllers\ForgotPasswordController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.soprabanking.ips.controllers.ForgotPasswordController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.soprabanking.ips.services.EmailService cannot be resolved
+	The import com.soprabanking.ips.services.TimerService cannot be resolved
+	The import com.soprabanking.ips.services.TokenService cannot be resolved
+	The import com.soprabanking.ips.services.UserService cannot be resolved
+	TokenService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+
+2020-11-18 10:28:07.076 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 10:28:07.167 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-18 10:28:07.309 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-18 10:28:10.587 [task-1] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:613) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:161) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:225) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.Driver.makeConnection(Driver.java:465) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.Driver.connect(Driver.java:264) ~[postgresql-42.2.16.jar:42.2.16]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-3.4.5.jar:?]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1224) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1255) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+2020-11-18 10:28:10.613 [task-1] WARN  org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata : FATAL: password authentication failed for user "postgres"
+2020-11-18 10:28:10.663 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-18 10:28:11.646 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-18 10:28:12.924 [task-1] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:613) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:161) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:225) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.Driver.makeConnection(Driver.java:465) ~[postgresql-42.2.16.jar:42.2.16]
+	at org.postgresql.Driver.connect(Driver.java:264) ~[postgresql-42.2.16.jar:42.2.16]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-3.4.5.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-3.4.5.jar:?]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:43) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:60) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:40) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:65) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:59) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:155) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:316) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259) ~[hibernate-core-5.4.21.Final.jar:5.4.21.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+2020-11-18 10:28:12.925 [task-1] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 28P01
+2020-11-18 10:28:12.926 [task-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - FATAL: password authentication failed for user "postgres"
+2020-11-18 10:28:12.964 [main] WARN  org.springframework.beans.factory.support.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'entityManagerFactory': javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+2020-11-18 10:28:12.964 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-18 10:28:12.969 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2020-11-18 10:28:12.992 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-11-18 10:28:13.001 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forgotPasswordController' defined in file [C:\Users\prsaini\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes\com\soprabanking\ips\controllers\ForgotPasswordController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.soprabanking.ips.controllers.ForgotPasswordController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.soprabanking.ips.services.EmailService cannot be resolved
+	The import com.soprabanking.ips.services.TimerService cannot be resolved
+	The import com.soprabanking.ips.services.TokenService cannot be resolved
+	The import com.soprabanking.ips.services.UserService cannot be resolved
+	TokenService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1318) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1213) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) ~[spring-context-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) ~[spring-context-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758) ~[spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at com.soprabanking.ips.ImprovementProposalSystemApplication.main(ImprovementProposalSystemApplication.java:10) [classes/:?]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.soprabanking.ips.controllers.ForgotPasswordController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.soprabanking.ips.services.EmailService cannot be resolved
+	The import com.soprabanking.ips.services.TimerService cannot be resolved
+	The import com.soprabanking.ips.services.TokenService cannot be resolved
+	The import com.soprabanking.ips.services.UserService cannot be resolved
+	TokenService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:217) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1310) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	... 18 more
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The import com.soprabanking.ips.services.EmailService cannot be resolved
+	The import com.soprabanking.ips.services.TimerService cannot be resolved
+	The import com.soprabanking.ips.services.TokenService cannot be resolved
+	The import com.soprabanking.ips.services.UserService cannot be resolved
+	TokenService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+
+	at com.soprabanking.ips.controllers.ForgotPasswordController.<init>(ForgotPasswordController.java:24) ~[classes/:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:204) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1310) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	... 18 more
+2020-11-18 10:28:53.262 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103176 with PID 3848 (C:\Users\prsaini\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes started by prsaini in C:\Users\prsaini\Documents\GitHub\Process-Improvement-Proposal-System\Backend)
+2020-11-18 10:28:53.274 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-18 10:28:54.154 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-18 10:28:54.297 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 134ms. Found 6 JPA repository interfaces.
+2020-11-18 10:28:54.782 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-18 10:28:54.791 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-18 10:28:54.792 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-18 10:28:54.792 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-18 10:28:55.225 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-18 10:28:55.225 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1910 ms
+2020-11-18 10:28:55.368 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-18 10:28:55.404 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-18 10:28:55.456 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-18 10:28:55.483 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-18 10:28:55.575 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forgotPasswordController' defined in file [C:\Users\prsaini\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes\com\soprabanking\ips\controllers\ForgotPasswordController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.soprabanking.ips.controllers.ForgotPasswordController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.soprabanking.ips.services.EmailService cannot be resolved
+	The import com.soprabanking.ips.services.TimerService cannot be resolved
+	The import com.soprabanking.ips.services.TokenService cannot be resolved
+	The import com.soprabanking.ips.services.UserService cannot be resolved
+	TokenService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+
+2020-11-18 10:28:55.577 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 10:28:55.597 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-18 10:28:55.694 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-18 10:28:56.187 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-18 10:28:56.206 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-18 10:28:58.214 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-18 10:28:58.242 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 10:28:58.245 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-18 10:28:58.247 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-18 10:28:58.439 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-18 10:28:58.443 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2020-11-18 10:28:58.473 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-11-18 10:28:58.489 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forgotPasswordController' defined in file [C:\Users\prsaini\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes\com\soprabanking\ips\controllers\ForgotPasswordController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.soprabanking.ips.controllers.ForgotPasswordController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.soprabanking.ips.services.EmailService cannot be resolved
+	The import com.soprabanking.ips.services.TimerService cannot be resolved
+	The import com.soprabanking.ips.services.TokenService cannot be resolved
+	The import com.soprabanking.ips.services.UserService cannot be resolved
+	TokenService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1318) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1213) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) ~[spring-context-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) ~[spring-context-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758) ~[spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at com.soprabanking.ips.ImprovementProposalSystemApplication.main(ImprovementProposalSystemApplication.java:10) [classes/:?]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.soprabanking.ips.controllers.ForgotPasswordController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.soprabanking.ips.services.EmailService cannot be resolved
+	The import com.soprabanking.ips.services.TimerService cannot be resolved
+	The import com.soprabanking.ips.services.TokenService cannot be resolved
+	The import com.soprabanking.ips.services.UserService cannot be resolved
+	TokenService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:217) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1310) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	... 18 more
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The import com.soprabanking.ips.services.EmailService cannot be resolved
+	The import com.soprabanking.ips.services.TimerService cannot be resolved
+	The import com.soprabanking.ips.services.TokenService cannot be resolved
+	The import com.soprabanking.ips.services.UserService cannot be resolved
+	TokenService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+
+	at com.soprabanking.ips.controllers.ForgotPasswordController.<init>(ForgotPasswordController.java:24) ~[classes/:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:204) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1310) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	... 18 more
+2020-11-18 10:30:11.374 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103176 with PID 13692 (C:\Users\prsaini\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes started by prsaini in C:\Users\prsaini\Documents\GitHub\Process-Improvement-Proposal-System\Backend)
+2020-11-18 10:30:11.397 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-18 10:30:13.372 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-18 10:30:13.632 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 244ms. Found 6 JPA repository interfaces.
+2020-11-18 10:30:15.079 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-18 10:30:15.099 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-18 10:30:15.101 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-18 10:30:15.103 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-18 10:30:15.904 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-18 10:30:15.904 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4393 ms
+2020-11-18 10:30:16.206 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-18 10:30:16.329 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-18 10:30:16.442 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-18 10:30:16.480 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-18 10:30:16.650 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forgotPasswordController' defined in file [C:\Users\prsaini\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes\com\soprabanking\ips\controllers\ForgotPasswordController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.soprabanking.ips.controllers.ForgotPasswordController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.soprabanking.ips.services.EmailService cannot be resolved
+	The import com.soprabanking.ips.services.TimerService cannot be resolved
+	The import com.soprabanking.ips.services.TokenService cannot be resolved
+	The import com.soprabanking.ips.services.UserService cannot be resolved
+	TokenService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+
+2020-11-18 10:30:16.652 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 10:30:16.676 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-18 10:30:16.829 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-18 10:30:17.393 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-18 10:30:17.411 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-18 10:30:20.323 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-18 10:30:20.344 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 10:30:20.350 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-18 10:30:20.351 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-18 10:30:20.430 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-18 10:30:20.435 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2020-11-18 10:30:20.471 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-11-18 10:30:20.488 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forgotPasswordController' defined in file [C:\Users\prsaini\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes\com\soprabanking\ips\controllers\ForgotPasswordController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.soprabanking.ips.controllers.ForgotPasswordController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.soprabanking.ips.services.EmailService cannot be resolved
+	The import com.soprabanking.ips.services.TimerService cannot be resolved
+	The import com.soprabanking.ips.services.TokenService cannot be resolved
+	The import com.soprabanking.ips.services.UserService cannot be resolved
+	TokenService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1318) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1213) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) ~[spring-context-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) ~[spring-context-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758) ~[spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.3.4.RELEASE.jar:2.3.4.RELEASE]
+	at com.soprabanking.ips.ImprovementProposalSystemApplication.main(ImprovementProposalSystemApplication.java:10) [classes/:?]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.soprabanking.ips.controllers.ForgotPasswordController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.soprabanking.ips.services.EmailService cannot be resolved
+	The import com.soprabanking.ips.services.TimerService cannot be resolved
+	The import com.soprabanking.ips.services.TokenService cannot be resolved
+	The import com.soprabanking.ips.services.UserService cannot be resolved
+	TokenService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:217) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1310) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	... 18 more
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The import com.soprabanking.ips.services.EmailService cannot be resolved
+	The import com.soprabanking.ips.services.TimerService cannot be resolved
+	The import com.soprabanking.ips.services.TokenService cannot be resolved
+	The import com.soprabanking.ips.services.UserService cannot be resolved
+	TokenService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	EmailService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TimerService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+	UserService cannot be resolved to a type
+	TokenService cannot be resolved to a type
+
+	at com.soprabanking.ips.controllers.ForgotPasswordController.<init>(ForgotPasswordController.java:24) ~[classes/:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:204) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1310) ~[spring-beans-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	... 18 more
