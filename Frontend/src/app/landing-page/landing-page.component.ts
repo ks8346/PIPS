@@ -1,6 +1,3 @@
-import { FilterComponent } from './filter/filter.component';
-import { FeedComponent } from './feed/feed.component';
-
 import { SocialAuthService } from 'angularx-social-login';
 import { Component, OnInit ,HostListener, NgModule} from '@angular/core';
 import { GetProposalsService } from '../get-proposals.service';
@@ -159,7 +156,7 @@ export class LandingPageComponent implements OnInit {
     }
     else{
       this.type=data;
-      console.log(this.type)
+      // console.log(this.type)
     }
     this.page=0
     this.data.page=this.page.toString()
@@ -176,7 +173,7 @@ export class LandingPageComponent implements OnInit {
     if((this.newFeed.length>0 || this.page==0)&&this.morePost){
       this.page++
       this.data.page=this.page.toString()
-      console.log(this.data)
+      // console.log(this.data)
       if(this.type.includes("allPost")){
         this.getProposals.getAllNextPost(this.data).subscribe((data)=>this.newFeed=data,(error)=>this.errorHandling(error))
       }
@@ -187,7 +184,7 @@ export class LandingPageComponent implements OnInit {
         this.getProposals.getYourNextPost(this.data,this.user.id).subscribe((data)=>this.newFeed=data,(error)=>this.errorHandling(error))
       }      
       this.feed=this.feed.concat(this.newFeed)
-      console.log(this.newFeed)
+      // console.log(this.newFeed)
       this.newFeed=[]
     }
   }

@@ -24,6 +24,6 @@ export class ApiResponseComponent {
 
  /** This method closes the Dialog Box on submission*/
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(true);
   }
 }

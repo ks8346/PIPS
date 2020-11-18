@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmailService {
 	
-	private static final Logger LOGGER = LogManager.getLogger(EmailService.class);
+
 	/**
 	* {@link JavaMailSender} object responsible for sending the mail to the registered email id.
 	*/
