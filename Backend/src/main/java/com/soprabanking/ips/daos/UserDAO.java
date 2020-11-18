@@ -64,7 +64,7 @@ public class UserDAO {
      * @param username : Username of string type
      * @return User
      */
-    public  User getUserDetailsdao(String username) {
+   /* public  User getUserDetailsdao(String username) {
     	 LOGGER.info("Inside UserDAO : getUserDetailsdao() method");
         
         User user = userRepository.getUserByUserName(username);
@@ -72,7 +72,7 @@ public class UserDAO {
  
         return user;
 
-    }
+    }*/
     /**
      * This method is used to save the user.<br>
      * Variables used

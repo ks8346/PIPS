@@ -1,20 +1,13 @@
 package com.soprabanking.ips.services;
 
 import java.util.List;
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.soprabanking.ips.daos.CommentDAO;
 import com.soprabanking.ips.daos.TeamDAO;
-import com.soprabanking.ips.models.Comment;
 import com.soprabanking.ips.models.Team;
-import com.soprabanking.ips.repositories.TeamRepository;
-import com.soprabanking.ips.repositories.UserRepository;
+
 
 
 /** 
@@ -49,13 +42,13 @@ private TeamDAO teamDao;
  */
 
 
-// fetching All Team name  from database
+
 public List<Object> getTeam() {
     LOGGER.info("Inside HomeService : getTeam() method");
 
 
 
-    //return teamRepository.getTeamIdANDName();
+  
     return teamDao.getTeamdao();
 
 
