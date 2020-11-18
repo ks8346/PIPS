@@ -19,7 +19,6 @@ export class ApiResponseComponent {
     }
  
   onNoClick(): void {
-    
-    this.dialogRef.close();
+    this.dialogRef.close(true);
   }
 }
