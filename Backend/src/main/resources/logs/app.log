@@ -8339,3 +8339,331 @@ java.lang.IllegalArgumentException: Invalid character found in method name [0x12
 2020-11-18 11:16:25.691 [RMI TCP Connection(24)-127.0.0.1] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
 2020-11-18 11:16:25.692 [RMI TCP Connection(24)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2020-11-18 11:16:25.708 [RMI TCP Connection(24)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-18 11:29:20.190 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103134 with PID 17228 (C:\Users\muksingh\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes started by muksingh in C:\Users\muksingh\Documents\GitHub\Process-Improvement-Proposal-System\Backend)
+2020-11-18 11:29:20.203 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-18 11:29:21.224 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-18 11:29:21.354 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 121ms. Found 6 JPA repository interfaces.
+2020-11-18 11:29:22.031 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-18 11:29:22.056 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-18 11:29:22.057 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-18 11:29:22.057 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-18 11:29:22.449 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-18 11:29:22.450 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2183 ms
+2020-11-18 11:29:22.620 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-18 11:29:22.668 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-18 11:29:22.748 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-18 11:29:22.771 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-18 11:29:22.904 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-18 11:29:23.030 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-18 11:29:23.485 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-18 11:29:23.506 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-18 11:29:25.223 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-18 11:29:25.233 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 11:29:25.327 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getLock() method
+2020-11-18 11:29:25.338 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getTimer() method
+2020-11-18 11:29:25.400 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :  passwordEncoder() method
+2020-11-18 11:29:25.477 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getMapper() method
+2020-11-18 11:29:25.573 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside MyConfig : configure() method
+2020-11-18 11:29:25.574 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :authenticationProvider() method
+2020-11-18 11:29:25.597 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getUserDetailService() method
+2020-11-18 11:29:25.681 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig: configure() method
+2020-11-18 11:29:25.806 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51eb0e84, org.springframework.security.web.context.SecurityContextPersistenceFilter@13004dd8, org.springframework.security.web.header.HeaderWriterFilter@52bba91a, org.springframework.security.web.authentication.logout.LogoutFilter@5d601832, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@91a2543, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@629b780f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@46d0f89c, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2c99c8d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4ce267cc, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@11bfffb3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65d9e72a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@464aeb09, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2eebce87, org.springframework.security.web.session.SessionManagementFilter@21516c88, org.springframework.security.web.access.ExceptionTranslationFilter@3070f3e6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@43e8f1c]
+2020-11-18 11:29:26.121 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-11-18 11:29:26.161 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-18 11:29:26.162 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-11-18 11:29:26.632 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-11-18 11:29:26.648 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Started ImprovementProposalSystemApplication in 6.901 seconds (JVM running for 8.805)
+2020-11-18 13:02:17.909 [RMI TCP Connection(97)-127.0.0.1] INFO  org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2020-11-18 13:02:17.993 [RMI TCP Connection(97)-127.0.0.1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 13:02:17.997 [RMI TCP Connection(97)-127.0.0.1] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-18 13:02:17.997 [RMI TCP Connection(97)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-18 13:02:18.006 [RMI TCP Connection(97)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-18 13:02:35.024 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103134 with PID 17932 (C:\Users\muksingh\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes started by muksingh in C:\Users\muksingh\Documents\GitHub\Process-Improvement-Proposal-System\Backend)
+2020-11-18 13:02:35.038 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-18 13:02:36.049 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-18 13:02:36.164 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 107ms. Found 6 JPA repository interfaces.
+2020-11-18 13:02:36.750 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-18 13:02:36.770 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-18 13:02:36.771 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-18 13:02:36.772 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-18 13:02:37.129 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-18 13:02:37.129 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2039 ms
+2020-11-18 13:02:37.301 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-18 13:02:37.356 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-18 13:02:37.438 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-18 13:02:37.460 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-18 13:02:37.615 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-18 13:02:37.739 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-18 13:02:38.366 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-18 13:02:38.382 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-18 13:02:40.072 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-18 13:02:40.081 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 13:02:40.157 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getLock() method
+2020-11-18 13:02:40.163 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getTimer() method
+2020-11-18 13:02:40.203 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :  passwordEncoder() method
+2020-11-18 13:02:40.263 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getMapper() method
+2020-11-18 13:02:40.348 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside MyConfig : configure() method
+2020-11-18 13:02:40.349 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :authenticationProvider() method
+2020-11-18 13:02:40.364 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getUserDetailService() method
+2020-11-18 13:02:40.403 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig: configure() method
+2020-11-18 13:02:40.547 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@54a056e4, org.springframework.security.web.context.SecurityContextPersistenceFilter@365cef67, org.springframework.security.web.header.HeaderWriterFilter@2049e582, org.springframework.security.web.authentication.logout.LogoutFilter@4e4894d, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@38f617f4, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@74500e4f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@f03ee8f, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7308c820, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@15994b0b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4e50ae56, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69bc9584, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74a58a06, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@12cd129c, org.springframework.security.web.session.SessionManagementFilter@2c99c8d, org.springframework.security.web.access.ExceptionTranslationFilter@64440065, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1c6e3ff9]
+2020-11-18 13:02:40.878 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-11-18 13:02:40.921 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-18 13:02:40.923 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-11-18 13:02:41.388 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-11-18 13:02:41.400 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Started ImprovementProposalSystemApplication in 6.816 seconds (JVM running for 8.749)
+2020-11-18 13:02:46.746 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2020-11-18 13:02:46.824 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 13:02:46.826 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-18 13:02:46.827 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-18 13:02:46.835 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-18 13:03:18.974 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Starting ImprovementProposalSystemApplication on ITEM-S103134 with PID 18568 (C:\Users\muksingh\Documents\GitHub\Process-Improvement-Proposal-System\Backend\target\classes started by muksingh in C:\Users\muksingh\Documents\GitHub\Process-Improvement-Proposal-System\Backend)
+2020-11-18 13:03:18.986 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - No active profile set, falling back to default profiles: default
+2020-11-18 13:03:19.933 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-18 13:03:20.055 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 113ms. Found 6 JPA repository interfaces.
+2020-11-18 13:03:20.640 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-18 13:03:20.659 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-18 13:03:20.660 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-18 13:03:20.662 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-18 13:03:20.992 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-18 13:03:20.993 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1940 ms
+2020-11-18 13:03:21.148 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-18 13:03:21.200 [task-1] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-18 13:03:21.261 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-18 13:03:21.267 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-18 13:03:21.394 [task-1] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-18 13:03:21.487 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-18 13:03:21.902 [task-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-18 13:03:21.930 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-11-18 13:03:23.597 [task-1] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-18 13:03:23.606 [task-1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 13:03:23.677 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getLock() method
+2020-11-18 13:03:23.682 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getTimer() method
+2020-11-18 13:03:23.719 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :  passwordEncoder() method
+2020-11-18 13:03:23.772 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getMapper() method
+2020-11-18 13:03:23.846 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside MyConfig : configure() method
+2020-11-18 13:03:23.847 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig :authenticationProvider() method
+2020-11-18 13:03:23.872 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig : getUserDetailService() method
+2020-11-18 13:03:23.934 [main] INFO  com.soprabanking.ips.config.MyConfig - Inside  MyConfig: configure() method
+2020-11-18 13:03:24.068 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a96d639, org.springframework.security.web.context.SecurityContextPersistenceFilter@5f3b84bd, org.springframework.security.web.header.HeaderWriterFilter@4357524b, org.springframework.security.web.authentication.logout.LogoutFilter@1ccc1026, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@66b0e207, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5d601832, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@13004dd8, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7f51f588, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@28e94c2, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@32da97fd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e191150, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2424cb9d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d40498a, org.springframework.security.web.session.SessionManagementFilter@64dc86c6, org.springframework.security.web.access.ExceptionTranslationFilter@59d5a6fd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3271ec2a]
+2020-11-18 13:03:24.370 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-11-18 13:03:24.405 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-18 13:03:24.407 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-11-18 13:03:24.886 [main] INFO  org.springframework.data.repository.config.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-11-18 13:03:24.897 [main] INFO  com.soprabanking.ips.ImprovementProposalSystemApplication - Started ImprovementProposalSystemApplication in 6.322 seconds (JVM running for 8.143)
+2020-11-18 13:05:10.481 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-18 13:05:10.481 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-11-18 13:05:10.494 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 13 ms
+2020-11-18 13:05:10.568 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.HomeController - Inside HomeController : finaALlTeam() method
+2020-11-18 13:05:10.568 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.HomeService - Inside HomeService : getTeam() method
+2020-11-18 13:05:10.569 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TeamDAO - Inside HomeService : getTeamdao() method
+2020-11-18 13:05:10.607 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.HomeController - Inside HomeController : finaAllTeam() SUCCESS
+2020-11-18 13:05:10.607 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.HomeService - Inside HomeService : getTeam() method
+2020-11-18 13:05:10.607 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TeamDAO - Inside HomeService : getTeamdao() method
+2020-11-18 13:06:05.883 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.HomeController - Inside HomeController : registerUser() method
+2020-11-18 13:06:06.036 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.HomeService - Inside HomeService : getTeamname() method
+2020-11-18 13:06:06.036 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.TeamDAO - Inside HomeService : getTeamnamedao() method
+2020-11-18 13:06:06.047 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.UserControllerService - Inside UserControllerService : saveUser() method
+2020-11-18 13:06:06.048 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.UserDAO - Inside UserDAO :  saveUserdao() method
+2020-11-18 13:06:06.125 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.HomeController - Inside HomeController : registerUser() SUCCESS
+2020-11-18 13:06:24.520 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.config.UserDetailsServiceImpl - Inside  UserDetailsServiceImpl: loadUserByUsername() method
+2020-11-18 13:06:24.560 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.config.UserDetailsServiceImpl - Inside  UserDetailsServiceImpl : loadUserByUsername() SUCCESS
+2020-11-18 13:06:24.561 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails : isAccountNonLocked() method
+2020-11-18 13:06:24.561 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails : isEnabled() method
+2020-11-18 13:06:24.561 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails : isAccountNonExpired() method
+2020-11-18 13:06:24.561 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails : getPassword() method
+2020-11-18 13:06:24.712 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails :isCredentialsNonExpired() method
+2020-11-18 13:06:24.712 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails :getAuthorities() method
+2020-11-18 13:06:24.756 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.HomeController - Inside HomeController : basicauth() method
+2020-11-18 13:06:24.757 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails : getUsername() method
+2020-11-18 13:06:24.757 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.UserControllerService - Inside UserControllerService : GetUserDetails() method
+2020-11-18 13:06:24.757 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.UserDAO - Inside UserDAO : getUser() method
+2020-11-18 13:06:24.784 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.HomeController - Inside HomeController : basicauth() SUCCESS
+2020-11-18 13:06:24.787 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.authentication.AuthenticationBean - Inside AuthenticationBean : AuthenticationBean() method
+2020-11-18 13:06:24.789 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.authentication.AuthenticationBean - Inside AuthenticationBean : getMessage() method
+2020-11-18 13:06:24.790 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails : getUsername() method
+2020-11-18 13:06:24.857 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() method
+2020-11-18 13:06:24.857 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
+2020-11-18 13:06:24.858 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
+2020-11-18 13:06:24.862 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-11-18 13:06:24.862 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-11-18 13:06:24.878 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-11-18 13:06:24.885 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() SUCCESS
+2020-11-18 13:06:24.885 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() SUCCESS
+2020-11-18 13:06:24.891 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-11-18 13:06:24.931 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-11-18 13:06:24.931 [http-nio-8080-exec-8] ERROR com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() FAILURE
+2020-11-18 13:06:48.890 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UserController - Inside  UserController : getSocialInfo() method
+2020-11-18 13:06:48.891 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UserControllerService - Inside UserControllerService : GetUserDetails() method
+2020-11-18 13:06:48.891 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.UserDAO - Inside UserDAO : getUser() method
+2020-11-18 13:06:48.899 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.UserController - Inside UserController : getSocialInfo() SUCCESS
+2020-11-18 13:06:48.899 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.authentication.AuthenticationBean - Inside AuthenticationBean : AuthenticationBean() method
+2020-11-18 13:06:48.900 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.authentication.AuthenticationBean - Inside AuthenticationBean : getMessage() method
+2020-11-18 13:06:48.943 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-11-18 13:06:48.943 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() method
+2020-11-18 13:06:48.943 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-11-18 13:06:48.943 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
+2020-11-18 13:06:48.943 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
+2020-11-18 13:06:48.944 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-11-18 13:06:48.946 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() SUCCESS
+2020-11-18 13:06:48.947 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() SUCCESS
+2020-11-18 13:06:48.947 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-11-18 13:06:48.950 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-11-18 13:06:48.951 [http-nio-8080-exec-1] ERROR com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() FAILURE
+2020-11-18 13:07:09.433 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : forgotPassword() method
+2020-11-18 13:07:09.434 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.UserService - Inside UserService : getUserByUsername(username) method
+2020-11-18 13:07:09.434 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.UserDAO - Inside UserDAO : getUser() method
+2020-11-18 13:07:09.436 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : deleteTokenByUsername() method SUCCESS
+2020-11-18 13:07:09.437 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getToken(username) method
+2020-11-18 13:07:09.444 [http-nio-8080-exec-4] ERROR com.soprabanking.ips.services.TokenService - Inside TokenService : deleteTokenByUsername() method FAILURE
+javax.persistence.EntityNotFoundException: null
+	at com.soprabanking.ips.daos.TokenDAO.getToken(TokenDAO.java:44) ~[classes/:?]
+	at com.soprabanking.ips.services.TokenService.deleteTokenByUsername(TokenService.java:63) [classes/:?]
+	at com.soprabanking.ips.controllers.ForgotPasswordController.forgotPassword(ForgotPasswordController.java:73) [classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) [tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) [tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:155) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:52) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:216) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:160) [spring-security-oauth2-client-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) [spring-security-web-5.3.4.RELEASE.jar:5.3.4.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+2020-11-18 13:07:09.458 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : createToken(id,username) method
+2020-11-18 13:07:09.458 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : saveToken(token) method
+2020-11-18 13:07:09.458 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : saveToken(token) method
+2020-11-18 13:07:09.498 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.EmailService - Inside EmailService : mailContent() method
+2020-11-18 13:07:09.498 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.EmailService - Inside EmailService : sendResetLink() method
+2020-11-18 13:07:16.073 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TimerService - Inside TimerService : scheduleTimer() method
+2020-11-18 13:07:16.074 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : forgotPassword() SUCCESS
+2020-11-18 13:07:30.249 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 13:07:30.249 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 13:07:30.250 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 13:07:30.252 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 13:07:45.508 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : resetPassword() method
+2020-11-18 13:07:45.508 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 13:07:45.508 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 13:07:45.517 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.UserService - Inside UserService : updatePassword(username,password) method
+2020-11-18 13:07:45.692 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.UserDAO - Inside UserDAO : updatePassword() method
+2020-11-18 13:07:45.752 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : deleteTokenById() method SUCCESS
+2020-11-18 13:07:45.752 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : deleteToken(id) method
+2020-11-18 13:07:45.776 [http-nio-8080-exec-8] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : resetPassword() SUCCESS
+2020-11-18 13:07:59.815 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.config.UserDetailsServiceImpl - Inside  UserDetailsServiceImpl: loadUserByUsername() method
+2020-11-18 13:07:59.818 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.config.UserDetailsServiceImpl - Inside  UserDetailsServiceImpl : loadUserByUsername() SUCCESS
+2020-11-18 13:07:59.819 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails : isAccountNonLocked() method
+2020-11-18 13:07:59.819 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails : isEnabled() method
+2020-11-18 13:07:59.819 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails : isAccountNonExpired() method
+2020-11-18 13:07:59.819 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails : getPassword() method
+2020-11-18 13:07:59.960 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails :isCredentialsNonExpired() method
+2020-11-18 13:07:59.960 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails :getAuthorities() method
+2020-11-18 13:07:59.962 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.HomeController - Inside HomeController : basicauth() method
+2020-11-18 13:07:59.963 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails : getUsername() method
+2020-11-18 13:07:59.963 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.UserControllerService - Inside UserControllerService : GetUserDetails() method
+2020-11-18 13:07:59.963 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.UserDAO - Inside UserDAO : getUser() method
+2020-11-18 13:07:59.971 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.HomeController - Inside HomeController : basicauth() SUCCESS
+2020-11-18 13:07:59.972 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.authentication.AuthenticationBean - Inside AuthenticationBean : AuthenticationBean() method
+2020-11-18 13:07:59.972 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.authentication.AuthenticationBean - Inside AuthenticationBean : getMessage() method
+2020-11-18 13:07:59.973 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.config.CustomUserDetails - Inside CustomUserDetails : getUsername() method
+2020-11-18 13:08:00.061 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.FeedController - Inside FeedController : getTeamProposalFeed() method
+2020-11-18 13:08:00.062 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() method
+2020-11-18 13:08:00.063 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : getTeam() method
+2020-11-18 13:08:00.063 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() method
+2020-11-18 13:08:00.063 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() method
+2020-11-18 13:08:00.063 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TeamDAO - Inside TeamDAO : fetchAllTeams() method
+2020-11-18 13:08:00.066 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.ProposalDAO - Inside ProposalDAO : getDefault() method
+2020-11-18 13:08:00.067 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.TeamService - Inside TeamService : fetchAllTeams() SUCCESS
+2020-11-18 13:08:00.067 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.TeamController - Inside TeamController: getAllTeams() SUCCESS
+2020-11-18 13:08:00.078 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.ProposalService - Inside ProposalService : getDefault() SUCCESS
+2020-11-18 13:08:00.079 [http-nio-8080-exec-2] ERROR com.soprabanking.ips.controllers.FeedController - Inside FeedController: getTeamProposalFeed() FAILURE
+2020-11-18 13:10:34.919 [RMI TCP Connection(9)-127.0.0.1] INFO  org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2020-11-18 13:10:35.006 [RMI TCP Connection(9)-127.0.0.1] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-18 13:10:35.009 [RMI TCP Connection(9)-127.0.0.1] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-18 13:10:35.009 [RMI TCP Connection(9)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-18 13:10:35.016 [RMI TCP Connection(9)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
