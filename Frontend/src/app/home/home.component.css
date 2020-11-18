@@ -10,14 +10,24 @@ a {
     display: block;
 }
 
-body {
+/* body {
     font-family: Arial;
     color: white;
-  }
+  } */
   
   .split {
     height: 100%;
     width: 50%;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
+    padding-top: 0px;
+    margin: 0px;
+  }
+
+  .splitOne {
+    height: 100%;
+    width: 100%;
     position: fixed;
     z-index: 1;
     overflow-x: hidden;
@@ -52,12 +62,6 @@ body {
     padding: 0px;
   }
 
-  .left img{
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-  }
-
   h1{
     font-size: 30px;
   }
@@ -68,42 +72,49 @@ body {
     margin-right: 10px;
   }
 
-  /* .description{
-   
-   
-    font-size: 50px;
+  .description {
+    
     line-height: 60px;
-  background: -webkit-linear-gradient(#f3ec78, #af4261);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;	
-  } */
-
-  .description{
-    /* background-image:linear-gradient(to right, gray, rgb(238, 236, 236)); */
-    font-family: 'calibri';
-    font-size: 5vw;
-    line-height: 60px;
+    font-style: italic;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    color: #313131;
+    font-size: 37px;
     font-weight: bold;
-    width: 70%;
-    -webkit-text-stroke: 1px black;
-  
-    background: -webkit-linear-gradient(50deg,#d4c15f , #936da5,#58482e) ;
-    -webkit-background-clip: text;
-    -ms-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -ms-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    
-    /* animation-duration: 3s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: none;
-    animation-play-state: running;
-    animation-name: shine;
-    -webkit-tap-highlight-color: rgba(0,0,0,0); */
-    
+    position: absolute;
+    -webkit-animation: color-change 5s infinite;
+    -moz-animation: color-change 5s infinite;
+    -o-animation: color-change 5s infinite;
+    -ms-animation: color-change 5s infinite;
+    animation: color-change 5s infinite;
+    background : 1px solid black;
   }
+
+  @-webkit-keyframes color-change {
+    0% { color: rgb(7, 86, 71)}
+    50% { color: rgb(193, 104, 32) }
+    100% { color: rgb(92, 30, 184) }
+  }
+  @-moz-keyframes color-change {
+    0% { color: rgb(7, 86, 71)}
+    50% { color: rgb(193, 104, 32) }
+    100% { color: rgb(92, 30, 184) }
+  }
+  @-ms-keyframes color-change {
+    0% { color:rgb(7, 86, 71)}
+    50% { color: rgb(193, 104, 32) }
+    100% { color: rgb(92, 30, 184) }
+  }
+  @-o-keyframes color-change {
+    0% { color:rgb(7, 86, 71)}
+    50% { color: rgb(193, 104, 32) }
+    100% { color: rgb(92, 30, 184) }
+  }
+  @keyframes color-change {
+    0% { color: rgb(7, 86, 71)}
+    50% { color: rgb(193, 104, 32) }
+    100% { color: rgb(92, 30, 184) }
+  }
+
+  
