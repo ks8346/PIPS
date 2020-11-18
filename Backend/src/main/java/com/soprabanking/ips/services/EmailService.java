@@ -25,7 +25,7 @@ import com.soprabanking.ips.models.Team;
 @Service
 public class EmailService {
 	
-	private static final Logger LOGGER = LogManager.getLogger(EmailService.class);
+//	private static final Logger LOGGER = LogManager.getLogger(EmailService.class);
 	/**
 	* {@link JavaMailSender} object responsible for sending the mail to the registered email id.
 	*/
