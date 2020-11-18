@@ -1,8 +1,7 @@
 package com.soprabanking.ips.services;
 
 import java.util.UUID;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,9 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-
-import com.soprabanking.ips.daos.TeamDAO;
-import com.soprabanking.ips.models.Team;
 
 /** 
  * Email Service
@@ -24,13 +20,13 @@ import com.soprabanking.ips.models.Team;
  */
 @Service
 public class EmailService {
+	private static final Logger LOGGER = LogManager.getLogger(EmailService.class);
 	
-//	private static final Logger LOGGER = LogManager.getLogger(EmailService.class);
+
 	/**
 	* {@link JavaMailSender} object responsible for sending the mail to the registered email id.
 	*/
 	
-	private static final Logger LOGGER = LogManager.getLogger(EmailService.class);
 	
 	@Autowired
 	private JavaMailSender sender;
@@ -46,7 +42,7 @@ public class EmailService {
 	public void sendResetLink(String to, String content, String subject) {
 		LOGGER.info("Inside EmailService : sendResetLink() method");
 		
-		LOGGER.info("Inside EmailService class " + ": sendResetLink() method");
+	
 		SimpleMailMessage msg = new SimpleMailMessage();
 		msg.setTo(to);
 		msg.setText(content);

@@ -1,19 +1,10 @@
 package com.soprabanking.ips.models;
 
-import java.util.HashSet;
-
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.soprabanking.ips.models.User;
 /**
  * This is a model class for team
  * this class implements  the information of team which is required to create a new team.

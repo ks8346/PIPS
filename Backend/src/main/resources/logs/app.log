@@ -10606,3 +10606,35 @@ Caused by: org.postgresql.util.PSQLException: FATAL: password authentication fai
 2020-11-18 18:38:44.313 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
 2020-11-18 18:38:44.313 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
 2020-11-18 18:38:44.315 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:40:07.801 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:40:07.801 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:40:07.802 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:40:07.803 [http-nio-8080-exec-10] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:40:07.941 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:40:07.941 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:40:07.941 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:40:07.942 [http-nio-8080-exec-1] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:40:28.019 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:40:28.019 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:40:28.019 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:40:28.020 [http-nio-8080-exec-2] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:40:28.151 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:40:28.152 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:40:28.152 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:40:28.153 [http-nio-8080-exec-3] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:41:08.184 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:41:08.184 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:41:08.184 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:41:08.187 [http-nio-8080-exec-4] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:41:08.489 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:41:08.489 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:41:08.490 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:41:08.491 [http-nio-8080-exec-5] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:41:13.618 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:41:13.618 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:41:13.618 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:41:13.620 [http-nio-8080-exec-6] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS
+2020-11-18 18:41:14.277 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() method
+2020-11-18 18:41:14.278 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.services.TokenService - Inside TokenService : findTokenById()
+2020-11-18 18:41:14.278 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.daos.TokenDAO - Inside TokenDAO : getById(id) method
+2020-11-18 18:41:14.279 [http-nio-8080-exec-7] INFO  com.soprabanking.ips.controllers.ForgotPasswordController - Inside ForgotPasswordController : validateToken() SUCCESS

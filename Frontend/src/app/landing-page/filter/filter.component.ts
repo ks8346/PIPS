@@ -1,7 +1,4 @@
-import { getLocaleDateFormat } from '@angular/common';
-import { Component, OnInit,Input,Output,EventEmitter, ɵExtraLocaleDataIndex } from '@angular/core';
-import { MatStartDate } from '@angular/material/datepicker';
-import { Post } from 'src/app/post';
+import { Component, OnInit,Input,Output,EventEmitter} from '@angular/core';
   
 /**
  * FilterComponent is the child component of the landing-page.
@@ -71,7 +68,7 @@ export class FilterComponent implements OnInit {
    * This function is resposible for adding a day to a end Date user selected
    */
   datePlusOne(){
-    console.log("date",this.eDate)
+    // console.log("date",this.eDate)
     this.newEdate = this.eDate;
     this.newEdate = this.newEdate.setDate(this.newEdate.getDate()+1);
   }

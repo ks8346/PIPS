@@ -6,13 +6,10 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MatDialogModule} from '@angular/material/dialog';
-import {By} from '@angular/platform-browser';
-import { ComponentRef } from '@angular/core';
-
-
 import { teamList } from '../teamList';
-import {of} from 'rxjs';
+import {of, throwError} from 'rxjs';
 import { Teams } from '../teams';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
  
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -27,7 +24,8 @@ describe('RegisterComponent', () => {
         ReactiveFormsModule,
         FormsModule,
         HttpClientTestingModule,
-        MatDialogModule
+        MatDialogModule,
+        NoopAnimationsModule
       ],
       declarations: [ RegisterComponent ],
       providers:[ 
@@ -170,29 +168,94 @@ describe('RegisterComponent', () => {
 
   it("should call getTeams and return list of teams",fakeAsync(() => {
     let team = TestBed.inject(UserRegisterService);
-    const response: teamList[] = [{teamName:"Devs"},{teamName:"Sparks"}];
+    let response: teamList[] = [{teamName:"Devs"},{teamName:"Sparks"}];
 
     spyOn(team, 'getTeam').and.returnValue(of(response))
   
     component.getTeams();
-  
-    fixture.detectChanges();
-  
     expect(component.teams).toEqual(response);
   }));
 
-  it("should check data with existing data",fakeAsync(() => {
+  it("should check data with existing data",() => {
     let userservice = TestBed.inject(UserRegisterService);
-    const response = 'Email Id already exists !!'
+    let response = {team:{ name : 'Sparks'},user: {name: 'Ankit',email:'ankit',password:'Qwerty@123'}}
+
+    let email=component.registerForm.controls.email;
+    let password = component.registerForm.controls.password;
+    let confirmpassword = component.registerForm.controls.confirmPass;
+    let team = component.registerForm.controls.team;
+    let name = component.registerForm.controls.userName;
+    let terms = component.registerForm.controls.acceptTerms;
+
+    email.setValue('ankit@gmail.com')
+    password.setValue('Qwerty@123')
+    confirmpassword.setValue('Qwerty@123')
+    team.setValue('Sparks')
+    name.setValue('Ankit')
+    terms.setValue(true);
+
     spyOn(userservice, 'doRegister').and.returnValue(of(response))
+
+    component.onSubmit()
+    expect(component.registerForm.valid).toBeTruthy();
   
     component.onSubmit();
-  
-    fixture.detectChanges();
-  
-    expect(component.message).toEqual('Email Id already exists!');
-  }));
-  
+    expect(component.loading).toBe(false);
+    expect(component.message).toEqual('You have been signed up! Now please login again to continue.');
+  });
 
+  it('error validation',()=>{
 
+    let userservice = TestBed.inject(UserRegisterService);
+    //let response = {team:{ name : 'Sparks'},user: {name: 'Ankit',email:'ankit',password:'Qwerty@123'}}
+
+    let email=component.registerForm.controls.email;
+    let password = component.registerForm.controls.password;
+    let confirmpassword = component.registerForm.controls.confirmPass;
+    let team = component.registerForm.controls.team;
+    let name = component.registerForm.controls.userName;
+    let terms = component.registerForm.controls.acceptTerms;
+
+    email.setValue('ankit@gmail.com')
+    password.setValue('Qwerty@123')
+    confirmpassword.setValue('Qwerty@123')
+    team.setValue('Sparks')
+    name.setValue('Ankit')
+    terms.setValue(true);
+
+    let error = { status: 200}
+    spyOn(userservice, 'doRegister').and.returnValue(throwError(error))
+  
+    component.onSubmit();
+    expect(component.loading).toBe(false);
+    expect(component.message).toEqual('You have been signed up! Now please login again to continue.');
+  });
+
+  it('error validation',()=>{
+
+    let userservice = TestBed.inject(UserRegisterService);
+    //let response = {team:{ name : 'Sparks'},user: {name: 'Ankit',email:'ankit',password:'Qwerty@123'}}
+
+    let email=component.registerForm.controls.email;
+    let password = component.registerForm.controls.password;
+    let confirmpassword = component.registerForm.controls.confirmPass;
+    let team = component.registerForm.controls.team;
+    let name = component.registerForm.controls.userName;
+    let terms = component.registerForm.controls.acceptTerms;
+
+    email.setValue('ankit@gmail.com')
+    password.setValue('Qwerty@123')
+    confirmpassword.setValue('Qwerty@123')
+    team.setValue('Sparks')
+    name.setValue('Ankit')
+    terms.setValue(true);
+    let error = { status: 302}
+    spyOn(userservice, 'doRegister').and.returnValue(throwError(error))
+  
+    component.onSubmit();
+    expect(component.loading).toBe(false);
+    expect(component.message).toEqual('This email Id already exists, Please try again!');
+
+  });
+  
 }); 

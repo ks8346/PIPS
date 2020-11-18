@@ -4,6 +4,7 @@ import java.security.Principal;
 
 
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,14 +22,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soprabanking.ips.authentication.AuthenticationBean;
 import com.soprabanking.ips.models.Team;
 import com.soprabanking.ips.models.User;
 import com.soprabanking.ips.modelwrap.ModelWrap;
-import com.soprabanking.ips.repositories.TeamRepository;
-import com.soprabanking.ips.repositories.UserRepository;
 import com.soprabanking.ips.services.HomeService;
 import com.soprabanking.ips.services.UserControllerService;
 
@@ -48,21 +46,18 @@ import com.soprabanking.ips.services.UserControllerService;
 public class HomeController {
 	
 	private static final Logger LOGGER = LogManager.getLogger(HomeController.class);
-    @Autowired
-    private UserRepository userRepository;
+
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
-
-
-    @Autowired
-    private TeamRepository teamRepository;
     
     @Autowired
     private HomeService homeService;
     
     @Autowired
     private UserControllerService userControllerService;
+    
+    
     /**
 	 * This method returns home page for our product.
 	 * @param model object of Model class
@@ -83,7 +78,6 @@ public class HomeController {
     @GetMapping("/getTeam")
     public ResponseEntity<List<Object>> findAllTeams() {
     	 try {
-        //List<Object> allteam = teamRepository.getTeamIdANDName();
     	LOGGER.info("Inside HomeController : finaALlTeam() method");
     	List<Object> allteam = homeService.getTeam();
         allteam.forEach(e -> {
@@ -116,7 +110,6 @@ public class HomeController {
             System.out.println(user);
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             String tname=team.getName();
-            //Team team1 = this.teamRepository.getTeamByTeamName(team.getName());
             Team team1 = homeService.getTeamname(tname);
             if (team1 == null) {
                 user.setTeam(team);
@@ -125,7 +118,7 @@ public class HomeController {
             }
 
             System.out.println(user);
-            userRepository.save(user);
+            userControllerService.saveUser(user);
             System.out.println(user);
             LOGGER.info("Inside HomeController : registerUser() SUCCESS");
             return new ResponseEntity<>(HttpStatus.OK);
@@ -155,8 +148,6 @@ public class HomeController {
         	LOGGER.info("Inside HomeController : basicauth() method");
             String userName = principal.getName();
 
-
-           // User user = userRepository.getUserByUserName(userName);
             User user = userControllerService.getUserDetails(userName);
             
 

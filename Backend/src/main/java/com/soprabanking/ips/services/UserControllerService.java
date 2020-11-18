@@ -49,7 +49,7 @@ public class UserControllerService {
  public  User getUserDetails(String username) {
      LOGGER.info("Inside UserControllerService : GetUserDetails() method");
 
-     User user = userDao.getUserDetailsdao(username);
+     User user = userDao.getUser(username);
 
 
      return user;
