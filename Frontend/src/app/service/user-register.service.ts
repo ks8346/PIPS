@@ -3,11 +3,15 @@ import { Injectable } from '@angular/core';
 import { teamList } from './../teamList';
 import {Observable} from 'rxjs';
 
+/**This service handles http requests for registration process */
 @Injectable({
   providedIn: 'root'
 })
 export class UserRegisterService {
 
+  /**@constructor
+   * @param http This is the instance of object HttpClient
+  */
   constructor(private http:HttpClient) {
     
    }

@@ -115,6 +115,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -129,6 +130,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>This is the instance of object UserLoginService</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -166,8 +171,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/service/http-interceptor.service.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/service/http-interceptor.service.ts:15</a></div>
                 </td>
             </tr>
 
@@ -241,6 +246,9 @@ import { Observable } from &#x27;rxjs&#x27;;
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
 
+    /**@constructor
+   * @param authenticationService This is the instance of object UserLoginService
+  */
     constructor(private authenticationService: UserLoginService) { }
 
     intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {

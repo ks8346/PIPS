@@ -1,3 +1,8 @@
+/**Defines the teams object */
 export class teamList{
-    constructor(public teamName:string){}
+
+  /**@ignore */
+    constructor(
+      /**Defines team name of type string */
+      public teamName:string){}
   }

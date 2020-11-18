@@ -158,25 +158,53 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: [&#x27;./login.component.css&#x27;]
 })
 export class LoginComponent implements OnInit {
-  check:boolean&#x3D;false
-  email:string;
+  
+  // check:boolean&#x3D;false
+  // email:string;
+  /**instance of login form */
   loginForm: FormGroup;
+
+  /**This variable set true when user enters valid login credentials */
   invalidLogin &#x3D; false
+
+  /**This variable is set true on successful login */
   loginSuccess&#x3D;false;
-  successMessage: string;
+
+
+  // successMessage: string;
+
+  /**message to be displayed for invalid credentials */
   errorMessage &#x3D; &quot;Invalid Credentials&quot;
+
+  /**This variable stores user data */
   userData;
+
+  /**this variable stores user data when loggedin via social media */
   socialData;
-  uData
+  // uData
+
+  /**@ignore */
   private user: SocialUser;
+
+  /**Flag to check if user has logged in earlier via social media*/
   private loggedIn: boolean;
+
+  /**@ignore */
   public res
 
-  constructor(private router: Router,
+  /**Creates a login form with email amd password fields */
+  constructor(
+    /**@ignore */
+    private router: Router,
+    /**@ignore */
     private transferDataService:TransferDataService,
+    /**@ignore */
    private socialMediaAuth:SocialMediaAuthService,
+   /**@ignore */
     public dialog: MatDialog,
+    /**@ignore */
     public loginService:UserLoginService,
+    /**@ignore */
     private authService: SocialAuthService,
 ) {
     this.loginForm &#x3D; new FormGroup({
@@ -184,7 +212,11 @@ export class LoginComponent implements OnInit {
       password: new FormControl(&#x27;&#x27;, [Validators.required])
     });
   }
+  
+  /**@ignore */
   matcher &#x3D; new MyErrorStateMatcher()
+
+  /**@ignore */
   ngOnInit(): void {
     
   }
@@ -216,7 +248,7 @@ export class LoginComponent implements OnInit {
      this.invalidLogin &#x3D; false;
           this.loginSuccess &#x3D; true;
           console.log(&quot;data&quot;, data1)
-          this.successMessage &#x3D; &#x27;Login Successful.&#x27;;
+          // this.successMessage &#x3D; &#x27;Login Successful.&#x27;;
           this.router.navigate([&#x27;/welcome&#x27;]);
     }
     ,
@@ -237,14 +269,14 @@ export class LoginComponent implements OnInit {
           this.userData&#x3D;sessionStorage.getItem(&#x27;authenticatedUser&#x27;)
           this.invalidLogin &#x3D; false;
           this.loginSuccess &#x3D; true;
-          this.successMessage &#x3D; &#x27;Login Successful.&#x27;;
+          // this.successMessage &#x3D; &#x27;Login Successful.&#x27;;
           this.router.navigate([&#x27;/welcome&#x27;]);
         }, (error) &#x3D;&gt; {
           if(error.status&#x3D;&#x3D;200){
               this.userData&#x3D;sessionStorage.getItem(&#x27;authenticatedUser&#x27;)
               this.invalidLogin &#x3D; false;
               this.loginSuccess &#x3D; true;
-              this.successMessage &#x3D; &#x27;Login Successful.&#x27;;
+              // this.successMessage &#x3D; &#x27;Login Successful.&#x27;;
               this.router.navigate([&#x27;/welcome&#x27;]);
           }
           else if(error.status!&#x3D;200){
@@ -264,7 +296,6 @@ export class LoginComponent implements OnInit {
   openDialog(): void{
     const dialogRef &#x3D; this.dialog.open(ForgetPasswordComponent, {
       width: &#x27;500px&#x27;,
-     
     });
   }
 }
