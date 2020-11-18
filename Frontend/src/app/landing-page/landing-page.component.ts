@@ -53,7 +53,7 @@ export class LandingPageComponent implements OnInit {
   /**@ignore */
   startDate=new Date()
   /**@ignore */
-  data=new FeedParams(new Date(this.startDate.setDate(this.startDate.getDate()-30)),new Date(),"0","3")
+  data=new FeedParams(new Date(this.startDate.setDate(this.startDate.getDate()-30)),new Date(),"0","5")
   
   constructor(
     /**@ignore */
@@ -174,17 +174,18 @@ export class LandingPageComponent implements OnInit {
       this.page++
       this.data.page=this.page.toString()
       // console.log(this.data)
-      if(this.type.includes("allPost")){
-        this.getProposals.getAllNextPost(this.data).subscribe((data)=>this.newFeed=data,(error)=>this.errorHandling(error))
+      if(this.type==="allPost"){
+        this.getProposals.getAllNextPost(this.data).subscribe((data)=>{this.newFeed=data
+        },(error)=>this.errorHandling(error))
       }
-      else if(this.type.includes("teamPost")){
+      else if(this.type==="teamPost"){
         this.getProposals.getTeamNextPost(this.data,this.user.team.id).subscribe((data)=>this.newFeed=data,(error)=>this.errorHandling(error))
       }
-      else if(this.type.includes("yourPost")){
+      else if(this.type==="yourPost"){
         this.getProposals.getYourNextPost(this.data,this.user.id).subscribe((data)=>this.newFeed=data,(error)=>this.errorHandling(error))
       }      
       this.feed=this.feed.concat(this.newFeed)
-      // console.log(this.newFeed)
+      // console.log(this.feed)
       this.newFeed=[]
     }
   }

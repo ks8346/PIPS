@@ -68,7 +68,7 @@ export class FilterComponent implements OnInit {
    * This function is resposible for adding a day to a end Date user selected
    */
   datePlusOne(){
-    console.log("date",this.eDate)
+    // console.log("date",this.eDate)
     this.newEdate = this.eDate;
     this.newEdate = this.newEdate.setDate(this.newEdate.getDate()+1);
   }
