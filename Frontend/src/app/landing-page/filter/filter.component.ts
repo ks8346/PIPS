@@ -1,7 +1,4 @@
-import { getLocaleDateFormat } from '@angular/common';
-import { Component, OnInit,Input,Output,EventEmitter, ɵExtraLocaleDataIndex } from '@angular/core';
-import { MatStartDate } from '@angular/material/datepicker';
-import { Post } from 'src/app/post';
+import { Component, OnInit,Input,Output,EventEmitter} from '@angular/core';
   
 /**
  * FilterComponent is the child component of the landing-page.
