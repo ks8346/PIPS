@@ -5,47 +5,52 @@ import java.util.TimerTask;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
-@ExtendWith(MockitoExtension.class)
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+@SpringBootTest
 class TimerServiceTest {
 
-	@Mock
+	@MockBean
 	private TokenService tokenService;
 	
-	@Mock
+	@MockBean
 	private Timer timer;
 	
-	@InjectMocks
+	@Autowired
 	private TimerService timerService;
 
 	@Test
 	void createTimertest() {
 
 		assertNotNull(timerService.createTimer(UUID.randomUUID()));
-		
+		verifyNoInteractions(tokenService, timer);
 	}
 	
 	@Test
 	void scheduleTimerSuccessfulltest() {
 		
 		TimerTask task = timerService.createTimer(UUID.randomUUID());
-		
-		Mockito.doNothing().when(timer).schedule(task, 60000L);
-		
+		Mockito.doNothing().when(timer).schedule(any(TimerTask.class), anyLong());
 		assertDoesNotThrow(()->timerService.scheduleTimer(task, 60000L));
-		
+		verify(timer).schedule(any(TimerTask.class), anyLong());
+		verifyNoMoreInteractions(timer, tokenService);
 	}
 	
 	@Test
 	void scheduleTimerUnsuccessfullTest() {
-		Mockito.doThrow(new NullPointerException()).when(timer).schedule(null, 60000L);
+		Mockito.doThrow(new NullPointerException()).when(timer).schedule(isNull(), anyLong());
 		assertThrows(Exception.class, ()->timerService.scheduleTimer(null, 60000L));
+		verify(timer).schedule(isNull(), anyLong());
+		verifyNoMoreInteractions(timer, tokenService);
 	}
 
 }

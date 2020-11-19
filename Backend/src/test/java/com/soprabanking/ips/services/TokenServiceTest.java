@@ -2,6 +2,9 @@ package com.soprabanking.ips.services;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 import java.util.UUID;
 import java.util.concurrent.locks.ReentrantLock;
@@ -10,28 +13,27 @@ import javax.persistence.EntityNotFoundException;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.soprabanking.ips.daos.TokenDAO;
 import com.soprabanking.ips.models.Token;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 class TokenServiceTest {
 	
 	private Token token;
 	private UUID id;
 	
-	@Mock
+	@MockBean
 	private TokenDAO tokenDao;
 	
-	@Mock
+	@MockBean
 	private ReentrantLock lock;
 	
-	@InjectMocks
+	@Autowired
 	private TokenService tokenService;
 	
 	@BeforeEach
@@ -48,7 +50,7 @@ class TokenServiceTest {
 	void createTokentest() {
 		
 		assertEquals(token.getEmail(), tokenService.createToken(id, "nk@gmail.com").getEmail());
-	
+		verifyNoInteractions(tokenDao, lock);
 	}
 	
 	@Test
@@ -56,12 +58,14 @@ class TokenServiceTest {
 		
 		Mockito.doNothing().when(lock).lock();
 		Mockito.doNothing().when(lock).unlock();
-		
 		when(tokenDao.getToken("nk@gmail.com")).thenReturn(token);
 		Mockito.doNothing().when(tokenDao).deleteToken(token.getId());
-		
-		assertDoesNotThrow(()->tokenService.deleteTokenByUsername("nk@gmail.com"));
-	
+		assertTrue(tokenService.deleteTokenByUsername("nk@gmail.com"));
+		verify(lock).lock();
+		verify(lock).unlock();
+		verify(tokenDao).getToken(anyString());
+		verify(tokenDao).deleteToken(any(UUID.class));
+		verifyNoMoreInteractions(tokenDao, lock);
 	}
 	
 	@Test
@@ -69,11 +73,12 @@ class TokenServiceTest {
 			
 		Mockito.doNothing().when(lock).lock();
 		Mockito.doNothing().when(lock).unlock();
-		
 		when(tokenDao.getToken("nk@gmail.com")).thenThrow(EntityNotFoundException.class);
-		
-		assertThrows(Exception.class, ()->tokenService.deleteTokenByUsername("nk@gmail.com"));
-	
+		assertFalse(tokenService.deleteTokenByUsername("nk@gmail.com"));
+		verify(lock).lock();
+		verify(lock).unlock();
+		verify(tokenDao).getToken(anyString());
+		verifyNoMoreInteractions(tokenDao, lock);
 	}
 	
 	@Test
@@ -81,12 +86,14 @@ class TokenServiceTest {
 			
 		Mockito.doNothing().when(lock).lock();
 		Mockito.doNothing().when(lock).unlock();
-		
-		when(tokenDao.getToken("nk@gmail.com")).thenReturn(new Token());
+		when(tokenDao.getToken("nk@gmail.com")).thenReturn(token);
 		Mockito.doThrow(new IllegalArgumentException()).when(tokenDao).deleteToken(any(UUID.class));
-		
-		assertThrows(Exception.class, ()->tokenService.deleteTokenByUsername("nk@gmail.com"));
-	
+		assertFalse(tokenService.deleteTokenByUsername("nk@gmail.com"));
+		verify(lock).lock();
+		verify(lock).unlock();
+		verify(tokenDao).getToken(anyString());
+		verify(tokenDao).deleteToken(any(UUID.class));
+		verifyNoMoreInteractions(tokenDao, lock);
 	}
 	
 	@Test
@@ -94,11 +101,12 @@ class TokenServiceTest {
 		
 		Mockito.doNothing().when(lock).lock();
 		Mockito.doNothing().when(lock).unlock();
-		
 		Mockito.doNothing().when(tokenDao).deleteToken(id);
-		
-		assertDoesNotThrow(()->tokenService.deleteTokenById(id));
-	
+		assertTrue(tokenService.deleteTokenById(id));
+		verify(lock).lock();
+		verify(lock).unlock();
+		verify(tokenDao).deleteToken(any(UUID.class));
+		verifyNoMoreInteractions(tokenDao, lock);
 	}
 	
 	@Test
@@ -106,11 +114,12 @@ class TokenServiceTest {
 			
 		Mockito.doNothing().when(lock).lock();
 		Mockito.doNothing().when(lock).unlock();
-		
 		Mockito.doThrow(new IllegalArgumentException()).when(tokenDao).deleteToken(id);
-		
-		assertThrows(Exception.class, ()->tokenService.deleteTokenById(id));
-	
+		assertFalse(tokenService.deleteTokenById(id));
+		verify(lock).lock();
+		verify(lock).unlock();
+		verify(tokenDao).deleteToken(any(UUID.class));
+		verifyNoMoreInteractions(tokenDao, lock);
 	}
 	
 	@Test
@@ -118,15 +127,25 @@ class TokenServiceTest {
 
 		Mockito.doNothing().when(tokenDao).saveToken(token);
 		assertDoesNotThrow(()->tokenService.saveToken(token));
-	
+		verify(tokenDao).saveToken(any(Token.class));
+		verifyNoMoreInteractions(tokenDao, lock);
 	}
 	
 	@Test
-	void findTokentest() {
+	void findTokentest1() {
 		
 		when(tokenDao.getById(id)).thenReturn(token);
-		
 		assertEquals(token.getEmail(), tokenService.findTokenById(id).getEmail());
+		verify(tokenDao).getById(any(UUID.class));
+		verifyNoMoreInteractions(tokenDao, lock);
 	}
 
+	@Test
+	void findTokentest2() {
+		
+		when(tokenDao.getById(id)).thenReturn(null);
+		assertThrows(Exception.class, ()->tokenService.findTokenById(id));
+		verify(tokenDao).getById(any(UUID.class));
+		verifyNoMoreInteractions(tokenDao, lock);
+	}
 }

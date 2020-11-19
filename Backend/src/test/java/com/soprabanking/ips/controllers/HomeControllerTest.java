@@ -2,14 +2,19 @@ package com.soprabanking.ips.controllers;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.mockito.ArgumentMatchers.*;
 
+import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 
+import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,7 +22,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.ui.ConcurrentModel;
 import org.springframework.ui.Model;
 
@@ -27,27 +40,31 @@ import com.soprabanking.ips.models.Team;
 import com.soprabanking.ips.models.User;
 import com.soprabanking.ips.modelwrap.ModelWrap;
 import com.soprabanking.ips.services.HomeService;
-import com.soprabanking.ips.services.UserControllerService;
+import com.soprabanking.ips.services.UserService;
 
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+@AutoConfigureMockMvc
 class HomeControllerTest {
 	
 	private ModelWrap modelWrap;
 	private User user;
 	private Team team;
 
-	@Mock
-	private UserControllerService userControllerService;
+	@MockBean
+	private UserService userService;
 	
-	@Mock
+	@MockBean
 	private HomeService homeService;
 	
-	@Mock
-	private BCryptPasswordEncoder encoder;
+	@MockBean
+	private PasswordEncoder passwordEncoder;
 	
-	@InjectMocks
-	private HomeController homeController;
+	@Autowired
+	private ObjectMapper objectMapper;
+	
+	@Autowired
+	private MockMvc mockMvc;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -69,15 +86,16 @@ class HomeControllerTest {
 	}
 
 	@Test
-	void hometest() {
+	void hometest() throws Exception {
 		
-		Model model = new ConcurrentModel();
-		
-		assertEquals("this is home page of IPS", homeController.home(model));
+		MvcResult result = mockMvc.perform(get("/home"))
+				.andExpect(status().is2xxSuccessful())
+				.andReturn();
+		assertEquals("this is home page of IPS", result.getResponse().getContentAsString());
 	}
 	
 	@Test
-	void findAllTeamstest1() {
+	void findAllTeamstest1() throws Exception {
 		
 		List<Object> teams = new ArrayList<>();
 		Team team1 = new Team();
@@ -92,77 +110,66 @@ class HomeControllerTest {
 		teams.add(team2);
 		
 		when(homeService.getTeam()).thenReturn(teams);
-		
-		assertEquals(teams.get(0).toString(), homeController.findAllTeams().getBody().get(0).toString());
+		MvcResult result = mockMvc.perform(get("/getTeam"))
+				.andExpect(status().is2xxSuccessful())
+				.andReturn();
+		List<Object> actualTeams = Arrays.asList(objectMapper.readValue(result.getResponse().getContentAsString(), Object[].class));
+		assertEquals(2, actualTeams.size());
 	}
 	
 	@Test
-	void findAllTeamstest2() {
+	void findAllTeamstest2() throws Exception {
 		
-		when(homeService.getTeam()).thenThrow(IllegalStateException.class);
-		
-		assertTrue(homeController.findAllTeams().getBody().isEmpty());
+		when(homeService.getTeam()).thenThrow(new IllegalStateException());
+		MvcResult result = mockMvc.perform(get("/getTeam"))
+				.andExpect(status().is4xxClientError())
+				.andReturn();
+		List<Object> actualTeams = Arrays.asList(objectMapper.readValue(result.getResponse().getContentAsString(), Object[].class));
+		assertTrue(actualTeams.isEmpty());
 	}
 	
 	@Test
-	void registerUsertest1() {
-		
-		when(encoder.encode(anyString())).thenReturn("password");
+	void registerUsertest1() throws Exception {
+		String request = objectMapper.writeValueAsString(modelWrap);
+		when(passwordEncoder.encode(anyString())).thenReturn("password");
 		when(homeService.getTeamname(team.getName())).thenReturn(team);
-		Mockito.doNothing().when(userControllerService).saveUser(any(User.class));
-		
-		assertNull(homeController.registerUser(modelWrap).getBody());
-		
+		Mockito.doNothing().when(userService).saveUser(any(User.class));
+		MvcResult result = mockMvc.perform(post("/userRegister")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().is2xxSuccessful())
+				.andReturn();
+		assertEquals(200, result.getResponse().getStatus());
 	}
 	
 	@Test
-	void registerUsertest2() {
-		
-		when(encoder.encode(anyString())).thenReturn("password");
+	void registerUsertest2() throws Exception {
+		String request = objectMapper.writeValueAsString(modelWrap);
+		when(passwordEncoder.encode(anyString())).thenReturn("password");
 		when(homeService.getTeamname(team.getName())).thenReturn(null);
-		Mockito.doNothing().when(userControllerService).saveUser(any(User.class));
+		Mockito.doNothing().when(userService).saveUser(any(User.class));
+		MvcResult result = mockMvc.perform(post("/userRegister")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().is2xxSuccessful())
+				.andReturn();
 		
-		assertNull(homeController.registerUser(modelWrap).getBody());
+		assertEquals(200, result.getResponse().getStatus());
 		
 	}
 	
 	@Test
-	void registerUsertest3() {
-		
-		when(encoder.encode(anyString())).thenReturn("password");
+	void registerUsertest3() throws Exception {
+		String request = objectMapper.writeValueAsString(modelWrap);
+		when(passwordEncoder.encode(anyString())).thenReturn("password");
 		when(homeService.getTeamname(team.getName())).thenReturn(null);
-		Mockito.doThrow(new IllegalArgumentException()).when(userControllerService).saveUser(any(User.class));
-		
-		assertNull(homeController.registerUser(modelWrap).getBody());
-		
-	}
-	
-	@Test
-	void basicAuthtest1() throws JsonProcessingException {
-		
-		Principal principal = new Principal() {
-			public String getName() {
-				return "nk@gmail.com";
-			}
-		};
-		ObjectMapper mapper = new ObjectMapper();
-		when(userControllerService.getUserDetails("nk@gmail.com")).thenReturn(user);
-		
-		assertEquals(mapper.writeValueAsString(user), homeController.basicauth(principal).getBody().getMessage());
-		
-	}
-	
-	@Test
-	void basicAuthtest2() {
-		
-		Principal principal = new Principal() {
-			public String getName() {
-				return "nk@gmail.com";
-			}
-		};
-		when(userControllerService.getUserDetails("nk@gmail.com")).thenThrow(EntityNotFoundException.class);
-		
-		assertNull(homeController.basicauth(principal).getBody());
+		Mockito.doThrow(new IllegalArgumentException()).when(userService).saveUser(any(User.class));
+		MvcResult result = mockMvc.perform(post("/userRegister")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().is3xxRedirection())
+				.andReturn();
+		assertEquals(302, result.getResponse().getStatus());
 		
 	}
 

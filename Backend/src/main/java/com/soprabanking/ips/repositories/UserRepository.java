@@ -27,7 +27,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     
     /**
 	 * This method updates the password by firing the custom query.
-	 * @param email, password  user email and password
+	 * @param email : email id of the user
+	 * @param password : password of the user
+	 *
 	 */
     @Transactional
     @Modifying(clearAutomatically = true)

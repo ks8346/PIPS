@@ -17,12 +17,12 @@ import { SocialUser } from "angularx-social-login";
 // }
 
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+// export class MyErrorStateMatcher implements ErrorStateMatcher {
+//   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+//     const isSubmitted = form && form.submitted;
+//     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+//   }
+// }
 
 /**This component enables user to login to application */
 @Component({
@@ -87,7 +87,7 @@ export class LoginComponent implements OnInit {
   }
 
   /**@ignore */
-  matcher = new MyErrorStateMatcher()
+  // matcher = new MyErrorStateMatcher()
 
   /**@ignore */
   ngOnInit(): void {

@@ -3,6 +3,9 @@ package com.soprabanking.ips.controllers;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.TimerTask;
 import java.util.UUID;
@@ -11,13 +14,17 @@ import javax.persistence.EntityNotFoundException;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.mail.MailSendException;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soprabanking.ips.helper.Email;
 import com.soprabanking.ips.helper.Password;
 import com.soprabanking.ips.helper.TokenId;
@@ -28,7 +35,8 @@ import com.soprabanking.ips.services.TimerService;
 import com.soprabanking.ips.services.TokenService;
 import com.soprabanking.ips.services.UserService;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+@AutoConfigureMockMvc
 class ForgotPasswordControllerTest {
 	private Email email;
 	private TokenId tokenId;
@@ -37,20 +45,23 @@ class ForgotPasswordControllerTest {
 	private Token token;
 	private TimerTask task;
 
-	@Mock
+	@MockBean
 	private UserService userService;
 	
-	@Mock
+	@MockBean
 	private TokenService tokenService;
 	
-	@Mock
+	@MockBean
 	private TimerService timerService;
 	
-	@Mock
+	@MockBean
 	private EmailService emailService;
 	
-	@InjectMocks
-	private ForgotPasswordController forgotPasswordController;
+	@Autowired
+	private MockMvc mockMvc;
+	
+	@Autowired
+	private ObjectMapper objectMapper;
 	
 	@BeforeEach
 	void init() {
@@ -71,120 +82,153 @@ class ForgotPasswordControllerTest {
 		token.setId(id);
 		
 		task = new TimerTask() {
-			public void run() {
-				
-			}
+			public void run() {}
 		};
 	}
 	
 	@Test
-	void forgotPasswordEmailNotExisttest() {
-		
-		when(userService.getUserByUsername(email.getMail())).thenReturn(null);
-		assertEquals("Email does not exist!", forgotPasswordController.forgotPassword(email).getBody());
+	void forgotPasswordEmailNotExisttest() throws Exception {
+		String request = objectMapper.writeValueAsString(email);
+		when(userService.getUserDetails(email.getMail())).thenReturn(null);
+		MvcResult result = mockMvc.perform(post("/forgotPassword")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().is4xxClientError())
+				.andReturn();
+		assertEquals("Email does not exist!", result.getResponse().getContentAsString());
 	}
 	
 	@Test
-	void forgotPasswordSaveTokentest() {
-		
-		when(userService.getUserByUsername(email.getMail())).thenReturn(new User());
-		Mockito.doNothing().when(tokenService).deleteTokenByUsername(email.getMail());
+	void forgotPasswordSaveTokentest() throws Exception {
+		String request = objectMapper.writeValueAsString(email);
+		when(userService.getUserDetails(email.getMail())).thenReturn(new User());
+		when(tokenService.deleteTokenByUsername(email.getMail())).thenReturn(true);
 		when(tokenService.createToken(any(UUID.class), anyString())).thenReturn(null);
 		Mockito.doThrow(new IllegalArgumentException()).when(tokenService).saveToken(null);
-		assertEquals("Failed to process the forgot password request", forgotPasswordController.forgotPassword(email).getBody());
+		MvcResult result = mockMvc.perform(post("/forgotPassword")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().is4xxClientError())
+				.andReturn();
+		assertEquals("Failed to process the forgot password request", result.getResponse().getContentAsString());
 	}
 	
 	@Test
-	void forgotPasswordSendMailtest() {
-		
-		when(userService.getUserByUsername(email.getMail())).thenReturn(new User());
-		Mockito.doThrow(new IllegalArgumentException()).when(tokenService).deleteTokenByUsername(email.getMail());
+	void forgotPasswordSendMailtest() throws Exception {
+		String request = objectMapper.writeValueAsString(email);
+		when(userService.getUserDetails(email.getMail())).thenReturn(new User());
+		when(tokenService.deleteTokenByUsername(email.getMail())).thenReturn(true);
 		when(tokenService.createToken(any(UUID.class), anyString())).thenReturn(token);
 		Mockito.doNothing().when(tokenService).saveToken(token);
 		when(emailService.mailContent(id)).thenReturn("");
 		Mockito.doThrow(new MailSendException("")).when(emailService).sendResetLink(email.getMail(), "", "Forgot Password");
-		assertEquals("Failed to process the forgot password request", forgotPasswordController.forgotPassword(email).getBody());
+		MvcResult result = mockMvc.perform(post("/forgotPassword")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().is4xxClientError())
+				.andReturn();
+		assertEquals("Failed to process the forgot password request", result.getResponse().getContentAsString());
 	}
 	
 	@Test
-	void forgotPasswordTimerScheduletest() {
-		
-		when(userService.getUserByUsername(email.getMail())).thenReturn(new User());
-		Mockito.doNothing().when(tokenService).deleteTokenByUsername(email.getMail());
+	void forgotPasswordTimerScheduletest() throws Exception {
+		String request = objectMapper.writeValueAsString(email);
+		when(userService.getUserDetails(email.getMail())).thenReturn(new User());
+		when(tokenService.deleteTokenByUsername(email.getMail())).thenReturn(true);
 		when(tokenService.createToken(any(UUID.class), anyString())).thenReturn(token);
 		Mockito.doNothing().when(tokenService).saveToken(token);
 		when(emailService.mailContent(id)).thenReturn("");
 		Mockito.doNothing().when(emailService).sendResetLink(email.getMail(), "", "Forgot Password");
 		when(timerService.createTimer(id)).thenReturn(null);
-		Mockito.doThrow(new IllegalArgumentException()).when(timerService).scheduleTimer(null, 60000L);
-		assertEquals("Failed to process the forgot password request", forgotPasswordController.forgotPassword(email).getBody());
+		Mockito.doThrow(new IllegalArgumentException()).when(timerService).scheduleTimer(null, 300000L);
+		MvcResult result = mockMvc.perform(post("/forgotPassword")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().is4xxClientError())
+				.andReturn();
+		assertEquals("Failed to process the forgot password request", result.getResponse().getContentAsString());
 	}
 	
 	@Test
-	void forgotPasswordtest() {
-		
-		when(userService.getUserByUsername(email.getMail())).thenReturn(new User());
-		Mockito.doNothing().when(tokenService).deleteTokenByUsername(email.getMail());
+	void forgotPasswordtest() throws Exception {
+		String request = objectMapper.writeValueAsString(email);
+		when(userService.getUserDetails(email.getMail())).thenReturn(new User());
+		when(tokenService.deleteTokenByUsername(email.getMail())).thenReturn(true);
 		when(tokenService.createToken(any(UUID.class), anyString())).thenReturn(token);
 		Mockito.doNothing().when(tokenService).saveToken(token);
 		when(emailService.mailContent(id)).thenReturn("");
 		Mockito.doNothing().when(emailService).sendResetLink(email.getMail(), "", "Forgot Password");
 		when(timerService.createTimer(id)).thenReturn(task);
-		Mockito.doNothing().when(timerService).scheduleTimer(task, 60000L);
-		assertEquals("message sent successfully", forgotPasswordController.forgotPassword(email).getBody());
+		Mockito.doNothing().when(timerService).scheduleTimer(task, 300000L);
+		MvcResult result = mockMvc.perform(post("/forgotPassword")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().is2xxSuccessful())
+				.andReturn();
+		assertEquals("message sent successfully", result.getResponse().getContentAsString());
 	}
 	
 	@Test
-	void validateTokenSuccessfullTest() {
-		
-		when(tokenService.findTokenById(id)).thenReturn(new Token());
-		
-		assertEquals("Validation Successfull", forgotPasswordController.validateToken(tokenId).getBody());
+	void validateTokenSuccessfullTest() throws Exception {
+		String request = objectMapper.writeValueAsString(tokenId);
+		when(tokenService.findTokenById(id)).thenReturn(token);
+		MvcResult result = mockMvc.perform(post("/validateToken")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().is2xxSuccessful())
+				.andReturn();
+		assertEquals("Validation Successfull", result.getResponse().getContentAsString());
 	}
 	
 	@Test
-	void validateTokenUnsuccessfullTest() {
-		
+	void validateTokenUnsuccessfullTest() throws Exception {
+		String request = objectMapper.writeValueAsString(tokenId);
 		when(tokenService.findTokenById(id)).thenThrow(EntityNotFoundException.class);
-		
-		assertEquals("Validation Unsuccessfull", forgotPasswordController.validateToken(tokenId).getBody());
+		MvcResult result = mockMvc.perform(post("/validateToken")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().is4xxClientError())
+				.andReturn();
+		assertEquals("Validation Unsuccessfull", result.getResponse().getContentAsString());
 	}
 	
 	@Test
-	void resetPasswordFindTokenTest() {
-		
+	void resetPasswordFindTokenTest() throws Exception {
+		String request = objectMapper.writeValueAsString(password);
 		when(tokenService.findTokenById(id)).thenThrow(EntityNotFoundException.class);
-		
-		assertEquals("password updation failed", forgotPasswordController.resetPassword(password).getBody());
+		MvcResult result = mockMvc.perform(put("/resetPassword")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().is4xxClientError())
+				.andReturn();
+		assertEquals("password updation failed", result.getResponse().getContentAsString());
 	}
 	
 	@Test
-	void resetPasswordUpdatePasswordTest() {
-		
+	void resetPasswordUpdatePasswordTest() throws Exception {
+		String request = objectMapper.writeValueAsString(password);
 		when(tokenService.findTokenById(id)).thenReturn(token);
 		Mockito.doThrow(new IllegalArgumentException()).when(userService).updatePassword(token.getEmail(), password.getPassword());
-		
-		assertEquals("password updation failed", forgotPasswordController.resetPassword(password).getBody());
+		MvcResult result = mockMvc.perform(put("/resetPassword")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().is4xxClientError())
+				.andReturn();
+		assertEquals("password updation failed", result.getResponse().getContentAsString());
 	}
 	
 	@Test
-	void resetPasswordTest1() {
-		
+	void resetPasswordTest() throws Exception {
+		String request = objectMapper.writeValueAsString(password);
 		when(tokenService.findTokenById(id)).thenReturn(token);
 		Mockito.doNothing().when(userService).updatePassword(token.getEmail(), password.getPassword());
-		Mockito.doNothing().when(tokenService).deleteTokenById(id);
-		
-		assertEquals("password updated", forgotPasswordController.resetPassword(password).getBody());
-	}
-	
-	@Test
-	void resetPasswordTest2() {
-		
-		when(tokenService.findTokenById(id)).thenReturn(token);
-		Mockito.doNothing().when(userService).updatePassword(token.getEmail(), password.getPassword());
-		Mockito.doThrow(new IllegalArgumentException()).when(tokenService).deleteTokenById(id);
-		
-		assertEquals("password updated", forgotPasswordController.resetPassword(password).getBody());
+		when(tokenService.deleteTokenById(id)).thenReturn(true);
+		MvcResult result = mockMvc.perform(put("/resetPassword")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().is2xxSuccessful())
+				.andReturn();
+		assertEquals("password updated", result.getResponse().getContentAsString());
 	}
 
 }

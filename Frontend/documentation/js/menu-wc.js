@@ -192,9 +192,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/FeedParams.html" data-type="entity-link">FeedParams</a>
                             </li>
                             <li class="link">
-                                <a href="classes/MyErrorStateMatcher.html" data-type="entity-link">MyErrorStateMatcher</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/Post.html" data-type="entity-link">Post</a>
                             </li>
                             <li class="link">

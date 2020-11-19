@@ -40,7 +40,7 @@ export class FeedComponent implements OnInit {
   public commentVisibility=false;
 
   /**@ignore */
-  public commentsMessage="Comments";
+  public commentsMessage="";
 
   /**@ignore */
   commentError:string;
@@ -105,11 +105,11 @@ export class FeedComponent implements OnInit {
         if(data!=null){
           if(data.length==1){
             this.commentVisibility=true
-            this.commentsMessage="Comments"
+            // this.commentsMessage="Comments"
             this.height=95
           }
           else{
-            this.commentsMessage="Comments"
+            // this.commentsMessage="Comments"
             this.height=200
           }
         }
@@ -134,7 +134,7 @@ export class FeedComponent implements OnInit {
     this.numberLikes=this.post.upvotesCount;
     this.proposalWork.getLike(this.post.id,this.userId).subscribe(
       (data)=>{
-        this.hasLiked=data,console.log(this.hasLiked)
+        this.hasLiked=data
       }
     )
   }
@@ -147,17 +147,17 @@ export class FeedComponent implements OnInit {
     this.proposalWork.postComment(id,this.new_comment,this.userId).subscribe(
       (data)=>{
           this.new_comment=""
-          this.commentsMessage="Comments"
+          this.commentsMessage=""
           this.commentVisibility=true
           this.noComments=true
           this.commentsSetup()
       },(error)=>{
         if(error.status==200){
-          console.log("in error")
+          // console.log("in error")
           this.new_comment=""
           this.commentVisibility=true
           this.noComments=true
-          this.commentsMessage="Comments"
+          this.commentsMessage=""
           this.commentsSetup()
         }
         if(error.status!=200){
@@ -165,7 +165,7 @@ export class FeedComponent implements OnInit {
         }
       } 
     );
-    console.log(id+this.userId+this.new_comment)
+    // console.log(id+this.userId+this.new_comment)
   }
 /**
  * This method is resposible for the feature of liking a Proposal and Unlike feature too.
@@ -235,7 +235,7 @@ export class FeedComponent implements OnInit {
   {
     this.proposalWork.deletePost(this.post.id).subscribe( 
       (data)=>{
-       console.log(data)
+      //  console.log(data)
         this.deleteProposal.emit(this.post.id)
       },
       (error)=>{
@@ -243,7 +243,7 @@ export class FeedComponent implements OnInit {
           alert("Error deleting proposal")
         }
         else if(error.status==200){
-          console.log(error)
+          // console.log(error)
           this.deleteProposal.emit(this.post.id)
         }
       }

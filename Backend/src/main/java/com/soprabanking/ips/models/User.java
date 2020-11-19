@@ -89,7 +89,7 @@ public class User {
     }
     /**
      * Sets the value of the {@link #id} field of this user object using the specified id value.
-     * @param id: id of long type
+     * @param i: id of long type
      */
 
     public void setId(Long i) {

@@ -1,28 +1,30 @@
 package com.soprabanking.ips.services;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
+import com.soprabanking.ips.daos.TeamDAO;
 import com.soprabanking.ips.models.Team;
-import com.soprabanking.ips.repositories.TeamRepository;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 class HomeServiceTest {
 	
-	@Mock
-	private TeamRepository teamRepository;
+	@MockBean
+	private TeamDAO teamDao;
 	
-	@InjectMocks
+	@Autowired
 	private HomeService homeService;
 
 	@BeforeEach
@@ -44,21 +46,21 @@ class HomeServiceTest {
 		teams.add(team1);
 		teams.add(team2);
 		
-		when(teamRepository.getTeamIdANDName()).thenReturn(teams);
-		
+		when(teamDao.getTeamdao()).thenReturn(teams);
 		assertEquals(teams.get(0).toString(), homeService.getTeam().get(0).toString());
+		verify(teamDao).getTeamdao();
+		verifyNoMoreInteractions(teamDao);
 	}
 	
 	@Test
 	void getTeam() {
-		
 		Team team = new Team();
 		team.setId(1L);
 		team.setName("sparks");
-		
-		when(teamRepository.getTeamByTeamName("sparks")).thenReturn(team);
-		
+		when(teamDao.getTeamnamedao("sparks")).thenReturn(team);
 		assertEquals(team.getName(), homeService.getTeamname("sparks").getName());
+		verify(teamDao).getTeamnamedao(anyString());
+		verifyNoMoreInteractions(teamDao);
 	}
 
 }

@@ -27,7 +27,7 @@ public class UpvotesDAO {
     private static final Logger LOGGER = LogManager.getLogger(UpvotesDAO.class);
 /**
  * This method is used to create an upvote on a proposal
- * @param upvote :An object of <a href="Upvote.html">{@link com.soprabanking.ips.models.Upvote}</a>
+ * @param upvote :An object of <a href="Upvotes.html">{@link com.soprabanking.ips.models.Upvotes}</a>
  * @return saved upvote
  */
     public Upvotes createUpvote(Upvotes upvote) {
