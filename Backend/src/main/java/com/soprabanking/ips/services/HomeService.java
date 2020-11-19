@@ -35,7 +35,7 @@ public class HomeService {
 	private TeamDAO teamDao;
 	/** 
 	 * This method returns list of the team which are in database
-	 * @return list<team> , list of teamname
+	 * @return list of teamname
 	 * 
 	 */
 

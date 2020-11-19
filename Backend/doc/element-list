@@ -1,1 +1,11 @@
+com.soprabanking.ips
+com.soprabanking.ips.authentication
+com.soprabanking.ips.config
+com.soprabanking.ips.controllers
+com.soprabanking.ips.daos
 com.soprabanking.ips.helper
+com.soprabanking.ips.models
+com.soprabanking.ips.modelwrap
+com.soprabanking.ips.repositories
+com.soprabanking.ips.services
+com.soprabanking.ips.utilities
