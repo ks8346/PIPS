@@ -4,31 +4,31 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.persistence.EntityNotFoundException;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.soprabanking.ips.models.Token;
 import com.soprabanking.ips.repositories.TokenRepository;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 class TokenDAOTest {
 	
 	private Token token;
 	private UUID id;
 	
-	@Mock
+	@MockBean
 	private TokenRepository tokenRepository;
 	
-	@InjectMocks
+	@Autowired
 	private TokenDAO tokenDao;
 
 	@BeforeEach
@@ -43,7 +43,6 @@ class TokenDAOTest {
 	
 	@Test
 	void getTokentest1() {
-		
 		when(tokenRepository.getTokenByEmail("nk@gmail.com")).thenReturn(null);
 		assertThrows(EntityNotFoundException.class, ()->tokenDao.getToken("nk@gmail.com"));
 	}
@@ -77,10 +76,17 @@ class TokenDAOTest {
 	}
 	
 	@Test
-	void getTokenByIdtest() {
+	void getTokenByIdtest1() {
 		
-		when(tokenRepository.getOne(any(UUID.class))).thenReturn(token);
+		when(tokenRepository.findById(id)).thenReturn(Optional.of(token));
 		assertEquals(token.getEmail(), tokenDao.getById(id).getEmail());
+	}
+	
+	@Test
+	void getTokenByIdtest2() {
+		
+		when(tokenRepository.findById(id)).thenReturn(Optional.empty());
+		assertNull(tokenDao.getById(id));
 	}
 
 }

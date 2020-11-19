@@ -54,4 +54,29 @@ public class TeamDAOTest {
 		assertNotNull(result);
 		assertEquals(2, result.size());
 	}
+	
+	@Test
+	public void getTeamdaoTest() {
+		Team t1 = new Team();
+		Team t2 = new Team();
+		
+		List<Object> teams = new ArrayList<>();
+		teams.add(t1);
+		teams.add(t2);
+ 
+		when(teamRepository.getTeamIdANDName()).thenReturn(teams);
+		List<Object> result =teamDAO.getTeamdao();
+		assertNotNull(result);
+		assertEquals(2, result.size());
+	}
+	
+	@Test
+	public void getTeamnamedaoTest() {
+ 
+		Team team = new Team();
+		team.setId(1L);
+		team.setName("sparks");
+		when(teamRepository.getTeamByTeamName("sparks")).thenReturn(team);
+		assertEquals(team.getName(), teamDAO.getTeamnamedao("sparks").getName());
+	}
 }

@@ -24,6 +24,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soprabanking.ips.controllers.ForgotPasswordController;
@@ -96,7 +97,7 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
      */
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
+    public PasswordEncoder passwordEncoder() {
     	LOGGER.info("Inside  MyConfig :  passwordEncoder() method");
         return new BCryptPasswordEncoder();
     }

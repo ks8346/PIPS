@@ -83,6 +83,6 @@ public class TokenDAO {
 	 */
 	public Token getById(UUID id) {
 		LOGGER.info("Inside TokenDAO : getById(id) method");
-		return tokenRepository.getOne(id);
+		return tokenRepository.findById(id).orElse(null);
 	}
 }

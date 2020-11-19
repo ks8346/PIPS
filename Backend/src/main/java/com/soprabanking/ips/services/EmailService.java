@@ -2,6 +2,7 @@ package com.soprabanking.ips.services;
 
 import java.util.UUID;
 
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EmailService {
+	
 	
 	private static final Logger LOGGER = LogManager.getLogger(FeedService.class);
 	/**
@@ -39,8 +41,6 @@ public class EmailService {
 	
 	public void sendResetLink(String to, String content, String subject) {
 		LOGGER.info("Inside EmailService : sendResetLink() method");
-		
-	
 		SimpleMailMessage msg = new SimpleMailMessage();
 		msg.setTo(to);
 		msg.setText(content);
@@ -53,8 +53,6 @@ public class EmailService {
 	 * @return reset link
 	 * 
 	 */
-
-	
 	public String mailContent(UUID id) {
 		LOGGER.info("Inside EmailService : mailContent() method");
 		return "Password reset link " + "http://localhost:4200/resetLink/" + id;

@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
- 
-
 import com.soprabanking.ips.helper.Email;
 import com.soprabanking.ips.helper.Password;
 import com.soprabanking.ips.helper.TokenId;
@@ -66,12 +63,10 @@ public class ForgotPasswordController {
     	LOGGER.info("Inside ForgotPasswordController : forgotPassword() method");
 
     	try {
-    		if (userService.getUserByUsername(email.getMail()) == null) {
+    		if (userService.getUserDetails(email.getMail()) == null) {
     			return new ResponseEntity<String>("Email does not exist!", HttpStatus.NOT_ACCEPTABLE);
     		}
-    		
-    			tokenService.deleteTokenByUsername(email.getMail());
-    		
+    		tokenService.deleteTokenByUsername(email.getMail());
     		Token token = tokenService.createToken(UUID.randomUUID(), email.getMail());
     		tokenService.saveToken(token);
     		String mail_content = emailService.mailContent(token.getId());
@@ -82,9 +77,7 @@ public class ForgotPasswordController {
     		return new ResponseEntity<String>("message sent successfully", HttpStatus.OK);
     	}catch(Exception e) {
     		LOGGER.error("Inside ForgotPasswordControllerr :forgotPassword() FAILURE",e);
-    		
-    			tokenService.deleteTokenByUsername(email.getMail());
-    		
+    		tokenService.deleteTokenByUsername(email.getMail());
     		return new ResponseEntity<String>("Failed to process the forgot password request", HttpStatus.NOT_ACCEPTABLE);
     	}
     	
@@ -100,9 +93,7 @@ public class ForgotPasswordController {
 
     	LOGGER.info("Inside ForgotPasswordController : validateToken() method");
     	try {
-    		
-    		tokenService.findTokenById(id.getId()); 
-    		System.out.println("inside validate");
+    		tokenService.findTokenById(id.getId());
     		LOGGER.info("Inside ForgotPasswordController : validateToken() SUCCESS");
     		return new ResponseEntity<String>("Validation Successfull", HttpStatus.ACCEPTED);
     	}catch(Exception e) {
@@ -123,9 +114,7 @@ public class ForgotPasswordController {
     	try {
     		Token token = tokenService.findTokenById(password.getId());
     		userService.updatePassword(token.getEmail(), password.getPassword());
-    		
-    			tokenService.deleteTokenById(token.getId());
-    		
+    		tokenService.deleteTokenById(token.getId());
     		LOGGER.info("Inside ForgotPasswordController : resetPassword() SUCCESS");
     		return new ResponseEntity<String>("password updated", HttpStatus.OK);
     	}catch(Exception e) {

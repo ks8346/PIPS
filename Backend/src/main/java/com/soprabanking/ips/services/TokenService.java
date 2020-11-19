@@ -1,6 +1,9 @@
 package com.soprabanking.ips.services;
 import java.util.UUID;
 import java.util.concurrent.locks.ReentrantLock;
+
+import javax.persistence.EntityNotFoundException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -114,7 +117,13 @@ public class TokenService {
 	
 	public Token findTokenById(UUID id) {
 		LOGGER.info("Inside TokenService " + ": findTokenById()");
-		return tokenDao.getById(id);
+		Token token = tokenDao.getById(id);
+		if (token == null) {
+			throw new EntityNotFoundException();
+		}
+		else {
+			return token;
+		}
 	}
 
 }
