@@ -35,8 +35,8 @@ export class GetProposalsService {
    * @returns array of posts
   */
   getAllPosts(data:FeedParams): Observable<Feed[]>{
-    console.log(data)
-    return this._http.post<Feed[]>(this.allUrl,data,{responseType:'json'});
+    // console.log(data)
+    return this._http.post<Feed[]>(this.allUrl,data);
   }
   /**
    * This function makes a post api call to get all posts includes pagination
@@ -44,6 +44,7 @@ export class GetProposalsService {
    * @returns array of posts
   */
   getAllNextPost(data:FeedParams):Observable<Feed[]>{
+    // console.log(data)
     return this._http.post<Feed[]>(this.allNextUrl,data);
   }
   /**
@@ -54,7 +55,7 @@ export class GetProposalsService {
   */
   getTeamPosts(data:FeedParams,teamId): Observable<Feed[]>{
     data.teamId=teamId
-    console.log(data)
+    // console.log(data)
     return this._http.post<Feed[]>(this.teamUrl,data);
    
   }
@@ -76,7 +77,7 @@ export class GetProposalsService {
   */
   getYourPosts(data:FeedParams,userId): Observable<Feed[]>{
     data.userId=userId
-    console.log(data)
+    // console.log(data)
     return this._http.post<Feed[]>(this.yourUrl,data);
    
   }

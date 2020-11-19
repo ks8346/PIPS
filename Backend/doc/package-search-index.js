@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.soprabanking.ips.helper"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.soprabanking.ips.authentication"},{"l":"com.soprabanking.ips.config"},{"l":"com.soprabanking.ips.helper"},{"l":"com.soprabanking.ips.models"},{"l":"com.soprabanking.ips.modelwrap"},{"l":"com.soprabanking.ips.utilities"}]

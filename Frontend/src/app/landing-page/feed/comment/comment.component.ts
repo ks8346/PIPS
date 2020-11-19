@@ -44,21 +44,17 @@ export class CommentComponent implements OnInit {
    * This method is resposible for the comment data to show on the Page.
    */
   ngOnInit(): void {
-
-     console.log(this.comment)
-
     this.commentData = this.comment.comment;
     this.commentId = this.comment.id;
     this.userName = this.comment.user.name;
     this.commentedUserId = this.comment.user.id;
-
   }
+  
   /**
    * This method is responsible for emiting the commendId of the comment which we want to delete to Feed Component.
    */
   deleteComment()
   {
-       this.parentFunction.emit(this.commentId) 
+    this.parentFunction.emit(this.commentId) 
   }
-
-}
+} 

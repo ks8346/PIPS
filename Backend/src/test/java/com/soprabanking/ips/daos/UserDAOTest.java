@@ -6,25 +6,24 @@ import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.soprabanking.ips.models.Team;
 import com.soprabanking.ips.models.User;
 import com.soprabanking.ips.repositories.UserRepository;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 class UserDAOTest {
 	
 	private User user;
 	private Team team;
 
-	@Mock
+	@MockBean
 	private UserRepository userRepository;
 	
-	@InjectMocks
+	@Autowired
 	private UserDAO userDao;
 	
 	@BeforeEach
@@ -68,6 +67,12 @@ class UserDAOTest {
 		
 		when(userRepository.updatePassword("nk@gmail.com", "password")).thenReturn(1);
 		assertDoesNotThrow(()->userDao.updatePassword("nk@gmail.com", "password"));
+	}
+	
+	@Test
+	void saveUserdaoTest() {
+		when(userRepository.save(user)).thenReturn(user);
+		assertDoesNotThrow(()->userDao.saveUserdao(user));
 	}
 
 }

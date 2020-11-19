@@ -41,5 +41,6 @@ tokenVerification(data){
   console.log("inside tokenVerification")
   return this.http.post("http://localhost:8080/validateToken",
   data["data1"],{responseType:'text' as 'json'})
+
 }
 }

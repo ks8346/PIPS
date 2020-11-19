@@ -4,7 +4,6 @@ package com.soprabanking.ips.authentication;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.soprabanking.ips.controllers.ForgotPasswordController;
 
 /**
  * Authentication Bean

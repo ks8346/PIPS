@@ -21,6 +21,9 @@ export class ResetLinkComponent implements OnInit {
   /**@ignore */
   validToken:boolean;
 
+  /**@ignore */
+  invalidToken:boolean=false
+
   /**Message to be displayed on successful password reset */
   msg:string="reset sucessfull!"
 
@@ -32,6 +35,7 @@ export class ResetLinkComponent implements OnInit {
 
   /**@ignore */
   hide1=true;
+
   
 /**@ignore */
   constructor(
@@ -57,19 +61,23 @@ export class ResetLinkComponent implements OnInit {
 
     this.token=this.activatedRoute.snapshot.paramMap.get('token')
     var data={"data1":{"id":this.token}}
+    console.log(data)
 
     this.resetPassword.tokenVerification(data).subscribe(
       (data1) => {
         this.validToken=true
+        this.invalidToken=false
          console.log(data1);
         
        },
        (error)=>{
         if(error.status==202){
           this.validToken=true;
+          this.invalidToken=false
         }
         else if(error.status==406){
           this.validToken=false;
+          this.invalidToken=true
         }
         else{
           alert("Some error has occured! please try again later.")

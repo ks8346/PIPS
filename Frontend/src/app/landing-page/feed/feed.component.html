@@ -42,6 +42,7 @@
         <mat-icon>chat_bubble_outline</mat-icon>
         View Comments
     </button>
+    <p [class.d-none]="!this.commentVisibility">{{this.commentsMessage}}</p>
     <div class="comments" [class.d-none]="!this.commentVisibility" *ngIf="this.noComments" [style.height.px]="height" >
         <div class="commentText row"  *ngFor="let comment of this.comments" >
             <div class="col-md-12">
