@@ -1,6 +1,5 @@
 import { teamList } from './../teamList';
 import { ApiResponseComponent } from './../api-response/api-response.component';
-import { GetTeamService } from './../service/get-team.service';
 import { Router } from '@angular/router';
 import { UserRegisterService } from './../service/user-register.service';
 import { PasswordSpecsComponent } from './../password-specs/password-specs.component';
@@ -9,6 +8,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ConfirmPasswordValidator} from '../confirmPassword.Validator';
 import {MatDialog} from '@angular/material/dialog';
 
+/**This component enables user to register to the application */
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,24 +17,42 @@ import {MatDialog} from '@angular/material/dialog';
 
 export class RegisterComponent implements OnInit {
 
+  /**@ignore */
   message: any;
+
+  /**This variable stores instance of registration form */
   registerForm: FormGroup;
+
+  /**@ignore */
   loading = false;
+
+  /**This variable is set true on successful submission of registration form */
   submitted = false;
-  error: string;
+
+  /**This variable stores the team selected by user */
   selectedTeam: string='';
+
+  /**Array of all existing teams in database */
   teams:teamList[]
+
+  /**@ignore */
   hide=true
+
+  /**@ignore */
   hide1=true
   
+  /**List of filtered teams while searching */
   public filteredTeams;
 
- 
+ /**@ignore */
   constructor(
-    private getTeam : GetTeamService,
+    /**@ignore */
     private formBuilder: FormBuilder,
+    /**@ignore */
     public dialog: MatDialog,
+    /**@ignore */
     private userService: UserRegisterService,
+    /**@ignore */
     public router: Router,
   ) { }
 
@@ -49,7 +67,7 @@ export class RegisterComponent implements OnInit {
   }
 
 /**
- * Opens dialog box displaying success or error message after submission of registration form.
+ * This Method opens a Dialog Box, after you submit the details, showing the response saying if the registraion was successful or not.
  */
   responseDialog() {
     const dialogRef = this.dialog.open(ApiResponseComponent, {
@@ -77,15 +95,29 @@ export class RegisterComponent implements OnInit {
     validator: ConfirmPasswordValidator("password", "confirmPass")
   });
 
-  this.getTeam.getTeam().subscribe(
-    data=> {this.teams=data
-      this.filteredTeams=this.teams.slice();
-    }); 
+  this.getTeams();
   }
 
-
+/**
+ * This Method calls the Get Team Service to fetch the list of teams currently in the database.
+ */
+  getTeams(){
+    this.userService.getTeam().subscribe(
+      (data)=> {this.teams=data
+        this.filteredTeams=this.teams.slice();
+      },
+      (error)=>{
+       if(error.status==404){
+        this.filteredTeams=this.teams.slice();
+        }
+        else{
+          alert("Some error has occured! please try again later.")
+        }
+      }); 
+  }
+  
   /**
-   * returns error message based on email field validations.
+   * This method returns error message based on email field validations.
    */
   getEmailError() {
     if (this.registerForm.controls.email.hasError('required')) {
@@ -96,7 +128,9 @@ export class RegisterComponent implements OnInit {
       return 'Please enter a valid email';
     }
   }
-
+/**
+ * This method calls the User Register Service to send data to register a user into the system.
+ */
   onSubmit() {
     this.submitted = true;
     
@@ -111,41 +145,37 @@ export class RegisterComponent implements OnInit {
     var data={"data1":
       {"team":{
           "name":this.registerForm.value.team}
-      , "user":
-{
-    "name": this.registerForm.value.userName,
-    "email": this.registerForm.value.email,
-    "password" :this.registerForm.value.password
-
-}
-    }
+      ,"user":{
+        "name": this.registerForm.value.userName,
+        "email": this.registerForm.value.email,
+        "password" :this.registerForm.value.password}
+      }
 
     }
+
     this.userService.doRegister(data).subscribe(
        (data1) => {
-          console.log(data1);
-          if(data1=="Email Id already exists !!"){
-            this.message="Email Id already exists!"
+          this.message="You have been signed up! Now please login again to continue."
+            this.responseDialog()
             this.loading=false;
-            this.responseDialog()
-          }
-          else{
-            this.message="You have been signed up!"
-            this.responseDialog()
             this.router.navigate(['/home']) ;
-            this.loading=false;
-          }
         },
         (error)=>{
           if(error.status==200){
-            this.message="You have been signed up!"
+            console.log(error.status)
+            this.message="You have been signed up! Now please login again to continue."
             this.responseDialog()
+            this.loading=false;
             this.router.navigate(['/home']) ;
+         
+          }
+          else if(error.status==302){
+            this.message="This email Id already exists, Please try again!"
+            this.responseDialog()
             this.loading=false;
           }
           else{
-            this.message="Email Id already exists!"
-            this.loading=false;
+            alert("Some error has occured! please try again later.")
           }
         });
 }

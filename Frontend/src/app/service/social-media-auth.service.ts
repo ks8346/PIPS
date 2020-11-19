@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 
+/**This service handles http requests when user login via social media */
 @Injectable({
   providedIn: 'root'
 })
@@ -16,27 +17,19 @@ export class SocialMediaAuthService {
     private router: Router,
     private transferDataService:TransferDataService) { }
 
-  // socialMedia(data){
-  //   console.log("inside socialMedia(Frontend)")
-  //   return this.http.post("http://localhost:8080/getSocialInfo",data["data1"],{responseType:'text' as 'json'})
-  // }
-
+  /**
+   * This method verifies that the user exists in our database or not.
+   	 * if the user already exists then it returns all the information of that user and redirects to landing page.
+   	 * else user redirects to create team page for registration.
+   * @param data 
+   */
   socialMedia(data) {
     console.log("inside Social Media")
     return this.http.post(`http://localhost:8080/getSocialInfo`,data).pipe(map((res) => {
         this.res=res;
         console.log(res)
-        // this.username = res["name"];
         this.registerSuccessfulLogin();
       }
-      // ,
-      // (error)=>{
-      //   console.log("error------",error['error']);
-      //   //team page
-      //   this.transferDataService.emitData(error['error'])
-      //   this.router.navigate(['/team']);
-  
-      // }
       ));
   }
 

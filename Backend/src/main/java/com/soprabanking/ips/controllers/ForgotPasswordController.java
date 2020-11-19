@@ -68,22 +68,22 @@ public class ForgotPasswordController {
     		if (userService.getUserByUsername(email.getMail()) == null) {
     			return new ResponseEntity<String>("Email does not exist!", HttpStatus.NOT_ACCEPTABLE);
     		}
-    		try {
+    		
     			tokenService.deleteTokenByUsername(email.getMail());
-    		}catch(Exception e) {}
+    		
     		Token token = tokenService.createToken(UUID.randomUUID(), email.getMail());
     		tokenService.saveToken(token);
     		String mail_content = emailService.mailContent(token.getId());
     		emailService.sendResetLink(email.getMail(), mail_content, "Forgot Password");
     		TimerTask task = timerService.createTimer(token.getId());
-    		timerService.scheduleTimer(task, 60000L);
+    		timerService.scheduleTimer(task, 300000L);
     		LOGGER.info("Inside ForgotPasswordController : forgotPassword() SUCCESS");
     		return new ResponseEntity<String>("message sent successfully", HttpStatus.OK);
     	}catch(Exception e) {
     		LOGGER.error("Inside ForgotPasswordControllerr :forgotPassword() FAILURE",e);
-    		try {
+    		
     			tokenService.deleteTokenByUsername(email.getMail());
-    		}catch(Exception e1) {}
+    		
     		return new ResponseEntity<String>("Failed to process the forgot password request", HttpStatus.NOT_ACCEPTABLE);
     	}
     	
@@ -94,12 +94,14 @@ public class ForgotPasswordController {
    	 * @return responseEntity which holds the response messages with their respective status codes.
    	 * */
     
-    @PostMapping("validateToken")
+    @PostMapping("/validateToken")
     public ResponseEntity<String> validateToken(@RequestBody TokenId id) {
 
     	LOGGER.info("Inside ForgotPasswordController : validateToken() method");
     	try {
+    		
     		tokenService.findTokenById(id.getId()); 
+    		System.out.println("inside validate");
     		LOGGER.info("Inside ForgotPasswordController : validateToken() SUCCESS");
     		return new ResponseEntity<String>("Validation Successfull", HttpStatus.ACCEPTED);
     	}catch(Exception e) {
@@ -114,15 +116,15 @@ public class ForgotPasswordController {
 	 * @param password new password entered by the user
 	 * @return responseEntity which holds the response messages with their respective status codes.
 	 * */
-    @PutMapping("resetPassword")
+    @PutMapping("/resetPassword")
     public ResponseEntity<String> resetPassword(@RequestBody Password password) {
     	LOGGER.info("Inside ForgotPasswordController : resetPassword() method");
     	try {
     		Token token = tokenService.findTokenById(password.getId());
     		userService.updatePassword(token.getEmail(), password.getPassword());
-    		try {
+    		
     			tokenService.deleteTokenById(token.getId());
-    		}catch(Exception e) {}
+    		
     		LOGGER.info("Inside ForgotPasswordController : resetPassword() SUCCESS");
     		return new ResponseEntity<String>("password updated", HttpStatus.OK);
     	}catch(Exception e) {

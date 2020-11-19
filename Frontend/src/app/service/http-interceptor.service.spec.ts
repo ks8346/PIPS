@@ -10,7 +10,8 @@ describe('HttpInterceptorService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[HttpClientTestingModule]
+      imports:[HttpClientTestingModule],
+      providers:[HttpInterceptorService]
     });
     service = TestBed.inject(HttpInterceptorService);
     httpClient=TestBed.inject(HttpClient)

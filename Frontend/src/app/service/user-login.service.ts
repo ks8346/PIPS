@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 
+/**This service handles http requests for login process */
 @Injectable({
   providedIn: 'root'
 })
@@ -14,10 +15,17 @@ export class UserLoginService {
   public password: String;
   public res;
 
+  /**@constructor
+   * @param http This is the instance of object HttpClient
+  */
   constructor(private http: HttpClient) {
 
   }
-
+/**
+ * * This method returns all details of user when the user logins into the system and shows that details on the landing page.
+ * @param username 
+ * @param password 
+ */
   doLogin(username: String, password: String) {
     return this.http.get(`http://localhost:8080/signIn`,
       { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
