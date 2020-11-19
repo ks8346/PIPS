@@ -75,12 +75,12 @@ a {
   .description {
     
     line-height: 60px;
-    font-style: italic;
+    font-style:sans-serif;
     width: 80%;
     margin: 0 auto;
     text-align: center;
     color: #313131;
-    font-size: 37px;
+    font-size: 47px;
     font-weight: bold;
     position: absolute;
     -webkit-animation: color-change 5s infinite;
@@ -93,28 +93,28 @@ a {
 
   @-webkit-keyframes color-change {
     0% { color: rgb(7, 86, 71)}
-    50% { color: rgb(193, 104, 32) }
-    100% { color: rgb(92, 30, 184) }
+    50% { color: rgb(133, 65, 9) }
+    100% { color: rgb(30, 84, 184) }
   }
   @-moz-keyframes color-change {
     0% { color: rgb(7, 86, 71)}
-    50% { color: rgb(193, 104, 32) }
-    100% { color: rgb(92, 30, 184) }
+    50% { color: rgb(133, 65, 9) }
+    100% { color: rgb(30, 84, 184) }
   }
   @-ms-keyframes color-change {
     0% { color:rgb(7, 86, 71)}
-    50% { color: rgb(193, 104, 32) }
-    100% { color: rgb(92, 30, 184) }
+    50% { color: rgb(133, 65, 9) }
+    100% { color: rgb(30, 84, 184) }
   }
   @-o-keyframes color-change {
     0% { color:rgb(7, 86, 71)}
-    50% { color: rgb(193, 104, 32) }
-    100% { color: rgb(92, 30, 184) }
+    50% { color: rgb(133, 65, 9) }
+    100% { color: rgb(30, 84, 184) }
   }
   @keyframes color-change {
     0% { color: rgb(7, 86, 71)}
-    50% { color: rgb(193, 104, 32) }
-    100% { color: rgb(92, 30, 184) }
+    50% { color: rgb(133, 65, 9) }
+    100% { color: rgb(30, 84, 184) }
   }
 
   

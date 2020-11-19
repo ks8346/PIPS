@@ -175,8 +175,7 @@ export class LandingPageComponent implements OnInit {
       this.data.page=this.page.toString()
       // console.log(this.data)
       if(this.type==="allPost"){
-        this.getProposals.getAllNextPost(this.data).subscribe((data)=>{this.newFeed=data
-        },(error)=>this.errorHandling(error))
+        this.getProposals.getAllNextPost(this.data).subscribe((data)=>{this.newFeed=data},(error)=>this.errorHandling(error))
       }
       else if(this.type==="teamPost"){
         this.getProposals.getTeamNextPost(this.data,this.user.team.id).subscribe((data)=>this.newFeed=data,(error)=>this.errorHandling(error))
