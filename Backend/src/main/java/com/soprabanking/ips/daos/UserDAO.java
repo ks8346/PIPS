@@ -58,22 +58,6 @@ public class UserDAO {
     	}
     }
     /**
-     * This method is used to get user details.<br>
-     * Variables used
-     * <br>1)userRepository : an Object of the <a href="UserRepository.html">{@link com.soprabanking.ips.repositories.UserRepository}</a>
-     * @param username : Username of string type
-     * @return User
-     */
-   /* public  User getUserDetailsdao(String username) {
-    	 LOGGER.info("Inside UserDAO : getUserDetailsdao() method");
-        
-        User user = userRepository.getUserByUserName(username);
-
- 
-        return user;
-
-    }*/
-    /**
      * This method is used to save the user.<br>
      * Variables used
      * <br>1)userRepository : an Object of the <a href="UserRepository.html">{@link com.soprabanking.ips.repositories.UserRepository}</a>

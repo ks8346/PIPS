@@ -25,47 +25,38 @@ import com.soprabanking.ips.models.Team;
 @Service
 public class HomeService {
 
-private static final Logger LOGGER = LogManager.getLogger(HomeService.class);
-	
-	
+	private static final Logger LOGGER = LogManager.getLogger(HomeService.class);
 
-/**
-* {@link TeamDAO} object responsible for fetching teams and fetching the list of team names {@link Team} objects by interacting with the persistence layer 
-*/
-	
-@Autowired
-private TeamDAO teamDao;
-/** 
- * This method returns list of the team which are in database
- * @return list<team> , list of teamname
- * 
- */
+	/**
+	 * {@link TeamDAO} object responsible for fetching teams and fetching the list of team names {@link Team} objects by interacting with the persistence layer 
+	 */
 
+	@Autowired
+	private TeamDAO teamDao;
+	/** 
+	 * This method returns list of the team which are in database
+	 * @return list<team> , list of teamname
+	 * 
+	 */
 
+	public List<Object> getTeam() {
+		LOGGER.info("Inside HomeService : getTeam() method");
 
-public List<Object> getTeam() {
-    LOGGER.info("Inside HomeService : getTeam() method");
+		return teamDao.getTeamdao();
+	}
+	/** 
+	 * This method fetches Team object by teamname  from database to check if team exists in database or not
+	 * @param teamname: teamname of string type that contains the name of the team 
+	 * @return team1 , object of team
+	 */
 
+	public Team getTeamname(String teamname)
+	{
+		LOGGER.info("Inside HomeService : getTeamname() method");
+		Team team1 =this.teamDao.getTeamnamedao(teamname);
+		return team1;
 
-
-  
-    return teamDao.getTeamdao();
-
-
-}
-/** 
- * This method fetches Team object by teamname  from database to check if team exists in database or not
- * @param teamname: teamname of string type that contains the name of the team 
- * @return team1 , object of team
- */
-
-public Team getTeamname(String teamname)
-{
-    LOGGER.info("Inside HomeService : getTeamname() method");
-    Team team1 =this.teamDao.getTeamnamedao(teamname);
-    return team1;
-    
-}
+	}
 }
 
 
